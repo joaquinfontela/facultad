@@ -1,0 +1,102 @@
+Procedere ante todo a transformar cada caracter EBCDIC a hexadecimal:
+
+d ----> 84 (base 16)
+
+H ----> C8 (base 16)
+
+? ----> 6F (base 16)
+
+8 ----> F8 (base 16)
+
+La codificacion hexadecimal de la cadena es por lo tanto: 
+
+84C86FF8
+
+Ahora para obtener los BPF debemos transformar la cadena en base hexadecimal a binario. Como cada caracter hexadecimal, representa
+
+cuatro en binario, obtenemos:
+
+1000 0100 1100 1000 0110 1111 1111 1000
+
+Por lo tanto, los dos valores, representados en BPF c/s son:
+
+A) 1000 0100 1100 1000  y  B) 0110 1111 1111 1000
+
+
+
+1. Por ultimo procederemos a convertir estos dos valores a base 10, mediante el metodo de complemento a 2:
+
+    Para A), como el primer bit es 1, el valor es negativo. Por lo tanto, para obtener su valor absoluto debemos calcular el complemento del numero:
+
+    COMP (1000 0100 1100 1000) = NOT (1000 0100 1100 1000) + 1 = 0111 1011 0011 0111 + 1 = 0111 1011 0011 1000
+
+    Luego paso a base 10 los bits:
+
+    0111 1011 0011 1000 (base 2) = 2^3 + 2^4 + 2^5 + 2^8 + 2^9 + 2^10 + 2^11 + 2^12 + 2^13 + 2^14 = 31544 (base 10)
+
+    Ahora, este es el valor absoluto, por lo tanto, el valor expresado en base 10 era su opuesto:
+
+    A) -31544 (base 10)
+
+    Para B), como el primer bit es 0, el valor es positivo. Por lo tanto, solo queda pasar de binario a decimal:
+
+    0110 1111 1111 1000 (base 2) = 2^3 + 2^4 + 2^5 + 2^6 + 2^7 + 2^8 + 2^9 + 2^10 + 2^11 + 2^13 + 2^14 = 28664 (base 10)
+
+    Por lo tanto:
+
+    B) 28664 (base 10).
+
+
+
+2. Ahora se nos pide hacer A) - B) en BPF c/s:
+
+   Con lo cual podriamos hacer A + COMP(B) = 1000 0100 1100 1000 + COMP (0110 1111 1111 1000) = 1000 0100 1100 1000 + NOT (0110 1111 1111 1000) + 1
+
+   = 1000 0100 1100 1000 + 1001 0000 0000 0111 + 1 = 1000 0100 1100 1000 + 1001 0000 0000 1000
+
+   Operacion:
+
+   10            1
+
+    1000 0100 1100 1000
+
+   +
+
+    1001 0000 0000 1000
+
+    ___________________
+
+    0001 0100 1101 0000     
+
+    El resultado no es valido, ya que los ultimos dos numeros que "nos llevamos" a la siguiente columna para sumar son distintos (1 y 0).
+
+
+3. Tengo el numero A = 170663 que representa la configuración octal de un número almacenado en formato zoneado de 2 bytes. Por lo tanto, procedo a 
+
+pasarlo a base d10, para despues pasarlo a hexa:
+
+    170663 (base 8) = 3.8^0 + 6.8^1 + 6.8^2 + 7.8^4 + 1.8^5 = 61875 (base 10)
+
+    61875 (base 10) = F1B3 (base 16)
+
+   Tomando cada digito numerico obtengo que el valor absoluto es 13 (base 10), y como el ultimo nibble zone es una B, el valor es negativo, siendo el valor:
+    
+    -13 (base 10) 
+
+   Para pasarlo a formato flotante:
+
+    El bit 1 sera un 1 por ser -13 negativo.
+
+    Luego paso a binario la mantisa (13): 13 (base 10) = 1101 (base 2)
+
+    Normalizo la mantisa: 1,101  --- > Corri tres veces la coma, entonces el exponente es 3  --> expresado en Exceso 127  --> 130 (base 10) = 1000 0011
+
+    El numero final es:  1 1000 0011 10100000000000000000000
+
+    Paso a hexa: 1 1000 0011 10100000000000000000000 (base 2) = C1D00000 (base 16).
+
+
+
+
+
+   

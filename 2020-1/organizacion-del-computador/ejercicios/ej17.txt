@@ -1,0 +1,10 @@
+Boca Juniors        1110101111110010
+River Plate         0010010111001111
+Independiente       1001111010101000
+Racing Club         1110110000101010
+San Lorenzo         1000000111010100
+Velez Sarsfield     1101100001010101
+Lanus               1111101010001101
+Sacachispas         1111110101111011
+Colon de Santa Fe   1010100010101010
+Ferrocarril Oeste   1010000001000001
