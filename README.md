@@ -4,10 +4,10 @@ Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUB
 
 ## Grupo {N}
 
-* **Joaquin Betz Rivera** - [integrante1](https://github.com/joacobetz)
-* **Joaquin Fontela** - [integrante2](https://github.com/joaquinfontela)
-* **Agustin Ghersi** - [integrante3](https://github.com/agustinghersi)
-* **Nicolas Podesta** - [integrante4](https://github.com/NicoPodesta)
+* **Joaquin Betz Rivera** - [joacobetz](https://github.com/joacobetz)
+* **Joaquin Fontela** - [joaquinfontela](https://github.com/joaquinfontela)
+* **Agustin Ghersi** - [agustinghersi](https://github.com/agustinghersi)
+* **Nicolas Podesta** - [NicoPodesta](https://github.com/NicoPodesta)
 
 Corrector: **{Corrector}**
 
