@@ -2,7 +2,7 @@
 
 Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUBA
 
-## Grupo {N}
+## Grupo 13
 
 * **Joaquin Betz Rivera** - [joacobetz](https://github.com/joacobetz)
 * **Joaquin Fontela** - [joaquinfontela](https://github.com/joaquinfontela)
