@@ -9,7 +9,7 @@ Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUB
 * **Agustin Ghersi** - [agustinghersi](https://github.com/agustinghersi)
 * **Nicolas Podesta** - [NicoPodesta](https://github.com/NicoPodesta)
 
-Corrector: **{Corrector}**
+Corrector: **Eugenio Yolis**
 
 ### Pre-requisitos
 
