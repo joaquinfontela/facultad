@@ -1,12 +1,12 @@
 package edu.fiuba.algo3.modelo;
 
-import javafx.beans.binding.When;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.*;
+
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -46,11 +46,11 @@ public class VerdaderoFalsoTest {
         RespuestaVerdaderoFalso respuestaJugador1 = mock(RespuestaVerdaderoFalso.class);
         RespuestaVerdaderoFalso respuestaJugador2 = mock(RespuestaVerdaderoFalso.class);
 
-        when(respuestaJugador1.compararCon(respuestaCorrecta)).thenReturn(
-                                                                new ArrayList<Integer>(List.of( 1, 0 )));
-        when(respuestaJugador2.compararCon(respuestaCorrecta)).thenReturn(
-                                                                new ArrayList<Integer>(List.of( 0, 1 )));
-        )
+        //when(respuestaJugador1.compararCon(any())).thenReturn( new ArrayList<Integer>(List.of( 1, 0 )) );
+        //when(respuestaJugador2.compararCon(any())).thenReturn( new ArrayList<Integer>(List.of( 0, 1 )) );
+
+        doReturn(new ArrayList<>( List.of(1, 0)) ).when( respuestaJugador1.compararCon( any() ));
+        doReturn(new ArrayList<>( List.of(0, 1)) ).when( respuestaJugador2.compararCon( any() ));
 
         Map<Integer, RespuestaVerdaderoFalso> idsRespuestas = new HashMap<Integer, RespuestaVerdaderoFalso>();
 
@@ -59,13 +59,14 @@ public class VerdaderoFalsoTest {
 
         Map<Integer, Integer> idsPuntuaciones = pregunta.obtenerPuntuacionesPorJugador(idsRespuestas);
 
-        jugador1.sumarPuntos(idsRespuestas.get(1));
-        jugador2.sumarPuntos(idsRespuestas.get(2));
+        jugador1.sumarPuntos(idsPuntuaciones.get(1));
+        jugador2.sumarPuntos(idsPuntuaciones.get(2));
 
         assertEquals(jugador1.obtenerPuntaje(), 1);
         assertEquals(jugador2.obtenerPuntaje(), 0);
 
-
     }
 
 }
+
+cC
