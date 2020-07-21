@@ -1,11 +1,14 @@
 package edu.fiuba.algo3.modelo;
 
+import javafx.beans.binding.When;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class VerdaderoFalsoTest {
 
@@ -17,10 +20,10 @@ public class VerdaderoFalsoTest {
         String enunciado = "El agua hierve a 100 C.";
 
         List<String> opcionesCorrectas = new ArrayList<String>();
-        opcionesCorrectas.add("Verdadero");  // id opcion = 1
+        opcionesCorrectas.add("Verdadero");
 
         List<String> opcionesIncorrectas = new ArrayList<String>();
-        opcionesIncorrectas.add("Falso");   // id opcion = 2
+        opcionesIncorrectas.add("Falso");
 
         VerdaderoFalso pregunta = new VerdaderoFalso(modalidad, enunciado, opcionesCorrectas, opcionesIncorrectas);
     }
@@ -28,6 +31,7 @@ public class VerdaderoFalsoTest {
 
     @Test
     public void test01seCreaUnaPreguntaVerdaderoOFalsoYSeVerificaLaOpcionCorrecta() {
+
         assertEquals(pregunta.obtenerOpcionesCorrectas().get(0).enunciado(), "Verdadero");
     }
 
@@ -39,15 +43,29 @@ public class VerdaderoFalsoTest {
         Jugador jugador1 = new Jugador("Santiago");
         Jugador jugador2 = new Jugador("Roberto");
 
-        GestorDeJuego gestor = new GestorDeJuego();
-        gestor.agregarJugador(jugador1);
-        gestor.agregarJugador(jugador2);
+        RespuestaVerdaderoFalso respuestaJugador1 = mock(RespuestaVerdaderoFalso.class);
+        RespuestaVerdaderoFalso respuestaJugador2 = mock(RespuestaVerdaderoFalso.class);
 
-        jugador1.setRespuestaADar(new ArrayList<String>(List.of(1)));
+        when(respuestaJugador1.compararCon(respuestaCorrecta)).thenReturn(
+                                                                new ArrayList<Integer>(List.of( 1, 0 )));
+        when(respuestaJugador2.compararCon(respuestaCorrecta)).thenReturn(
+                                                                new ArrayList<Integer>(List.of( 0, 1 )));
+        )
 
-        gestor.obtenerRespuesta(jugador1);
-        gestor.obtenerRespuesta(jugador2);
-        
+        Map<Integer, RespuestaVerdaderoFalso> idsRespuestas = new HashMap<Integer, RespuestaVerdaderoFalso>();
+
+        idsRespuestas.put(1, respuestaJugador1);
+        idsRespuestas.put(2, respuestaJugador2);
+
+        Map<Integer, Integer> idsPuntuaciones = pregunta.obtenerPuntuacionesPorJugador(idsRespuestas);
+
+        jugador1.sumarPuntos(idsRespuestas.get(1));
+        jugador2.sumarPuntos(idsRespuestas.get(2));
+
+        assertEquals(jugador1.obtenerPuntaje(), 1);
+        assertEquals(jugador2.obtenerPuntaje(), 0);
+
+
     }
 
 }
