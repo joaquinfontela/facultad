@@ -8,7 +8,7 @@ public class Jugador {
     private String nombre;
     private Integer puntaje;
 
-    Jugador(String nombre){
+    public Jugador(String nombre){
 
         this.id = this.proximoId;
         this.proximoId++;

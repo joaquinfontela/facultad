@@ -2,12 +2,19 @@ package edu.fiuba.algo3.modelo.pregunta.respuesta;
 
 public class OpcionElegible extends Opcion {
 
-    public OpcionElegible(String enunciado){
+    Boolean elegida;
 
-        super(enunciado);
+    public OpcionElegible(Integer id, String enunciado){
+
+        super(id, enunciado);
+        this.elegida = false;
     }
 
     Boolean esIgualA(Opcion opcion){
         return true;
+    }
+
+    public void elegir(){
+        this.elegida = true;
     }
 }

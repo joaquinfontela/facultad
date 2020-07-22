@@ -2,6 +2,8 @@ package edu.fiuba.algo3.modelo.pregunta.pregunta;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import edu.fiuba.algo3.modelo.pregunta.modalidad.Modalidad;
+import edu.fiuba.algo3.modelo.pregunta.respuesta.Respuesta;
 
 public class VerdaderoFalso extends PreguntaDeSeleccion{
 
@@ -11,7 +13,7 @@ public class VerdaderoFalso extends PreguntaDeSeleccion{
     }
 
     @Override
-    public HashMap<Integer, Integer> obtenerPuntajePorJugador(HashMap<Integer, Respuesta>){
+    public HashMap<Integer, Integer> obtenerPuntajePorJugador(HashMap<Integer, Respuesta> idsJugadores_respuestas){
 
     }
 }

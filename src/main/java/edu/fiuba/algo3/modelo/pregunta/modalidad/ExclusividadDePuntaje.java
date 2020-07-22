@@ -6,7 +6,7 @@ public class ExclusividadDePuntaje {
 
     Integer multiplicadorExclusividad = 1;
 
-    HashMap<Integer, Integer> aplicar(HashMap<Integer, Integer>){
+    HashMap<Integer, Integer> aplicar(HashMap<Integer, Integer> idsJugadoresPuntajes){
 
     }
 }
