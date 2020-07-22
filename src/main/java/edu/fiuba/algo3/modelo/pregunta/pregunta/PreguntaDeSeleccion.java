@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import edu.fiuba.algo3.modelo.pregunta.respuesta.Respuesta;
 
-public abstract class PreguntaDeSeleccion implements Pregunta {
+public abstract class PreguntaDeSeleccion extends Pregunta {
 
     @Override
     public void mostrarEnunciado() {}
@@ -14,6 +14,6 @@ public abstract class PreguntaDeSeleccion implements Pregunta {
 
     @Override
     public HashMap<Integer, ArrayList<Integer>> obtenerCantidadDeRespuestasCorrectasEIncorrectasPorJugador(HashMap<Integer, Respuesta> idsJugadores_respuestas) {
-
+        return new HashMap<Integer, ArrayList<Integer>>();
     }
 }

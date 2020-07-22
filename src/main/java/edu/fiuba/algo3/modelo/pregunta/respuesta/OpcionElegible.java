@@ -10,6 +10,7 @@ public class OpcionElegible extends Opcion {
         this.elegida = false;
     }
 
+    @Override
     Boolean esIgualA(Opcion opcion){
         return true;
     }

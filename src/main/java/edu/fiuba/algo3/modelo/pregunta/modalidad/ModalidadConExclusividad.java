@@ -9,7 +9,7 @@ public abstract class ModalidadConExclusividad implements Modalidad {
 
     private ExclusividadDePuntaje exclusividad;
 
-    Boolean seAplicaLaExclusividad(HashMap<Integer, EstadisticasRespuestas> idsJugadores_estadisticasRespuestas){
+    protected Boolean seAplicaLaExclusividad(HashMap<Integer, EstadisticasRespuestas> idsJugadores_estadisticasRespuestas){
         return false;
     }
 }

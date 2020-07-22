@@ -17,7 +17,11 @@ public class Jugador {
         this.nombre = nombre;
     }
 
-    public void sumarPuntos(Integer puntos){}
+    public void sumarPuntos(Integer puntos){
+        this.puntaje += puntos;
+    }
 
-    public Integer obtenerPuntaje(){}
+    public Integer obtenerPuntaje(){
+        return this.puntaje;
+    }
 }

@@ -7,8 +7,9 @@ import java.util.HashMap;
 
 public class ModalidadClasica extends ModalidadConExclusividad {
 
+    @Override
     public HashMap<Integer, Integer> obtenerPuntajesPorJugador(HashMap<Integer, EstadisticasRespuestas> idsJugadores_estadisticasRespuestas){
-        return new HashMap<Integer, Integer>()
+        return new HashMap<Integer, Integer>();
     }
 
 }

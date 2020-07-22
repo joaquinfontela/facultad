@@ -6,18 +6,22 @@ import edu.fiuba.algo3.modelo.pregunta.respuesta.Respuesta;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public interface Pregunta {
+public abstract class Pregunta {
 
-    String enunciado = null;
-    Respuesta respuestaCorrecta = null;
-    Modalidad modalidad = null;
+    private String enunciado;
+    private Respuesta respuestaCorrecta;
+    private Modalidad modalidad;
 
-    void mostrarEnunciado();
+    public abstract void mostrarEnunciado();
 
-    void mostrarOpciones();
+    public abstract void mostrarOpciones();
 
-    HashMap<Integer, Integer> obtenerPuntajePorJugador(HashMap<Integer, Respuesta> idsJugadores_respuestas);
+    public Respuesta obtenerRespuestaCorrecta(){
+        return this.respuestaCorrecta;
+    }
 
-    HashMap<Integer, ArrayList<Integer>> obtenerCantidadDeRespuestasCorrectasEIncorrectasPorJugador(HashMap<Integer, Respuesta> idsJugadores_respuestas);
+    public abstract HashMap<Integer, Integer> obtenerPuntajePorJugador(HashMap<Integer, Respuesta> idsJugadores_respuestas);
+
+    public abstract HashMap<Integer, ArrayList<Integer>> obtenerCantidadDeRespuestasCorrectasEIncorrectasPorJugador(HashMap<Integer, Respuesta> idsJugadores_respuestas);
 
 }
