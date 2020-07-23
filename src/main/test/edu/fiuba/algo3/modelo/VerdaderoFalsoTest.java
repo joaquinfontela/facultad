@@ -1,7 +1,5 @@
 package edu.fiuba.algo3.modelo;
 
-import edu.fiuba.algo3.modelo.pregunta.respuesta.EstadisticasRespuestas;
-import edu.fiuba.algo3.modelo.pregunta.respuesta.OpcionElegible;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -9,9 +7,10 @@ import static org.mockito.Mockito.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
+import edu.fiuba.algo3.modelo.pregunta.respuesta.EstadisticasRespuestas;
+import edu.fiuba.algo3.modelo.pregunta.respuesta.OpcionElegible;
 import edu.fiuba.algo3.modelo.pregunta.modalidad.ModalidadClasica;
 import edu.fiuba.algo3.modelo.pregunta.modalidad.Modalidad;
 import edu.fiuba.algo3.modelo.pregunta.pregunta.VerdaderoFalso;
@@ -20,6 +19,8 @@ import edu.fiuba.algo3.modelo.pregunta.respuesta.Respuesta;
 import edu.fiuba.algo3.modelo.pregunta.respuesta.RespuestaVerdaderoFalso;
 
 public class VerdaderoFalsoTest {
+
+    VerdaderoFalso pregunta;
 
     @BeforeEach
     public void init() {
@@ -34,7 +35,7 @@ public class VerdaderoFalsoTest {
         ArrayList<String> opcionesIncorrectas = new ArrayList<String>();
         opcionesIncorrectas.add("Falso");       // id opcion = 2
 
-        VerdaderoFalso pregunta = new VerdaderoFalso(modalidad, enunciado, opcionesCorrectas, opcionesIncorrectas);
+        this.pregunta = new VerdaderoFalso(modalidad, enunciado, opcionesCorrectas, opcionesIncorrectas);
 
     }
 
@@ -50,7 +51,7 @@ public class VerdaderoFalsoTest {
         respuestaCorrecta.agregarOpcion(opcionVerdadero);
         respuestaCorrecta.agregarOpcion(opcionFalso);
 
-        assertEquals(pregunta.obtenerRespuestaCorrecta().compararCon(respuestaCorrecta).obtenerOpcionesCorrectasElegidas(), 1);
+        assertEquals(this.pregunta.obtenerRespuestaCorrecta().compararCon(respuestaCorrecta).obtenerOpcionesCorrectasElegidas(), 1);
     }
 
     @Test
@@ -79,7 +80,7 @@ public class VerdaderoFalsoTest {
         idJugadores_respuestas.put(1, respuestaJugador1);
         idJugadores_respuestas.put(2, respuestaJugador2);
 
-        Map<Integer, Integer> idsPuntuaciones = pregunta.obtenerPuntajePorJugador(idJugadores_respuestas);
+        Map<Integer, Integer> idsPuntuaciones = this.pregunta.obtenerPuntajePorJugador(idJugadores_respuestas);
 
         jugador1.sumarPuntos(idsPuntuaciones.get(1));
         jugador2.sumarPuntos(idsPuntuaciones.get(2));
