@@ -9,8 +9,13 @@ import java.util.HashMap;
 public abstract class Pregunta {
 
     private String enunciado;
-    private Respuesta respuestaCorrecta;
+    protected Respuesta respuestaCorrecta;
     private Modalidad modalidad;
+
+    Pregunta(Modalidad modalidad, String enunciado){
+        this.modalidad = modalidad;
+        this.enunciado = enunciado;
+    }
 
     public abstract void mostrarEnunciado();
 
