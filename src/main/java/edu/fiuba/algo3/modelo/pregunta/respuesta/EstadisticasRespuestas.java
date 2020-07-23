@@ -16,6 +16,18 @@ public class EstadisticasRespuestas {
         return this.opcionesCorrectasElegidas;
     }
 
+    public Boolean hayOpcionesIncorrectas(){
+        return (this.opcionesIncorrectasElegidas > 0);
+    }
+
+    public Boolean hayOpcionesCorrectasNoElegidas(){
+        return (this.opcionesCorrectasNoElegidas > 0)
+    }
+
+    public Integer calcularPuntajePenalidadBase(){
+        return (this.opcionesCorrectasElegidas - this.opcionesIncorrectasElegidas);
+    }
+
     void sumarCorrectaElegida(){
         this.opcionesCorrectasElegidas++;
     }
