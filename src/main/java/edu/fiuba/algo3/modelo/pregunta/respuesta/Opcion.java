@@ -11,5 +11,9 @@ public abstract class Opcion {
         this.enunciado = enunciado;
     }
 
-    abstract Boolean esIgualA(Opcion opcion);
+    Boolean tieneElMismoIdQue(Opcion opcion) {
+        return (this.id == opcion.id);
+    }
+
+    public abstract EstadisticasRespuestas compararCon(Opcion otraOpcion);
 }

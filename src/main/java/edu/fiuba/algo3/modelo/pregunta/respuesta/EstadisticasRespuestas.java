@@ -12,6 +12,13 @@ public class EstadisticasRespuestas {
         this.opcionesIncorrectasElegidas = 0;
     }
 
+    public void sumar(EstadisticasRespuestas otrasEstadisticas){
+
+        this.opcionesCorrectasElegidas += otrasEstadisticas.obtenerOpcionesCorrectasElegidas();
+        this.opcionesIncorrectasElegidas += otrasEstadisticas.opcionesIncorrectasElegidas;
+        this.opcionesCorrectasNoElegidas += otrasEstadisticas.opcionesCorrectasNoElegidas;
+    }
+
     public Integer obtenerOpcionesCorrectasElegidas(){
         return this.opcionesCorrectasElegidas;
     }
