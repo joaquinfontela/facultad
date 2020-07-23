@@ -16,7 +16,6 @@ import edu.fiuba.algo3.modelo.pregunta.modalidad.Modalidad;
 import edu.fiuba.algo3.modelo.pregunta.pregunta.VerdaderoFalso;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.pregunta.respuesta.Respuesta;
-import edu.fiuba.algo3.modelo.pregunta.respuesta.RespuestaVerdaderoFalso;
 
 public class VerdaderoFalsoTest {
 

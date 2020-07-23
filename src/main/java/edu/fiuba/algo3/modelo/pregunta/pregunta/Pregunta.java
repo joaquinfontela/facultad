@@ -10,7 +10,7 @@ public abstract class Pregunta {
 
     private String enunciado;
     protected Respuesta respuestaCorrecta;
-    private Modalidad modalidad;
+    protected Modalidad modalidad;
 
     Pregunta(Modalidad modalidad, String enunciado){
         this.modalidad = modalidad;
@@ -27,6 +27,6 @@ public abstract class Pregunta {
 
     public abstract HashMap<Integer, Integer> obtenerPuntajePorJugador(HashMap<Integer, Respuesta> idsJugadores_respuestas);
 
-    public abstract HashMap<Integer, ArrayList<Integer>> obtenerCantidadDeRespuestasCorrectasEIncorrectasPorJugador(HashMap<Integer, Respuesta> idsJugadores_respuestas);
+    public abstract HashMap<Integer, Integer> obtenerCantidadDeRespuestasCorrectasEIncorrectasPorJugador(HashMap<Integer, Respuesta> idsJugadores_respuestas);
 
 }
