@@ -61,11 +61,22 @@ public class VerdaderoFalsoTest {
         Jugador jugador2 = new Jugador("Roberto");
 
         RespuestaVerdaderoFalso respuestaJugador1 = new RespuestaVerdaderoFalso();
-        RespuestaVerdaderoFalso respuestaJugador2 = new RespuestaVerdaderoFalso.();
+        RespuestaVerdaderoFalso respuestaJugador2 = new RespuestaVerdaderoFalso();
 
+        OpcionElegible opcion1j1 = new OpcionElegible(1,"verdadero");
+        OpcionElegible opcion2j1 = new OpcionElegible(2,"falso");
+        OpcionElegible opcion1j2 = new OpcionElegible(1,"verdadero");
+        OpcionElegible opcion2j2 = new OpcionElegible(2,"falso");
 
+        opcion1j1.elegir();
+        opcion2j2.elegir();
 
-        HashMap<Integer, Respuesta> idJugadores_respuestas = new HashMap<Integer, Respuesta>();
+        respuestaJugador1.agregarOpcion(opcion1j1);
+        respuestaJugador1.agregarOpcion(opcion2j1);
+        respuestaJugador2.agregarOpcion(opcion1j2);
+        respuestaJugador2.agregarOpcion(opcion2j2);
+
+        HashMap<Integer, Respuesta> idJugadores_respuestas = new HashMap<>();
 
         idJugadores_respuestas.put(1, respuestaJugador1);
         idJugadores_respuestas.put(2, respuestaJugador2);
