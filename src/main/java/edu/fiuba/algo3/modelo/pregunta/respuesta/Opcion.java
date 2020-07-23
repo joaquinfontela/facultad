@@ -11,5 +11,5 @@ public abstract class Opcion {
         this.enunciado = enunciado;
     }
 
-    abstract Boolean esIgualA(Opcion opcion);
+    abstract Boolean equals(Opcion opcion);
 }
