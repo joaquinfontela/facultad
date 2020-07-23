@@ -13,26 +13,24 @@ public class OpcionElegible extends Opcion {
         this.elegida = false;
     }
 
-    @Override
-    Boolean equals(Opcion opcion) {
-        return (this.id == opcion.id);
-    }
-
     public void elegir(){
         this.elegida = true;
     }
 
-    public EstadisticasRespuestas compararCon(OpcionElegible otraOpcion) {
+    @Override
+    public EstadisticasRespuestas compararCon(Opcion otraOpcion) {
 
         /* Devuelve el resultado de la comparacion en una instancia de EstadisticasRespuestas
         de una Opcion base tomada como correcta (this) y otra recibida por parametro.
         */
 
+        OpcionElegible otraOpcionElegible = (OpcionElegible) otraOpcion;
+
         EstadisticasRespuestas estadisticas = new EstadisticasRespuestas();
 
-        if ( this.elegida && otraOpcion.elegida ){ estadisticas.sumarCorrectaElegida(); }
-        if ( ! ( this.elegida ) && otraOpcion.elegida ){ estadisticas.sumarIncorrectaElegida(); }
-        if ( this.elegida && ! ( otraOpcion.elegida ) ){ estadisticas.sumarCorrectaNoElegida(); }
+        if ( this.elegida && otraOpcionElegible.elegida ){ estadisticas.sumarCorrectaElegida(); }
+        if ( ! ( this.elegida ) && otraOpcionElegible.elegida ){ estadisticas.sumarIncorrectaElegida(); }
+        if ( this.elegida && ! ( otraOpcionElegible.elegida ) ){ estadisticas.sumarCorrectaNoElegida(); }
 
         return estadisticas;
     }

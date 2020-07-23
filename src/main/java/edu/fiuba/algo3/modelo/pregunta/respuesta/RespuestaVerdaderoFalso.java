@@ -1,25 +1,31 @@
 package edu.fiuba.algo3.modelo.pregunta.respuesta;
 
 import java.util.ArrayList;
-import java.util.stream.Stream;
 
 public class RespuestaVerdaderoFalso extends Respuesta {
 
+    ArrayList<OpcionElegible> opciones;
+
+    public RespuestaVerdaderoFalso(){
+        this.opciones = new ArrayList<OpcionElegible>();
+    }
+
     @Override
-    public EstadisticasRespuestas compararCon(RespuestaVerdaderoFalso otraRespuesta) {
+    public EstadisticasRespuestas compararCon(Respuesta otraRespuesta) {
 
         EstadisticasRespuestas estadisticasRespuestas = new EstadisticasRespuestas();
 
-        for (OpcionElegible opcion : otraRespuesta.opciones ){
+        for (Opcion opcion : otraRespuesta.opciones) {
 
-            Opcion opcionRespuestaCorrecta = this.opciones.stream()
-                    .filter(opcionPropia -> opcionPropia.equals(opcion))
+            OpcionElegible opcionRespuestaCorrecta = this.opciones.stream()
+                    .filter(opcionPropia -> opcionPropia.tieneElMismoIdQue(opcion))
                     .findAny()
-                    .orElse(null);
+                    .orElse(new OpcionElegible(2, "A"));
 
             opcionRespuestaCorrecta.compararCon(opcion);
+
         }
 
-
+        return estadisticasRespuestas;
     }
 }
