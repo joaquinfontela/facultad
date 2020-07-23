@@ -14,8 +14,6 @@ public class RespuestaVerdaderoFalso extends Respuesta {
     @Override
     public EstadisticasRespuestas compararCon(Respuesta otraRespuesta) {
 
-        System.out.println(this.opciones.size());
-
         EstadisticasRespuestas estadisticasRespuestas = new EstadisticasRespuestas();
 
         for (Opcion opcion : otraRespuesta.opciones) {
