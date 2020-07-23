@@ -66,14 +66,11 @@ public class VerdaderoFalsoTest {
         EstadisticasRespuestas estadisticasRespuestasJugador1 = mock(EstadisticasRespuestas.class);
         EstadisticasRespuestas estadisticasRespuestasJugador2 = mock(EstadisticasRespuestas.class);
 
-        //when(respuestaJugador1.compararCon(any())).thenReturn( new ArrayList<Integer>(List.of( 1, 0 )) );
-        //when(respuestaJugador2.compararCon(any())).thenReturn( new ArrayList<Integer>(List.of( 0, 1 )) );
+        when(respuestaJugador1.compararCon( any() )).thenReturn( estadisticasRespuestasJugador1 );
+        when(respuestaJugador2.compararCon( any() )).thenReturn( estadisticasRespuestasJugador2 );
 
-        doReturn( estadisticasRespuestasJugador1 ).when( respuestaJugador1.compararCon( any() )); // any = respuestaCorrecta
-        doReturn( estadisticasRespuestasJugador2 ).when( respuestaJugador2.compararCon( any() ));
-
-        doReturn( 1 ).when( estadisticasRespuestasJugador1.obtenerOpcionesCorrectasElegidas() );
-        doReturn( 0 ).when( estadisticasRespuestasJugador2.obtenerOpcionesCorrectasElegidas() );
+        when( estadisticasRespuestasJugador1.obtenerOpcionesCorrectasElegidas() ).thenReturn( 1 );
+        when( estadisticasRespuestasJugador2.obtenerOpcionesCorrectasElegidas() ).thenReturn( 0 );
 
         HashMap<Integer, Respuesta> idJugadores_respuestas = new HashMap<Integer, Respuesta>();
 
