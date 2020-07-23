@@ -2,7 +2,7 @@ package edu.fiuba.algo3.modelo.pregunta.respuesta;
 
 public abstract class Opcion {
 
-    private Integer id;
+    protected Integer id;
     private String enunciado;
 
     public Opcion(Integer id, String enunciado){

@@ -11,8 +11,8 @@ public class OpcionElegible extends Opcion {
     }
 
     @Override
-    Boolean esIgualA(Opcion opcion){
-        return true;
+    Boolean esIgualA(Opcion opcion) {
+        return (this.id == opcion.id);
     }
 
     public void elegir(){
