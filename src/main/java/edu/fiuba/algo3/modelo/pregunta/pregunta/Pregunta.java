@@ -41,6 +41,4 @@ public abstract class Pregunta {
         return (this.modalidad.obtenerPuntajesPorJugador(idJugador_Estadistica));
     }
 
-    public abstract HashMap<Integer, Integer> obtenerCantidadDeRespuestasCorrectasEIncorrectasPorJugador(HashMap<Integer, Respuesta> idsJugadores_respuestas);
-
 }

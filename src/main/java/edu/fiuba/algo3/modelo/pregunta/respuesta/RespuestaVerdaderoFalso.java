@@ -18,16 +18,13 @@ public class RespuestaVerdaderoFalso extends Respuesta {
 
         for (Opcion opcion : otraRespuesta.opciones) {
 
-            OpcionElegible opcionElegible = (OpcionElegible) opcion;
-
-            /*OpcionElegible opcionRespuestaCorrecta = this.opciones.stream()
+            Opcion opcionRespuestaCorrecta = this.opciones.stream()
                     .filter(opcionPropia -> opcionPropia.tieneElMismoIdQue(opcion))
                     .findAny()
                     .orElse(null);
-            */
-            Opcion opcionRespuestaCorrecta = this.obtenerOpcionRespuestaCorrectaConElMismoIdQue(opcion);
+            // obtiene la opcion de la rta correcta con el mismo id.
 
-            EstadisticasRespuestas estadisticasUltimaComparacion = opcionRespuestaCorrecta.compararCon(opcionElegible);
+            EstadisticasRespuestas estadisticasUltimaComparacion = opcionRespuestaCorrecta.compararCon(opcion);
 
             estadisticasRespuestas.sumar(estadisticasUltimaComparacion);
 
@@ -36,17 +33,4 @@ public class RespuestaVerdaderoFalso extends Respuesta {
         return estadisticasRespuestas;
     }
 
-    private Opcion obtenerOpcionRespuestaCorrectaConElMismoIdQue(Opcion otraOpcion){
-
-        for (Opcion opcionPropia : this.opciones) {
-
-            if (opcionPropia.tieneElMismoIdQue(otraOpcion)){
-
-                return opcionPropia;
-            }
-
-        }
-
-        return null;
-    }
 }

@@ -22,17 +22,12 @@ public abstract class PreguntaDeSeleccion extends Pregunta {
         this.enunciadosIncorrectos = enunciadosIncorrectos;
     }
 
-
     @Override
     public void mostrarEnunciado() {}
 
     @Override
     public void mostrarOpciones() {}
 
-    @Override
-    public HashMap<Integer,Integer> obtenerCantidadDeRespuestasCorrectasEIncorrectasPorJugador(HashMap<Integer, Respuesta> idsJugadores_respuestas) {
-        return new HashMap<Integer, Integer>();
-    }
 }
 
 
