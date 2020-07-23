@@ -3,9 +3,7 @@ package edu.fiuba.algo3.modelo;
 import edu.fiuba.algo3.modelo.pregunta.modalidad.ModalidadClasica;
 import edu.fiuba.algo3.modelo.pregunta.respuesta.EstadisticasRespuestas;
 import org.junit.jupiter.api.Test;
-
 import java.util.HashMap;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ModalidadClasicaTest {
