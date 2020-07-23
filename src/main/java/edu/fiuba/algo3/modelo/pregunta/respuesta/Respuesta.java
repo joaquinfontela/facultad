@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public abstract class Respuesta {
 
-    ArrayList<Opcion> opciones = new ArrayList<Opcion>();
+    protected ArrayList<Opcion> opciones;
 
     public abstract EstadisticasRespuestas compararCon(Respuesta otraRespuesta);
 
