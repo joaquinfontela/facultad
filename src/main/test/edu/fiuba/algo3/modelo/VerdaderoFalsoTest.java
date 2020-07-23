@@ -16,6 +16,7 @@ import edu.fiuba.algo3.modelo.pregunta.modalidad.Modalidad;
 import edu.fiuba.algo3.modelo.pregunta.pregunta.VerdaderoFalso;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.pregunta.respuesta.Respuesta;
+import edu.fiuba.algo3.modelo.pregunta.respuesta.RespuestaVerdaderoFalso;
 
 public class VerdaderoFalsoTest {
 
@@ -59,17 +60,10 @@ public class VerdaderoFalsoTest {
         Jugador jugador1 = new Jugador("Santiago");
         Jugador jugador2 = new Jugador("Roberto");
 
-        RespuestaVerdaderoFalso respuestaJugador1 = mock(RespuestaVerdaderoFalso.class);
-        RespuestaVerdaderoFalso respuestaJugador2 = mock(RespuestaVerdaderoFalso.class);
+        RespuestaVerdaderoFalso respuestaJugador1 = new RespuestaVerdaderoFalso();
+        RespuestaVerdaderoFalso respuestaJugador2 = new RespuestaVerdaderoFalso.();
 
-        EstadisticasRespuestas estadisticasRespuestasJugador1 = mock(EstadisticasRespuestas.class);
-        EstadisticasRespuestas estadisticasRespuestasJugador2 = mock(EstadisticasRespuestas.class);
 
-        when(respuestaJugador1.compararCon( any() )).thenReturn( estadisticasRespuestasJugador1 );
-        when(respuestaJugador2.compararCon( any() )).thenReturn( estadisticasRespuestasJugador2 );
-
-        when( estadisticasRespuestasJugador1.obtenerOpcionesCorrectasElegidas() ).thenReturn( 1 );
-        when( estadisticasRespuestasJugador2.obtenerOpcionesCorrectasElegidas() ).thenReturn( 0 );
 
         HashMap<Integer, Respuesta> idJugadores_respuestas = new HashMap<Integer, Respuesta>();
 

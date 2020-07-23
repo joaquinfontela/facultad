@@ -50,6 +50,9 @@ public abstract class PreguntaDeSeleccion extends Pregunta {
         HashMap<Integer , EstadisticasRespuestas> idJugador_Estadistica = new HashMap<Integer, EstadisticasRespuestas>();
         for (Map.Entry<Integer, Respuesta> entrada : idsJugadores_respuestas.entrySet()) {
             Respuesta respuestaActual = entrada.getValue();
+            if(respuestaActual==null){
+                System.out.println("hola");
+            }
             Integer idActual = entrada.getKey();
             EstadisticasRespuestas estadisticasRespuestasActual = this.respuestaCorrecta.compararCon(respuestaActual);
             idJugador_Estadistica.put(idActual, estadisticasRespuestasActual);
