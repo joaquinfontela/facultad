@@ -21,22 +21,22 @@ public class EstadisticasRespuestas {
     }
 
     public Boolean hayOpcionesCorrectasNoElegidas(){
-        return (this.opcionesCorrectasNoElegidas > 0)
+        return (this.opcionesCorrectasNoElegidas > 0);
     }
 
     public Integer calcularPuntajePenalidadBase(){
         return (this.opcionesCorrectasElegidas - this.opcionesIncorrectasElegidas);
     }
 
-    void sumarCorrectaElegida(){
+    public void sumarCorrectaElegida(){
         this.opcionesCorrectasElegidas++;
     }
 
-    void sumarCorrectaNoElegida(){
+    public void sumarCorrectaNoElegida(){
         this.opcionesCorrectasNoElegidas++;
     }
 
-    void sumarInorrectaElegida(){
+    public void sumarIncorrectaElegida(){
         this.opcionesIncorrectasElegidas++;
     }
 }
