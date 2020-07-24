@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.modelo.pregunta.modalidad;
+package edu.fiuba.algo3.modelo.pregunta.modalidad.bonificacion;
 
 import java.util.HashMap;
 

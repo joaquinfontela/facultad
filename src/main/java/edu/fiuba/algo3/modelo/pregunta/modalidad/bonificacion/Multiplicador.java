@@ -1,11 +1,11 @@
-package edu.fiuba.algo3.modelo.pregunta.modalidad;
+package edu.fiuba.algo3.modelo.pregunta.modalidad.bonificacion;
 
 import java.util.HashMap;
 
-public class Multiplicador implements Bonificacion{
+public class Multiplicador implements Bonificacion {
 
-    int factor;
-    int idDuenio;
+    private int factor;
+    private int idDuenio;
 
     public void Multiplicador(int factorIngresado, int idDuenioIngresado){
         factor = factorIngresado;

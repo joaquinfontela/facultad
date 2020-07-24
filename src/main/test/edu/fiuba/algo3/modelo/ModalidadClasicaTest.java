@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.modelo;
 
-import edu.fiuba.algo3.modelo.pregunta.modalidad.ExclusividadDePuntaje;
+import edu.fiuba.algo3.modelo.pregunta.modalidad.bonificacion.ExclusividadDePuntaje;
 import edu.fiuba.algo3.modelo.pregunta.modalidad.ModalidadClasica;
 import edu.fiuba.algo3.modelo.pregunta.respuesta.EstadisticasRespuestas;
 
@@ -45,7 +45,7 @@ public class ModalidadClasicaTest {
         diccionarioEstadisticas.put(2, estadisticasJugadorDos);
 
         ExclusividadDePuntaje exclusividad = new ExclusividadDePuntaje();
-        modalidad.recibirBonificacion(1, exclusividad);
+        modalidad.recibirBonificacion(exclusividad);
 
         HashMap<Integer,Integer> puntajes = modalidad.obtenerPuntajesPorJugador(diccionarioEstadisticas);
         assertEquals(puntajes.get(1),2);
@@ -68,7 +68,7 @@ public class ModalidadClasicaTest {
         diccionarioEstadisticas.put(2, estadisticasJugadorDos);
 
         ExclusividadDePuntaje exclusividad = new ExclusividadDePuntaje();
-        modalidad.recibirBonificacion(1, exclusividad);
+        modalidad.recibirBonificacion(exclusividad);
 
         HashMap<Integer,Integer> puntajes = modalidad.obtenerPuntajesPorJugador(diccionarioEstadisticas);
         assertEquals(puntajes.get(1),1);
@@ -89,9 +89,9 @@ public class ModalidadClasicaTest {
         estadisticasJugadorDos.sumarIncorrectaElegida();
         diccionarioEstadisticas.put(2, estadisticasJugadorDos);
 
-        for(int i=1; i<3; i++){
+        for(int i=0; i<2; i++){
             ExclusividadDePuntaje exclusividad = new ExclusividadDePuntaje();
-            modalidad.recibirBonificacion(i, exclusividad);
+            modalidad.recibirBonificacion(exclusividad);
         }
 
         HashMap<Integer,Integer> puntajes = modalidad.obtenerPuntajesPorJugador(diccionarioEstadisticas);

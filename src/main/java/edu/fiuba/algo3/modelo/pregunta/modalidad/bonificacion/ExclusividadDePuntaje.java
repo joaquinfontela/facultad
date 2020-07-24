@@ -1,10 +1,12 @@
-package edu.fiuba.algo3.modelo.pregunta.modalidad;
+package edu.fiuba.algo3.modelo.pregunta.modalidad.bonificacion;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class ExclusividadDePuntaje implements Bonificacion {
 
+    @Override
+    //solo se aplica si uno no puntua y el otro si (aunque sea parcialmente)
     public void aplicar(HashMap<Integer, Integer> puntajes){
         int idPosibleCandidato = 0;
         int cantidadDeCandidatos = 0;

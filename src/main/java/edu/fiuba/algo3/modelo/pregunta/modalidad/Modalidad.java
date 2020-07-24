@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.pregunta.modalidad;
 
+import edu.fiuba.algo3.modelo.pregunta.modalidad.bonificacion.Bonificacion;
 import edu.fiuba.algo3.modelo.pregunta.respuesta.EstadisticasRespuestas;
 
 import java.util.ArrayList;
@@ -8,7 +9,7 @@ import java.util.Map;
 
 public abstract class Modalidad {
 
-    ArrayList<Bonificacion> bonificacionesAplicadas = new ArrayList<Bonificacion>();
+    protected ArrayList<Bonificacion> bonificacionesAplicadas = new ArrayList<Bonificacion>();
 
     public HashMap<Integer, Integer> obtenerPuntajesPorJugador(HashMap<Integer, EstadisticasRespuestas> diccionarioEstadisticas){
         HashMap<Integer, Integer> puntajes = new HashMap<Integer, Integer>();
@@ -32,4 +33,3 @@ public abstract class Modalidad {
 
     public abstract int calcularPuntos(EstadisticasRespuestas estadisticas);
 }
-
