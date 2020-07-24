@@ -6,6 +6,7 @@ public class ModalidadPenalidad extends Modalidad {
 
     @Override
     public int calcularPuntos(EstadisticasRespuestas estadisticas) {
+
         return estadisticas.calcularPuntajePenalidadBase();
     }
 }

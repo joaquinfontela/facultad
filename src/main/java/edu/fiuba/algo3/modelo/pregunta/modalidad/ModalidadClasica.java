@@ -6,6 +6,7 @@ public class ModalidadClasica extends Modalidad {
 
     @Override
     public int calcularPuntos(EstadisticasRespuestas estadisticas){
+
         if(estadisticas.hayOpcionesIncorrectas() || estadisticas.hayOpcionesCorrectasNoElegidas()){
             return 0;
         }

@@ -6,6 +6,7 @@ public class ModalidadPuntajeParcial extends Modalidad {
 
     @Override
     public int calcularPuntos(EstadisticasRespuestas estadisticas) {
+
         if(estadisticas.hayOpcionesIncorrectas()){
             return 0;
         }

@@ -11,21 +11,23 @@ public abstract class Modalidad {
 
     protected ArrayList<Bonificacion> bonificacionesAplicadas = new ArrayList<Bonificacion>();
 
-    public HashMap<Integer, Integer> obtenerPuntajesPorJugador(HashMap<Integer, EstadisticasRespuestas> diccionarioEstadisticas){
+    public HashMap<Integer, Integer> obtenerPuntajesPorJugador(HashMap<Integer, EstadisticasRespuestas> diccionarioIdEstadisticas){
+
         HashMap<Integer, Integer> puntajes = new HashMap<Integer, Integer>();
-        for (Map.Entry<Integer, EstadisticasRespuestas> entrada : diccionarioEstadisticas.entrySet()) {
-            EstadisticasRespuestas estadisticasActual = entrada.getValue();
-            puntajes.put(entrada.getKey(), this.calcularPuntos(estadisticasActual));
+        for (Map.Entry<Integer, EstadisticasRespuestas> entrada : diccionarioIdEstadisticas.entrySet()) {
+            puntajes.put(entrada.getKey(), this.calcularPuntos(entrada.getValue()));
         }
         this.aplicarBonificaciones(puntajes);
         return puntajes;
     }
 
     public void recibirBonificacion(Bonificacion bonificacion) {
+
         bonificacionesAplicadas.add(bonificacion);
     }
 
     public void aplicarBonificaciones(HashMap<Integer, Integer> puntajes) {
+
         for(Bonificacion bonificacion : bonificacionesAplicadas){
             bonificacion.aplicar(puntajes);
         }
