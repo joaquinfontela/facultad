@@ -7,11 +7,15 @@ import java.util.HashMap;
 
 public abstract class ModalidadConExclusividad extends Modalidad {
 
-    private ArrayList<ExclusividadDePuntaje> exclusividadesAplicadas = new ArrayList<ExclusividadDePuntaje>();
+    private ArrayList<Bonificacion> exclusividadesAplicadas = new ArrayList<Bonificacion>();
 
     public void aplicarBonificaciones(HashMap<Integer, Integer> puntajes){
-        for(ExclusividadDePuntaje exclusividad : this.exclusividadesAplicadas){
+        for(Bonificacion exclusividad : exclusividadesAplicadas){
             exclusividad.aplicar(puntajes);
         }
+    }
+
+    public void recibirBonificacion(int id, Bonificacion bonificacion){
+        exclusividadesAplicadas.add(bonificacion);
     }
 }

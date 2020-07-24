@@ -18,6 +18,8 @@ public abstract class Modalidad {
         return puntajes;
     }
 
+    public abstract void recibirBonificacion(int id, Bonificacion bonificacion);
+
     public abstract int calcularPuntos(EstadisticasRespuestas estadisticas);
 
     public abstract void aplicarBonificaciones(HashMap<Integer, Integer> puntajes);
