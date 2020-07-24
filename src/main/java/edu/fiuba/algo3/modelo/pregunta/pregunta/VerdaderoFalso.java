@@ -13,7 +13,7 @@ import edu.fiuba.algo3.modelo.pregunta.respuesta.RespuestaVerdaderoFalso;
 public class VerdaderoFalso extends PreguntaDeSeleccion {
 
     public VerdaderoFalso(Modalidad modalidad, String enunciado, ArrayList<String> enunciadosCorrectos,
-                   ArrayList<String> enunciadosIncorrectos){
+                          ArrayList<String> enunciadosIncorrectos){
         super(modalidad, enunciado, enunciadosCorrectos, enunciadosIncorrectos);
         this.respuestaCorrecta = new RespuestaVerdaderoFalso();
         this.inicializarOpcionesRespuestaCorrecta();

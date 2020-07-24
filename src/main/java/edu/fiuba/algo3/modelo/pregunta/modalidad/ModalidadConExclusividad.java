@@ -5,11 +5,13 @@ import edu.fiuba.algo3.modelo.pregunta.respuesta.EstadisticasRespuestas;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public abstract class ModalidadConExclusividad implements Modalidad {
+public abstract class ModalidadConExclusividad extends Modalidad {
 
-    private ExclusividadDePuntaje exclusividad;
+    private ArrayList<ExclusividadDePuntaje> exclusividadesAplicadas = new ArrayList<ExclusividadDePuntaje>();
 
-    protected Boolean seAplicaLaExclusividad(HashMap<Integer, EstadisticasRespuestas> idsJugadores_estadisticasRespuestas){
-        return false;
+    public void aplicarBonificaciones(HashMap<Integer, Integer> puntajes){
+        for(ExclusividadDePuntaje exclusividad : this.exclusividadesAplicadas){
+            exclusividad.aplicar(puntajes);
+        }
     }
 }

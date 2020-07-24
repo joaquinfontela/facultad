@@ -7,20 +7,10 @@ import java.util.Map;
 
 public class ModalidadClasica extends ModalidadConExclusividad {
 
-    @Override
-    public HashMap<Integer, Integer> obtenerPuntajesPorJugador(HashMap<Integer, EstadisticasRespuestas> idsJugadores_estadisticasRespuestas){
-
-        //Refactorizar
-
-        HashMap<Integer, Integer> puntajes = new HashMap<Integer, Integer>();
-        for (Map.Entry<Integer, EstadisticasRespuestas> entrada : idsJugadores_estadisticasRespuestas.entrySet()) {
-            EstadisticasRespuestas estadisticasActual = entrada.getValue();
-            if(estadisticasActual.hayOpcionesIncorrectas() || estadisticasActual.hayOpcionesCorrectasNoElegidas()){
-                puntajes.put(entrada.getKey(), 0);
-            } else{
-                puntajes.put(entrada.getKey(), 1);
-            }
+    public int calcularPuntos(EstadisticasRespuestas estadisticas){
+        if(estadisticas.hayOpcionesIncorrectas() || estadisticas.hayOpcionesCorrectasNoElegidas()){
+            return 0;
         }
-        return puntajes;
+        return 1;
     }
 }
