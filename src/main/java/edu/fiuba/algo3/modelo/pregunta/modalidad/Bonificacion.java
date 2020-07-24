@@ -4,5 +4,5 @@ import java.util.HashMap;
 
 public interface Bonificacion {
 
-    void aplicar(HashMap<Integer, Integer> puntajes); //cambiar
+    void aplicar(HashMap<Integer, Integer> puntajes);
 }
