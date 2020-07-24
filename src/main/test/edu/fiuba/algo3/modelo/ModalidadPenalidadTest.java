@@ -1,7 +1,6 @@
 package edu.fiuba.algo3.modelo;
 
 import edu.fiuba.algo3.modelo.pregunta.modalidad.ModalidadPenalidad;
-import edu.fiuba.algo3.modelo.pregunta.modalidad.bonificacion.ExclusividadDePuntaje;
 import edu.fiuba.algo3.modelo.pregunta.modalidad.bonificacion.Multiplicador;
 import edu.fiuba.algo3.modelo.pregunta.respuesta.EstadisticasRespuestas;
 import org.junit.jupiter.api.BeforeEach;
