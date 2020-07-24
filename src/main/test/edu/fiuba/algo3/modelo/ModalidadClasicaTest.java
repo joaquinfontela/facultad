@@ -42,7 +42,36 @@ public class ModalidadClasicaTest {
     }
 
     @Test
-    public void test02SeCreaUnaRespuestaCorrectaYOtraIncorrectaYSeVerificanLosPuntajesCorrespondientesConExlusividad(){
+    public void test02SeCreaUnaRespuestaCorrectaDobleYOtraIncorrectaYSeVerificanLosPuntajesCorrespondientes(){
+
+        estadisticasJugadorUno.sumarCorrectaElegida();
+        estadisticasJugadorUno.sumarCorrectaElegida();
+        diccionarioIdEstadisticas.put(1, estadisticasJugadorUno);
+
+        estadisticasJugadorDos.sumarIncorrectaElegida();
+        diccionarioIdEstadisticas.put(2, estadisticasJugadorDos);
+
+        HashMap<Integer,Integer> puntajes = modalidad.obtenerPuntajesPorJugador(diccionarioIdEstadisticas);
+        assertEquals(puntajes.get(1),1);
+        assertEquals(puntajes.get(2),0);
+    }
+    @Test
+    public void test03SeCreaUnaRespuestaCorrectaParcialYOtraIncorrectaYSeVerificanLosPuntajesCorrespondientes(){
+
+        estadisticasJugadorUno.sumarCorrectaElegida();
+        estadisticasJugadorUno.sumarCorrectaNoElegida();
+        diccionarioIdEstadisticas.put(1, estadisticasJugadorUno);
+
+        estadisticasJugadorDos.sumarIncorrectaElegida();
+        diccionarioIdEstadisticas.put(2, estadisticasJugadorDos);
+
+        HashMap<Integer,Integer> puntajes = modalidad.obtenerPuntajesPorJugador(diccionarioIdEstadisticas);
+        assertEquals(puntajes.get(1),0);
+        assertEquals(puntajes.get(2),0);
+    }
+
+    @Test
+    public void test04SeCreaUnaRespuestaCorrectaYOtraIncorrectaYSeVerificanLosPuntajesCorrespondientesConExlusividad(){
 
         estadisticasJugadorUno.sumarCorrectaElegida();
         diccionarioIdEstadisticas.put(1, estadisticasJugadorUno);
@@ -56,39 +85,6 @@ public class ModalidadClasicaTest {
         assertEquals(puntajes.get(1),2);
         assertEquals(puntajes.get(2),0);
     }
-
-    @Test
-    public void test03SeCreaDosRespuestasCorrectasYLaExclusividadNoAfecta(){
-
-        estadisticasJugadorUno.sumarCorrectaElegida();
-        diccionarioIdEstadisticas.put(1, estadisticasJugadorUno);
-
-        estadisticasJugadorDos.sumarCorrectaElegida();
-        diccionarioIdEstadisticas.put(2, estadisticasJugadorDos);
-
-        modalidad.recibirBonificacion(exclusividad);
-
-        HashMap<Integer,Integer> puntajes = modalidad.obtenerPuntajesPorJugador(diccionarioIdEstadisticas);
-        assertEquals(puntajes.get(1),1);
-        assertEquals(puntajes.get(2),1);
-    }
-
-    @Test
-    public void test04SeCreaDosRespuestasIncorrectasYLaExclusividadNoAfecta(){
-
-        estadisticasJugadorUno.sumarIncorrectaElegida();
-        diccionarioIdEstadisticas.put(1, estadisticasJugadorUno);
-
-        estadisticasJugadorDos.sumarIncorrectaElegida();
-        diccionarioIdEstadisticas.put(2, estadisticasJugadorDos);
-
-        modalidad.recibirBonificacion(exclusividad);
-
-        HashMap<Integer,Integer> puntajes = modalidad.obtenerPuntajesPorJugador(diccionarioIdEstadisticas);
-        assertEquals(puntajes.get(1),0);
-        assertEquals(puntajes.get(2),0);
-    }
-
 
     @Test
     public void test05SeCreaUnaRespuestaCorrectaYOtraIncorrectaYSeVerificanLosPuntajesCorrespondientesConExlusividadDoble(){
@@ -105,6 +101,38 @@ public class ModalidadClasicaTest {
 
         HashMap<Integer,Integer> puntajes = modalidad.obtenerPuntajesPorJugador(diccionarioIdEstadisticas);
         assertEquals(puntajes.get(1),4);
+        assertEquals(puntajes.get(2),0);
+    }
+
+    @Test
+    public void test06SeCreaDosRespuestasCorrectasYLaExclusividadNoAfecta(){
+
+        estadisticasJugadorUno.sumarCorrectaElegida();
+        diccionarioIdEstadisticas.put(1, estadisticasJugadorUno);
+
+        estadisticasJugadorDos.sumarCorrectaElegida();
+        diccionarioIdEstadisticas.put(2, estadisticasJugadorDos);
+
+        modalidad.recibirBonificacion(exclusividad);
+
+        HashMap<Integer,Integer> puntajes = modalidad.obtenerPuntajesPorJugador(diccionarioIdEstadisticas);
+        assertEquals(puntajes.get(1),1);
+        assertEquals(puntajes.get(2),1);
+    }
+
+    @Test
+    public void test07SeCreaDosRespuestasIncorrectasYLaExclusividadNoAfecta(){
+
+        estadisticasJugadorUno.sumarIncorrectaElegida();
+        diccionarioIdEstadisticas.put(1, estadisticasJugadorUno);
+
+        estadisticasJugadorDos.sumarIncorrectaElegida();
+        diccionarioIdEstadisticas.put(2, estadisticasJugadorDos);
+
+        modalidad.recibirBonificacion(exclusividad);
+
+        HashMap<Integer,Integer> puntajes = modalidad.obtenerPuntajesPorJugador(diccionarioIdEstadisticas);
+        assertEquals(puntajes.get(1),0);
         assertEquals(puntajes.get(2),0);
     }
 }
