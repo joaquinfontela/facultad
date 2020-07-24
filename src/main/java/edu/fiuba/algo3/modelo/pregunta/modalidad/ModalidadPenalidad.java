@@ -3,7 +3,6 @@ package edu.fiuba.algo3.modelo.pregunta.modalidad;
 import edu.fiuba.algo3.modelo.pregunta.respuesta.EstadisticasRespuestas;
 
 import java.util.HashMap;
-import java.util.Map;
 
 public class ModalidadPenalidad extends Modalidad {
 
@@ -23,7 +22,7 @@ public class ModalidadPenalidad extends Modalidad {
     public void aplicarBonificaciones(HashMap<Integer, Integer> puntajes) {
         for (int clave : puntajes.keySet()) {
             Bonificacion bonificacion = multiplicadoresAplicados.get(clave);
-            if(bonificacion != null) bonificacion.aplicar(puntajes);
+            if(bonificacion != null) bonificacion.aplicar(puntajes); //se tiene que enviar clave
         }
     }
 }

@@ -13,7 +13,7 @@ public abstract class ModalidadConExclusividad extends Modalidad {
         }
     }
 
-    public void recibirBonificacion(int id, Bonificacion bonificacion){
+    public void recibirBonificacion(int id, Bonificacion bonificacion){ //Aca la id es al pedo
         exclusividadesAplicadas.add(bonificacion);
     }
 }
