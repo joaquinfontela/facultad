@@ -74,8 +74,33 @@ public class ModalidadClasicaTest {
         assertEquals(puntajes.get(1),1);
         assertEquals(puntajes.get(2),1);
     }
+
     @Test
-    public void test04SeCreaUnaRespuestaCorrectaYOtraIncorrectaYSeVerificanLosPuntajesCorrespondientesConExlusividadDoble(){
+    public void test04SeCreaDosRespuestasIncorrectasYLaExclusividadNoAfecta(){
+
+        ModalidadClasica modalidad = new ModalidadClasica();
+
+        HashMap<Integer, EstadisticasRespuestas> diccionarioEstadisticas = new HashMap<Integer, EstadisticasRespuestas>();
+
+        EstadisticasRespuestas estadisticasJugadorUno = new EstadisticasRespuestas();
+        estadisticasJugadorUno.sumarIncorrectaElegida();
+        diccionarioEstadisticas.put(1, estadisticasJugadorUno);
+
+        EstadisticasRespuestas estadisticasJugadorDos = new EstadisticasRespuestas();
+        estadisticasJugadorDos.sumarIncorrectaElegida();
+        diccionarioEstadisticas.put(2, estadisticasJugadorDos);
+
+        ExclusividadDePuntaje exclusividad = new ExclusividadDePuntaje();
+        modalidad.recibirBonificacion(exclusividad);
+
+        HashMap<Integer,Integer> puntajes = modalidad.obtenerPuntajesPorJugador(diccionarioEstadisticas);
+        assertEquals(puntajes.get(1),0);
+        assertEquals(puntajes.get(2),0);
+    }
+
+
+    @Test
+    public void test05SeCreaUnaRespuestaCorrectaYOtraIncorrectaYSeVerificanLosPuntajesCorrespondientesConExlusividadDoble(){
 
         ModalidadClasica modalidad = new ModalidadClasica();
 
