@@ -7,7 +7,7 @@ public class Multiplicador implements Bonificacion {
     private int factor;
     private int idDuenio;
 
-    public void Multiplicador(int factorIngresado, int idDuenioIngresado){
+    public Multiplicador(int factorIngresado, int idDuenioIngresado){
 
         factor = factorIngresado;
         idDuenio = idDuenioIngresado;
