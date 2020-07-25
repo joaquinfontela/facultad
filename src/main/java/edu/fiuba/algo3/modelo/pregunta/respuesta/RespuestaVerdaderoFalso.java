@@ -9,8 +9,8 @@ import edu.fiuba.algo3.modelo.pregunta.respuesta.EstadisticasRespuestas;
 
 public class RespuestaVerdaderoFalso extends Respuesta {
 
-    String opcionCorrecta;
-    String opcionIncorrecta;
+    Opcion opcionCorrecta;
+    Opcion opcionIncorrecta;
 
     @Override
     public EstadisticasRespuestas compararCon(Respuesta otraRespuesta) {

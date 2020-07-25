@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.modelo.pregunta.respuesta;
 
-public abstract class Opcion {
+public class Opcion {
 
     private String enunciado;
 
@@ -12,6 +12,4 @@ public abstract class Opcion {
     Boolean esLaMisma(Opcion opcion) {
         return (this.enunciado == opcion.enunciado);
     }
-
-    public abstract EstadisticasRespuestas compararCon(Opcion otraOpcion);
 }
