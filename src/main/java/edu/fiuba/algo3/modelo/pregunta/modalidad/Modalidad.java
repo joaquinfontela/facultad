@@ -26,7 +26,9 @@ public abstract class Modalidad {
         try{
             this.verificarCorrectaBonificacion(bonificacion);
             bonificacionesAplicadas.add(bonificacion);
-        } catch(BonificacionMalColocadaException exception){ }
+        } catch(BonificacionMalColocadaException exception){
+            System.out.println("Se colocó mal la Bonificación");
+        }
     }
 
     public void aplicarBonificaciones(HashMap<Integer, Integer> puntajes) {
