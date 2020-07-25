@@ -16,7 +16,7 @@ public class GeneradorDePregunta{
     public GeneradorDePregunta(){
         id_TipoDePregunta= new HashMap<Integer, Respuesta>() ;
         id_TipoDePregunta.put(1, new RespuestaVerdaderoFalso());
-        id_TipoDePregunta.put(2,  RespuestaMultipleChoice());
+        //id_TipoDePregunta.put(2,  RespuestaMultipleChoice());
        // id_TipoDePregunta.put(3, new RespuestaGroupChoice());
        // id_TipoDePregunta.put(4,new RespuestaOrderedChoice);
 

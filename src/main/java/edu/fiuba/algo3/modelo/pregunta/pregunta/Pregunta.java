@@ -20,9 +20,9 @@ public class Pregunta {
         this.respuestaCorrecta = respuesta;
     }
 
-    public abstract void mostrarEnunciado();
+    public void mostrarEnunciado(){}
 
-    public abstract void mostrarOpciones();
+    public void mostrarOpciones(){}
 
     public Respuesta obtenerRespuestaCorrecta(){
         return this.respuestaCorrecta;
