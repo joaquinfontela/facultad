@@ -85,6 +85,7 @@ public class VerdaderoFalsoTest {
 
         assertEquals(jugador1.obtenerPuntaje(), 1);
         assertEquals(jugador2.obtenerPuntaje(), 0);
+
     }
 
 }
