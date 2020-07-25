@@ -5,7 +5,6 @@ public class Opcion {
     private String enunciado;
 
     public Opcion(String enunciado){
-
         this.enunciado = enunciado;
     }
 

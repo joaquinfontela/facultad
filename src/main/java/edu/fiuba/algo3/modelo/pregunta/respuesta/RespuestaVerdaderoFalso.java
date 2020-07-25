@@ -1,16 +1,11 @@
 package edu.fiuba.algo3.modelo.pregunta.respuesta;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-
 import edu.fiuba.algo3.modelo.pregunta.pregunta.EnunciadosOpciones;
-import edu.fiuba.algo3.modelo.pregunta.respuesta.EstadisticasRespuestas;
 
 public class RespuestaVerdaderoFalso extends Respuesta {
 
-    Opcion opcionCorrecta;
-    Opcion opcionIncorrecta;
+    private Opcion opcionCorrecta;
+    private Opcion opcionIncorrecta;
 
     @Override
     public EstadisticasRespuestas compararCon(Respuesta otraRespuesta) {
@@ -33,10 +28,10 @@ public class RespuestaVerdaderoFalso extends Respuesta {
     }
 
     @Override
-    public void rellenar(EnunciadosOpciones opcionesAagregar) {
+    public void rellenar(EnunciadosOpciones opcionesAAgregar) {
 
-        this.opcionCorrecta = new Opcion(opcionesAagregar.opcionesCorrectas().get(0));
-        this.opcionIncorrecta = new Opcion(opcionesAagregar.opcionesIncorrectas().get(0));
+        this.opcionCorrecta = new Opcion(opcionesAAgregar.opcionesCorrectas().get(0));
+        this.opcionIncorrecta = new Opcion(opcionesAAgregar.opcionesIncorrectas().get(0));
 
     }
 }

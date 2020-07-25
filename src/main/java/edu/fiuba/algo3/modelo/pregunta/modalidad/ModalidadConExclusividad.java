@@ -7,7 +7,6 @@ public abstract class ModalidadConExclusividad extends Modalidad {
 
     @Override
     public void verificarCorrectaBonificacion(Bonificacion bonificacion) throws BonificacionMalColocadaException {
-
         if(!bonificacion.esExclusividad()) throw new BonificacionMalColocadaException();
     }
 

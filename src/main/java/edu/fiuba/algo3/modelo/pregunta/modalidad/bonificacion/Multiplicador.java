@@ -15,7 +15,6 @@ public class Multiplicador implements Bonificacion {
 
     @Override
     public void aplicar(HashMap<Integer, Integer> puntajes) {
-
         puntajes.put(idDuenio, puntajes.get(idDuenio)*factor);
     }
 

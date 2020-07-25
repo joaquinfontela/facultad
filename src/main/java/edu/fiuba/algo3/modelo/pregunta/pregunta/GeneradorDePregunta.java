@@ -9,26 +9,29 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class GeneradorDePregunta{
-    ArrayList<Pregunta> Preguntas;
-    Map<Integer, Respuesta>  id_TipoDePregunta;
+public class GeneradorDePregunta {
 
-    public GeneradorDePregunta(){
+    ArrayList<Pregunta> Preguntas;
+    Map<Integer, Respuesta> id_TipoDePregunta; //xq es un map y no un hashmap?
+
+    public GeneradorDePregunta() {
         id_TipoDePregunta= new HashMap<Integer, Respuesta>() ;
         id_TipoDePregunta.put(1, new RespuestaVerdaderoFalso());
-        //id_TipoDePregunta.put(2,  RespuestaMultipleChoice());
-       // id_TipoDePregunta.put(3, new RespuestaGroupChoice());
-       // id_TipoDePregunta.put(4,new RespuestaOrderedChoice);
-
+        /*
+        id_TipoDePregunta.put(2,  RespuestaMultipleChoice());
+        id_TipoDePregunta.put(3, new RespuestaGroupChoice());
+        id_TipoDePregunta.put(4,new RespuestaOrderedChoice);
+        */
     }
-    ArrayList<Opcion> formatearOpciones(){return new ArrayList<>();}
 
-    Pregunta generarPregunta(Modalidad modalidad,Integer tipoDePregunta, String enunciado, EnunciadosOpciones opciones){
+    ArrayList<Opcion> formatearOpciones() { return new ArrayList<>(); }
+
+    Pregunta generarPregunta(Modalidad modalidad, Integer tipoDePregunta, String enunciado, EnunciadosOpciones opciones) {
 
         Respuesta respuestaCorrecta = id_TipoDePregunta.get(tipoDePregunta);
         respuestaCorrecta.rellenar(opciones);
 
-        Pregunta nuevaPregunta = new Pregunta(modalidad,enunciado,respuestaCorrecta);
+        Pregunta nuevaPregunta = new Pregunta(modalidad, enunciado, respuestaCorrecta);
         return nuevaPregunta;
     }
 }

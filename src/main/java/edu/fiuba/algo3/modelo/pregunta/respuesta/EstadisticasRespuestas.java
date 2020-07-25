@@ -7,43 +7,44 @@ public class EstadisticasRespuestas {
     Integer opcionesCorrectasNoElegidas;
 
     public EstadisticasRespuestas(){
-        this.opcionesCorrectasElegidas = 0;
-        this.opcionesCorrectasNoElegidas = 0;
-        this.opcionesIncorrectasElegidas = 0;
+
+        opcionesCorrectasElegidas = 0;
+        opcionesCorrectasNoElegidas = 0;
+        opcionesIncorrectasElegidas = 0;
     }
 
     public void sumar(EstadisticasRespuestas otrasEstadisticas){
 
-        this.opcionesCorrectasElegidas += otrasEstadisticas.obtenerOpcionesCorrectasElegidas();
-        this.opcionesIncorrectasElegidas += otrasEstadisticas.opcionesIncorrectasElegidas;
-        this.opcionesCorrectasNoElegidas += otrasEstadisticas.opcionesCorrectasNoElegidas;
+        opcionesCorrectasElegidas += otrasEstadisticas.obtenerOpcionesCorrectasElegidas();
+        opcionesIncorrectasElegidas += otrasEstadisticas.opcionesIncorrectasElegidas;
+        opcionesCorrectasNoElegidas += otrasEstadisticas.opcionesCorrectasNoElegidas;
     }
 
     public Integer obtenerOpcionesCorrectasElegidas(){
-        return this.opcionesCorrectasElegidas;
+        return opcionesCorrectasElegidas;
     }
 
     public Boolean hayOpcionesIncorrectas(){
-        return (this.opcionesIncorrectasElegidas > 0);
+        return (opcionesIncorrectasElegidas > 0);
     }
 
     public Boolean hayOpcionesCorrectasNoElegidas(){
-        return (this.opcionesCorrectasNoElegidas > 0);
+        return (opcionesCorrectasNoElegidas > 0);
     }
 
     public Integer calcularPuntajePenalidadBase(){
-        return (this.opcionesCorrectasElegidas - this.opcionesIncorrectasElegidas);
+        return (opcionesCorrectasElegidas - opcionesIncorrectasElegidas);
     }
 
     public void sumarCorrectaElegida(){
-        this.opcionesCorrectasElegidas++;
+        opcionesCorrectasElegidas++;
     }
 
     public void sumarCorrectaNoElegida(){
-        this.opcionesCorrectasNoElegidas++;
+        opcionesCorrectasNoElegidas++;
     }
 
     public void sumarIncorrectaElegida(){
-        this.opcionesIncorrectasElegidas++;
+        opcionesIncorrectasElegidas++;
     }
 }
