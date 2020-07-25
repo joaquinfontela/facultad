@@ -4,20 +4,16 @@ import edu.fiuba.algo3.modelo.pregunta.respuesta.RespuestaVerdaderoFalso;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import edu.fiuba.algo3.modelo.pregunta.respuesta.EstadisticasRespuestas;
 import edu.fiuba.algo3.modelo.pregunta.respuesta.OpcionElegible;
 import edu.fiuba.algo3.modelo.pregunta.modalidad.ModalidadClasica;
 import edu.fiuba.algo3.modelo.pregunta.modalidad.Modalidad;
-import edu.fiuba.algo3.modelo.pregunta.pregunta.VerdaderoFalso;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.pregunta.respuesta.Respuesta;
-import edu.fiuba.algo3.modelo.pregunta.respuesta.RespuestaVerdaderoFalso;
 
 public class VerdaderoFalsoTest {
 

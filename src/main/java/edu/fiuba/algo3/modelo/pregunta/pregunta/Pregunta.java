@@ -8,15 +8,16 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public abstract class Pregunta {
+public class Pregunta {
 
     private String enunciado;
     protected Respuesta respuestaCorrecta;
     protected Modalidad modalidad;
 
-    Pregunta(Modalidad modalidad, String enunciado){
+    Pregunta(Modalidad modalidad, String enunciado, Respuesta respuesta){
         this.modalidad = modalidad;
         this.enunciado = enunciado;
+        this.respuestaCorrecta = respuesta;
     }
 
     public abstract void mostrarEnunciado();
@@ -31,9 +32,6 @@ public abstract class Pregunta {
         HashMap<Integer , EstadisticasRespuestas> idJugador_Estadistica = new HashMap<Integer, EstadisticasRespuestas>();
         for (Map.Entry<Integer, Respuesta> entrada : idsJugadores_respuestas.entrySet()) {
             Respuesta respuestaActual = entrada.getValue();
-            if(respuestaActual==null){
-                System.out.println("hola");
-            }
             Integer idActual = entrada.getKey();
             EstadisticasRespuestas estadisticasRespuestasActual = this.respuestaCorrecta.compararCon(respuestaActual);
             idJugador_Estadistica.put(idActual, estadisticasRespuestasActual);

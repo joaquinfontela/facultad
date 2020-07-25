@@ -1,15 +1,15 @@
 package edu.fiuba.algo3.modelo.pregunta.respuesta;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import edu.fiuba.algo3.modelo.pregunta.respuesta.EstadisticasRespuestas;
 
 public class RespuestaVerdaderoFalso extends Respuesta {
 
-    public RespuestaVerdaderoFalso(){
-        this.opciones = new ArrayList<>();
-    }
+    String OpcionCorrecta;
+    String OpcionIncorrecta;
 
     @Override
     public EstadisticasRespuestas compararCon(Respuesta otraRespuesta) {
@@ -33,4 +33,9 @@ public class RespuestaVerdaderoFalso extends Respuesta {
         return estadisticasRespuestas;
     }
 
+    @Override
+    public void rellenar(EnunciadosOpciones opcionesAagregar) {
+
+
+    }
 }
