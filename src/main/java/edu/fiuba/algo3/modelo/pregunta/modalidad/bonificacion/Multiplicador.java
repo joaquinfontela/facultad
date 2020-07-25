@@ -18,4 +18,9 @@ public class Multiplicador implements Bonificacion {
 
         puntajes.put(idDuenio, puntajes.get(idDuenio)*factor);
     }
+
+    @Override
+    public boolean esExclusividad() {
+        return false;
+    }
 }

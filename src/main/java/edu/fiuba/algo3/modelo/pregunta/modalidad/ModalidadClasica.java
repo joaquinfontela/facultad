@@ -2,7 +2,7 @@ package edu.fiuba.algo3.modelo.pregunta.modalidad;
 
 import edu.fiuba.algo3.modelo.pregunta.respuesta.EstadisticasRespuestas;
 
-public class ModalidadClasica extends Modalidad {
+public class ModalidadClasica extends ModalidadConExclusividad {
 
     @Override
     public int calcularPuntos(EstadisticasRespuestas estadisticas){
