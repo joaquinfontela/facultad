@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.modelo.pregunta.respuesta;
 
+import edu.fiuba.algo3.modelo.pregunta.pregunta.EnunciadosOpciones;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -9,9 +11,5 @@ public abstract class Respuesta {
 
     public abstract EstadisticasRespuestas compararCon(Respuesta otraRespuesta);
 
-    public void agregarOpcion(Opcion opcion){
-        this.opciones.add(opcion);
-    }
-
-    public void rellenar(HashMap<String,Integer> opcionesAagregar){}
+    public abstract void rellenar(EnunciadosOpciones opcionesAagregar);
 }

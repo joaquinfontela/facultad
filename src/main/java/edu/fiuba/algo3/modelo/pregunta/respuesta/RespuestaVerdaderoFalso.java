@@ -4,18 +4,32 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import edu.fiuba.algo3.modelo.pregunta.pregunta.EnunciadosOpciones;
 import edu.fiuba.algo3.modelo.pregunta.respuesta.EstadisticasRespuestas;
 
 public class RespuestaVerdaderoFalso extends Respuesta {
 
-    String OpcionCorrecta;
-    String OpcionIncorrecta;
+    String opcionCorrecta;
+    String opcionIncorrecta;
 
     @Override
     public EstadisticasRespuestas compararCon(Respuesta otraRespuesta) {
 
-        EstadisticasRespuestas estadisticasRespuestas = new EstadisticasRespuestas();
+        EstadisticasRespuestas estadisticas = new EstadisticasRespuestas();
 
+        RespuestaVerdaderoFalso otraRespuestaVerdaderoFalso = (RespuestaVerdaderoFalso) otraRespuesta;
+
+        if ( this.opcionCorrecta == otraRespuestaVerdaderoFalso.opcionCorrecta ) {
+            estadisticas.sumarCorrectaElegida();
+
+        } else if ( this.opcionIncorrecta == otraRespuestaVerdaderoFalso.opcionCorrecta ) {
+            estadisticas.sumarIncorrectaElegida();
+
+        } else {
+            estadisticas.sumarCorrectaNoElegida();
+        }
+
+        /*
         for (Opcion opcion : otraRespuesta.opciones) {
 
             Opcion opcionRespuestaCorrecta = this.opciones.stream()
@@ -29,13 +43,15 @@ public class RespuestaVerdaderoFalso extends Respuesta {
             estadisticasRespuestas.sumar(estadisticasUltimaComparacion);
 
         }
-
-        return estadisticasRespuestas;
+        */
+        return estadisticas;
     }
 
     @Override
     public void rellenar(EnunciadosOpciones opcionesAagregar) {
 
+        this.opcionCorrecta = new Opcion(opcionesAagregar.opcionesCorrectas().get(0));
+        this.opcionIncorrecta = new Opcion(opcionesAagregar.opcionesIncorrectas().get(0));
 
     }
 }

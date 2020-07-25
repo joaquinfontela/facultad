@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import edu.fiuba.algo3.modelo.pregunta.respuesta.OpcionElegible;
 import edu.fiuba.algo3.modelo.pregunta.modalidad.ModalidadClasica;
 import edu.fiuba.algo3.modelo.pregunta.modalidad.Modalidad;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
