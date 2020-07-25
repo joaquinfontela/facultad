@@ -5,4 +5,6 @@ import java.util.HashMap;
 public interface Bonificacion {
 
     void aplicar(HashMap<Integer, Integer> puntajes);
+
+    boolean esExclusividad();
 }

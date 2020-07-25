@@ -23,7 +23,10 @@ public abstract class Modalidad {
 
     public void recibirBonificacion(Bonificacion bonificacion) {
 
-        bonificacionesAplicadas.add(bonificacion);
+        try{
+            this.verificarCorrectaBonificacion(bonificacion);
+            bonificacionesAplicadas.add(bonificacion);
+        } catch(BonificacionMalColocadaException exception){ }
     }
 
     public void aplicarBonificaciones(HashMap<Integer, Integer> puntajes) {
@@ -34,4 +37,6 @@ public abstract class Modalidad {
     }
 
     public abstract int calcularPuntos(EstadisticasRespuestas estadisticas);
+
+    public abstract void verificarCorrectaBonificacion(Bonificacion bonificacion) throws BonificacionMalColocadaException;
 }

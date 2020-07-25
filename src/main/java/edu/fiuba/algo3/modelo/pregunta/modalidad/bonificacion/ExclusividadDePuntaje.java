@@ -20,4 +20,9 @@ public class ExclusividadDePuntaje implements Bonificacion {
             puntajes.put(idPosibleCandidato, puntajes.get(idPosibleCandidato)*2);
         }
     }
+
+    @Override
+    public boolean esExclusividad() {
+        return true;
+    }
 }
