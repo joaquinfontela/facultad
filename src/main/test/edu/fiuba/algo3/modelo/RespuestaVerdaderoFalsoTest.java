@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.modelo;
 import edu.fiuba.algo3.modelo.pregunta.pregunta.EnunciadosOpciones;
-import edu.fiuba.algo3.modelo.pregunta.respuesta.EstadisticasRespuestas;
+import edu.fiuba.algo3.modelo.pregunta.respuesta.EstadisticasRespuesta;
 import edu.fiuba.algo3.modelo.pregunta.respuesta.RespuestaVerdaderoFalso;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -37,7 +37,7 @@ public class RespuestaVerdaderoFalsoTest {
         respuestaCorrecta.rellenar(enunciadosOpcionesRespuestaCorrecta);
         respuestaRecibida.rellenar(enunciadosOpcionesRespuestaRecibida);
 
-        EstadisticasRespuestas estadisticasComparacion = respuestaCorrecta.compararCon(respuestaRecibida);
+        EstadisticasRespuesta estadisticasComparacion = respuestaCorrecta.compararCon(respuestaRecibida);
 
         assertEquals(estadisticasComparacion.obtenerOpcionesCorrectasElegidas(), 1);
         assertFalse(estadisticasComparacion.hayOpcionesCorrectasNoElegidas());
@@ -55,7 +55,7 @@ public class RespuestaVerdaderoFalsoTest {
         respuestaCorrecta.rellenar(enunciadosOpcionesRespuestaCorrecta);
         respuestaRecibida.rellenar(enunciadosOpcionesRespuestaRecibida);
 
-        EstadisticasRespuestas estadisticasComparacion = respuestaCorrecta.compararCon(respuestaRecibida);
+        EstadisticasRespuesta estadisticasComparacion = respuestaCorrecta.compararCon(respuestaRecibida);
 
         assertEquals(estadisticasComparacion.obtenerOpcionesCorrectasElegidas(), 0);
         assert(estadisticasComparacion.hayOpcionesIncorrectas());
