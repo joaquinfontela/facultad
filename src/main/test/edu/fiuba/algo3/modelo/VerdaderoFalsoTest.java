@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.modelo;
 
+import edu.fiuba.algo3.modelo.pregunta.pregunta.EnunciadosOpciones;
+import edu.fiuba.algo3.modelo.pregunta.pregunta.Pregunta;
 import edu.fiuba.algo3.modelo.pregunta.respuesta.RespuestaVerdaderoFalso;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -16,7 +18,7 @@ import edu.fiuba.algo3.modelo.pregunta.respuesta.Respuesta;
 
 public class VerdaderoFalsoTest {
 
-    VerdaderoFalso pregunta;
+    Pregunta pregunta;
 
     @BeforeEach
     public void init() {
@@ -31,7 +33,11 @@ public class VerdaderoFalsoTest {
         ArrayList<String> opcionesIncorrectas = new ArrayList<String>();
         opcionesIncorrectas.add("Falso");       // id opcion = 2
 
-        this.pregunta = new VerdaderoFalso(modalidad, enunciado, opcionesCorrectas, opcionesIncorrectas);
+        Respuesta respuestaCorrecta = new RespuestaVerdaderoFalso();
+        EnunciadosOpciones opcionesAagregar = new EnunciadosOpciones();
+        EnunciadosOpciones
+        respuestaCorrecta.rellenar();
+        this.pregunta = new Pregunta(modalidad, enunciado, respuestaCorrecta);
 
     }
 

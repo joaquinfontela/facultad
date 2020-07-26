@@ -13,6 +13,12 @@ public class EnunciadosOpciones {
         opciones=new HashMap<Integer, ArrayList<String>>();
     }
 
+    public void agregarEnunciadoEidentificador (Integer identificador, String enunciado){
+        ArrayList<String> enunciadosActuales= this.opciones.get(identificador);
+        enunciadosActuales.add(enunciado);
+        this.opciones.put(identificador,enunciadosActuales);
+    }
+
     public ArrayList<String> opcionesCorrectas(){
         return opciones.get(1);
     }
@@ -21,9 +27,7 @@ public class EnunciadosOpciones {
         return opciones.get(0);
     }
 
-    public ArrayList<String> opcionesGrupoA(){
-        return opciones.get(0);
-    }
+    public ArrayList<String> opcionesGrupoA(){ return opciones.get(0); }
 
     public ArrayList<String> opcionesGrupoB(){
         return opciones.get(1);
