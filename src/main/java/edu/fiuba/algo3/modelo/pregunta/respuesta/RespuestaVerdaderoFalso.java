@@ -14,10 +14,10 @@ public class RespuestaVerdaderoFalso implements Respuesta {
 
         RespuestaVerdaderoFalso otraRespuestaVerdaderoFalso = (RespuestaVerdaderoFalso) otraRespuesta;
 
-        if ( this.opcionCorrecta == otraRespuestaVerdaderoFalso.opcionCorrecta ) {
+        if ( this.opcionCorrecta.esLaMismaQue(otraRespuestaVerdaderoFalso.opcionCorrecta) ) {
             estadisticas.sumarCorrectaElegida();
 
-        } else if ( this.opcionIncorrecta == otraRespuestaVerdaderoFalso.opcionCorrecta ) {
+        } else if ( this.opcionIncorrecta.esLaMismaQue(otraRespuestaVerdaderoFalso.opcionCorrecta) ) {
             estadisticas.sumarIncorrectaElegida();
 
         } else {
