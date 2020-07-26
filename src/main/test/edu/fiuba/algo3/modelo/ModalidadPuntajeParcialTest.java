@@ -19,7 +19,7 @@ public class ModalidadPuntajeParcialTest {
     ExclusividadDePuntaje exclusividad;
 
     @BeforeEach
-    public void init(){
+    public void init() {
 
         modalidad = new ModalidadPuntajeParcial();
         diccionarioIdEstadisticas = new HashMap<Integer, EstadisticasRespuestas>();
@@ -29,7 +29,7 @@ public class ModalidadPuntajeParcialTest {
     }
 
     @Test
-    public void test01SeCreaUnaRespuestaCorrectaMultipleYOtraIncorrectaMultipleYSeVerificanLosPuntajesCorrespondientes(){
+    public void test01SeCreaUnaRespuestaCorrectaMultipleYOtraIncorrectaMultipleYSeVerificanLosPuntajesCorrespondientes() {
 
         for(int i=0; i<3; i++){
             estadisticasJugadorUno.sumarCorrectaElegida();
@@ -46,7 +46,7 @@ public class ModalidadPuntajeParcialTest {
     }
 
     @Test
-    public void test02SeCreaUnaRespuestaCorrectaMultipleYOtraIncorrectaMultipleYSeVerificanLosPuntajesCorrespondientesConExclusividad(){
+    public void test02SeCreaUnaRespuestaCorrectaMultipleYOtraIncorrectaMultipleYSeVerificanLosPuntajesCorrespondientesConExclusividad() {
 
         modalidad.recibirBonificacion(exclusividad);
 
@@ -65,7 +65,7 @@ public class ModalidadPuntajeParcialTest {
     }
 
     @Test
-    public void test03SeCreaUnaRespuestaCorrectaMultipleYOtraIncorrectaMultipleYSeVerificanLosPuntajesCorrespondientesConExclusividadDoble(){
+    public void test03SeCreaUnaRespuestaCorrectaMultipleYOtraIncorrectaMultipleYSeVerificanLosPuntajesCorrespondientesConExclusividadDoble() {
 
         modalidad.recibirBonificacion(exclusividad);
         modalidad = new ModalidadPuntajeParcial();

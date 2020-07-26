@@ -18,7 +18,7 @@ public class ModalidadClasicaTest {
     ExclusividadDePuntaje exclusividad;
 
     @BeforeEach
-    public void init(){
+    public void init() {
 
         modalidad = new ModalidadClasica();
         diccionarioIdEstadisticas = new HashMap<Integer, EstadisticasRespuestas>();
@@ -28,7 +28,7 @@ public class ModalidadClasicaTest {
     }
 
     @Test
-    public void test01SeCreaUnaRespuestaCorrectaYOtraIncorrectaYSeVerificanLosPuntajesCorrespondientes(){
+    public void test01SeCreaUnaRespuestaCorrectaYOtraIncorrectaYSeVerificanLosPuntajesCorrespondientes() {
 
         estadisticasJugadorUno.sumarCorrectaElegida();
         diccionarioIdEstadisticas.put(1, estadisticasJugadorUno);
@@ -42,7 +42,7 @@ public class ModalidadClasicaTest {
     }
 
     @Test
-    public void test02SeCreaUnaRespuestaCorrectaDobleYOtraIncorrectaYSeVerificanLosPuntajesCorrespondientes(){
+    public void test02SeCreaUnaRespuestaCorrectaDobleYOtraIncorrectaYSeVerificanLosPuntajesCorrespondientes() {
 
         estadisticasJugadorUno.sumarCorrectaElegida();
         estadisticasJugadorUno.sumarCorrectaElegida();
@@ -56,7 +56,7 @@ public class ModalidadClasicaTest {
         assertEquals(puntajes.get(2),0);
     }
     @Test
-    public void test03SeCreaUnaRespuestaCorrectaParcialYOtraIncorrectaYSeVerificanLosPuntajesCorrespondientes(){
+    public void test03SeCreaUnaRespuestaCorrectaParcialYOtraIncorrectaYSeVerificanLosPuntajesCorrespondientes() {
 
         estadisticasJugadorUno.sumarCorrectaElegida();
         estadisticasJugadorUno.sumarCorrectaNoElegida();
@@ -71,7 +71,7 @@ public class ModalidadClasicaTest {
     }
 
     @Test
-    public void test04SeCreaUnaRespuestaCorrectaYOtraIncorrectaYSeVerificanLosPuntajesCorrespondientesConExlusividad(){
+    public void test04SeCreaUnaRespuestaCorrectaYOtraIncorrectaYSeVerificanLosPuntajesCorrespondientesConExlusividad() {
 
         estadisticasJugadorUno.sumarCorrectaElegida();
         diccionarioIdEstadisticas.put(1, estadisticasJugadorUno);
@@ -87,7 +87,7 @@ public class ModalidadClasicaTest {
     }
 
     @Test
-    public void test05SeCreaUnaRespuestaCorrectaYOtraIncorrectaYSeVerificanLosPuntajesCorrespondientesConExlusividadDoble(){
+    public void test05SeCreaUnaRespuestaCorrectaYOtraIncorrectaYSeVerificanLosPuntajesCorrespondientesConExlusividadDoble() {
 
         estadisticasJugadorUno.sumarCorrectaElegida();
         diccionarioIdEstadisticas.put(1, estadisticasJugadorUno);
@@ -105,7 +105,7 @@ public class ModalidadClasicaTest {
     }
 
     @Test
-    public void test06SeCreaDosRespuestasCorrectasYLaExclusividadNoAfecta(){
+    public void test06SeCreaDosRespuestasCorrectasYLaExclusividadNoAfecta() {
 
         estadisticasJugadorUno.sumarCorrectaElegida();
         diccionarioIdEstadisticas.put(1, estadisticasJugadorUno);
@@ -121,7 +121,7 @@ public class ModalidadClasicaTest {
     }
 
     @Test
-    public void test07SeCreaDosRespuestasIncorrectasYLaExclusividadNoAfecta(){
+    public void test07SeCreaDosRespuestasIncorrectasYLaExclusividadNoAfecta() {
 
         estadisticasJugadorUno.sumarIncorrectaElegida();
         diccionarioIdEstadisticas.put(1, estadisticasJugadorUno);

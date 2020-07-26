@@ -20,7 +20,7 @@ public class ModalidadPenalidadTest {
     Multiplicador multiplicadorJugadorDosX3;
 
     @BeforeEach
-    public void init(){
+    public void init() {
 
         modalidad = new ModalidadPenalidad();
         diccionarioIdEstadisticas = new HashMap<Integer, EstadisticasRespuestas>();
@@ -31,7 +31,7 @@ public class ModalidadPenalidadTest {
     }
 
     @Test
-    public void test01SeCreaUnaRespuestaCorrectaMultipleYOtraIncorrectaMultipleYSeVerificanLosPuntajesCorrespondientes(){
+    public void test01SeCreaUnaRespuestaCorrectaMultipleYOtraIncorrectaMultipleYSeVerificanLosPuntajesCorrespondientes() {
 
         for(int i = 0; i<3; i++){
             estadisticasJugadorUno.sumarCorrectaElegida();
@@ -47,7 +47,7 @@ public class ModalidadPenalidadTest {
     }
 
     @Test
-    public void test02SeCreaUnaRespuestaCorrectaParcialMultipleYOtraIncorrectaParcialMultipleYSeVerificanLosPuntajesCorrespondientes(){
+    public void test02SeCreaUnaRespuestaCorrectaParcialMultipleYOtraIncorrectaParcialMultipleYSeVerificanLosPuntajesCorrespondientes() {
 
         estadisticasJugadorUno.sumarCorrectaNoElegida();
         for(int i = 0; i<3; i++){
@@ -65,7 +65,7 @@ public class ModalidadPenalidadTest {
     }
 
     @Test
-    public void test03SeCreaUnaRespuestaCorrectaMultipleYOtraIncorrectaMultipleYSeVerificanLosPuntajesCorrespondientesConMultiplicadorX2DelJugadorUno(){
+    public void test03SeCreaUnaRespuestaCorrectaMultipleYOtraIncorrectaMultipleYSeVerificanLosPuntajesCorrespondientesConMultiplicadorX2DelJugadorUno() {
 
         modalidad.recibirBonificacion(multiplicadorJugadorUnoX2);
 
@@ -83,7 +83,7 @@ public class ModalidadPenalidadTest {
     }
 
     @Test
-    public void test04SeCreaUnaRespuestaCorrectaMultipleYOtraIncorrectaMultipleYSeVerificanLosPuntajesCorrespondientesConMultiplicadorX3DelJugadorDos(){
+    public void test04SeCreaUnaRespuestaCorrectaMultipleYOtraIncorrectaMultipleYSeVerificanLosPuntajesCorrespondientesConMultiplicadorX3DelJugadorDos() {
 
         modalidad.recibirBonificacion(multiplicadorJugadorDosX3);
 
