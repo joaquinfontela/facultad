@@ -1,12 +1,10 @@
 package edu.fiuba.algo3.modelo.pregunta.pregunta;
 
-import edu.fiuba.algo3.modelo.pregunta.respuesta.Respuesta;
-
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
 
 public class EnunciadosOpciones {
+
     HashMap<Integer, ArrayList<String>> opciones;
 
     public EnunciadosOpciones(){
