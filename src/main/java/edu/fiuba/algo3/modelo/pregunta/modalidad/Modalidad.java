@@ -11,7 +11,7 @@ public abstract class Modalidad {
 
     protected ArrayList<Bonificacion> bonificacionesAplicadas = new ArrayList<Bonificacion>();
 
-    public HashMap<Integer, Integer> obtenerPuntajesPorJugador(HashMap<Integer, EstadisticasRespuesta> diccionarioIdEstadisticas){
+    public HashMap<Integer, Integer> obtenerPuntajesPorJugador(HashMap<Integer, EstadisticasRespuesta> diccionarioIdEstadisticas) {
 
         HashMap<Integer, Integer> puntajes = new HashMap<Integer, Integer>();
         for (Map.Entry<Integer, EstadisticasRespuesta> entrada : diccionarioIdEstadisticas.entrySet()) {
@@ -23,17 +23,17 @@ public abstract class Modalidad {
 
     public void recibirBonificacion(Bonificacion bonificacion) {
 
-        try{
+        try {
             this.verificarCorrectaBonificacion(bonificacion);
             bonificacionesAplicadas.add(bonificacion);
-        } catch(BonificacionMalColocadaException exception){
+        } catch(BonificacionMalColocadaException exception) {
             System.out.println("Se colocó mal la Bonificación");
         }
     }
 
     public void aplicarBonificaciones(HashMap<Integer, Integer> puntajes) {
 
-        for(Bonificacion bonificacion : bonificacionesAplicadas){
+        for (Bonificacion bonificacion : bonificacionesAplicadas) {
             bonificacion.aplicar(puntajes);
         }
     }

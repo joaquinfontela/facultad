@@ -8,20 +8,20 @@ public class Jugador {
     private String nombre;
     private Integer puntaje;
 
-    public Jugador(String nombre){
+    public Jugador(String nombreIngresado) {
 
-        this.id = this.proximoId;
-        this.proximoId++;
+        id = proximoId;
+        proximoId++;
 
-        this.puntaje = 0;
-        this.nombre = nombre;
+        puntaje = 0;
+        nombre = nombreIngresado;
     }
 
     public void sumarPuntos(Integer puntos){
-        this.puntaje += puntos;
+        puntaje += puntos;
     }
 
     public Integer obtenerPuntaje(){
-        return this.puntaje;
+        return puntaje;
     }
 }

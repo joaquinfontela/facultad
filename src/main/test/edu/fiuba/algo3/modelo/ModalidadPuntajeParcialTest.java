@@ -31,7 +31,7 @@ public class ModalidadPuntajeParcialTest {
     @Test
     public void test01SeCreaUnaRespuestaCorrectaMultipleYOtraIncorrectaMultipleYSeVerificanLosPuntajesCorrespondientes() {
 
-        for(int i=0; i<3; i++){
+        for (int i = 0; i < 3; i++){
             estadisticasJugadorUno.sumarCorrectaElegida();
             estadisticasJugadorDos.sumarCorrectaElegida();
         }
@@ -50,7 +50,7 @@ public class ModalidadPuntajeParcialTest {
 
         modalidad.recibirBonificacion(exclusividad);
 
-        for(int i=0; i<3; i++){
+        for (int i = 0; i < 3; i++){
             estadisticasJugadorUno.sumarCorrectaElegida();
             estadisticasJugadorDos.sumarCorrectaElegida();
         }
@@ -71,7 +71,7 @@ public class ModalidadPuntajeParcialTest {
         modalidad = new ModalidadPuntajeParcial();
         modalidad.recibirBonificacion(exclusividad);
 
-        for(int i=0; i<3; i++){
+        for (int i = 0; i < 3; i++){
             estadisticasJugadorUno.sumarCorrectaElegida();
             estadisticasJugadorDos.sumarCorrectaElegida();
         }

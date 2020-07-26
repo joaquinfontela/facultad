@@ -14,10 +14,10 @@ public class RespuestaVerdaderoFalso implements Respuesta {
 
         RespuestaVerdaderoFalso otraRespuestaVerdaderoFalso = (RespuestaVerdaderoFalso) otraRespuesta;
 
-        if(opcionCorrecta.esLaMismaQue(otraRespuestaVerdaderoFalso.opcionCorrecta)) {
+        if (opcionCorrecta.esLaMismaQue(otraRespuestaVerdaderoFalso.opcionCorrecta)) {
             estadisticas.sumarCorrectaElegida();
 
-        } else if(opcionIncorrecta.esLaMismaQue(otraRespuestaVerdaderoFalso.opcionCorrecta)) {
+        } else if (opcionIncorrecta.esLaMismaQue(otraRespuestaVerdaderoFalso.opcionCorrecta)) {
             estadisticas.sumarIncorrectaElegida();
 
         } else {
@@ -32,7 +32,5 @@ public class RespuestaVerdaderoFalso implements Respuesta {
 
         opcionCorrecta = new Opcion(opcionesParaAgregar.opcionesCorrectas().get(0));
         opcionIncorrecta = new Opcion(opcionesParaAgregar.opcionesIncorrectas().get(0));
-
-
     }
 }

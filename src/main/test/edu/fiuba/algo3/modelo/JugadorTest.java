@@ -7,14 +7,14 @@ import static org.junit.jupiter.api.Assertions.*;
 public class JugadorTest {
 
     @Test
-    public void test01jugadorSeInicializaConPuntaje0(){
+    public void test01jugadorSeInicializaConPuntaje0() {
 
         Jugador jugador = new Jugador("Jorge");
         assertEquals(jugador.obtenerPuntaje(), 0);
     }
 
     @Test
-    public void test02jugadorSumaPuntajesPositivos(){
+    public void test02jugadorSumaPuntajesPositivos() {
 
         Jugador jugador = new Jugador("Jorge");
         jugador.sumarPuntos(50);
@@ -22,7 +22,7 @@ public class JugadorTest {
     }
 
     @Test
-    public void test03jugadorSumaPuntajesNegativos(){
+    public void test03jugadorSumaPuntajesNegativos() {
 
         Jugador jugador = new Jugador("Jorge");
         jugador.sumarPuntos(-50);
@@ -30,7 +30,7 @@ public class JugadorTest {
     }
 
     @Test
-    public void test04jugadorSumaElNuevoPuntajePositivoAlPuntajeQueYaPoseia(){
+    public void test04jugadorSumaElNuevoPuntajePositivoAlPuntajeQueYaPoseia() {
 
         Jugador jugador = new Jugador("Jorge");
         jugador.sumarPuntos(50);
@@ -39,7 +39,7 @@ public class JugadorTest {
     }
 
     @Test
-    public void test05jugadorSumaElNuevoPuntajeNegativoAlPuntajeQueYaPoseia(){
+    public void test05jugadorSumaElNuevoPuntajeNegativoAlPuntajeQueYaPoseia() {
 
         Jugador jugador = new Jugador("Jorge");
         jugador.sumarPuntos(50);

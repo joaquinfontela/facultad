@@ -27,12 +27,11 @@ public class VerdaderoFalsoClasicoTest {
         String enunciado = "El agua hierve a 100 C.";
 
         Respuesta respuestaCorrecta = new RespuestaVerdaderoFalso();
-        EnunciadosOpciones opcionesAagregar = new EnunciadosOpciones();
-        opcionesAagregar.agregarEnunciadoEidentificador (1, "Verdadero");
-        opcionesAagregar.agregarEnunciadoEidentificador(0, "Falso");
-        respuestaCorrecta.rellenar(opcionesAagregar);
+        EnunciadosOpciones opcionesParaAgregar = new EnunciadosOpciones();
+        opcionesParaAgregar.agregarEnunciadoEidentificador (1, "Verdadero");
+        opcionesParaAgregar.agregarEnunciadoEidentificador(0, "Falso");
+        respuestaCorrecta.rellenar(opcionesParaAgregar);
         pregunta = new Pregunta(modalidad, enunciado, respuestaCorrecta);
-
     }
 
     @Test
@@ -40,10 +39,10 @@ public class VerdaderoFalsoClasicoTest {
 
         RespuestaVerdaderoFalso respuestaCorrectaVerificacion = new RespuestaVerdaderoFalso();
 
-        EnunciadosOpciones opcionesAagregar = new EnunciadosOpciones();
-        opcionesAagregar.agregarEnunciadoEidentificador (1, "Verdadero");
-        opcionesAagregar.agregarEnunciadoEidentificador(0, "Falso");
-        respuestaCorrectaVerificacion.rellenar(opcionesAagregar);
+        EnunciadosOpciones opcionesParaAgregar = new EnunciadosOpciones();
+        opcionesParaAgregar.agregarEnunciadoEidentificador (1, "Verdadero");
+        opcionesParaAgregar.agregarEnunciadoEidentificador(0, "Falso");
+        respuestaCorrectaVerificacion.rellenar(opcionesParaAgregar);
         assertEquals(pregunta.obtenerRespuestaCorrecta().compararCon(respuestaCorrectaVerificacion).obtenerOpcionesCorrectasElegidas(), 1);
     }
 

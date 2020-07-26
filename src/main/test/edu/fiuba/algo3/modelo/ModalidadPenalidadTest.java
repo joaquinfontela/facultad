@@ -33,7 +33,7 @@ public class ModalidadPenalidadTest {
     @Test
     public void test01SeCreaUnaRespuestaCorrectaMultipleYOtraIncorrectaMultipleYSeVerificanLosPuntajesCorrespondientes() {
 
-        for(int i = 0; i<3; i++){
+        for (int i = 0; i < 3; i++){
             estadisticasJugadorUno.sumarCorrectaElegida();
             estadisticasJugadorDos.sumarIncorrectaElegida();
         }
@@ -50,7 +50,7 @@ public class ModalidadPenalidadTest {
     public void test02SeCreaUnaRespuestaCorrectaParcialMultipleYOtraIncorrectaParcialMultipleYSeVerificanLosPuntajesCorrespondientes() {
 
         estadisticasJugadorUno.sumarCorrectaNoElegida();
-        for(int i = 0; i<3; i++){
+        for (int i = 0; i < 3; i++){
             estadisticasJugadorUno.sumarCorrectaElegida();
             estadisticasJugadorDos.sumarIncorrectaElegida();
         }
@@ -69,7 +69,7 @@ public class ModalidadPenalidadTest {
 
         modalidad.recibirBonificacion(multiplicadorJugadorUnoX2);
 
-        for(int i = 0; i<3; i++){
+        for (int i = 0; i < 3; i++){
             estadisticasJugadorUno.sumarCorrectaElegida();
             estadisticasJugadorDos.sumarIncorrectaElegida();
         }
@@ -87,7 +87,7 @@ public class ModalidadPenalidadTest {
 
         modalidad.recibirBonificacion(multiplicadorJugadorDosX3);
 
-        for(int i = 0; i<3; i++){
+        for (int i = 0; i < 3; i++){
             estadisticasJugadorUno.sumarCorrectaElegida();
             estadisticasJugadorDos.sumarIncorrectaElegida();
         }

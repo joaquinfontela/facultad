@@ -4,8 +4,8 @@ public class Opcion {
 
     public String enunciado;
 
-    public Opcion(String enunciado){
-        this.enunciado = enunciado;
+    public Opcion(String enunciadoIngresado){
+        enunciado = enunciadoIngresado;
     }
 
     Boolean esLaMismaQue(Opcion opcion) {

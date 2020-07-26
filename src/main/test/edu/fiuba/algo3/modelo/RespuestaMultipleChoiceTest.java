@@ -128,6 +128,4 @@ public class RespuestaMultipleChoiceTest {
         assert(estadisticasComparacion.hayOpcionesCorrectasNoElegidas());
         assert(estadisticasComparacion.hayOpcionesIncorrectas());
     }
-
 }
-

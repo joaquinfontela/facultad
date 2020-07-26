@@ -20,9 +20,9 @@ public class Pregunta {
         respuestaCorrecta = respuestaIngresada;
     }
 
-    public void mostrarEnunciado(){}
+    public void mostrarEnunciado() { }
 
-    public void mostrarOpciones(){}
+    public void mostrarOpciones() { }
 
     public Respuesta obtenerRespuestaCorrecta() {
 

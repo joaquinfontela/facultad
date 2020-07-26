@@ -37,10 +37,10 @@ public class EnunciadosOpciones {
         return opciones.get(1);
     }
 
-    public ArrayList<String> opcionesOrdenadas(){
+    public ArrayList<String> opcionesOrdenadas() {
 
         ArrayList<String> enunciadosOrdenados = new ArrayList<>();
-        for (Integer i=0; i < opciones.size();i++){
+        for (Integer i = 0; i < opciones.size(); i++){
             enunciadosOrdenados.add(opciones.get(i).get(0));
         }
         return enunciadosOrdenados;

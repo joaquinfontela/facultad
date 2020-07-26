@@ -7,7 +7,7 @@ public class ModalidadPuntajeParcial extends ModalidadConExclusividad {
     @Override
     public int calcularPuntos(EstadisticasRespuesta estadisticas) {
 
-        if(estadisticas.hayOpcionesIncorrectas()){
+        if (estadisticas.hayOpcionesIncorrectas()){
             return 0;
         }
         return estadisticas.obtenerOpcionesCorrectasElegidas();

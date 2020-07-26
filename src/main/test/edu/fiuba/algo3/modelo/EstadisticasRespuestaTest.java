@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class EstadisticasRespuestaTest {
 
     @Test
-    public void test01SeVerificaQueHayRespuestasIncorrectasyCorrectasSinEligir(){
+    public void test01SeVerificaQueHayRespuestasIncorrectasyCorrectasSinEligir() {
 
         EstadisticasRespuesta estadisticas = new EstadisticasRespuesta();
         estadisticas.sumarCorrectaNoElegida();
@@ -17,7 +17,7 @@ public class EstadisticasRespuestaTest {
     }
 
     @Test
-    public void test02SeSumaUnaRespuestaCorrectaYUnaIncorectaYLaDiferenciaEsNula(){
+    public void test02SeSumaUnaRespuestaCorrectaYUnaIncorectaYLaDiferenciaEsNula() {
 
         EstadisticasRespuesta estadisticas = new EstadisticasRespuesta();
         estadisticas.sumarCorrectaElegida();

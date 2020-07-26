@@ -16,17 +16,16 @@ public class RespuestaMultipleChoice implements Respuesta{
     }
 
     @Override
-    public EstadisticasRespuesta compararCon (Respuesta otraRespuesta){
+    public EstadisticasRespuesta compararCon(Respuesta otraRespuesta) {
 
         RespuestaMultipleChoice otraRespuestaMultipleChoice = (RespuestaMultipleChoice) otraRespuesta;
         EstadisticasRespuesta estadisticasRespuesta = new EstadisticasRespuesta();
 
-        estadisticasRespuesta.sumar( compararRespuestasCorrectas( otraRespuestaMultipleChoice ));
-        estadisticasRespuesta.sumar( compararRespuestasIncorrectas( otraRespuestaMultipleChoice ));
+        estadisticasRespuesta.sumar(compararRespuestasCorrectas(otraRespuestaMultipleChoice));
+        estadisticasRespuesta.sumar(compararRespuestasIncorrectas(otraRespuestaMultipleChoice));
 
         return estadisticasRespuesta;
     }
-
 
     private EstadisticasRespuesta compararRespuestasCorrectas(RespuestaMultipleChoice otraRespuestaMultipleChoice ) {
 
@@ -36,7 +35,7 @@ public class RespuestaMultipleChoice implements Respuesta{
 
             EstadisticasRespuesta estadisticasRespuestaDeEstaOpcion = new EstadisticasRespuesta();
 
-            if ( laOpcionFueSeleccionadaComoCorrectaEnLaRespuestaRecibida( opcionCorrectaPropia, otraRespuestaMultipleChoice )) {
+            if (laOpcionFueSeleccionadaComoCorrectaEnLaRespuestaRecibida(opcionCorrectaPropia, otraRespuestaMultipleChoice)) {
                 estadisticasRespuesta.sumarCorrectaElegida();
             } else {
                 estadisticasRespuesta.sumarCorrectaNoElegida();
@@ -48,16 +47,15 @@ public class RespuestaMultipleChoice implements Respuesta{
         return estadisticasRespuesta;
     }
 
-
     private EstadisticasRespuesta compararRespuestasIncorrectas(RespuestaMultipleChoice otraRespuestaMultipleChoice ) {
 
         EstadisticasRespuesta estadisticasRespuesta = new EstadisticasRespuesta();
 
-        for (Opcion opcionIncorrectaPropia : this.opcionesIncorrectas) {
+        for (Opcion opcionIncorrectaPropia : opcionesIncorrectas) {
 
             EstadisticasRespuesta estadisticasRespuestaDeEstaOpcion = new EstadisticasRespuesta();
 
-            if ( laOpcionFueSeleccionadaComoCorrectaEnLaRespuestaRecibida( opcionIncorrectaPropia, otraRespuestaMultipleChoice )) {
+            if (laOpcionFueSeleccionadaComoCorrectaEnLaRespuestaRecibida(opcionIncorrectaPropia, otraRespuestaMultipleChoice)) {
                 estadisticasRespuesta.sumarIncorrectaElegida();
             }
 
@@ -68,10 +66,10 @@ public class RespuestaMultipleChoice implements Respuesta{
     }
 
     private Boolean laOpcionFueSeleccionadaComoCorrectaEnLaRespuestaRecibida(Opcion opcionPropia,
-                                                                             RespuestaMultipleChoice otraRespuestaMultipleChoice){
+                                                                             RespuestaMultipleChoice otraRespuestaMultipleChoice) {
 
-        return ( otraRespuestaMultipleChoice.opcionesCorrectas.stream()
-                 .anyMatch( opcionOtraRespuesta -> opcionOtraRespuesta.esLaMismaQue( opcionPropia )));
+        return (otraRespuestaMultipleChoice.opcionesCorrectas.stream()
+                 .anyMatch(opcionOtraRespuesta -> opcionOtraRespuesta.esLaMismaQue(opcionPropia)));
                 /* esto devuelve si hay una opcion en la lista de opciones correctas de la respuesta recibida,
                  que tenga el mismo enunciado que la opcion recibida.
                  */
@@ -80,10 +78,10 @@ public class RespuestaMultipleChoice implements Respuesta{
     @Override
     public void rellenar(EnunciadosOpciones opcionesParaAgregar) {
 
-        for(Integer i=0; i<(opcionesParaAgregar.opcionesCorrectas()).size();i++) {
+        for(int i = 0; i < (opcionesParaAgregar.opcionesCorrectas()).size(); i++) {
             opcionesCorrectas.add(new Opcion(opcionesParaAgregar.opcionesCorrectas().get(i)));
         }
-        for(Integer i=0; i<(opcionesParaAgregar.opcionesIncorrectas()).size();i++) {
+        for(int i = 0; i < (opcionesParaAgregar.opcionesIncorrectas()).size(); i++) {
             opcionesIncorrectas.add(new Opcion(opcionesParaAgregar.opcionesIncorrectas().get(i)));
         }
     }
