@@ -16,12 +16,65 @@ public class RespuestaMultipleChoice implements Respuesta{
     }
 
     @Override
-    public EstadisticasRespuestas compararCon(Respuesta otraRespuesta) {
+    public EstadisticasRespuestas compararCon (Respuesta otraRespuesta){
 
-        EstadisticasRespuestas estadisticas = new EstadisticasRespuestas();
-        RespuestaMultipleChoice respuestaMC = (RespuestaMultipleChoice) otraRespuesta;
-        return estadisticas;
+        RespuestaMultipleChoice otraRespuestaMultipleChoice = (RespuestaMultipleChoice) otraRespuesta;
+        EstadisticasRespuestas estadisticasRespuestas = new EstadisticasRespuestas();
 
+        estadisticasRespuestas.sumar( compararRespuestasCorrectas( otraRespuestaMultipleChoice ));
+        estadisticasRespuestas.sumar( compararRespuestasIncorrectas( otraRespuestaMultipleChoice ));
+
+        return estadisticasRespuestas;
+    }
+
+
+    private EstadisticasRespuestas compararRespuestasCorrectas( RespuestaMultipleChoice otraRespuestaMultipleChoice ) {
+
+        EstadisticasRespuestas estadisticasRespuestas = new EstadisticasRespuestas();
+
+        for (Opcion opcionCorrectaPropia : this.opcionesCorrectas) {
+
+            EstadisticasRespuestas estadisticasRespuestasDeEstaOpcion = new EstadisticasRespuestas();
+
+            if ( laOpcionFueSeleccionadaComoCorrectaEnLaRespuestaRecibida( opcionCorrectaPropia, otraRespuestaMultipleChoice )) {
+                estadisticasRespuestas.sumarCorrectaElegida();
+            } else {
+                estadisticasRespuestas.sumarCorrectaNoElegida();
+            }
+
+            estadisticasRespuestas.sumar(estadisticasRespuestasDeEstaOpcion);
+        }
+
+        return estadisticasRespuestas;
+    }
+
+
+    private EstadisticasRespuestas compararRespuestasIncorrectas( RespuestaMultipleChoice otraRespuestaMultipleChoice ) {
+
+        EstadisticasRespuestas estadisticasRespuestas = new EstadisticasRespuestas();
+
+        for (Opcion opcionIncorrectaPropia : this.opcionesIncorrectas) {
+
+            EstadisticasRespuestas estadisticasRespuestasDeEstaOpcion = new EstadisticasRespuestas();
+
+            if ( laOpcionFueSeleccionadaComoCorrectaEnLaRespuestaRecibida( opcionIncorrectaPropia, otraRespuestaMultipleChoice )) {
+                estadisticasRespuestas.sumarIncorrectaElegida();
+            }
+
+            estadisticasRespuestas.sumar(estadisticasRespuestasDeEstaOpcion);
+        }
+
+        return estadisticasRespuestas;
+    }
+
+    private Boolean laOpcionFueSeleccionadaComoCorrectaEnLaRespuestaRecibida(Opcion opcionPropia,
+                                                                             RespuestaMultipleChoice otraRespuestaMultipleChoice){
+
+        return ( otraRespuestaMultipleChoice.opcionesCorrectas.stream()
+                 .anyMatch( opcionOtraRespuesta -> opcionOtraRespuesta.esLaMismaQue( opcionPropia )));
+                /* esto devuelve si hay una opcion en la lista de opciones correctas de la respuesta recibida,
+                 que tenga el mismo enunciado que la opcion recibida.
+                 */
     }
 
     @Override
