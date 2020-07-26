@@ -5,11 +5,9 @@ import edu.fiuba.algo3.modelo.pregunta.pregunta.EnunciadosOpciones;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public abstract class Respuesta {
+public interface Respuesta {
 
-    protected ArrayList<Opcion> opciones;
+    public EstadisticasRespuestas compararCon(Respuesta otraRespuesta);
 
-    public abstract EstadisticasRespuestas compararCon(Respuesta otraRespuesta);
-
-    public abstract void rellenar(EnunciadosOpciones opcionesAagregar);
+    public void rellenar(EnunciadosOpciones opcionesAagregar);
 }

@@ -9,6 +9,6 @@ public class Opcion {
     }
 
     Boolean esLaMisma(Opcion opcion) {
-        return (this.enunciado == opcion.enunciado);
+        return (this.enunciado.equals(opcion.enunciado));
     }
 }
