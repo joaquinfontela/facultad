@@ -6,14 +6,14 @@ public class EstadisticasRespuestas {
     Integer opcionesIncorrectasElegidas;
     Integer opcionesCorrectasNoElegidas;
 
-    public EstadisticasRespuestas(){
+    public EstadisticasRespuestas() {
 
         opcionesCorrectasElegidas = 0;
         opcionesCorrectasNoElegidas = 0;
         opcionesIncorrectasElegidas = 0;
     }
 
-    public void sumar(EstadisticasRespuestas otrasEstadisticas){
+    public void sumar(EstadisticasRespuestas otrasEstadisticas) {
 
         opcionesCorrectasElegidas += otrasEstadisticas.obtenerOpcionesCorrectasElegidas();
         opcionesIncorrectasElegidas += otrasEstadisticas.opcionesIncorrectasElegidas;

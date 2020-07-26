@@ -10,24 +10,28 @@ public class RespuestaMultipleChoice implements Respuesta{
     private ArrayList<Opcion> opcionesIncorrectas;
 
     public RespuestaMultipleChoice(){
-        this.opcionesCorrectas = new ArrayList<>();
-        this.opcionesIncorrectas = new ArrayList<>();
+
+        opcionesCorrectas = new ArrayList<>();
+        opcionesIncorrectas = new ArrayList<>();
     }
+
     @Override
-    public EstadisticasRespuestas compararCon (Respuesta otraRespuesta ){
+    public EstadisticasRespuestas compararCon(Respuesta otraRespuesta) {
 
         EstadisticasRespuestas estadisticas = new EstadisticasRespuestas();
         RespuestaMultipleChoice respuestaMC = (RespuestaMultipleChoice) otraRespuesta;
 
 
     }
+
     @Override
-    public void rellenar(EnunciadosOpciones opcionesAagregar){
-        for(Integer i=0; i<(opcionesAagregar.opcionesCorrectas()).size();i++){
-            this.opcionesCorrectas.add(new Opcion(opcionesAagregar.opcionesCorrectas().get(i)));
+    public void rellenar(EnunciadosOpciones opcionesParaAgregar) {
+
+        for(Integer i=0; i<(opcionesParaAgregar.opcionesCorrectas()).size();i++) {
+            opcionesCorrectas.add(new Opcion(opcionesParaAgregar.opcionesCorrectas().get(i)));
         }
-        for(Integer i=0; i<(opcionesAagregar.opcionesIncorrectas()).size();i++) {
-            this.opcionesIncorrectas.add(new Opcion(opcionesAagregar.opcionesIncorrectas().get(i)));
+        for(Integer i=0; i<(opcionesParaAgregar.opcionesIncorrectas()).size();i++) {
+            opcionesIncorrectas.add(new Opcion(opcionesParaAgregar.opcionesIncorrectas().get(i)));
         }
     }
 }

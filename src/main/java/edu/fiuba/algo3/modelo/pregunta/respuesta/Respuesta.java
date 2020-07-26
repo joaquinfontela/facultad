@@ -7,7 +7,7 @@ import java.util.HashMap;
 
 public interface Respuesta {
 
-    public EstadisticasRespuestas compararCon(Respuesta otraRespuesta);
+    EstadisticasRespuestas compararCon(Respuesta otraRespuesta);
 
-    public void rellenar(EnunciadosOpciones opcionesAagregar);
+    void rellenar(EnunciadosOpciones opcionesAagregar);
 }
