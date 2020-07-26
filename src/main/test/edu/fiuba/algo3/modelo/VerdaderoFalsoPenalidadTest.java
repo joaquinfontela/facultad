@@ -27,12 +27,6 @@ public class VerdaderoFalsoPenalidadTest {
 
         String enunciado = "El agua hierve a 100 C.";
 
-        ArrayList<String> opcionesCorrectas = new ArrayList<String>();
-        opcionesCorrectas.add("Verdadero");     // id opcion = 1
-
-        ArrayList<String> opcionesIncorrectas = new ArrayList<String>();
-        opcionesIncorrectas.add("Falso");       // id opcion = 2
-
         Respuesta respuestaCorrecta = new RespuestaVerdaderoFalso();
         EnunciadosOpciones opcionesAagregar = new EnunciadosOpciones();
         opcionesAagregar.agregarEnunciadoEidentificador (1, "Verdadero");

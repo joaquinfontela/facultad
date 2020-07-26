@@ -7,7 +7,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -26,12 +25,6 @@ public class VerdaderoFalsoTest {
         Modalidad modalidad = new ModalidadClasica();
 
         String enunciado = "El agua hierve a 100 C.";
-
-        ArrayList<String> opcionesCorrectas = new ArrayList<String>();
-        opcionesCorrectas.add("Verdadero");     // id opcion = 1
-
-        ArrayList<String> opcionesIncorrectas = new ArrayList<String>();
-        opcionesIncorrectas.add("Falso");       // id opcion = 2
 
         Respuesta respuestaCorrecta = new RespuestaVerdaderoFalso();
         EnunciadosOpciones opcionesAagregar = new EnunciadosOpciones();
