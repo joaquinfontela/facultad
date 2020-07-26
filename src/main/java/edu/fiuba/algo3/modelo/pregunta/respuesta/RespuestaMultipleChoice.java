@@ -20,7 +20,7 @@ public class RespuestaMultipleChoice implements Respuesta{
 
         EstadisticasRespuestas estadisticas = new EstadisticasRespuestas();
         RespuestaMultipleChoice respuestaMC = (RespuestaMultipleChoice) otraRespuesta;
-
+        return estadisticas;
 
     }
 

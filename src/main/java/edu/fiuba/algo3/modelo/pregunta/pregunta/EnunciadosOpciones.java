@@ -13,10 +13,16 @@ public class EnunciadosOpciones {
         opciones=new HashMap<Integer, ArrayList<String>>();
     }
 
-    public void agregarEnunciadoEidentificador (Integer identificador, String enunciado){
-        ArrayList<String> enunciadosActuales= this.opciones.get(identificador);
+    public void agregarEnunciadoEidentificador (Integer identificador, String enunciado) {
+
+        ArrayList<String> enunciadosActuales;
+        if (opciones.get(identificador) == null) {
+            enunciadosActuales = new ArrayList<>();
+        } else {
+            enunciadosActuales = opciones.get(identificador);
+        }
         enunciadosActuales.add(enunciado);
-        this.opciones.put(identificador,enunciadosActuales);
+        opciones.put(identificador, enunciadosActuales);
     }
 
     public ArrayList<String> opcionesCorrectas(){

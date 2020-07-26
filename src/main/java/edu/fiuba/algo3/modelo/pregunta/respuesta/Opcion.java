@@ -9,6 +9,6 @@ public class Opcion {
     }
 
     Boolean esLaMismaQue(Opcion opcion) {
-        return (this.enunciado.equals(opcion.enunciado));
+        return (enunciado.equals(opcion.enunciado));
     }
 }

@@ -7,12 +7,11 @@ import edu.fiuba.algo3.modelo.pregunta.respuesta.RespuestaVerdaderoFalso;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
 
 public class GeneradorDePregunta {
 
     ArrayList<Pregunta> Preguntas;
-    Map<Integer, Respuesta> id_TipoDePregunta; //xq es un map y no un hashmap?
+    HashMap<Integer, Respuesta> id_TipoDePregunta;
 
     public GeneradorDePregunta() {
         id_TipoDePregunta= new HashMap<Integer, Respuesta>() ;

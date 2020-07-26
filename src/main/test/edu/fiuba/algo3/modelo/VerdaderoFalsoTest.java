@@ -35,8 +35,9 @@ public class VerdaderoFalsoTest {
 
         Respuesta respuestaCorrecta = new RespuestaVerdaderoFalso();
         EnunciadosOpciones opcionesAagregar = new EnunciadosOpciones();
-        EnunciadosOpciones
-        respuestaCorrecta.rellenar();
+        opcionesAagregar.agregarEnunciadoEidentificador (1, "Verdadero");
+        opcionesAagregar.agregarEnunciadoEidentificador(0, "Falso");
+        respuestaCorrecta.rellenar(opcionesAagregar);
         this.pregunta = new Pregunta(modalidad, enunciado, respuestaCorrecta);
 
     }
@@ -44,16 +45,13 @@ public class VerdaderoFalsoTest {
     @Test
     public void test01seCreaUnaPreguntaVerdaderoOFalsoYSeVerificaLaOpcionCorrecta() {
 
-        RespuestaVerdaderoFalso respuestaCorrecta = new RespuestaVerdaderoFalso();
+        RespuestaVerdaderoFalso respuestaCorrectaVerificacion = new RespuestaVerdaderoFalso();
 
-        OpcionElegible opcionVerdadero = new OpcionElegible(1, "Verdadero");
-        opcionVerdadero.elegir();
-        OpcionElegible opcionFalso = new OpcionElegible(2, "Falso");
-
-        respuestaCorrecta.agregarOpcion(opcionVerdadero);
-        respuestaCorrecta.agregarOpcion(opcionFalso);
-
-        assertEquals(this.pregunta.obtenerRespuestaCorrecta().compararCon(respuestaCorrecta).obtenerOpcionesCorrectasElegidas(), 1);
+        EnunciadosOpciones opcionesAagregar = new EnunciadosOpciones();
+        opcionesAagregar.agregarEnunciadoEidentificador (1, "Verdadero");
+        opcionesAagregar.agregarEnunciadoEidentificador(0, "Falso");
+        respuestaCorrectaVerificacion.rellenar(opcionesAagregar);
+        assertEquals(this.pregunta.obtenerRespuestaCorrecta().compararCon(respuestaCorrectaVerificacion).obtenerOpcionesCorrectasElegidas(), 1);
     }
 
     @Test
@@ -65,18 +63,16 @@ public class VerdaderoFalsoTest {
         RespuestaVerdaderoFalso respuestaJugador1 = new RespuestaVerdaderoFalso();
         RespuestaVerdaderoFalso respuestaJugador2 = new RespuestaVerdaderoFalso();
 
-        OpcionElegible opcion1j1 = new OpcionElegible(1,"verdadero");
-        OpcionElegible opcion2j1 = new OpcionElegible(2,"falso");
-        OpcionElegible opcion1j2 = new OpcionElegible(1,"verdadero");
-        OpcionElegible opcion2j2 = new OpcionElegible(2,"falso");
+        EnunciadosOpciones opcionesAagregarJugador1 = new EnunciadosOpciones();
+        opcionesAagregarJugador1.agregarEnunciadoEidentificador (1, "Verdadero");
+        opcionesAagregarJugador1.agregarEnunciadoEidentificador(0, "Falso");
+        respuestaJugador1.rellenar(opcionesAagregarJugador1);
 
-        opcion1j1.elegir();
-        opcion2j2.elegir();
+        EnunciadosOpciones opcionesAagregarJugador2 = new EnunciadosOpciones();
+        opcionesAagregarJugador2.agregarEnunciadoEidentificador (0, "Verdadero");
+        opcionesAagregarJugador2.agregarEnunciadoEidentificador(1, "Falso");
+        respuestaJugador2.rellenar(opcionesAagregarJugador2);
 
-        respuestaJugador1.agregarOpcion(opcion1j1);
-        respuestaJugador1.agregarOpcion(opcion2j1);
-        respuestaJugador2.agregarOpcion(opcion1j2);
-        respuestaJugador2.agregarOpcion(opcion2j2);
 
         HashMap<Integer, Respuesta> idJugadores_respuestas = new HashMap<>();
 
