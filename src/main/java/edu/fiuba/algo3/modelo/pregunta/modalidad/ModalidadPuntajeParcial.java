@@ -1,11 +1,11 @@
 package edu.fiuba.algo3.modelo.pregunta.modalidad;
 
-import edu.fiuba.algo3.modelo.pregunta.respuesta.EstadisticasRespuestas;
+import edu.fiuba.algo3.modelo.pregunta.respuesta.EstadisticasRespuesta;
 
 public class ModalidadPuntajeParcial extends ModalidadConExclusividad {
 
     @Override
-    public int calcularPuntos(EstadisticasRespuestas estadisticas) {
+    public int calcularPuntos(EstadisticasRespuesta estadisticas) {
 
         if(estadisticas.hayOpcionesIncorrectas()){
             return 0;

@@ -8,9 +8,9 @@ public class RespuestaVerdaderoFalso implements Respuesta {
     private Opcion opcionIncorrecta;
 
     @Override
-    public EstadisticasRespuestas compararCon(Respuesta otraRespuesta) {
+    public EstadisticasRespuesta compararCon(Respuesta otraRespuesta) {
 
-        EstadisticasRespuestas estadisticas = new EstadisticasRespuestas();
+        EstadisticasRespuesta estadisticas = new EstadisticasRespuesta();
 
         RespuestaVerdaderoFalso otraRespuestaVerdaderoFalso = (RespuestaVerdaderoFalso) otraRespuesta;
 

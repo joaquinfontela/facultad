@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.modelo.pregunta.modalidad;
 
 import edu.fiuba.algo3.modelo.pregunta.modalidad.bonificacion.Bonificacion;
-import edu.fiuba.algo3.modelo.pregunta.respuesta.EstadisticasRespuestas;
+import edu.fiuba.algo3.modelo.pregunta.respuesta.EstadisticasRespuesta;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -11,10 +11,10 @@ public abstract class Modalidad {
 
     protected ArrayList<Bonificacion> bonificacionesAplicadas = new ArrayList<Bonificacion>();
 
-    public HashMap<Integer, Integer> obtenerPuntajesPorJugador(HashMap<Integer, EstadisticasRespuestas> diccionarioIdEstadisticas){
+    public HashMap<Integer, Integer> obtenerPuntajesPorJugador(HashMap<Integer, EstadisticasRespuesta> diccionarioIdEstadisticas){
 
         HashMap<Integer, Integer> puntajes = new HashMap<Integer, Integer>();
-        for (Map.Entry<Integer, EstadisticasRespuestas> entrada : diccionarioIdEstadisticas.entrySet()) {
+        for (Map.Entry<Integer, EstadisticasRespuesta> entrada : diccionarioIdEstadisticas.entrySet()) {
             puntajes.put(entrada.getKey(), this.calcularPuntos(entrada.getValue()));
         }
         this.aplicarBonificaciones(puntajes);
@@ -38,7 +38,7 @@ public abstract class Modalidad {
         }
     }
 
-    public abstract int calcularPuntos(EstadisticasRespuestas estadisticas);
+    public abstract int calcularPuntos(EstadisticasRespuesta estadisticas);
 
     public abstract void verificarCorrectaBonificacion(Bonificacion bonificacion) throws BonificacionMalColocadaException;
 }

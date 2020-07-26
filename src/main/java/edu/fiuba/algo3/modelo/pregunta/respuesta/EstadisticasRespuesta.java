@@ -1,19 +1,19 @@
 package edu.fiuba.algo3.modelo.pregunta.respuesta;
 
-public class EstadisticasRespuestas {
+public class EstadisticasRespuesta {
 
     Integer opcionesCorrectasElegidas;
     Integer opcionesIncorrectasElegidas;
     Integer opcionesCorrectasNoElegidas;
 
-    public EstadisticasRespuestas() {
+    public EstadisticasRespuesta() {
 
         opcionesCorrectasElegidas = 0;
         opcionesCorrectasNoElegidas = 0;
         opcionesIncorrectasElegidas = 0;
     }
 
-    public void sumar(EstadisticasRespuestas otrasEstadisticas) {
+    public void sumar(EstadisticasRespuesta otrasEstadisticas) {
 
         opcionesCorrectasElegidas += otrasEstadisticas.obtenerOpcionesCorrectasElegidas();
         opcionesIncorrectasElegidas += otrasEstadisticas.opcionesIncorrectasElegidas;

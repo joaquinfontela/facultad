@@ -16,55 +16,55 @@ public class RespuestaMultipleChoice implements Respuesta{
     }
 
     @Override
-    public EstadisticasRespuestas compararCon (Respuesta otraRespuesta){
+    public EstadisticasRespuesta compararCon (Respuesta otraRespuesta){
 
         RespuestaMultipleChoice otraRespuestaMultipleChoice = (RespuestaMultipleChoice) otraRespuesta;
-        EstadisticasRespuestas estadisticasRespuestas = new EstadisticasRespuestas();
+        EstadisticasRespuesta estadisticasRespuesta = new EstadisticasRespuesta();
 
-        estadisticasRespuestas.sumar( compararRespuestasCorrectas( otraRespuestaMultipleChoice ));
-        estadisticasRespuestas.sumar( compararRespuestasIncorrectas( otraRespuestaMultipleChoice ));
+        estadisticasRespuesta.sumar( compararRespuestasCorrectas( otraRespuestaMultipleChoice ));
+        estadisticasRespuesta.sumar( compararRespuestasIncorrectas( otraRespuestaMultipleChoice ));
 
-        return estadisticasRespuestas;
+        return estadisticasRespuesta;
     }
 
 
-    private EstadisticasRespuestas compararRespuestasCorrectas( RespuestaMultipleChoice otraRespuestaMultipleChoice ) {
+    private EstadisticasRespuesta compararRespuestasCorrectas(RespuestaMultipleChoice otraRespuestaMultipleChoice ) {
 
-        EstadisticasRespuestas estadisticasRespuestas = new EstadisticasRespuestas();
+        EstadisticasRespuesta estadisticasRespuesta = new EstadisticasRespuesta();
 
         for (Opcion opcionCorrectaPropia : this.opcionesCorrectas) {
 
-            EstadisticasRespuestas estadisticasRespuestasDeEstaOpcion = new EstadisticasRespuestas();
+            EstadisticasRespuesta estadisticasRespuestaDeEstaOpcion = new EstadisticasRespuesta();
 
             if ( laOpcionFueSeleccionadaComoCorrectaEnLaRespuestaRecibida( opcionCorrectaPropia, otraRespuestaMultipleChoice )) {
-                estadisticasRespuestas.sumarCorrectaElegida();
+                estadisticasRespuesta.sumarCorrectaElegida();
             } else {
-                estadisticasRespuestas.sumarCorrectaNoElegida();
+                estadisticasRespuesta.sumarCorrectaNoElegida();
             }
 
-            estadisticasRespuestas.sumar(estadisticasRespuestasDeEstaOpcion);
+            estadisticasRespuesta.sumar(estadisticasRespuestaDeEstaOpcion);
         }
 
-        return estadisticasRespuestas;
+        return estadisticasRespuesta;
     }
 
 
-    private EstadisticasRespuestas compararRespuestasIncorrectas( RespuestaMultipleChoice otraRespuestaMultipleChoice ) {
+    private EstadisticasRespuesta compararRespuestasIncorrectas(RespuestaMultipleChoice otraRespuestaMultipleChoice ) {
 
-        EstadisticasRespuestas estadisticasRespuestas = new EstadisticasRespuestas();
+        EstadisticasRespuesta estadisticasRespuesta = new EstadisticasRespuesta();
 
         for (Opcion opcionIncorrectaPropia : this.opcionesIncorrectas) {
 
-            EstadisticasRespuestas estadisticasRespuestasDeEstaOpcion = new EstadisticasRespuestas();
+            EstadisticasRespuesta estadisticasRespuestaDeEstaOpcion = new EstadisticasRespuesta();
 
             if ( laOpcionFueSeleccionadaComoCorrectaEnLaRespuestaRecibida( opcionIncorrectaPropia, otraRespuestaMultipleChoice )) {
-                estadisticasRespuestas.sumarIncorrectaElegida();
+                estadisticasRespuesta.sumarIncorrectaElegida();
             }
 
-            estadisticasRespuestas.sumar(estadisticasRespuestasDeEstaOpcion);
+            estadisticasRespuesta.sumar(estadisticasRespuestaDeEstaOpcion);
         }
 
-        return estadisticasRespuestas;
+        return estadisticasRespuesta;
     }
 
     private Boolean laOpcionFueSeleccionadaComoCorrectaEnLaRespuestaRecibida(Opcion opcionPropia,

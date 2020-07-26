@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.modelo.pregunta.modalidad;
 
 import edu.fiuba.algo3.modelo.pregunta.modalidad.bonificacion.Bonificacion;
-import edu.fiuba.algo3.modelo.pregunta.respuesta.EstadisticasRespuestas;
+import edu.fiuba.algo3.modelo.pregunta.respuesta.EstadisticasRespuesta;
 
 public abstract class ModalidadConExclusividad extends Modalidad {
 
@@ -10,5 +10,5 @@ public abstract class ModalidadConExclusividad extends Modalidad {
         if(!bonificacion.esExclusividad()) throw new BonificacionMalColocadaException();
     }
 
-    public abstract int calcularPuntos(EstadisticasRespuestas estadisticas);
+    public abstract int calcularPuntos(EstadisticasRespuesta estadisticas);
 }

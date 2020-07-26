@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.modelo.pregunta.pregunta;
 
 import edu.fiuba.algo3.modelo.pregunta.modalidad.Modalidad;
-import edu.fiuba.algo3.modelo.pregunta.respuesta.EstadisticasRespuestas;
+import edu.fiuba.algo3.modelo.pregunta.respuesta.EstadisticasRespuesta;
 import edu.fiuba.algo3.modelo.pregunta.respuesta.Respuesta;
 
 import java.util.HashMap;
@@ -31,12 +31,12 @@ public class Pregunta {
 
     public HashMap<Integer, Integer> obtenerPuntajePorJugador(HashMap<Integer, Respuesta> idsJugadores_respuestas) {
 
-        HashMap<Integer, EstadisticasRespuestas> idJugador_Estadistica = new HashMap<Integer, EstadisticasRespuestas>();
+        HashMap<Integer, EstadisticasRespuesta> idJugador_Estadistica = new HashMap<Integer, EstadisticasRespuesta>();
         for (Map.Entry<Integer, Respuesta> entrada : idsJugadores_respuestas.entrySet()) {
             Respuesta respuestaActual = entrada.getValue();
             Integer idActual = entrada.getKey();
-            EstadisticasRespuestas estadisticasRespuestasActual = respuestaCorrecta.compararCon(respuestaActual);
-            idJugador_Estadistica.put(idActual, estadisticasRespuestasActual);
+            EstadisticasRespuesta estadisticasRespuestaActual = respuestaCorrecta.compararCon(respuestaActual);
+            idJugador_Estadistica.put(idActual, estadisticasRespuestaActual);
         }
         return (modalidad.obtenerPuntajesPorJugador(idJugador_Estadistica));
     }

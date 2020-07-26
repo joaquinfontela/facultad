@@ -2,7 +2,7 @@ package edu.fiuba.algo3.modelo;
 
 import edu.fiuba.algo3.modelo.pregunta.modalidad.bonificacion.ExclusividadDePuntaje;
 import edu.fiuba.algo3.modelo.pregunta.modalidad.ModalidadClasica;
-import edu.fiuba.algo3.modelo.pregunta.respuesta.EstadisticasRespuestas;
+import edu.fiuba.algo3.modelo.pregunta.respuesta.EstadisticasRespuesta;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -12,18 +12,18 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class ModalidadClasicaTest {
 
     ModalidadClasica modalidad;
-    HashMap<Integer, EstadisticasRespuestas> diccionarioIdEstadisticas;
-    EstadisticasRespuestas estadisticasJugadorUno;
-    EstadisticasRespuestas estadisticasJugadorDos;
+    HashMap<Integer, EstadisticasRespuesta> diccionarioIdEstadisticas;
+    EstadisticasRespuesta estadisticasJugadorUno;
+    EstadisticasRespuesta estadisticasJugadorDos;
     ExclusividadDePuntaje exclusividad;
 
     @BeforeEach
     public void init() {
 
         modalidad = new ModalidadClasica();
-        diccionarioIdEstadisticas = new HashMap<Integer, EstadisticasRespuestas>();
-        estadisticasJugadorUno = new EstadisticasRespuestas();
-        estadisticasJugadorDos = new EstadisticasRespuestas();
+        diccionarioIdEstadisticas = new HashMap<Integer, EstadisticasRespuesta>();
+        estadisticasJugadorUno = new EstadisticasRespuesta();
+        estadisticasJugadorDos = new EstadisticasRespuesta();
         exclusividad = new ExclusividadDePuntaje();
     }
 

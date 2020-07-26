@@ -1,15 +1,15 @@
 package edu.fiuba.algo3.modelo;
 
-import edu.fiuba.algo3.modelo.pregunta.respuesta.EstadisticasRespuestas;
+import edu.fiuba.algo3.modelo.pregunta.respuesta.EstadisticasRespuesta;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class EstadisticasRespuestasTest {
+public class EstadisticasRespuestaTest {
 
     @Test
     public void test01SeVerificaQueHayRespuestasIncorrectasyCorrectasSinEligir(){
 
-        EstadisticasRespuestas estadisticas = new EstadisticasRespuestas();
+        EstadisticasRespuesta estadisticas = new EstadisticasRespuesta();
         estadisticas.sumarCorrectaNoElegida();
         estadisticas.sumarIncorrectaElegida();
         assert(estadisticas.hayOpcionesIncorrectas());
@@ -19,7 +19,7 @@ public class EstadisticasRespuestasTest {
     @Test
     public void test02SeSumaUnaRespuestaCorrectaYUnaIncorectaYLaDiferenciaEsNula(){
 
-        EstadisticasRespuestas estadisticas = new EstadisticasRespuestas();
+        EstadisticasRespuesta estadisticas = new EstadisticasRespuesta();
         estadisticas.sumarCorrectaElegida();
         estadisticas.sumarIncorrectaElegida();
         assertEquals(estadisticas.calcularPuntajePenalidadBase(), 0);

@@ -1,12 +1,12 @@
 package edu.fiuba.algo3.modelo.pregunta.modalidad;
 
 import edu.fiuba.algo3.modelo.pregunta.modalidad.bonificacion.Bonificacion;
-import edu.fiuba.algo3.modelo.pregunta.respuesta.EstadisticasRespuestas;
+import edu.fiuba.algo3.modelo.pregunta.respuesta.EstadisticasRespuesta;
 
 public class ModalidadPenalidad extends Modalidad {
 
     @Override
-    public int calcularPuntos(EstadisticasRespuestas estadisticas) {
+    public int calcularPuntos(EstadisticasRespuesta estadisticas) {
 
         return estadisticas.calcularPuntajePenalidadBase();
     }

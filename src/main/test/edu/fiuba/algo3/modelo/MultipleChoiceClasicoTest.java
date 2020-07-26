@@ -16,7 +16,7 @@ import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class MultipleChoiceTest {
+public class MultipleChoiceClasicoTest {
 
     Pregunta pregunta;
 
@@ -60,8 +60,8 @@ public class MultipleChoiceTest {
         Jugador jugador1 = new Jugador("Santiago");
         Jugador jugador2 = new Jugador("Roberto");
 
-        RespuestaVerdaderoFalso respuestaJugador1 = new RespuestaVerdaderoFalso();
-        RespuestaVerdaderoFalso respuestaJugador2 = new RespuestaVerdaderoFalso();
+        RespuestaMultipleChoice respuestaJugador1 = new RespuestaMultipleChoice();
+        RespuestaMultipleChoice respuestaJugador2 = new RespuestaMultipleChoice();
 
         EnunciadosOpciones opcionesParaAgregarJugador1 = new EnunciadosOpciones();
         opcionesParaAgregarJugador1.agregarEnunciadoEidentificador (1, "Ornitorrinco");
@@ -69,6 +69,7 @@ public class MultipleChoiceTest {
         opcionesParaAgregarJugador1.agregarEnunciadoEidentificador(0, "Rana toro");
         opcionesParaAgregarJugador1.agregarEnunciadoEidentificador(0, "Serpiente falsa coral");
         opcionesParaAgregarJugador1.agregarEnunciadoEidentificador(0, "Pez payaso");
+        respuestaJugador1.rellenar(opcionesParaAgregarJugador1);
 
         EnunciadosOpciones opcionesParaAgregarJugador2 = new EnunciadosOpciones();
         opcionesParaAgregarJugador2.agregarEnunciadoEidentificador (0, "Ornitorrinco");
