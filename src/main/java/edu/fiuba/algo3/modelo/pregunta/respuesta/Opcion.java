@@ -2,7 +2,7 @@ package edu.fiuba.algo3.modelo.pregunta.respuesta;
 
 public class Opcion {
 
-    private String enunciado;
+    public String enunciado;
 
     public Opcion(String enunciado){
         this.enunciado = enunciado;
