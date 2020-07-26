@@ -38,7 +38,7 @@ public class VerdaderoFalsoTest {
         opcionesAagregar.agregarEnunciadoEidentificador (1, "Verdadero");
         opcionesAagregar.agregarEnunciadoEidentificador(0, "Falso");
         respuestaCorrecta.rellenar(opcionesAagregar);
-        this.pregunta = new Pregunta(modalidad, enunciado, respuestaCorrecta);
+        pregunta = new Pregunta(modalidad, enunciado, respuestaCorrecta);
 
     }
 
@@ -51,7 +51,7 @@ public class VerdaderoFalsoTest {
         opcionesAagregar.agregarEnunciadoEidentificador (1, "Verdadero");
         opcionesAagregar.agregarEnunciadoEidentificador(0, "Falso");
         respuestaCorrectaVerificacion.rellenar(opcionesAagregar);
-        assertEquals(this.pregunta.obtenerRespuestaCorrecta().compararCon(respuestaCorrectaVerificacion).obtenerOpcionesCorrectasElegidas(), 1);
+        assertEquals(pregunta.obtenerRespuestaCorrecta().compararCon(respuestaCorrectaVerificacion).obtenerOpcionesCorrectasElegidas(), 1);
     }
 
     @Test
@@ -63,15 +63,15 @@ public class VerdaderoFalsoTest {
         RespuestaVerdaderoFalso respuestaJugador1 = new RespuestaVerdaderoFalso();
         RespuestaVerdaderoFalso respuestaJugador2 = new RespuestaVerdaderoFalso();
 
-        EnunciadosOpciones opcionesAagregarJugador1 = new EnunciadosOpciones();
-        opcionesAagregarJugador1.agregarEnunciadoEidentificador (1, "Verdadero");
-        opcionesAagregarJugador1.agregarEnunciadoEidentificador(0, "Falso");
-        respuestaJugador1.rellenar(opcionesAagregarJugador1);
+        EnunciadosOpciones opcionesParaAgregarJugador1 = new EnunciadosOpciones();
+        opcionesParaAgregarJugador1.agregarEnunciadoEidentificador (1, "Verdadero");
+        opcionesParaAgregarJugador1.agregarEnunciadoEidentificador(0, "Falso");
+        respuestaJugador1.rellenar(opcionesParaAgregarJugador1);
 
-        EnunciadosOpciones opcionesAagregarJugador2 = new EnunciadosOpciones();
-        opcionesAagregarJugador2.agregarEnunciadoEidentificador (0, "Verdadero");
-        opcionesAagregarJugador2.agregarEnunciadoEidentificador(1, "Falso");
-        respuestaJugador2.rellenar(opcionesAagregarJugador2);
+        EnunciadosOpciones opcionesParaAgregarJugador2 = new EnunciadosOpciones();
+        opcionesParaAgregarJugador2.agregarEnunciadoEidentificador (0, "Verdadero");
+        opcionesParaAgregarJugador2.agregarEnunciadoEidentificador(1, "Falso");
+        respuestaJugador2.rellenar(opcionesParaAgregarJugador2);
 
 
         HashMap<Integer, Respuesta> idJugadores_respuestas = new HashMap<>();
@@ -79,15 +79,12 @@ public class VerdaderoFalsoTest {
         idJugadores_respuestas.put(1, respuestaJugador1);
         idJugadores_respuestas.put(2, respuestaJugador2);
 
-        Map<Integer, Integer> idsPuntuaciones = this.pregunta.obtenerPuntajePorJugador(idJugadores_respuestas);
+        Map<Integer, Integer> idsPuntuaciones = pregunta.obtenerPuntajePorJugador(idJugadores_respuestas);
 
         jugador1.sumarPuntos(idsPuntuaciones.get(1));
         jugador2.sumarPuntos(idsPuntuaciones.get(2));
 
         assertEquals(jugador1.obtenerPuntaje(), 1);
         assertEquals(jugador2.obtenerPuntaje(), 0);
-
     }
-
 }
-

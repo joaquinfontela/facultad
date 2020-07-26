@@ -55,6 +55,7 @@ public class ModalidadClasicaTest {
         assertEquals(puntajes.get(1),1);
         assertEquals(puntajes.get(2),0);
     }
+
     @Test
     public void test03SeCreaUnaRespuestaCorrectaParcialYOtraIncorrectaYSeVerificanLosPuntajesCorrespondientes() {
 
