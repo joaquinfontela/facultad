@@ -20,6 +20,15 @@ public class VerdaderoFalsoClasicoConExclusividadTest {
 
     Pregunta pregunta;
 
+    Jugador jugador1;
+    Jugador jugador2;
+
+    RespuestaVerdaderoFalso respuestaJugador1;
+    RespuestaVerdaderoFalso respuestaJugador2;
+
+    EnunciadosOpciones opcionesParaAgregarJugador1;
+    EnunciadosOpciones opcionesParaAgregarJugador2;
+
     @BeforeEach
     public void init() {
 
@@ -40,23 +49,25 @@ public class VerdaderoFalsoClasicoConExclusividadTest {
         respuestaCorrecta.rellenar(opcionesParaAgregar);
 
         pregunta = new Pregunta(modalidad, enunciado, respuestaCorrecta);
+
+        jugador1 = new Jugador("Santiago");
+        jugador2 = new Jugador("Roberto");
+
+        respuestaJugador1 = new RespuestaVerdaderoFalso();
+        respuestaJugador2 = new RespuestaVerdaderoFalso();
+
+        opcionesParaAgregarJugador1 = new EnunciadosOpciones();
+        opcionesParaAgregarJugador2 = new EnunciadosOpciones();
+
     }
 
     @Test
     public void test01seCreaUnaPreguntaVerdaderoOFalsoYSeVerificaLaCorrectaAsignacionDePuntos() {
 
-        Jugador jugador1 = new Jugador("Santiago");
-        Jugador jugador2 = new Jugador("Roberto");
-
-        RespuestaVerdaderoFalso respuestaJugador1 = new RespuestaVerdaderoFalso();
-        RespuestaVerdaderoFalso respuestaJugador2 = new RespuestaVerdaderoFalso();
-
-        EnunciadosOpciones opcionesParaAgregarJugador1 = new EnunciadosOpciones();
         opcionesParaAgregarJugador1.agregarEnunciadoEidentificador (1, "Verdadero");
         opcionesParaAgregarJugador1.agregarEnunciadoEidentificador(0, "Falso");
         respuestaJugador1.rellenar(opcionesParaAgregarJugador1);
 
-        EnunciadosOpciones opcionesParaAgregarJugador2 = new EnunciadosOpciones();
         opcionesParaAgregarJugador2.agregarEnunciadoEidentificador (0, "Verdadero");
         opcionesParaAgregarJugador2.agregarEnunciadoEidentificador(1, "Falso");
         respuestaJugador2.rellenar(opcionesParaAgregarJugador2);
