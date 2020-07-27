@@ -134,5 +134,39 @@ public class GroupChoiceConExclusividadTest {
         assertEquals(jugador1.obtenerPuntaje(), 0);
         assertEquals(jugador2.obtenerPuntaje(), 0);
     }
+
+    @Test
+    public void test03seCreaUnaPreguntaGroupChoiceYSeVerificaLaCorrectaAsignacionDePuntos() {
+
+        opcionesParaAgregarJugador1.agregarEnunciadoEidentificador (1, "Israel");
+        opcionesParaAgregarJugador1.agregarEnunciadoEidentificador(1, "Oman");
+        opcionesParaAgregarJugador1.agregarEnunciadoEidentificador(1, "Yemen");
+        opcionesParaAgregarJugador1.agregarEnunciadoEidentificador (0, "Egipto");
+        opcionesParaAgregarJugador1.agregarEnunciadoEidentificador(0, "Sudan");
+        opcionesParaAgregarJugador1.agregarEnunciadoEidentificador(0, "Yibuti");
+
+        opcionesParaAgregarJugador2.agregarEnunciadoEidentificador (1, "Israel");
+        opcionesParaAgregarJugador2.agregarEnunciadoEidentificador(1, "Oman");
+        opcionesParaAgregarJugador2.agregarEnunciadoEidentificador(1, "Yemen");
+        opcionesParaAgregarJugador2.agregarEnunciadoEidentificador (0, "Egipto");
+        opcionesParaAgregarJugador2.agregarEnunciadoEidentificador(0, "Sudan");
+        opcionesParaAgregarJugador2.agregarEnunciadoEidentificador(0, "Yibuti");
+
+        respuestaJugador1.rellenar(opcionesParaAgregarJugador1);
+        respuestaJugador2.rellenar(opcionesParaAgregarJugador2);
+
+        HashMap<Integer, Respuesta> idJugadores_respuestas = new HashMap<>();
+
+        idJugadores_respuestas.put(1, respuestaJugador1);
+        idJugadores_respuestas.put(2, respuestaJugador2);
+
+        Map<Integer, Integer> idsPuntuaciones = pregunta.obtenerPuntajePorJugador(idJugadores_respuestas);
+
+        jugador1.sumarPuntos(idsPuntuaciones.get(1));
+        jugador2.sumarPuntos(idsPuntuaciones.get(2));
+
+        assertEquals(jugador1.obtenerPuntaje(), 1);
+        assertEquals(jugador2.obtenerPuntaje(), 1);
+    }
 }
 
