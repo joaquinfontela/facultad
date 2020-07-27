@@ -87,8 +87,8 @@ public class VerdaderoFalsoPenalidadConMultiplicadorTest {
 
         Modalidad modalidad = new ModalidadPenalidad();
 
-        Multiplicador multiplicadorX2jugador1 = new Multiplicador(2, 2);
-        modalidad.recibirBonificacion(multiplicadorX2jugador1);
+        Multiplicador multiplicadorX2jugador2 = new Multiplicador(2, 2);
+        modalidad.recibirBonificacion(multiplicadorX2jugador2);
 
         Pregunta pregunta = new Pregunta(modalidad, enunciado, respuestaCorrecta);
 
@@ -125,8 +125,8 @@ public class VerdaderoFalsoPenalidadConMultiplicadorTest {
 
         Modalidad modalidad = new ModalidadPenalidad();
 
-        Multiplicador multiplicadorX2jugador1 = new Multiplicador(3, 1);
-        modalidad.recibirBonificacion(multiplicadorX2jugador1);
+        Multiplicador multiplicadorX3jugador1 = new Multiplicador(3, 1);
+        modalidad.recibirBonificacion(multiplicadorX3jugador1);
 
         Pregunta pregunta = new Pregunta(modalidad, enunciado, respuestaCorrecta);
 
@@ -163,8 +163,8 @@ public class VerdaderoFalsoPenalidadConMultiplicadorTest {
 
         Modalidad modalidad = new ModalidadPenalidad();
 
-        Multiplicador multiplicadorX2jugador1 = new Multiplicador(3, 2);
-        modalidad.recibirBonificacion(multiplicadorX2jugador1);
+        Multiplicador multiplicadorX3jugador2 = new Multiplicador(3, 2);
+        modalidad.recibirBonificacion(multiplicadorX3jugador2);
 
         Pregunta pregunta = new Pregunta(modalidad, enunciado, respuestaCorrecta);
 
