@@ -72,7 +72,7 @@ public class MultipleChoicePuntajeParcialTest {
 
         EnunciadosOpciones opcionesParaAgregarJugador2 = new EnunciadosOpciones();
         opcionesParaAgregarJugador2.agregarEnunciadoEidentificador (0, "Ornitorrinco");
-        opcionesParaAgregarJugador2.agregarEnunciadoEidentificador (0, "Pez piedra");
+        opcionesParaAgregarJugador2.agregarEnunciadoEidentificador (1, "Pez piedra");
         opcionesParaAgregarJugador2.agregarEnunciadoEidentificador(1, "Rana toro");
         opcionesParaAgregarJugador2.agregarEnunciadoEidentificador(1, "Serpiente falsa coral");
         opcionesParaAgregarJugador2.agregarEnunciadoEidentificador(0, "Pez payaso");
