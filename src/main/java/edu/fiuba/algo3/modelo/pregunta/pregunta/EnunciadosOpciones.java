@@ -5,10 +5,10 @@ import java.util.HashMap;
 
 public class EnunciadosOpciones {
 
-    HashMap<Integer, ArrayList<String>> opciones;
+    private HashMap<Integer, ArrayList<String>> opciones;
 
     public EnunciadosOpciones(){
-        opciones=new HashMap<Integer, ArrayList<String>>();
+        opciones = new HashMap<Integer, ArrayList<String>>();
     }
 
     public void agregarEnunciadoEidentificador (Integer identificador, String enunciado) {

@@ -10,5 +10,5 @@ public class RespuestaOrderedChoice implements Respuesta {
     }
 
     @Override
-    public void rellenar(EnunciadosOpciones enunciadosOpciones){}
+    public void rellenar(EnunciadosOpciones enunciadosOpciones) { }
 }

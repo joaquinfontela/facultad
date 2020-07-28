@@ -45,8 +45,8 @@ public class OrderedChoiceConExclusividadTest {
 
         EnunciadosOpciones opcionesParaAgregar = new EnunciadosOpciones();
 
-        opcionesParaAgregar.agregarEnunciadoEidentificador (0, "Brasil");
-        opcionesParaAgregar.agregarEnunciadoEidentificador (1, "Alemania");
+        opcionesParaAgregar.agregarEnunciadoEidentificador(0, "Brasil");
+        opcionesParaAgregar.agregarEnunciadoEidentificador(1, "Alemania");
         opcionesParaAgregar.agregarEnunciadoEidentificador(2, "Argentina");
         opcionesParaAgregar.agregarEnunciadoEidentificador(3, "Inglaterra");
         opcionesParaAgregar.agregarEnunciadoEidentificador(4, "Belgica");
@@ -69,14 +69,14 @@ public class OrderedChoiceConExclusividadTest {
     @Test
     public void test01seCreaUnaPreguntaOrderedChoiceYSeVerificaLaCorrectaAsignacionDePuntos() {
 
-        opcionesParaAgregarJugador1.agregarEnunciadoEidentificador (0, "Brasil");
-        opcionesParaAgregarJugador1.agregarEnunciadoEidentificador (1, "Alemania");
+        opcionesParaAgregarJugador1.agregarEnunciadoEidentificador(0, "Brasil");
+        opcionesParaAgregarJugador1.agregarEnunciadoEidentificador(1, "Alemania");
         opcionesParaAgregarJugador1.agregarEnunciadoEidentificador(2, "Argentina");
         opcionesParaAgregarJugador1.agregarEnunciadoEidentificador(3, "Inglaterra");
         opcionesParaAgregarJugador1.agregarEnunciadoEidentificador(4, "Belgica");
 
-        opcionesParaAgregarJugador2.agregarEnunciadoEidentificador (0, "Brasil");
-        opcionesParaAgregarJugador2.agregarEnunciadoEidentificador (1, "Alemania");
+        opcionesParaAgregarJugador2.agregarEnunciadoEidentificador(0, "Brasil");
+        opcionesParaAgregarJugador2.agregarEnunciadoEidentificador(1, "Alemania");
         opcionesParaAgregarJugador2.agregarEnunciadoEidentificador(2, "Argentina");
         opcionesParaAgregarJugador2.agregarEnunciadoEidentificador(3, "Belgica");
         opcionesParaAgregarJugador2.agregarEnunciadoEidentificador(4, "Inglaterra");
@@ -101,14 +101,14 @@ public class OrderedChoiceConExclusividadTest {
     @Test
     public void test02seCreaUnaPreguntaOrderedChoiceYSeVerificaLaCorrectaAsignacionDePuntos() {
 
-        opcionesParaAgregarJugador1.agregarEnunciadoEidentificador (0, "Belgica");
-        opcionesParaAgregarJugador1.agregarEnunciadoEidentificador (1, "Alemania");
+        opcionesParaAgregarJugador1.agregarEnunciadoEidentificador(0, "Belgica");
+        opcionesParaAgregarJugador1.agregarEnunciadoEidentificador(1, "Alemania");
         opcionesParaAgregarJugador1.agregarEnunciadoEidentificador(2, "Argentina");
         opcionesParaAgregarJugador1.agregarEnunciadoEidentificador(3, "Inglaterra");
         opcionesParaAgregarJugador1.agregarEnunciadoEidentificador(4, "Brasil");
 
-        opcionesParaAgregarJugador2.agregarEnunciadoEidentificador (0, "Argentina");
-        opcionesParaAgregarJugador2.agregarEnunciadoEidentificador (1, "Alemania");
+        opcionesParaAgregarJugador2.agregarEnunciadoEidentificador(0, "Argentina");
+        opcionesParaAgregarJugador2.agregarEnunciadoEidentificador(1, "Alemania");
         opcionesParaAgregarJugador2.agregarEnunciadoEidentificador(2, "Brasil");
         opcionesParaAgregarJugador2.agregarEnunciadoEidentificador(3, "Inglaterra");
         opcionesParaAgregarJugador2.agregarEnunciadoEidentificador(4, "Belgica");
@@ -133,14 +133,14 @@ public class OrderedChoiceConExclusividadTest {
     @Test
     public void test03seCreaUnaPreguntaOrderedChoiceYSeVerificaLaCorrectaAsignacionDePuntos() {
 
-        opcionesParaAgregarJugador1.agregarEnunciadoEidentificador (0, "Brasil");
-        opcionesParaAgregarJugador1.agregarEnunciadoEidentificador (1, "Alemania");
+        opcionesParaAgregarJugador1.agregarEnunciadoEidentificador(0, "Brasil");
+        opcionesParaAgregarJugador1.agregarEnunciadoEidentificador(1, "Alemania");
         opcionesParaAgregarJugador1.agregarEnunciadoEidentificador(2, "Argentina");
         opcionesParaAgregarJugador1.agregarEnunciadoEidentificador(3, "Inglaterra");
         opcionesParaAgregarJugador1.agregarEnunciadoEidentificador(4, "Belgica");
 
-        opcionesParaAgregarJugador2.agregarEnunciadoEidentificador (0, "Brasil");
-        opcionesParaAgregarJugador2.agregarEnunciadoEidentificador (1, "Alemania");
+        opcionesParaAgregarJugador2.agregarEnunciadoEidentificador(0, "Brasil");
+        opcionesParaAgregarJugador2.agregarEnunciadoEidentificador(1, "Alemania");
         opcionesParaAgregarJugador2.agregarEnunciadoEidentificador(2, "Argentina");
         opcionesParaAgregarJugador2.agregarEnunciadoEidentificador(3, "Inglaterra");
         opcionesParaAgregarJugador2.agregarEnunciadoEidentificador(4, "Belgica");
@@ -162,4 +162,3 @@ public class OrderedChoiceConExclusividadTest {
         assertEquals(jugador2.obtenerPuntaje(), 1);
     }
 }
-

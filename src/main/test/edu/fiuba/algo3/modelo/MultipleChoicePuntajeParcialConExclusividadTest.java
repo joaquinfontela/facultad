@@ -43,8 +43,8 @@ public class MultipleChoicePuntajeParcialConExclusividadTest {
 
         EnunciadosOpciones opcionesParaAgregar = new EnunciadosOpciones();
 
-        opcionesParaAgregar.agregarEnunciadoEidentificador (1, "Ornitorrinco");
-        opcionesParaAgregar.agregarEnunciadoEidentificador (1, "Pez piedra");
+        opcionesParaAgregar.agregarEnunciadoEidentificador(1, "Ornitorrinco");
+        opcionesParaAgregar.agregarEnunciadoEidentificador(1, "Pez piedra");
         opcionesParaAgregar.agregarEnunciadoEidentificador(0, "Rana toro");
         opcionesParaAgregar.agregarEnunciadoEidentificador(0, "Serpiente falsa coral");
         opcionesParaAgregar.agregarEnunciadoEidentificador(0, "Pez payaso");
@@ -67,15 +67,15 @@ public class MultipleChoicePuntajeParcialConExclusividadTest {
     @Test
     public void test01seCreaUnaPreguntaMultipleChoicePuntajeParcialYSeVerificaLaCorrectaAsignacionDePuntos() {
 
-        opcionesParaAgregarJugador1.agregarEnunciadoEidentificador (1, "Ornitorrinco");
-        opcionesParaAgregarJugador1.agregarEnunciadoEidentificador (1, "Pez piedra");
+        opcionesParaAgregarJugador1.agregarEnunciadoEidentificador(1, "Ornitorrinco");
+        opcionesParaAgregarJugador1.agregarEnunciadoEidentificador(1, "Pez piedra");
         opcionesParaAgregarJugador1.agregarEnunciadoEidentificador(0, "Rana toro");
         opcionesParaAgregarJugador1.agregarEnunciadoEidentificador(0, "Serpiente falsa coral");
         opcionesParaAgregarJugador1.agregarEnunciadoEidentificador(0, "Pez payaso");
         respuestaJugador1.rellenar(opcionesParaAgregarJugador1);
 
-        opcionesParaAgregarJugador2.agregarEnunciadoEidentificador (0, "Ornitorrinco");
-        opcionesParaAgregarJugador2.agregarEnunciadoEidentificador (0, "Pez piedra");
+        opcionesParaAgregarJugador2.agregarEnunciadoEidentificador(0, "Ornitorrinco");
+        opcionesParaAgregarJugador2.agregarEnunciadoEidentificador(0, "Pez piedra");
         opcionesParaAgregarJugador2.agregarEnunciadoEidentificador(1, "Rana toro");
         opcionesParaAgregarJugador2.agregarEnunciadoEidentificador(1, "Serpiente falsa coral");
         opcionesParaAgregarJugador2.agregarEnunciadoEidentificador(0, "Pez payaso");
@@ -98,15 +98,15 @@ public class MultipleChoicePuntajeParcialConExclusividadTest {
     @Test
     public void test02seCreaUnaPreguntaMultipleChoicePuntajeParcialYSeVerificaLaCorrectaAsignacionDePuntos() {
 
-        opcionesParaAgregarJugador1.agregarEnunciadoEidentificador (1, "Ornitorrinco");
-        opcionesParaAgregarJugador1.agregarEnunciadoEidentificador (0, "Pez piedra");
+        opcionesParaAgregarJugador1.agregarEnunciadoEidentificador(1, "Ornitorrinco");
+        opcionesParaAgregarJugador1.agregarEnunciadoEidentificador(0, "Pez piedra");
         opcionesParaAgregarJugador1.agregarEnunciadoEidentificador(0, "Rana toro");
         opcionesParaAgregarJugador1.agregarEnunciadoEidentificador(0, "Serpiente falsa coral");
         opcionesParaAgregarJugador1.agregarEnunciadoEidentificador(0, "Pez payaso");
         respuestaJugador1.rellenar(opcionesParaAgregarJugador1);
 
-        opcionesParaAgregarJugador2.agregarEnunciadoEidentificador (0, "Ornitorrinco");
-        opcionesParaAgregarJugador2.agregarEnunciadoEidentificador (1, "Pez piedra");
+        opcionesParaAgregarJugador2.agregarEnunciadoEidentificador(0, "Ornitorrinco");
+        opcionesParaAgregarJugador2.agregarEnunciadoEidentificador(1, "Pez piedra");
         opcionesParaAgregarJugador2.agregarEnunciadoEidentificador(1, "Rana toro");
         opcionesParaAgregarJugador2.agregarEnunciadoEidentificador(1, "Serpiente falsa coral");
         opcionesParaAgregarJugador2.agregarEnunciadoEidentificador(0, "Pez payaso");
@@ -129,15 +129,15 @@ public class MultipleChoicePuntajeParcialConExclusividadTest {
     @Test
     public void test03seCreaUnaPreguntaMultipleChoicePuntajeParcialYSeVerificaLaCorrectaAsignacionDePuntos() {
 
-        opcionesParaAgregarJugador1.agregarEnunciadoEidentificador (1, "Ornitorrinco");
-        opcionesParaAgregarJugador1.agregarEnunciadoEidentificador (1, "Pez piedra");
+        opcionesParaAgregarJugador1.agregarEnunciadoEidentificador(1, "Ornitorrinco");
+        opcionesParaAgregarJugador1.agregarEnunciadoEidentificador(1, "Pez piedra");
         opcionesParaAgregarJugador1.agregarEnunciadoEidentificador(0, "Rana toro");
         opcionesParaAgregarJugador1.agregarEnunciadoEidentificador(0, "Serpiente falsa coral");
         opcionesParaAgregarJugador1.agregarEnunciadoEidentificador(0, "Pez payaso");
         respuestaJugador1.rellenar(opcionesParaAgregarJugador1);
 
-        opcionesParaAgregarJugador2.agregarEnunciadoEidentificador (0, "Ornitorrinco");
-        opcionesParaAgregarJugador2.agregarEnunciadoEidentificador (1, "Pez piedra");
+        opcionesParaAgregarJugador2.agregarEnunciadoEidentificador(0, "Ornitorrinco");
+        opcionesParaAgregarJugador2.agregarEnunciadoEidentificador(1, "Pez piedra");
         opcionesParaAgregarJugador2.agregarEnunciadoEidentificador(1, "Rana toro");
         opcionesParaAgregarJugador2.agregarEnunciadoEidentificador(1, "Serpiente falsa coral");
         opcionesParaAgregarJugador2.agregarEnunciadoEidentificador(0, "Pez payaso");
@@ -160,15 +160,17 @@ public class MultipleChoicePuntajeParcialConExclusividadTest {
     @Test
     public void test04seCreaUnaPreguntaMultipleChoicePuntajeParcialYSeVerificaLaCorrectaAsignacionDePuntos() {
 
-        opcionesParaAgregarJugador1.agregarEnunciadoEidentificador (1, "Ornitorrinco");
-        opcionesParaAgregarJugador1.agregarEnunciadoEidentificador (0, "Pez piedra");
+        opcionesParaAgregarJugador1.agregarEnunciadoEidentificador(1, "Ornitorrinco");
+        opcionesParaAgregarJugador1.agregarEnunciadoEidentificador(0, "Pez piedra");
         opcionesParaAgregarJugador1.agregarEnunciadoEidentificador(0, "Rana toro");
-        opcionesParaAgregarJugador1.agregarEnunciadoEidentificador(0, "Serpiente falsa coral");
+        opcionesParaAgregarJugador1.agregarEnunciadoEidentificador(
+
+0, "Serpiente falsa coral");
         opcionesParaAgregarJugador1.agregarEnunciadoEidentificador(0, "Pez payaso");
         respuestaJugador1.rellenar(opcionesParaAgregarJugador1);
 
-        opcionesParaAgregarJugador2.agregarEnunciadoEidentificador (1, "Ornitorrinco");
-        opcionesParaAgregarJugador2.agregarEnunciadoEidentificador (1, "Pez piedra");
+        opcionesParaAgregarJugador2.agregarEnunciadoEidentificador(1, "Ornitorrinco");
+        opcionesParaAgregarJugador2.agregarEnunciadoEidentificador(1, "Pez piedra");
         opcionesParaAgregarJugador2.agregarEnunciadoEidentificador(0, "Rana toro");
         opcionesParaAgregarJugador2.agregarEnunciadoEidentificador(0, "Serpiente falsa coral");
         opcionesParaAgregarJugador2.agregarEnunciadoEidentificador(0, "Pez payaso");
@@ -188,4 +190,3 @@ public class MultipleChoicePuntajeParcialConExclusividadTest {
         assertEquals(jugador2.obtenerPuntaje(), 2);
     }
 }
-

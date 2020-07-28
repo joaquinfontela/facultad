@@ -10,8 +10,8 @@ import java.util.Map;
 public class Pregunta {
 
     private String enunciado;
-    protected Respuesta respuestaCorrecta;
-    protected Modalidad modalidad;
+    private Respuesta respuestaCorrecta;
+    private Modalidad modalidad;
 
     public Pregunta(Modalidad modalidadIngresada, String enunciadoIngresado, Respuesta respuestaIngresada) {
 

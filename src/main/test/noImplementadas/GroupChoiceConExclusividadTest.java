@@ -45,8 +45,8 @@ public class GroupChoiceConExclusividadTest {
 
         EnunciadosOpciones opcionesParaAgregar = new EnunciadosOpciones();
 
-        opcionesParaAgregar.agregarEnunciadoEidentificador (1, "Israel");
-        opcionesParaAgregar.agregarEnunciadoEidentificador (0, "Egipto");
+        opcionesParaAgregar.agregarEnunciadoEidentificador(1, "Israel");
+        opcionesParaAgregar.agregarEnunciadoEidentificador(0, "Egipto");
         opcionesParaAgregar.agregarEnunciadoEidentificador(1, "Yemen");
         opcionesParaAgregar.agregarEnunciadoEidentificador(0, "Sudan");
         opcionesParaAgregar.agregarEnunciadoEidentificador(0, "Yibuti");
@@ -70,17 +70,17 @@ public class GroupChoiceConExclusividadTest {
     @Test
     public void test01seCreaUnaPreguntaGroupChoiceYSeVerificaLaCorrectaAsignacionDePuntos() {
 
-        opcionesParaAgregarJugador1.agregarEnunciadoEidentificador (1, "Israel");
+        opcionesParaAgregarJugador1.agregarEnunciadoEidentificador(1, "Israel");
         opcionesParaAgregarJugador1.agregarEnunciadoEidentificador(1, "Oman");
         opcionesParaAgregarJugador1.agregarEnunciadoEidentificador(1, "Yemen");
-        opcionesParaAgregarJugador1.agregarEnunciadoEidentificador (0, "Egipto");
+        opcionesParaAgregarJugador1.agregarEnunciadoEidentificador(0, "Egipto");
         opcionesParaAgregarJugador1.agregarEnunciadoEidentificador(0, "Sudan");
         opcionesParaAgregarJugador1.agregarEnunciadoEidentificador(0, "Yibuti");
 
-        opcionesParaAgregarJugador2.agregarEnunciadoEidentificador (1, "Israel");
+        opcionesParaAgregarJugador2.agregarEnunciadoEidentificador(1, "Israel");
         opcionesParaAgregarJugador2.agregarEnunciadoEidentificador(1, "Oman");
         opcionesParaAgregarJugador2.agregarEnunciadoEidentificador(0, "Yemen");
-        opcionesParaAgregarJugador2.agregarEnunciadoEidentificador (1, "Egipto");
+        opcionesParaAgregarJugador2.agregarEnunciadoEidentificador(1, "Egipto");
         opcionesParaAgregarJugador2.agregarEnunciadoEidentificador(0, "Sudan");
         opcionesParaAgregarJugador2.agregarEnunciadoEidentificador(0, "Yibuti");
 
@@ -104,17 +104,17 @@ public class GroupChoiceConExclusividadTest {
     @Test
     public void test02seCreaUnaPreguntaGroupChoiceYSeVerificaLaCorrectaAsignacionDePuntos() {
 
-        opcionesParaAgregarJugador1.agregarEnunciadoEidentificador (1, "Israel");
+        opcionesParaAgregarJugador1.agregarEnunciadoEidentificador(1, "Israel");
         opcionesParaAgregarJugador1.agregarEnunciadoEidentificador(1, "Oman");
         opcionesParaAgregarJugador1.agregarEnunciadoEidentificador(1, "Yemen");
-        opcionesParaAgregarJugador1.agregarEnunciadoEidentificador (0, "Egipto");
+        opcionesParaAgregarJugador1.agregarEnunciadoEidentificador(0, "Egipto");
         opcionesParaAgregarJugador1.agregarEnunciadoEidentificador(1, "Sudan");
         opcionesParaAgregarJugador1.agregarEnunciadoEidentificador(0, "Yibuti");
 
-        opcionesParaAgregarJugador2.agregarEnunciadoEidentificador (0, "Israel");
+        opcionesParaAgregarJugador2.agregarEnunciadoEidentificador(0, "Israel");
         opcionesParaAgregarJugador2.agregarEnunciadoEidentificador(1, "Oman");
         opcionesParaAgregarJugador2.agregarEnunciadoEidentificador(1, "Yemen");
-        opcionesParaAgregarJugador2.agregarEnunciadoEidentificador (0, "Egipto");
+        opcionesParaAgregarJugador2.agregarEnunciadoEidentificador(0, "Egipto");
         opcionesParaAgregarJugador2.agregarEnunciadoEidentificador(0, "Sudan");
         opcionesParaAgregarJugador2.agregarEnunciadoEidentificador(0, "Yibuti");
 
@@ -169,4 +169,3 @@ public class GroupChoiceConExclusividadTest {
         assertEquals(jugador2.obtenerPuntaje(), 1);
     }
 }
-

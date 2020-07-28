@@ -10,8 +10,8 @@ import java.util.HashMap;
 
 public class GeneradorDePregunta {
 
-    ArrayList<Pregunta> Preguntas;
-    HashMap<Integer, Respuesta> id_TipoDePregunta;
+    private ArrayList<Pregunta> Preguntas;
+    private HashMap<Integer, Respuesta> id_TipoDePregunta;
 
     public GeneradorDePregunta() {
         id_TipoDePregunta= new HashMap<Integer, Respuesta>() ;

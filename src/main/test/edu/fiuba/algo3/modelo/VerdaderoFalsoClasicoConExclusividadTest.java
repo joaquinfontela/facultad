@@ -151,5 +151,4 @@ public class VerdaderoFalsoClasicoConExclusividadTest {
         assertEquals(jugador1.obtenerPuntaje(), 0);
         assertEquals(jugador2.obtenerPuntaje(), 0);
     }
-
 }

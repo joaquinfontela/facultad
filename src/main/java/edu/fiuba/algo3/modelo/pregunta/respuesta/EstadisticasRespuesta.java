@@ -2,9 +2,9 @@ package edu.fiuba.algo3.modelo.pregunta.respuesta;
 
 public class EstadisticasRespuesta {
 
-    Integer opcionesCorrectasElegidas;
-    Integer opcionesIncorrectasElegidas;
-    Integer opcionesCorrectasNoElegidas;
+    private Integer opcionesCorrectasElegidas;
+    private Integer opcionesIncorrectasElegidas;
+    private Integer opcionesCorrectasNoElegidas;
 
     public EstadisticasRespuesta() {
 
