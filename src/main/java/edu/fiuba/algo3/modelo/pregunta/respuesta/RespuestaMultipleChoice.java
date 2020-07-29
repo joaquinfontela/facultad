@@ -27,11 +27,11 @@ public class RespuestaMultipleChoice implements Respuesta{
         return estadisticasRespuesta;
     }
 
-    private EstadisticasRespuesta compararRespuestasCorrectas(RespuestaMultipleChoice otraRespuestaMultipleChoice ) {
+    private EstadisticasRespuesta compararRespuestasCorrectas(RespuestaMultipleChoice otraRespuestaMultipleChoice) {
 
         EstadisticasRespuesta estadisticasRespuesta = new EstadisticasRespuesta();
 
-        for (Opcion opcionCorrectaPropia : this.opcionesCorrectas) {
+        for (Opcion opcionCorrectaPropia : opcionesCorrectas) {
 
             EstadisticasRespuesta estadisticasRespuestaDeEstaOpcion = new EstadisticasRespuesta();
 

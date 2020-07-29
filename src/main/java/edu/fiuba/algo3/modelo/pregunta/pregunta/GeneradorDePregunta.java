@@ -14,7 +14,7 @@ public class GeneradorDePregunta {
     private HashMap<Integer, Respuesta> id_TipoDePregunta;
 
     public GeneradorDePregunta() {
-        id_TipoDePregunta= new HashMap<Integer, Respuesta>() ;
+        id_TipoDePregunta= new HashMap<>() ;
         id_TipoDePregunta.put(1, new RespuestaVerdaderoFalso());
         /*
         id_TipoDePregunta.put(2, new RespuestaMultipleChoice());
@@ -25,7 +25,7 @@ public class GeneradorDePregunta {
 
     ArrayList<Opcion> formatearOpciones() { return new ArrayList<>(); }
 
-    Pregunta generarPregunta(Modalidad modalidad, Integer tipoDePregunta, String enunciado, EnunciadosOpciones opciones) {
+    Pregunta generarPregunta(Modalidad modalidad, int tipoDePregunta, String enunciado, EnunciadosOpciones opciones) {
 
         Respuesta respuestaCorrecta = id_TipoDePregunta.get(tipoDePregunta);
         respuestaCorrecta.rellenar(opciones);

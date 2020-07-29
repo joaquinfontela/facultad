@@ -89,7 +89,7 @@ public class OrderedChoiceConExclusividadTest {
         RespuestaDeJugador respuestaDeJugador1 = new RespuestaDeJugador(jugador1, respuestaJugador1);
         RespuestaDeJugador respuestaDeJugador2 = new RespuestaDeJugador(jugador2, respuestaJugador2);
 
-        ArrayList<RespuestaDeJugador> respuestasJugadores = new ArrayList<RespuestaDeJugador>();
+        ArrayList<RespuestaDeJugador> respuestasJugadores = new ArrayList<>();
         respuestasJugadores.add(respuestaDeJugador1);
         respuestasJugadores.add(respuestaDeJugador2);
 
@@ -120,7 +120,7 @@ public class OrderedChoiceConExclusividadTest {
         RespuestaDeJugador respuestaDeJugador1 = new RespuestaDeJugador(jugador1, respuestaJugador1);
         RespuestaDeJugador respuestaDeJugador2 = new RespuestaDeJugador(jugador2, respuestaJugador2);
 
-        ArrayList<RespuestaDeJugador> respuestasJugadores = new ArrayList<RespuestaDeJugador>();
+        ArrayList<RespuestaDeJugador> respuestasJugadores = new ArrayList<>();
         respuestasJugadores.add(respuestaDeJugador1);
         respuestasJugadores.add(respuestaDeJugador2);
 
@@ -151,7 +151,7 @@ public class OrderedChoiceConExclusividadTest {
         RespuestaDeJugador respuestaDeJugador1 = new RespuestaDeJugador(jugador1, respuestaJugador1);
         RespuestaDeJugador respuestaDeJugador2 = new RespuestaDeJugador(jugador2, respuestaJugador2);
 
-        ArrayList<RespuestaDeJugador> respuestasJugadores = new ArrayList<RespuestaDeJugador>();
+        ArrayList<RespuestaDeJugador> respuestasJugadores = new ArrayList<>();
         respuestasJugadores.add(respuestaDeJugador1);
         respuestasJugadores.add(respuestaDeJugador2);
 

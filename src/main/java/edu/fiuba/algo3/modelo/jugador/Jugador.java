@@ -2,7 +2,7 @@ package edu.fiuba.algo3.modelo.jugador;
 
 public class Jugador {
 
-    private static Integer proximoId = 1;
+    private static int proximoId = 1;
 
     private int id;
     private String nombre;

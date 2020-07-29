@@ -30,7 +30,7 @@ public class Pregunta {
 
     public void evaluarRespuestas(ArrayList<RespuestaDeJugador> respuestasJugadores){
 
-        for (RespuestaDeJugador respuesta : respuestasJugadores){
+        for (RespuestaDeJugador respuesta : respuestasJugadores) {
             respuesta.generarEstadisticasRespuesta(respuestaCorrecta);
         }
         modalidad.establecerPuntaje(respuestasJugadores);

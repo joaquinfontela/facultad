@@ -38,5 +38,7 @@ public class RespuestaDeJugador {
         return (puntos > 0);
     }
 
-    public void guardarPuntaje() { duenio.sumarPuntos(puntos); }
+    public void guardarPuntaje() {
+        duenio.sumarPuntos(puntos);
+    }
 }
