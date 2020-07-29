@@ -8,7 +8,11 @@ import java.util.ArrayList;
 
 public abstract class Modalidad {
 
-    protected ArrayList<Bonificacion> bonificacionesAplicadas = new ArrayList<>();
+    protected ArrayList<Bonificacion> bonificacionesAplicadas;
+
+    public Modalidad(){
+        bonificacionesAplicadas = new ArrayList<>();
+    }
 
     public void establecerPuntajes(ArrayList<RespuestaDeJugador> respuestasJugadores) {
 
