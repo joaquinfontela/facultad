@@ -1,6 +1,8 @@
 package edu.fiuba.algo3.modelo.pregunta.modalidad.bonificacion;
 
-import java.util.HashMap;
+import edu.fiuba.algo3.modelo.pregunta.respuesta.RespuestaDeJugador;
+
+import java.util.ArrayList;
 
 public class Multiplicador implements Bonificacion {
 
@@ -14,8 +16,10 @@ public class Multiplicador implements Bonificacion {
     }
 
     @Override
-    public void aplicar(HashMap<Integer, Integer> puntajes) {
-        puntajes.put(idDuenio, puntajes.get(idDuenio)*factor);
+    public void aplicar(ArrayList<RespuestaDeJugador> respuestasJugadores) {
+        for (RespuestaDeJugador respuesta : respuestasJugadores) {
+            respuesta.multiplicarPuntos(idDuenio, factor);
+        }
     }
 
     @Override

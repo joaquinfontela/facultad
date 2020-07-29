@@ -2,6 +2,7 @@ package edu.fiuba.algo3.modelo.pregunta.modalidad;
 
 import edu.fiuba.algo3.modelo.pregunta.modalidad.bonificacion.Bonificacion;
 import edu.fiuba.algo3.modelo.pregunta.respuesta.EstadisticasRespuesta;
+import edu.fiuba.algo3.modelo.pregunta.respuesta.RespuestaDeJugador;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -11,14 +12,15 @@ public abstract class Modalidad {
 
     protected ArrayList<Bonificacion> bonificacionesAplicadas = new ArrayList<Bonificacion>();
 
-    public HashMap<Integer, Integer> obtenerPuntajesPorJugador(HashMap<Integer, EstadisticasRespuesta> diccionarioIdEstadisticas) {
+    public void establecerPuntaje(ArrayList<RespuestaDeJugador> respuestasJugadores) {
 
-        HashMap<Integer, Integer> puntajes = new HashMap<Integer, Integer>();
-        for (Map.Entry<Integer, EstadisticasRespuesta> entrada : diccionarioIdEstadisticas.entrySet()) {
-            puntajes.put(entrada.getKey(), this.calcularPuntos(entrada.getValue()));
+        for (RespuestaDeJugador respuesta : respuestasJugadores){
+            respuesta.calcularPuntosBase(this);
         }
-        this.aplicarBonificaciones(puntajes);
-        return puntajes;
+        this.aplicarBonificaciones(respuestasJugadores);
+        for (RespuestaDeJugador respuesta : respuestasJugadores){
+            respuesta.guardarPuntaje();
+        }
     }
 
     public void recibirBonificacion(Bonificacion bonificacion) {
@@ -31,10 +33,10 @@ public abstract class Modalidad {
         }
     }
 
-    public void aplicarBonificaciones(HashMap<Integer, Integer> puntajes) {
+    public void aplicarBonificaciones(ArrayList<RespuestaDeJugador> respuestasJugadores) {
 
         for (Bonificacion bonificacion : bonificacionesAplicadas) {
-            bonificacion.aplicar(puntajes);
+            bonificacion.aplicar(respuestasJugadores);
         }
     }
 

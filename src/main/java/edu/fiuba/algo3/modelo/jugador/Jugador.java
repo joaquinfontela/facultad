@@ -24,4 +24,12 @@ public class Jugador {
     public Integer obtenerPuntaje(){
         return puntaje;
     }
+
+    public boolean esElMismo(int idParaConfirmar) {
+        return (id == idParaConfirmar);
+    }
+
+    public int obtenerId() {
+        return id;
+    }
 }
