@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.modelo.pregunta.pregunta;
 
-import edu.fiuba.algo3.modelo.pregunta.modalidad.Modalidad;
+import edu.fiuba.algo3.modelo.pregunta.modalidad.modalidad.Modalidad;
 import edu.fiuba.algo3.modelo.pregunta.respuesta.Respuesta;
 import edu.fiuba.algo3.modelo.pregunta.respuesta.RespuestaDeJugador;
 
