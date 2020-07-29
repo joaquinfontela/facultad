@@ -10,7 +10,7 @@ public class RespuestaDeJugador {
     private EstadisticasRespuesta estadisticas;
     private int puntos;
 
-    RespuestaDeJugador(Jugador jugadorIngresado, Respuesta respuestaIngresada) {
+    public RespuestaDeJugador(Jugador jugadorIngresado, Respuesta respuestaIngresada) {
 
         duenio = jugadorIngresado;
         respuesta = respuestaIngresada;

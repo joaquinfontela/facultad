@@ -6,13 +6,12 @@ import edu.fiuba.algo3.modelo.pregunta.modalidad.ModalidadClasica;
 import edu.fiuba.algo3.modelo.pregunta.pregunta.EnunciadosOpciones;
 import edu.fiuba.algo3.modelo.pregunta.pregunta.Pregunta;
 import edu.fiuba.algo3.modelo.pregunta.respuesta.Respuesta;
+import edu.fiuba.algo3.modelo.pregunta.respuesta.RespuestaDeJugador;
 import edu.fiuba.algo3.modelo.pregunta.respuesta.RespuestaMultipleChoice;
-import edu.fiuba.algo3.modelo.pregunta.respuesta.RespuestaVerdaderoFalso;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -79,15 +78,14 @@ public class MultipleChoiceClasicoTest {
         opcionesParaAgregarJugador2.agregarEnunciadoEidentificador(0, "Pez payaso");
         respuestaJugador2.rellenar(opcionesParaAgregarJugador2);
 
-        HashMap<Integer, Respuesta> idJugadores_respuestas = new HashMap<>();
+        RespuestaDeJugador respuestaDeJugador1 = new RespuestaDeJugador(jugador1, respuestaJugador1);
+        RespuestaDeJugador respuestaDeJugador2 = new RespuestaDeJugador(jugador2, respuestaJugador2);
 
-        idJugadores_respuestas.put(1, respuestaJugador1);
-        idJugadores_respuestas.put(2, respuestaJugador2);
+        ArrayList<RespuestaDeJugador> respuestasJugadores = new ArrayList<RespuestaDeJugador>();
+        respuestasJugadores.add(respuestaDeJugador1);
+        respuestasJugadores.add(respuestaDeJugador2);
 
-        Map<Integer, Integer> idsPuntuaciones = pregunta.obtenerPuntajePorJugador(idJugadores_respuestas);
-
-        jugador1.sumarPuntos(idsPuntuaciones.get(1));
-        jugador2.sumarPuntos(idsPuntuaciones.get(2));
+        pregunta.evaluarRespuestas(respuestasJugadores);
 
         assertEquals(jugador1.obtenerPuntaje(), 1);
         assertEquals(jugador2.obtenerPuntaje(), 0);

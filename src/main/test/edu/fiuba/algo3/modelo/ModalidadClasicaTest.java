@@ -27,7 +27,7 @@ public class ModalidadClasicaTest {
         exclusividad = new ExclusividadDePuntaje();
     }
 
-    @Test
+    /*@Test
     public void test01SeCreaUnaRespuestaCorrectaYOtraIncorrectaYSeVerificanLosPuntajesCorrespondientes() {
 
         estadisticasJugadorUno.sumarCorrectaElegida();
@@ -135,5 +135,5 @@ public class ModalidadClasicaTest {
         HashMap<Integer,Integer> puntajes = modalidad.obtenerPuntajesPorJugador(diccionarioIdEstadisticas);
         assertEquals(puntajes.get(1),0);
         assertEquals(puntajes.get(2),0);
-    }
+    }*/
 }
