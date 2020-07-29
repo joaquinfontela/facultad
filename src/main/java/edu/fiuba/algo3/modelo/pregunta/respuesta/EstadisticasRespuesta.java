@@ -2,9 +2,9 @@ package edu.fiuba.algo3.modelo.pregunta.respuesta;
 
 public class EstadisticasRespuesta {
 
-    private Integer opcionesCorrectasElegidas;
-    private Integer opcionesIncorrectasElegidas;
-    private Integer opcionesCorrectasNoElegidas;
+    private int opcionesCorrectasElegidas;
+    private int opcionesIncorrectasElegidas;
+    private int opcionesCorrectasNoElegidas;
 
     public EstadisticasRespuesta() {
 
@@ -20,19 +20,19 @@ public class EstadisticasRespuesta {
         opcionesCorrectasNoElegidas += otrasEstadisticas.opcionesCorrectasNoElegidas;
     }
 
-    public Integer obtenerOpcionesCorrectasElegidas(){
+    public int obtenerOpcionesCorrectasElegidas(){
         return opcionesCorrectasElegidas;
     }
 
-    public Boolean hayOpcionesIncorrectas(){
+    public boolean hayOpcionesIncorrectas(){
         return (opcionesIncorrectasElegidas > 0);
     }
 
-    public Boolean hayOpcionesCorrectasNoElegidas(){
+    public boolean hayOpcionesCorrectasNoElegidas(){
         return (opcionesCorrectasNoElegidas > 0);
     }
 
-    public Integer calcularPuntajePenalidadBase(){
+    public int calcularPuntajePenalidadBase(){
         return (opcionesCorrectasElegidas - opcionesIncorrectasElegidas);
     }
 

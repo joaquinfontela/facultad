@@ -16,7 +16,7 @@ public class RespuestaDeJugador {
         respuesta = respuestaIngresada;
     }
 
-    public void generarEstadisticasRespuesta(Respuesta respuestaCorrecta){
+    public void generarEstadisticasRespuesta(Respuesta respuestaCorrecta) {
 
         estadisticas = respuestaCorrecta.compararCon(respuesta);
     }

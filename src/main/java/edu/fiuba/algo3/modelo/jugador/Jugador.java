@@ -4,9 +4,9 @@ public class Jugador {
 
     private static Integer proximoId = 1;
 
-    private Integer id;
+    private int id;
     private String nombre;
-    private Integer puntaje;
+    private int puntaje;
 
     public Jugador(String nombreIngresado) {
 
@@ -17,11 +17,11 @@ public class Jugador {
         nombre = nombreIngresado;
     }
 
-    public void sumarPuntos(Integer puntos){
+    public void sumarPuntos(int puntos){
         puntaje += puntos;
     }
 
-    public Integer obtenerPuntaje(){
+    public int obtenerPuntaje(){
         return puntaje;
     }
 
