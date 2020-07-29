@@ -18,8 +18,8 @@ public class ExclusividadDePuntaje implements Bonificacion {
                 cantidadCandidatos++;
             }
         }
-        if (cantidadCandidatos == 1) { //tengo que usar un getter que no me convence
-            respuestaPosibleCandidato.multiplicarPuntos(respuestaPosibleCandidato.obtenerIdJugador(),2);
+        if (cantidadCandidatos == 1) {
+            respuestaPosibleCandidato.aplicarMultiplicacion(2);
         }
     }
 

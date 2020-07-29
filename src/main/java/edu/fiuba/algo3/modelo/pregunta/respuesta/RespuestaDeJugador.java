@@ -25,16 +25,17 @@ public class RespuestaDeJugador {
         puntos = modalidad.calcularPuntos(estadisticas);
     }
 
-    public void multiplicarPuntos(int id, int factor){
-        if (duenio.esElMismo(id)) puntos *= factor;
+    //el if utilizado deberia funcionar(no es necesario los id de jugador), sino usar duenio.esElMismo(jugador)
+    public void multiplicarPuntos(Jugador jugador, int factor){
+        if (duenio == jugador) aplicarMultiplicacion(factor);
+    }
+
+    public void aplicarMultiplicacion(int factor) {
+        puntos *= factor;
     }
 
     public boolean haPuntuado() {
         return (puntos > 0);
-    }
-
-    public int obtenerIdJugador() {
-        return duenio.obtenerId();
     }
 
     public void guardarPuntaje() { duenio.sumarPuntos(puntos); }

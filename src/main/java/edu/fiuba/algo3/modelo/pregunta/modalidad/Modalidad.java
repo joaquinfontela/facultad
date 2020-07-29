@@ -5,8 +5,6 @@ import edu.fiuba.algo3.modelo.pregunta.respuesta.EstadisticasRespuesta;
 import edu.fiuba.algo3.modelo.pregunta.respuesta.RespuestaDeJugador;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 public abstract class Modalidad {
 

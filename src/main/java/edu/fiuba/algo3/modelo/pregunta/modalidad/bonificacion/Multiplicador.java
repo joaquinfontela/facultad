@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.pregunta.modalidad.bonificacion;
 
+import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.pregunta.respuesta.RespuestaDeJugador;
 
 import java.util.ArrayList;
@@ -7,18 +8,18 @@ import java.util.ArrayList;
 public class Multiplicador implements Bonificacion {
 
     private int factor;
-    private int idDuenio;
+    private Jugador Duenio;
 
-    public Multiplicador(int factorIngresado, int idDuenioIngresado) {
+    public Multiplicador(int factorIngresado, Jugador DuenioIngresado) {
 
         factor = factorIngresado;
-        idDuenio = idDuenioIngresado;
+        Duenio = DuenioIngresado;
     }
 
     @Override
     public void aplicar(ArrayList<RespuestaDeJugador> respuestasJugadores) {
         for (RespuestaDeJugador respuesta : respuestasJugadores) {
-            respuesta.multiplicarPuntos(idDuenio, factor);
+            respuesta.multiplicarPuntos(Duenio, factor);
         }
     }
 

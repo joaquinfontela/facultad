@@ -25,11 +25,7 @@ public class Jugador {
         return puntaje;
     }
 
-    public boolean esElMismo(int idParaConfirmar) {
-        return (id == idParaConfirmar);
-    }
-
-    public int obtenerId() {
-        return id;
-    }
+    /*public boolean esElMismo(Jugador jugador) {
+        return (this.id == jugador.id);
+    }*/
 }
