@@ -34,7 +34,7 @@ public class RespuestaDeJugador {
         puntos *= factor;
     }
 
-    public boolean haPuntuado() {
+    public boolean consigioPuntos() {
         return (puntos > 0);
     }
 

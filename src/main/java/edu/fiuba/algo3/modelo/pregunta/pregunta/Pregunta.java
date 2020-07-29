@@ -33,6 +33,6 @@ public class Pregunta {
         for (RespuestaDeJugador respuesta : respuestasJugadores) {
             respuesta.generarEstadisticasRespuesta(respuestaCorrecta);
         }
-        modalidad.establecerPuntaje(respuestasJugadores);
+        modalidad.establecerPuntajes(respuestasJugadores);
     }
 }

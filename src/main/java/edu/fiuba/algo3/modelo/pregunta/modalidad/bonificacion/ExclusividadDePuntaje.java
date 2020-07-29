@@ -13,7 +13,7 @@ public class ExclusividadDePuntaje implements Bonificacion {
         RespuestaDeJugador respuestaPosibleCandidato = null;
         int cantidadCandidatos = 0;
         for (RespuestaDeJugador respuesta : respuestasJugadores) {
-            if (respuesta.haPuntuado()) {
+            if (respuesta.consigioPuntos()) {
                 respuestaPosibleCandidato = respuesta;
                 cantidadCandidatos++;
             }

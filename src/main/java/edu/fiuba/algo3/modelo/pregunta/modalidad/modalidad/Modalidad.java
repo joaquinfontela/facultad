@@ -8,9 +8,9 @@ import java.util.ArrayList;
 
 public abstract class Modalidad {
 
-    protected ArrayList<Bonificacion> bonificacionesAplicadas = new ArrayList<Bonificacion>();
+    protected ArrayList<Bonificacion> bonificacionesAplicadas = new ArrayList<>();
 
-    public void establecerPuntaje(ArrayList<RespuestaDeJugador> respuestasJugadores) {
+    public void establecerPuntajes(ArrayList<RespuestaDeJugador> respuestasJugadores) {
 
         for (RespuestaDeJugador respuesta : respuestasJugadores){
             respuesta.calcularPuntosBase(this);
