@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.modelo.pregunta.modalidad.bonificacion;
 
-import edu.fiuba.algo3.modelo.pregunta.respuesta.RespuestaDeJugador;
+import edu.fiuba.algo3.modelo.pregunta.modalidad.modalidad.Puntaje;
 
 import java.util.ArrayList;
 
@@ -8,18 +8,18 @@ public class ExclusividadDePuntaje implements Bonificacion {
 
     @Override
     //solo se aplica si uno no puntua y el otro si (aunque sea parcialmente)
-    public void aplicar(ArrayList<RespuestaDeJugador> respuestasJugadores) {
+    public void aplicar(ArrayList<Puntaje> puntajes) {
 
-        RespuestaDeJugador respuestaPosibleCandidato = null;
+        Puntaje puntajePosibleCandidato = null;
         int cantidadCandidatos = 0;
-        for (RespuestaDeJugador respuesta : respuestasJugadores) {
-            if (respuesta.consigioPuntos()) {
-                respuestaPosibleCandidato = respuesta;
+        for (Puntaje puntaje : puntajes) {
+            if (puntaje.consigioPuntos()) {
+                puntajePosibleCandidato = puntaje;
                 cantidadCandidatos++;
             }
         }
         if (cantidadCandidatos == 1) {
-            respuestaPosibleCandidato.aplicarMultiplicacion(2);
+            puntajePosibleCandidato.aplicarMultiplicacion(2);
         }
     }
 

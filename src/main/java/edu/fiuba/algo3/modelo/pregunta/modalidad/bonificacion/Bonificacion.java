@@ -1,12 +1,12 @@
 package edu.fiuba.algo3.modelo.pregunta.modalidad.bonificacion;
 
-import edu.fiuba.algo3.modelo.pregunta.respuesta.RespuestaDeJugador;
+import edu.fiuba.algo3.modelo.pregunta.modalidad.modalidad.Puntaje;
 
 import java.util.ArrayList;
 
 public interface Bonificacion {
 
-    void aplicar(ArrayList<RespuestaDeJugador> respuestasJugadores);
+    void aplicar(ArrayList<Puntaje> puntajes);
 
     boolean esExclusividad();
 }
