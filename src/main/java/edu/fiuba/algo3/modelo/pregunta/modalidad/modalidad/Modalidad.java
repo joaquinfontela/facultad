@@ -40,6 +40,7 @@ public abstract class Modalidad {
         for (Bonificacion bonificacion : bonificacionesAplicadas) {
             bonificacion.aplicar(respuestasJugadores);
         }
+        bonificacionesAplicadas.clear();
     }
 
     public abstract int calcularPuntos(EstadisticasRespuesta estadisticas);
