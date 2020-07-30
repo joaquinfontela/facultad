@@ -8,7 +8,7 @@ public class RespuestaDeJugador {
     private Jugador duenio;
     private Respuesta respuesta;
     private EstadisticasRespuesta estadisticas;
-    private int puntos;
+    private int puntosParaAsignar;
 
     public RespuestaDeJugador(Jugador jugadorIngresado, Respuesta respuestaIngresada) {
 
@@ -22,7 +22,7 @@ public class RespuestaDeJugador {
     }
 
     public void calcularPuntosBase(Modalidad modalidad) {
-        puntos = modalidad.calcularPuntos(estadisticas);
+        puntosParaAsignar = modalidad.calcularPuntos(estadisticas);
     }
 
     //el if utilizado deberia funcionar(no es necesario los id de jugador), sino usar duenio.esElMismo(jugador)
@@ -31,14 +31,14 @@ public class RespuestaDeJugador {
     }
 
     public void aplicarMultiplicacion(int factor) {
-        puntos *= factor;
+        puntosParaAsignar *= factor;
     }
 
     public boolean consigioPuntos() {
-        return (puntos > 0);
+        return (puntosParaAsignar > 0);
     }
 
     public void guardarPuntaje() {
-        duenio.sumarPuntos(puntos);
+        duenio.sumarPuntos(puntosParaAsignar);
     }
 }
