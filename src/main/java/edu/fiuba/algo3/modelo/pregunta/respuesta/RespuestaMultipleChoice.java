@@ -27,11 +27,11 @@ public class RespuestaMultipleChoice implements Respuesta{
         return estadisticasRespuesta;
     }
 
-    private EstadisticasRespuesta compararRespuestasCorrectas(RespuestaMultipleChoice otraRespuestaMultipleChoice ) {
+    private EstadisticasRespuesta compararRespuestasCorrectas(RespuestaMultipleChoice otraRespuestaMultipleChoice) {
 
         EstadisticasRespuesta estadisticasRespuesta = new EstadisticasRespuesta();
 
-        for (Opcion opcionCorrectaPropia : this.opcionesCorrectas) {
+        for (Opcion opcionCorrectaPropia : opcionesCorrectas) {
 
             EstadisticasRespuesta estadisticasRespuestaDeEstaOpcion = new EstadisticasRespuesta();
 
@@ -78,10 +78,10 @@ public class RespuestaMultipleChoice implements Respuesta{
     @Override
     public void rellenar(EnunciadosOpciones opcionesParaAgregar) {
 
-        for(int i = 0; i < (opcionesParaAgregar.opcionesCorrectas()).size(); i++) {
+        for (int i = 0; i < (opcionesParaAgregar.opcionesCorrectas()).size(); i++) {
             opcionesCorrectas.add(new Opcion(opcionesParaAgregar.opcionesCorrectas().get(i)));
         }
-        for(int i = 0; i < (opcionesParaAgregar.opcionesIncorrectas()).size(); i++) {
+        for (int i = 0; i < (opcionesParaAgregar.opcionesIncorrectas()).size(); i++) {
             opcionesIncorrectas.add(new Opcion(opcionesParaAgregar.opcionesIncorrectas().get(i)));
         }
     }

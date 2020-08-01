@@ -1,139 +1,150 @@
 package edu.fiuba.algo3.modelo;
 
+import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.pregunta.modalidad.bonificacion.ExclusividadDePuntaje;
-import edu.fiuba.algo3.modelo.pregunta.modalidad.ModalidadClasica;
+import edu.fiuba.algo3.modelo.pregunta.modalidad.modalidad.ModalidadClasica;
 import edu.fiuba.algo3.modelo.pregunta.respuesta.EstadisticasRespuesta;
 
+import edu.fiuba.algo3.modelo.pregunta.respuesta.RespuestaDeJugador;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import java.util.HashMap;
+
+import static org.mockito.Mockito.*;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ModalidadClasicaTest {
 
+    Jugador jugador1, jugador2;
     ModalidadClasica modalidad;
-    HashMap<Integer, EstadisticasRespuesta> diccionarioIdEstadisticas;
-    EstadisticasRespuesta estadisticasJugadorUno;
-    EstadisticasRespuesta estadisticasJugadorDos;
+    EstadisticasRespuesta estadisticasJugador1, estadisticasJugador2;
+    RespuestaDeJugador respuestaJugador1, respuestaJugador2;
     ExclusividadDePuntaje exclusividad;
 
     @BeforeEach
     public void init() {
 
+        jugador1 = new Jugador("Pablito");
+        jugador2 = new Jugador("Ramona");
         modalidad = new ModalidadClasica();
-        diccionarioIdEstadisticas = new HashMap<Integer, EstadisticasRespuesta>();
-        estadisticasJugadorUno = new EstadisticasRespuesta();
-        estadisticasJugadorDos = new EstadisticasRespuesta();
+        estadisticasJugador1 = new EstadisticasRespuesta();
+        estadisticasJugador2 = new EstadisticasRespuesta();
+        respuestaJugador1 = mock(RespuestaDeJugador.class);
+        respuestaJugador2 = mock(RespuestaDeJugador.class);
         exclusividad = new ExclusividadDePuntaje();
+
+        when(respuestaJugador1.obtenerEstadisticasRespuesta()).thenReturn(estadisticasJugador1);
+        when(respuestaJugador2.obtenerEstadisticasRespuesta()).thenReturn(estadisticasJugador2);
+        when(respuestaJugador1.obtenerDuenio()).thenReturn(jugador1);
+        when(respuestaJugador2.obtenerDuenio()).thenReturn(jugador2);
     }
 
     @Test
     public void test01SeCreaUnaRespuestaCorrectaYOtraIncorrectaYSeVerificanLosPuntajesCorrespondientes() {
 
-        estadisticasJugadorUno.sumarCorrectaElegida();
-        diccionarioIdEstadisticas.put(1, estadisticasJugadorUno);
+        estadisticasJugador1.sumarCorrectaElegida();
+        estadisticasJugador2.sumarIncorrectaElegida();
 
-        estadisticasJugadorDos.sumarIncorrectaElegida();
-        diccionarioIdEstadisticas.put(2, estadisticasJugadorDos);
+        ArrayList<RespuestaDeJugador> respuestas = new ArrayList<>(List.of(respuestaJugador1, respuestaJugador2));
 
-        HashMap<Integer,Integer> puntajes = modalidad.obtenerPuntajesPorJugador(diccionarioIdEstadisticas);
-        assertEquals(puntajes.get(1),1);
-        assertEquals(puntajes.get(2),0);
+        modalidad.establecerPuntajes(respuestas);
+
+        assertEquals(jugador1.obtenerPuntaje(),1);
+        assertEquals(jugador2.obtenerPuntaje(),0);
     }
 
     @Test
     public void test02SeCreaUnaRespuestaCorrectaDobleYOtraIncorrectaYSeVerificanLosPuntajesCorrespondientes() {
 
-        estadisticasJugadorUno.sumarCorrectaElegida();
-        estadisticasJugadorUno.sumarCorrectaElegida();
-        diccionarioIdEstadisticas.put(1, estadisticasJugadorUno);
+        estadisticasJugador1.sumarCorrectaElegida();
+        estadisticasJugador1.sumarCorrectaElegida();
+        estadisticasJugador2.sumarIncorrectaElegida();
 
-        estadisticasJugadorDos.sumarIncorrectaElegida();
-        diccionarioIdEstadisticas.put(2, estadisticasJugadorDos);
+        ArrayList<RespuestaDeJugador> respuestas = new ArrayList<>(List.of(respuestaJugador1, respuestaJugador2));
 
-        HashMap<Integer,Integer> puntajes = modalidad.obtenerPuntajesPorJugador(diccionarioIdEstadisticas);
-        assertEquals(puntajes.get(1),1);
-        assertEquals(puntajes.get(2),0);
+        modalidad.establecerPuntajes(respuestas);
+
+        assertEquals(jugador1.obtenerPuntaje(),1);
+        assertEquals(jugador2.obtenerPuntaje(),0);
     }
 
     @Test
     public void test03SeCreaUnaRespuestaCorrectaParcialYOtraIncorrectaYSeVerificanLosPuntajesCorrespondientes() {
 
-        estadisticasJugadorUno.sumarCorrectaElegida();
-        estadisticasJugadorUno.sumarCorrectaNoElegida();
-        diccionarioIdEstadisticas.put(1, estadisticasJugadorUno);
+        estadisticasJugador1.sumarCorrectaElegida();
+        estadisticasJugador1.sumarCorrectaNoElegida();
+        estadisticasJugador2.sumarIncorrectaElegida();
 
-        estadisticasJugadorDos.sumarIncorrectaElegida();
-        diccionarioIdEstadisticas.put(2, estadisticasJugadorDos);
+        ArrayList<RespuestaDeJugador> respuestas = new ArrayList<>(List.of(respuestaJugador1, respuestaJugador2));
 
-        HashMap<Integer,Integer> puntajes = modalidad.obtenerPuntajesPorJugador(diccionarioIdEstadisticas);
-        assertEquals(puntajes.get(1),0);
-        assertEquals(puntajes.get(2),0);
+        modalidad.establecerPuntajes(respuestas);
+
+        assertEquals(jugador1.obtenerPuntaje(),0);
+        assertEquals(jugador2.obtenerPuntaje(),0);
     }
 
     @Test
     public void test04SeCreaUnaRespuestaCorrectaYOtraIncorrectaYSeVerificanLosPuntajesCorrespondientesConExlusividad() {
 
-        estadisticasJugadorUno.sumarCorrectaElegida();
-        diccionarioIdEstadisticas.put(1, estadisticasJugadorUno);
+        estadisticasJugador1.sumarCorrectaElegida();
+        estadisticasJugador2.sumarIncorrectaElegida();
 
-        estadisticasJugadorDos.sumarIncorrectaElegida();
-        diccionarioIdEstadisticas.put(2, estadisticasJugadorDos);
+        ArrayList<RespuestaDeJugador> respuestas = new ArrayList<>(List.of(respuestaJugador1, respuestaJugador2));
 
         modalidad.recibirBonificacion(exclusividad);
+        modalidad.establecerPuntajes(respuestas);
 
-        HashMap<Integer,Integer> puntajes = modalidad.obtenerPuntajesPorJugador(diccionarioIdEstadisticas);
-        assertEquals(puntajes.get(1),2);
-        assertEquals(puntajes.get(2),0);
+        assertEquals(jugador1.obtenerPuntaje(),2);
+        assertEquals(jugador2.obtenerPuntaje(),0);
     }
 
     @Test
     public void test05SeCreaUnaRespuestaCorrectaYOtraIncorrectaYSeVerificanLosPuntajesCorrespondientesConExlusividadDoble() {
 
-        estadisticasJugadorUno.sumarCorrectaElegida();
-        diccionarioIdEstadisticas.put(1, estadisticasJugadorUno);
+        estadisticasJugador1.sumarCorrectaElegida();
+        estadisticasJugador2.sumarIncorrectaElegida();
 
-        estadisticasJugadorDos.sumarIncorrectaElegida();
-        diccionarioIdEstadisticas.put(2, estadisticasJugadorDos);
+        ArrayList<RespuestaDeJugador> respuestas = new ArrayList<>(List.of(respuestaJugador1, respuestaJugador2));
 
         modalidad.recibirBonificacion(exclusividad);
         exclusividad = new ExclusividadDePuntaje();
         modalidad.recibirBonificacion(exclusividad);
+        modalidad.establecerPuntajes(respuestas);
 
-        HashMap<Integer,Integer> puntajes = modalidad.obtenerPuntajesPorJugador(diccionarioIdEstadisticas);
-        assertEquals(puntajes.get(1),4);
-        assertEquals(puntajes.get(2),0);
+        assertEquals(jugador1.obtenerPuntaje(),4);
+        assertEquals(jugador2.obtenerPuntaje(),0);
     }
 
     @Test
     public void test06SeCreaDosRespuestasCorrectasYLaExclusividadNoAfecta() {
 
-        estadisticasJugadorUno.sumarCorrectaElegida();
-        diccionarioIdEstadisticas.put(1, estadisticasJugadorUno);
+        estadisticasJugador1.sumarCorrectaElegida();
+        estadisticasJugador2.sumarCorrectaElegida();
 
-        estadisticasJugadorDos.sumarCorrectaElegida();
-        diccionarioIdEstadisticas.put(2, estadisticasJugadorDos);
+        ArrayList<RespuestaDeJugador> respuestas = new ArrayList<>(List.of(respuestaJugador1, respuestaJugador2));
 
         modalidad.recibirBonificacion(exclusividad);
+        modalidad.establecerPuntajes(respuestas);
 
-        HashMap<Integer,Integer> puntajes = modalidad.obtenerPuntajesPorJugador(diccionarioIdEstadisticas);
-        assertEquals(puntajes.get(1),1);
-        assertEquals(puntajes.get(2),1);
+        assertEquals(jugador1.obtenerPuntaje(),1);
+        assertEquals(jugador2.obtenerPuntaje(),1);
     }
 
     @Test
     public void test07SeCreaDosRespuestasIncorrectasYLaExclusividadNoAfecta() {
 
-        estadisticasJugadorUno.sumarIncorrectaElegida();
-        diccionarioIdEstadisticas.put(1, estadisticasJugadorUno);
+        estadisticasJugador1.sumarIncorrectaElegida();
+        estadisticasJugador2.sumarIncorrectaElegida();
 
-        estadisticasJugadorDos.sumarIncorrectaElegida();
-        diccionarioIdEstadisticas.put(2, estadisticasJugadorDos);
+        ArrayList<RespuestaDeJugador> respuestas = new ArrayList<>(List.of(respuestaJugador1, respuestaJugador2));
 
         modalidad.recibirBonificacion(exclusividad);
+        modalidad.establecerPuntajes(respuestas);
 
-        HashMap<Integer,Integer> puntajes = modalidad.obtenerPuntajesPorJugador(diccionarioIdEstadisticas);
-        assertEquals(puntajes.get(1),0);
-        assertEquals(puntajes.get(2),0);
+        assertEquals(jugador1.obtenerPuntaje(),0);
+        assertEquals(jugador2.obtenerPuntaje(),0);
     }
 }

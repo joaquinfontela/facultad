@@ -8,7 +8,7 @@ public class Opcion {
         enunciado = enunciadoIngresado;
     }
 
-    Boolean esLaMismaQue(Opcion opcion) {
+    boolean esLaMismaQue(Opcion opcion) {
         return (enunciado.equals(opcion.enunciado));
     }
 }

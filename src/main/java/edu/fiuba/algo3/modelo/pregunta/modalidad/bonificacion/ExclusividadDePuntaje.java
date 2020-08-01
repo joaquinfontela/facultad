@@ -1,23 +1,25 @@
 package edu.fiuba.algo3.modelo.pregunta.modalidad.bonificacion;
 
-import java.util.HashMap;
-import java.util.Map;
+import edu.fiuba.algo3.modelo.pregunta.modalidad.modalidad.Puntaje;
+
+import java.util.ArrayList;
 
 public class ExclusividadDePuntaje implements Bonificacion {
 
     @Override
     //solo se aplica si uno no puntua y el otro si (aunque sea parcialmente)
-    public void aplicar(HashMap<Integer, Integer> puntajes) {
-        int idPosibleCandidato = 0;
+    public void aplicar(ArrayList<Puntaje> puntajes) {
+
+        Puntaje puntajePosibleCandidato = null;
         int cantidadCandidatos = 0;
-        for (Map.Entry<Integer, Integer> entrada : puntajes.entrySet()) {
-            if (entrada.getValue() > 0) {
-                idPosibleCandidato = entrada.getKey();
+        for (Puntaje puntaje : puntajes) {
+            if (puntaje.consigioPuntos()) {
+                puntajePosibleCandidato = puntaje;
                 cantidadCandidatos++;
             }
         }
         if (cantidadCandidatos == 1) {
-            puntajes.put(idPosibleCandidato, puntajes.get(idPosibleCandidato)*2);
+            puntajePosibleCandidato.multiplicar(2);
         }
     }
 

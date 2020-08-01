@@ -1,24 +1,28 @@
-package edu.fiuba.algo3.modelo.pregunta.modalidad;
+package edu.fiuba.algo3.modelo.pregunta.modalidad.modalidad;
 
 import edu.fiuba.algo3.modelo.pregunta.modalidad.bonificacion.Bonificacion;
 import edu.fiuba.algo3.modelo.pregunta.respuesta.EstadisticasRespuesta;
+import edu.fiuba.algo3.modelo.pregunta.respuesta.RespuestaDeJugador;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 public abstract class Modalidad {
 
-    protected ArrayList<Bonificacion> bonificacionesAplicadas = new ArrayList<Bonificacion>();
+    protected ArrayList<Bonificacion> bonificacionesAplicadas;
 
-    public HashMap<Integer, Integer> obtenerPuntajesPorJugador(HashMap<Integer, EstadisticasRespuesta> diccionarioIdEstadisticas) {
+    public Modalidad(){
+        bonificacionesAplicadas = new ArrayList<>();
+    }
 
-        HashMap<Integer, Integer> puntajes = new HashMap<Integer, Integer>();
-        for (Map.Entry<Integer, EstadisticasRespuesta> entrada : diccionarioIdEstadisticas.entrySet()) {
-            puntajes.put(entrada.getKey(), this.calcularPuntos(entrada.getValue()));
+    public void establecerPuntajes(ArrayList<RespuestaDeJugador> respuestasJugadores) {
+
+        ArrayList<Puntaje> puntajes = new ArrayList<>();
+        for (RespuestaDeJugador respuesta : respuestasJugadores){
+            int puntos = this.calcularPuntos(respuesta.obtenerEstadisticasRespuesta());
+            puntajes.add(new Puntaje(respuesta.obtenerDuenio(), puntos));
         }
         this.aplicarBonificaciones(puntajes);
-        return puntajes;
+        this.guardarPuntajes(puntajes);
     }
 
     public void recibirBonificacion(Bonificacion bonificacion) {
@@ -31,11 +35,16 @@ public abstract class Modalidad {
         }
     }
 
-    public void aplicarBonificaciones(HashMap<Integer, Integer> puntajes) {
+    public void aplicarBonificaciones(ArrayList<Puntaje> puntajes) {
 
         for (Bonificacion bonificacion : bonificacionesAplicadas) {
             bonificacion.aplicar(puntajes);
         }
+        bonificacionesAplicadas.clear();
+    }
+
+    public void guardarPuntajes(ArrayList<Puntaje> puntajes){
+        for (Puntaje puntaje : puntajes) puntaje.guardar();
     }
 
     public abstract int calcularPuntos(EstadisticasRespuesta estadisticas);

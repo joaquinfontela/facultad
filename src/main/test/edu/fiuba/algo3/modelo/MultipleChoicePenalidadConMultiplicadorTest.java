@@ -1,20 +1,18 @@
 package edu.fiuba.algo3.modelo;
 
 import edu.fiuba.algo3.modelo.jugador.Jugador;
-import edu.fiuba.algo3.modelo.pregunta.modalidad.Modalidad;
-import edu.fiuba.algo3.modelo.pregunta.modalidad.ModalidadPenalidad;
-import edu.fiuba.algo3.modelo.pregunta.modalidad.ModalidadPuntajeParcial;
+import edu.fiuba.algo3.modelo.pregunta.modalidad.modalidad.Modalidad;
+import edu.fiuba.algo3.modelo.pregunta.modalidad.modalidad.ModalidadPenalidad;
 import edu.fiuba.algo3.modelo.pregunta.modalidad.bonificacion.Multiplicador;
 import edu.fiuba.algo3.modelo.pregunta.pregunta.EnunciadosOpciones;
 import edu.fiuba.algo3.modelo.pregunta.pregunta.Pregunta;
 import edu.fiuba.algo3.modelo.pregunta.respuesta.Respuesta;
+import edu.fiuba.algo3.modelo.pregunta.respuesta.RespuestaDeJugador;
 import edu.fiuba.algo3.modelo.pregunta.respuesta.RespuestaMultipleChoice;
-import edu.fiuba.algo3.modelo.pregunta.respuesta.RespuestaVerdaderoFalso;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -44,9 +42,7 @@ public class MultipleChoicePenalidadConMultiplicadorTest {
         opcionesParaAgregar.agregarEnunciadoEidentificador(0, "Rana toro");
         opcionesParaAgregar.agregarEnunciadoEidentificador(0, "Serpiente falsa coral");
         opcionesParaAgregar.agregarEnunciadoEidentificador(0, "Pez payaso");
-
         respuestaCorrecta.rellenar(opcionesParaAgregar);
-
     }
 
     @Test
@@ -54,7 +50,7 @@ public class MultipleChoicePenalidadConMultiplicadorTest {
 
         Modalidad modalidad = new ModalidadPenalidad();
 
-        Multiplicador multiplicadorX2jugador1 = new Multiplicador(2, 1);
+        Multiplicador multiplicadorX2jugador1 = new Multiplicador(2, jugador1);
         modalidad.recibirBonificacion(multiplicadorX2jugador1);
 
         Pregunta pregunta = new Pregunta(modalidad, enunciado, respuestaCorrecta);
@@ -69,7 +65,6 @@ public class MultipleChoicePenalidadConMultiplicadorTest {
         opcionesParaAgregarJugador1.agregarEnunciadoEidentificador(0, "Rana toro");
         opcionesParaAgregarJugador1.agregarEnunciadoEidentificador(0, "Serpiente falsa coral");
         opcionesParaAgregarJugador1.agregarEnunciadoEidentificador(0, "Pez payaso");
-
         respuestaJugador1.rellenar(opcionesParaAgregarJugador1);
 
         EnunciadosOpciones opcionesParaAgregarJugador2 = new EnunciadosOpciones();
@@ -79,18 +74,16 @@ public class MultipleChoicePenalidadConMultiplicadorTest {
         opcionesParaAgregarJugador2.agregarEnunciadoEidentificador(1, "Rana toro");
         opcionesParaAgregarJugador2.agregarEnunciadoEidentificador(1, "Serpiente falsa coral");
         opcionesParaAgregarJugador2.agregarEnunciadoEidentificador(0, "Pez payaso");
-
         respuestaJugador2.rellenar(opcionesParaAgregarJugador2);
 
-        HashMap<Integer, Respuesta> idJugadores_respuestas = new HashMap<>();
+        RespuestaDeJugador respuestaDeJugador1 = new RespuestaDeJugador(jugador1, respuestaJugador1);
+        RespuestaDeJugador respuestaDeJugador2 = new RespuestaDeJugador(jugador2, respuestaJugador2);
 
-        idJugadores_respuestas.put(1, respuestaJugador1);
-        idJugadores_respuestas.put(2, respuestaJugador2);
+        ArrayList<RespuestaDeJugador> respuestasJugadores = new ArrayList<>();
+        respuestasJugadores.add(respuestaDeJugador1);
+        respuestasJugadores.add(respuestaDeJugador2);
 
-        Map<Integer, Integer> idsPuntuaciones = pregunta.obtenerPuntajePorJugador(idJugadores_respuestas);
-
-        jugador1.sumarPuntos(idsPuntuaciones.get(1));
-        jugador2.sumarPuntos(idsPuntuaciones.get(2));
+        pregunta.evaluarRespuestas(respuestasJugadores);
 
         assertEquals(jugador1.obtenerPuntaje(), 4);
         assertEquals(jugador2.obtenerPuntaje(), -2);
@@ -101,7 +94,7 @@ public class MultipleChoicePenalidadConMultiplicadorTest {
 
         Modalidad modalidad = new ModalidadPenalidad();
 
-        Multiplicador multiplicadorX2jugador2 = new Multiplicador(2, 2);
+        Multiplicador multiplicadorX2jugador2 = new Multiplicador(2, jugador2);
         modalidad.recibirBonificacion(multiplicadorX2jugador2);
 
         Pregunta pregunta = new Pregunta(modalidad, enunciado, respuestaCorrecta);
@@ -116,7 +109,6 @@ public class MultipleChoicePenalidadConMultiplicadorTest {
         opcionesParaAgregarJugador1.agregarEnunciadoEidentificador(0, "Rana toro");
         opcionesParaAgregarJugador1.agregarEnunciadoEidentificador(0, "Serpiente falsa coral");
         opcionesParaAgregarJugador1.agregarEnunciadoEidentificador(0, "Pez payaso");
-
         respuestaJugador1.rellenar(opcionesParaAgregarJugador1);
 
         EnunciadosOpciones opcionesParaAgregarJugador2 = new EnunciadosOpciones();
@@ -126,19 +118,16 @@ public class MultipleChoicePenalidadConMultiplicadorTest {
         opcionesParaAgregarJugador2.agregarEnunciadoEidentificador(1, "Rana toro");
         opcionesParaAgregarJugador2.agregarEnunciadoEidentificador(1, "Serpiente falsa coral");
         opcionesParaAgregarJugador2.agregarEnunciadoEidentificador(0, "Pez payaso");
-
         respuestaJugador2.rellenar(opcionesParaAgregarJugador2);
 
-        HashMap<Integer, Respuesta> idJugadores_respuestas = new HashMap<>();
+        RespuestaDeJugador respuestaDeJugador1 = new RespuestaDeJugador(jugador1, respuestaJugador1);
+        RespuestaDeJugador respuestaDeJugador2 = new RespuestaDeJugador(jugador2, respuestaJugador2);
 
-        idJugadores_respuestas.put(1, respuestaJugador1);
-        idJugadores_respuestas.put(2, respuestaJugador2);
+        ArrayList<RespuestaDeJugador> respuestasJugadores = new ArrayList<>();
+        respuestasJugadores.add(respuestaDeJugador1);
+        respuestasJugadores.add(respuestaDeJugador2);
 
-        Map<Integer, Integer> idsPuntuaciones = pregunta.obtenerPuntajePorJugador(idJugadores_respuestas);
-
-        jugador1.sumarPuntos(idsPuntuaciones.get(1));
-        jugador2.sumarPuntos(idsPuntuaciones.get(2));
-
+        pregunta.evaluarRespuestas(respuestasJugadores);
         assertEquals(jugador1.obtenerPuntaje(), 2);
         assertEquals(jugador2.obtenerPuntaje(), -4);
     }
@@ -148,7 +137,7 @@ public class MultipleChoicePenalidadConMultiplicadorTest {
 
         Modalidad modalidad = new ModalidadPenalidad();
 
-        Multiplicador multiplicadorX3jugador1 = new Multiplicador(3, 1);
+        Multiplicador multiplicadorX3jugador1 = new Multiplicador(3, jugador1);
         modalidad.recibirBonificacion(multiplicadorX3jugador1);
 
         Pregunta pregunta = new Pregunta(modalidad, enunciado, respuestaCorrecta);
@@ -163,7 +152,6 @@ public class MultipleChoicePenalidadConMultiplicadorTest {
         opcionesParaAgregarJugador1.agregarEnunciadoEidentificador(0, "Rana toro");
         opcionesParaAgregarJugador1.agregarEnunciadoEidentificador(0, "Serpiente falsa coral");
         opcionesParaAgregarJugador1.agregarEnunciadoEidentificador(0, "Pez payaso");
-
         respuestaJugador1.rellenar(opcionesParaAgregarJugador1);
 
         EnunciadosOpciones opcionesParaAgregarJugador2 = new EnunciadosOpciones();
@@ -173,18 +161,16 @@ public class MultipleChoicePenalidadConMultiplicadorTest {
         opcionesParaAgregarJugador2.agregarEnunciadoEidentificador(1, "Rana toro");
         opcionesParaAgregarJugador2.agregarEnunciadoEidentificador(1, "Serpiente falsa coral");
         opcionesParaAgregarJugador2.agregarEnunciadoEidentificador(0, "Pez payaso");
-
         respuestaJugador2.rellenar(opcionesParaAgregarJugador2);
 
-        HashMap<Integer, Respuesta> idJugadores_respuestas = new HashMap<>();
+        RespuestaDeJugador respuestaDeJugador1 = new RespuestaDeJugador(jugador1, respuestaJugador1);
+        RespuestaDeJugador respuestaDeJugador2 = new RespuestaDeJugador(jugador2, respuestaJugador2);
 
-        idJugadores_respuestas.put(1, respuestaJugador1);
-        idJugadores_respuestas.put(2, respuestaJugador2);
+        ArrayList<RespuestaDeJugador> respuestasJugadores = new ArrayList<>();
+        respuestasJugadores.add(respuestaDeJugador1);
+        respuestasJugadores.add(respuestaDeJugador2);
 
-        Map<Integer, Integer> idsPuntuaciones = pregunta.obtenerPuntajePorJugador(idJugadores_respuestas);
-
-        jugador1.sumarPuntos(idsPuntuaciones.get(1));
-        jugador2.sumarPuntos(idsPuntuaciones.get(2));
+        pregunta.evaluarRespuestas(respuestasJugadores);
 
         assertEquals(jugador1.obtenerPuntaje(), 6);
         assertEquals(jugador2.obtenerPuntaje(), -2);
@@ -195,7 +181,7 @@ public class MultipleChoicePenalidadConMultiplicadorTest {
 
         Modalidad modalidad = new ModalidadPenalidad();
 
-        Multiplicador multiplicadorX3jugador2 = new Multiplicador(3, 2);
+        Multiplicador multiplicadorX3jugador2 = new Multiplicador(3, jugador2);
         modalidad.recibirBonificacion(multiplicadorX3jugador2);
 
         Pregunta pregunta = new Pregunta(modalidad, enunciado, respuestaCorrecta);
@@ -210,7 +196,6 @@ public class MultipleChoicePenalidadConMultiplicadorTest {
         opcionesParaAgregarJugador1.agregarEnunciadoEidentificador(0, "Rana toro");
         opcionesParaAgregarJugador1.agregarEnunciadoEidentificador(0, "Serpiente falsa coral");
         opcionesParaAgregarJugador1.agregarEnunciadoEidentificador(0, "Pez payaso");
-
         respuestaJugador1.rellenar(opcionesParaAgregarJugador1);
 
         EnunciadosOpciones opcionesParaAgregarJugador2 = new EnunciadosOpciones();
@@ -220,18 +205,16 @@ public class MultipleChoicePenalidadConMultiplicadorTest {
         opcionesParaAgregarJugador2.agregarEnunciadoEidentificador(1, "Rana toro");
         opcionesParaAgregarJugador2.agregarEnunciadoEidentificador(1, "Serpiente falsa coral");
         opcionesParaAgregarJugador2.agregarEnunciadoEidentificador(0, "Pez payaso");
-
         respuestaJugador2.rellenar(opcionesParaAgregarJugador2);
 
-        HashMap<Integer, Respuesta> idJugadores_respuestas = new HashMap<>();
+        RespuestaDeJugador respuestaDeJugador1 = new RespuestaDeJugador(jugador1, respuestaJugador1);
+        RespuestaDeJugador respuestaDeJugador2 = new RespuestaDeJugador(jugador2, respuestaJugador2);
 
-        idJugadores_respuestas.put(1, respuestaJugador1);
-        idJugadores_respuestas.put(2, respuestaJugador2);
+        ArrayList<RespuestaDeJugador> respuestasJugadores = new ArrayList<>();
+        respuestasJugadores.add(respuestaDeJugador1);
+        respuestasJugadores.add(respuestaDeJugador2);
 
-        Map<Integer, Integer> idsPuntuaciones = pregunta.obtenerPuntajePorJugador(idJugadores_respuestas);
-
-        jugador1.sumarPuntos(idsPuntuaciones.get(1));
-        jugador2.sumarPuntos(idsPuntuaciones.get(2));
+        pregunta.evaluarRespuestas(respuestasJugadores);
 
         assertEquals(jugador1.obtenerPuntaje(), 2);
         assertEquals(jugador2.obtenerPuntaje(), -6);
