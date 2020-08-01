@@ -1,86 +1,100 @@
 package edu.fiuba.algo3.modelo;
 
+import edu.fiuba.algo3.modelo.jugador.Jugador;
+import edu.fiuba.algo3.modelo.pregunta.modalidad.modalidad.ModalidadPenalidad;
 import edu.fiuba.algo3.modelo.pregunta.modalidad.modalidad.ModalidadPuntajeParcial;
 import edu.fiuba.algo3.modelo.pregunta.modalidad.bonificacion.ExclusividadDePuntaje;
 import edu.fiuba.algo3.modelo.pregunta.respuesta.EstadisticasRespuesta;
+import edu.fiuba.algo3.modelo.pregunta.respuesta.RespuestaDeJugador;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 public class ModalidadPuntajeParcialTest {
 
+    Jugador jugador1, jugador2;
     ModalidadPuntajeParcial modalidad;
-    HashMap<Integer, EstadisticasRespuesta> diccionarioIdEstadisticas;
-    EstadisticasRespuesta estadisticasJugadorUno;
-    EstadisticasRespuesta estadisticasJugadorDos;
+    EstadisticasRespuesta estadisticasJugador1, estadisticasJugador2;
+    RespuestaDeJugador respuestaJugador1, respuestaJugador2;
     ExclusividadDePuntaje exclusividad;
 
     @BeforeEach
     public void init() {
 
+        jugador1 = new Jugador("Pablito");
+        jugador2 = new Jugador("Ramona");
         modalidad = new ModalidadPuntajeParcial();
-        diccionarioIdEstadisticas = new HashMap<Integer, EstadisticasRespuesta>();
-        estadisticasJugadorUno = new EstadisticasRespuesta();
-        estadisticasJugadorDos = new EstadisticasRespuesta();
+        estadisticasJugador1 = new EstadisticasRespuesta();
+        estadisticasJugador2 = new EstadisticasRespuesta();
+        respuestaJugador1 = mock(RespuestaDeJugador.class);
+        respuestaJugador2 = mock(RespuestaDeJugador.class);
         exclusividad = new ExclusividadDePuntaje();
+
+        when(respuestaJugador1.obtenerEstadisticasRespuesta()).thenReturn(estadisticasJugador1);
+        when(respuestaJugador2.obtenerEstadisticasRespuesta()).thenReturn(estadisticasJugador2);
+        when(respuestaJugador1.obtenerDuenio()).thenReturn(jugador1);
+        when(respuestaJugador2.obtenerDuenio()).thenReturn(jugador2);
     }
 
-    /*@Test
+    @Test
     public void test01SeCreaUnaRespuestaCorrectaMultipleYOtraIncorrectaMultipleYSeVerificanLosPuntajesCorrespondientes() {
 
         for (int i = 0; i < 3; i++){
-            estadisticasJugadorUno.sumarCorrectaElegida();
-            estadisticasJugadorDos.sumarCorrectaElegida();
+            estadisticasJugador1.sumarCorrectaElegida();
+            estadisticasJugador2.sumarCorrectaElegida();
         }
-        estadisticasJugadorDos.sumarIncorrectaElegida();
+        estadisticasJugador2.sumarIncorrectaElegida();
 
-        diccionarioIdEstadisticas.put(1, estadisticasJugadorUno);
-        diccionarioIdEstadisticas.put(2, estadisticasJugadorDos);
+        ArrayList<RespuestaDeJugador> respuestas = new ArrayList<>(List.of(respuestaJugador1, respuestaJugador2));
 
-        HashMap<Integer,Integer> puntajes = modalidad.obtenerPuntajesPorJugador(diccionarioIdEstadisticas);
-        assertEquals(puntajes.get(1),3);
-        assertEquals(puntajes.get(2),0);
+        modalidad.establecerPuntajes(respuestas);
+
+        assertEquals(jugador1.obtenerPuntaje(),3);
+        assertEquals(jugador2.obtenerPuntaje(),0);
     }
 
     @Test
     public void test02SeCreaUnaRespuestaCorrectaMultipleYOtraIncorrectaMultipleYSeVerificanLosPuntajesCorrespondientesConExclusividad() {
 
-        modalidad.recibirBonificacion(exclusividad);
-
         for (int i = 0; i < 3; i++){
-            estadisticasJugadorUno.sumarCorrectaElegida();
-            estadisticasJugadorDos.sumarCorrectaElegida();
+            estadisticasJugador1.sumarCorrectaElegida();
+            estadisticasJugador2.sumarCorrectaElegida();
         }
-        estadisticasJugadorDos.sumarIncorrectaElegida();
+        estadisticasJugador2.sumarIncorrectaElegida();
 
-        diccionarioIdEstadisticas.put(1, estadisticasJugadorUno);
-        diccionarioIdEstadisticas.put(2, estadisticasJugadorDos);
+        ArrayList<RespuestaDeJugador> respuestas = new ArrayList<>(List.of(respuestaJugador1, respuestaJugador2));
 
-        HashMap<Integer,Integer> puntajes = modalidad.obtenerPuntajesPorJugador(diccionarioIdEstadisticas);
-        assertEquals(puntajes.get(1),6);
-        assertEquals(puntajes.get(2),0);
+        modalidad.recibirBonificacion(exclusividad);
+        modalidad.establecerPuntajes(respuestas);
+
+        assertEquals(jugador1.obtenerPuntaje(),6);
+        assertEquals(jugador2.obtenerPuntaje(),0);
     }
 
     @Test
     public void test03SeCreaUnaRespuestaCorrectaMultipleYOtraIncorrectaMultipleYSeVerificanLosPuntajesCorrespondientesConExclusividadDoble() {
 
-        modalidad.recibirBonificacion(exclusividad);
-        modalidad = new ModalidadPuntajeParcial();
-        modalidad.recibirBonificacion(exclusividad);
-
         for (int i = 0; i < 3; i++){
-            estadisticasJugadorUno.sumarCorrectaElegida();
-            estadisticasJugadorDos.sumarCorrectaElegida();
+            estadisticasJugador1.sumarCorrectaElegida();
+            estadisticasJugador2.sumarCorrectaElegida();
         }
-        estadisticasJugadorDos.sumarIncorrectaElegida();
+        estadisticasJugador2.sumarIncorrectaElegida();
 
-        diccionarioIdEstadisticas.put(1, estadisticasJugadorUno);
-        diccionarioIdEstadisticas.put(2, estadisticasJugadorDos);
+        ArrayList<RespuestaDeJugador> respuestas = new ArrayList<>(List.of(respuestaJugador1, respuestaJugador2));
 
-        HashMap<Integer,Integer> puntajes = modalidad.obtenerPuntajesPorJugador(diccionarioIdEstadisticas);
-        assertEquals(puntajes.get(1),6);
-        assertEquals(puntajes.get(2),0);
-    }*/
+        modalidad.recibirBonificacion(exclusividad);
+        exclusividad = new ExclusividadDePuntaje();
+        modalidad.recibirBonificacion(exclusividad);
+        modalidad.establecerPuntajes(respuestas);
+
+        assertEquals(jugador1.obtenerPuntaje(),12);
+        assertEquals(jugador2.obtenerPuntaje(),0);
+    }
 }
