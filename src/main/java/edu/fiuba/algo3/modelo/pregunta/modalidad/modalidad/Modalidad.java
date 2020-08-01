@@ -16,13 +16,13 @@ public abstract class Modalidad {
 
     public void establecerPuntajes(ArrayList<RespuestaDeJugador> respuestasJugadores) {
 
+        ArrayList<Puntaje> puntajes = new ArrayList<>();
         for (RespuestaDeJugador respuesta : respuestasJugadores){
-            respuesta.calcularPuntosBase(this);
+            int puntos = this.calcularPuntos(respuesta.obtenerEstadisticasRespuesta());
+            puntajes.add(new Puntaje(respuesta.obtenerDuenio(), puntos));
         }
-        this.aplicarBonificaciones(respuestasJugadores);
-        for (RespuestaDeJugador respuesta : respuestasJugadores){
-            respuesta.guardarPuntaje();
-        }
+        this.aplicarBonificaciones(puntajes);
+        this.guardarPuntajes(puntajes);
     }
 
     public void recibirBonificacion(Bonificacion bonificacion) {
@@ -35,12 +35,16 @@ public abstract class Modalidad {
         }
     }
 
-    public void aplicarBonificaciones(ArrayList<RespuestaDeJugador> respuestasJugadores) {
+    public void aplicarBonificaciones(ArrayList<Puntaje> puntajes) {
 
         for (Bonificacion bonificacion : bonificacionesAplicadas) {
-            bonificacion.aplicar(respuestasJugadores);
+            bonificacion.aplicar(puntajes);
         }
         bonificacionesAplicadas.clear();
+    }
+
+    public void guardarPuntajes(ArrayList<Puntaje> puntajes){
+        for (Puntaje puntaje : puntajes) puntaje.guardar();
     }
 
     public abstract int calcularPuntos(EstadisticasRespuesta estadisticas);
