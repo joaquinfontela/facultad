@@ -1,9 +1,7 @@
 package edu.fiuba.algo3.modelo.pregunta.pregunta;
 
 import edu.fiuba.algo3.modelo.pregunta.modalidad.modalidad.Modalidad;
-import edu.fiuba.algo3.modelo.pregunta.respuesta.Opcion;
-import edu.fiuba.algo3.modelo.pregunta.respuesta.Respuesta;
-import edu.fiuba.algo3.modelo.pregunta.respuesta.RespuestaVerdaderoFalso;
+import edu.fiuba.algo3.modelo.pregunta.respuesta.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -16,11 +14,10 @@ public class GeneradorDePregunta {
     public GeneradorDePregunta() {
         id_TipoDePregunta= new HashMap<>() ;
         id_TipoDePregunta.put(1, new RespuestaVerdaderoFalso());
-        /*
         id_TipoDePregunta.put(2, new RespuestaMultipleChoice());
         id_TipoDePregunta.put(3, new RespuestaGroupChoice());
-        id_TipoDePregunta.put(4, new RespuestaOrderedChoice);
-        */
+        id_TipoDePregunta.put(4, new RespuestaOrderedChoice());
+
     }
 
     ArrayList<Opcion> formatearOpciones() { return new ArrayList<>(); }
