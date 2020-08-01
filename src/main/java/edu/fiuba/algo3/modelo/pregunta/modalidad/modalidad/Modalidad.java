@@ -44,10 +44,7 @@ public abstract class Modalidad {
     }
 
     public void guardarPuntajes(ArrayList<Puntaje> puntajes){
-
-        for (Puntaje puntaje : puntajes){
-            puntaje.guardarPuntaje();
-        }
+        for (Puntaje puntaje : puntajes) puntaje.guardar();
     }
 
     public abstract int calcularPuntos(EstadisticasRespuesta estadisticas);

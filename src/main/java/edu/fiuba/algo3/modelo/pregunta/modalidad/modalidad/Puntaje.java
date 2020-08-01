@@ -14,7 +14,6 @@ public class Puntaje {
     }
 
     public void multiplicar(Jugador jugador, int factor) {
-
         if (duenio == jugador) this.multiplicar(factor);
     }
 
@@ -26,7 +25,7 @@ public class Puntaje {
         return (puntosParaAplicar > 0);
     }
 
-    public void guardarPuntaje() {
+    public void guardar() {
         duenio.sumarPuntos(puntosParaAplicar);
     }
 }
