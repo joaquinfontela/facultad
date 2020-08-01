@@ -30,7 +30,7 @@ public class RespuestaVerdaderoFalso implements Respuesta {
     @Override
     public void rellenar(EnunciadosOpciones opcionesParaAgregar) {
 
-        opcionCorrecta = new Opcion(opcionesParaAgregar.opcionesCorrectas().get(0));
-        opcionIncorrecta = new Opcion(opcionesParaAgregar.opcionesIncorrectas().get(0));
+        opcionCorrecta = new Opcion(opcionesParaAgregar.enunciadosCorrectos().get(0));
+        opcionIncorrecta = new Opcion(opcionesParaAgregar.enunciadosIncorrectos().get(0));
     }
 }

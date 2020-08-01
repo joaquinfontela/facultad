@@ -23,21 +23,21 @@ public class EnunciadosOpciones {
         opciones.put(identificador, enunciadosActuales);
     }
 
-    public ArrayList<String> opcionesCorrectas(){
+    public ArrayList<String> enunciadosCorrectos(){
         return opciones.get(1);
     }
 
-    public ArrayList<String> opcionesIncorrectas(){
+    public ArrayList<String> enunciadosIncorrectos(){
         return opciones.get(0);
     }
 
-    public ArrayList<String> opcionesGrupoA(){ return opciones.get(0); }
+    public ArrayList<String> enunciadosGrupoA(){ return opciones.get(0); }
 
-    public ArrayList<String> opcionesGrupoB(){
+    public ArrayList<String> enunciadosGrupoB(){
         return opciones.get(1);
     }
 
-    public ArrayList<String> opcionesOrdenadas() {
+    public ArrayList<String> enunciadosOrdenados() {
 
         ArrayList<String> enunciadosOrdenados = new ArrayList<String>();
         for (int i = 0; i < opciones.size(); i++) {

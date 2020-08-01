@@ -53,10 +53,10 @@ public class RespuestaGroupChoice implements Respuesta {
     @Override
     public void rellenar(EnunciadosOpciones enunciadosOpciones) {
 
-        for (String enunciadoOpcionGrupoA : enunciadosOpciones.opcionesGrupoA()) {
+        for (String enunciadoOpcionGrupoA : enunciadosOpciones.enunciadosGrupoA()) {
             opcionesGrupoA.add( enunciadoOpcionGrupoA );
         }
-        for (String enunciadoOpcionGrupoB : enunciadosOpciones.opcionesGrupoB()) {
+        for (String enunciadoOpcionGrupoB : enunciadosOpciones.enunciadosGrupoB()) {
             opcionesGrupoB.add( enunciadoOpcionGrupoB );
         }
     }

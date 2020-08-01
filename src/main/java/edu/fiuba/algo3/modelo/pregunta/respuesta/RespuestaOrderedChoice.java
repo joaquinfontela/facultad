@@ -29,7 +29,7 @@ public class RespuestaOrderedChoice implements Respuesta {
 
     @Override
     public void rellenar(EnunciadosOpciones enunciadosOpciones) {
-        for( String enunciado : enunciadosOpciones.opcionesOrdenadas()){
+        for( String enunciado : enunciadosOpciones.enunciadosOrdenados()){
             opcionesOrdenadas.add(new Opcion(enunciado));
         }
     }

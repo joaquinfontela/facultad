@@ -78,11 +78,11 @@ public class RespuestaMultipleChoice implements Respuesta{
     @Override
     public void rellenar(EnunciadosOpciones opcionesParaAgregar) {
 
-        for (int i = 0; i < (opcionesParaAgregar.opcionesCorrectas()).size(); i++) {
-            opcionesCorrectas.add(new Opcion(opcionesParaAgregar.opcionesCorrectas().get(i)));
+        for (int i = 0; i < (opcionesParaAgregar.enunciadosCorrectos()).size(); i++) {
+            opcionesCorrectas.add(new Opcion(opcionesParaAgregar.enunciadosCorrectos().get(i)));
         }
-        for (int i = 0; i < (opcionesParaAgregar.opcionesIncorrectas()).size(); i++) {
-            opcionesIncorrectas.add(new Opcion(opcionesParaAgregar.opcionesIncorrectas().get(i)));
+        for (int i = 0; i < (opcionesParaAgregar.enunciadosIncorrectos()).size(); i++) {
+            opcionesIncorrectas.add(new Opcion(opcionesParaAgregar.enunciadosIncorrectos().get(i)));
         }
     }
 }
