@@ -19,7 +19,7 @@ public class ExclusividadDePuntaje implements Bonificacion {
             }
         }
         if (cantidadCandidatos == 1) {
-            puntajePosibleCandidato.aplicarMultiplicacion(2);
+            puntajePosibleCandidato.multiplicar(2);
         }
     }
 

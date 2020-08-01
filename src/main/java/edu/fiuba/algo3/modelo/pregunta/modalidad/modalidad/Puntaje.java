@@ -13,12 +13,12 @@ public class Puntaje {
         puntosParaAplicar = puntosIngresados;
     }
 
-    public void multiplicarPuntos(Jugador jugador, int factor) {
+    public void multiplicar(Jugador jugador, int factor) {
 
-        if (duenio == jugador) this.aplicarMultiplicacion(factor);
+        if (duenio == jugador) this.multiplicar(factor);
     }
 
-    public void aplicarMultiplicacion(int factor) {
+    public void multiplicar(int factor) {
         puntosParaAplicar *= factor;
     }
 

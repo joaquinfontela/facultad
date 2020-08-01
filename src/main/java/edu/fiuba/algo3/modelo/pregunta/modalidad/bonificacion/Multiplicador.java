@@ -20,7 +20,7 @@ public class Multiplicador implements Bonificacion {
     public void aplicar(ArrayList<Puntaje> puntajes) {
 
         for (Puntaje puntaje : puntajes) {
-            puntaje.multiplicarPuntos(Duenio, factor);
+            puntaje.multiplicar(Duenio, factor);
         }
     }
 
