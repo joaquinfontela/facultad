@@ -24,8 +24,4 @@ public class Jugador {
     public int obtenerPuntaje(){
         return puntaje;
     }
-
-    /*public boolean esElMismo(Jugador jugador) {
-        return (this.id == jugador.id);
-    }*/
 }
