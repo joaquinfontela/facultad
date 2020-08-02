@@ -8,17 +8,18 @@ public class RespuestaOrderedChoice implements Respuesta {
 
     ArrayList<Opcion> opcionesOrdenadas;
 
-    public RespuestaOrderedChoice (){
-        opcionesOrdenadas = new ArrayList<Opcion>();
+    public RespuestaOrderedChoice(){
+        opcionesOrdenadas = new ArrayList<>();
     }
 
     @Override
     public EstadisticasRespuesta compararCon(Respuesta otraRespuesta){
+
         EstadisticasRespuesta estadistica = new EstadisticasRespuesta();
-        for(int i=0; i< opcionesOrdenadas.size(); i++){
+        for (int i = 0; i < opcionesOrdenadas.size(); i++) {
             Opcion opcionPropia = opcionesOrdenadas.get(i);
             Opcion opcionAComparar = ((RespuestaOrderedChoice)otraRespuesta).opcionesOrdenadas.get(i);
-            if(!(opcionPropia.esLaMismaQue(opcionAComparar))){
+            if (!(opcionPropia.esLaMismaQue(opcionAComparar))) {
                 estadistica.sumarIncorrectaElegida();
                 return estadistica;
             }
@@ -29,7 +30,8 @@ public class RespuestaOrderedChoice implements Respuesta {
 
     @Override
     public void rellenar(EnunciadosOpciones enunciadosOpciones) {
-        for( String enunciado : enunciadosOpciones.enunciadosOrdenados()){
+
+        for (String enunciado : enunciadosOpciones.enunciadosOrdenados()){
             opcionesOrdenadas.add(new Opcion(enunciado));
         }
     }

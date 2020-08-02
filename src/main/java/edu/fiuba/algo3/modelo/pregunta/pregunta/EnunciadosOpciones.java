@@ -31,7 +31,9 @@ public class EnunciadosOpciones {
         return opciones.get(0);
     }
 
-    public ArrayList<String> enunciadosGrupoA(){ return opciones.get(0); }
+    public ArrayList<String> enunciadosGrupoA() {
+        return opciones.get(0);
+    }
 
     public ArrayList<String> enunciadosGrupoB(){
         return opciones.get(1);
@@ -39,7 +41,7 @@ public class EnunciadosOpciones {
 
     public ArrayList<String> enunciadosOrdenados() {
 
-        ArrayList<String> enunciadosOrdenados = new ArrayList<String>();
+        ArrayList<String> enunciadosOrdenados = new ArrayList<>();
         for (int i = 0; i < opciones.size(); i++) {
             enunciadosOrdenados.add(opciones.get(i).get(0));
         }

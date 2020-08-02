@@ -9,10 +9,10 @@ public class RespuestaGroupChoice implements Respuesta {
     private HashSet<String> opcionesGrupoA;
     private HashSet<String> opcionesGrupoB;
 
-    public RespuestaGroupChoice(){
+    public RespuestaGroupChoice() {
 
-        opcionesGrupoA = new HashSet<String>();
-        opcionesGrupoB = new HashSet<String>();
+        opcionesGrupoA = new HashSet<>();
+        opcionesGrupoB = new HashSet<>();
     }
 
     @Override
@@ -21,7 +21,7 @@ public class RespuestaGroupChoice implements Respuesta {
         RespuestaGroupChoice otraRespuestaGroupChoice = (RespuestaGroupChoice) otraRespuesta;
         EstadisticasRespuesta estadisticasRespuesta = new EstadisticasRespuesta();
 
-        if ( esLaRespuestaCorrecta(otraRespuestaGroupChoice) ) {
+        if (esLaRespuestaCorrecta(otraRespuestaGroupChoice)) {
             estadisticasRespuesta.sumarCorrectaElegida();
         } else {
             estadisticasRespuesta.sumarIncorrectaElegida();
@@ -32,32 +32,27 @@ public class RespuestaGroupChoice implements Respuesta {
 
     private Boolean esLaRespuestaCorrecta(RespuestaGroupChoice otraRespuesta) {
 
-        return ( losGruposAYLosGruposBDeCadaRespuestaSonIguales(otraRespuesta) ||
+        return (losGruposAYLosGruposBDeCadaRespuestaSonIguales(otraRespuesta) ||
                  elGrupoADeCadaRespuestaEsIgualAlGrupoBDeLaOtraRespuesta(otraRespuesta));
 
     }
 
     private Boolean losGruposAYLosGruposBDeCadaRespuestaSonIguales(RespuestaGroupChoice otraRespuesta) {
 
-        return ( opcionesGrupoA.equals(otraRespuesta.opcionesGrupoA) &&
+        return (opcionesGrupoA.equals(otraRespuesta.opcionesGrupoA) &&
                  opcionesGrupoB.equals(otraRespuesta.opcionesGrupoB));
     }
 
     private Boolean elGrupoADeCadaRespuestaEsIgualAlGrupoBDeLaOtraRespuesta(RespuestaGroupChoice otraRespuesta) {
 
-        return ( opcionesGrupoA.equals(otraRespuesta.opcionesGrupoB) &&
+        return (opcionesGrupoA.equals(otraRespuesta.opcionesGrupoB) &&
                  opcionesGrupoB.equals(otraRespuesta.opcionesGrupoA));
     }
-
 
     @Override
     public void rellenar(EnunciadosOpciones enunciadosOpciones) {
 
-        for (String enunciadoOpcionGrupoA : enunciadosOpciones.enunciadosGrupoA()) {
-            opcionesGrupoA.add( enunciadoOpcionGrupoA );
-        }
-        for (String enunciadoOpcionGrupoB : enunciadosOpciones.enunciadosGrupoB()) {
-            opcionesGrupoB.add( enunciadoOpcionGrupoB );
-        }
+        opcionesGrupoA.addAll(enunciadosOpciones.enunciadosGrupoA());
+        opcionesGrupoB.addAll(enunciadosOpciones.enunciadosGrupoB());
     }
 }
