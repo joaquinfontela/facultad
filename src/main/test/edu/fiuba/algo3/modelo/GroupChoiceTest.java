@@ -63,7 +63,26 @@ public class GroupChoiceTest {
     }
 
     @Test
-    public void test02seCreaUnaPreguntaGroupChoiceYSeVerificaLaCorrectaAsignacionDePuntos() {
+    public void test02seCreaUnaPreguntaGroupChoiceYSeVerificaLaOpcionCorrectaIntercambiandoLosGrupos() {
+
+        RespuestaGroupChoice respuestaCorrectaVerificacion = new RespuestaGroupChoice();
+
+        EnunciadosOpciones opcionesParaAgregar = new EnunciadosOpciones();
+
+        opcionesParaAgregar.agregarEnunciadoEidentificador(0, "Israel");
+        opcionesParaAgregar.agregarEnunciadoEidentificador(0, "Oman");
+        opcionesParaAgregar.agregarEnunciadoEidentificador(0, "Yemen");
+        opcionesParaAgregar.agregarEnunciadoEidentificador(1, "Egipto");
+        opcionesParaAgregar.agregarEnunciadoEidentificador(1, "Sudan");
+        opcionesParaAgregar.agregarEnunciadoEidentificador(1, "Yibuti");
+
+        respuestaCorrectaVerificacion.rellenar(opcionesParaAgregar);
+
+        assertEquals(pregunta.obtenerRespuestaCorrecta().compararCon(respuestaCorrectaVerificacion).obtenerOpcionesCorrectasElegidas(), 1);
+    }
+
+    @Test
+    public void test03seCreaUnaPreguntaGroupChoiceYSeVerificaLaCorrectaAsignacionDePuntos() {
 
         Jugador jugador1 = new Jugador("Santiago");
         Jugador jugador2 = new Jugador("Roberto");
@@ -105,7 +124,7 @@ public class GroupChoiceTest {
     }
 
     @Test
-    public void test03seCreaUnaPreguntaGroupChoiceYSeVerificaLaCorrectaAsignacionDePuntos() {
+    public void test04seCreaUnaPreguntaGroupChoiceYSeVerificaLaCorrectaAsignacionDePuntos() {
 
         Jugador jugador1 = new Jugador("Santiago");
         Jugador jugador2 = new Jugador("Roberto");
@@ -145,4 +164,6 @@ public class GroupChoiceTest {
         assertEquals(jugador1.obtenerPuntaje(), 0);
         assertEquals(jugador2.obtenerPuntaje(), 0);
     }
+
+
 }
