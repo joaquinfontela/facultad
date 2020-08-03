@@ -34,7 +34,6 @@ public class RespuestaGroupChoice implements Respuesta {
 
         return (losGruposAYLosGruposBDeCadaRespuestaSonIguales(otraRespuesta) ||
                  elGrupoADeCadaRespuestaEsIgualAlGrupoBDeLaOtraRespuesta(otraRespuesta));
-
     }
 
     private Boolean losGruposAYLosGruposBDeCadaRespuestaSonIguales(RespuestaGroupChoice otraRespuesta) {

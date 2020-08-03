@@ -25,7 +25,7 @@ public class GeneradorDePregunta {  //el codigo comentado es para generar las pr
         return preguntaNueva;
     }
 
-    void generarTodasLasPreguntas(ArrayList<InformacionPregunta> informacionPreguntas){
+    void generarTodasLasPreguntas(ArrayList<InformacionPregunta> informacionPreguntas) {
 
         for (InformacionPregunta informacion : informacionPreguntas){
             Modalidad modalidad = informacion.obtenerModalidad();

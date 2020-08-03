@@ -9,6 +9,7 @@ import edu.fiuba.algo3.modelo.pregunta.respuesta.*;
 import java.util.HashMap;
 
 public class InformacionPregunta {
+
     private Modalidad modalidad;
     private Respuesta respuestaCorrecta;
     private String enunciado;
@@ -16,7 +17,7 @@ public class InformacionPregunta {
     private HashMap<Integer, Respuesta> id_TipoDeRespuesta;
     private HashMap<Integer, Modalidad> id_Modalidad;
 
-    public InformacionPregunta(int tipoModalidad, int tipoPregunta, String enunciadoAasignar, EnunciadosOpciones opciones) {
+    public InformacionPregunta(int tipoModalidad, int tipoPregunta, String enunciadoParaAsignar, EnunciadosOpciones opciones) {
 
         id_TipoDeRespuesta = new HashMap<>();
         id_TipoDeRespuesta.put(1, new RespuestaVerdaderoFalso());
@@ -33,15 +34,17 @@ public class InformacionPregunta {
         respuestaCorrecta.rellenar(opciones);
 
         modalidad = id_Modalidad.get(tipoModalidad);
-        enunciado = enunciadoAasignar;
+        enunciado = enunciadoParaAsignar;
     }
 
     Modalidad obtenerModalidad() {
         return modalidad;
     }
+
     Respuesta obtenerRespuestaCorrecta(){
         return respuestaCorrecta;
     }
+
     String obtenerEnunciado(){
         return enunciado;
     }
