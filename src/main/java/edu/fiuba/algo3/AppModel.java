@@ -3,6 +3,7 @@ package edu.fiuba.algo3;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
@@ -26,26 +27,51 @@ public class AppModel extends Application {
 
         inicializarLayout();
 
-        var label = new Label("Que seleccion es la mas ganadora de la historia de los mundiales?");
-        label.setTranslateY(-140.0);
-        label.setFont(new Font("FreeSans", 18));
+        agregarEnunciadoDeLaPregunta("Que seleccion es la mas ganadora de la historia de los mundiales?");
 
-        layout.getChildren().add(label);
+        agregarOpcion("Brasil", -500, -175, Color.LIGHTSALMON);
+        agregarOpcion("Italia", 500, -175, Color.LIGHTGREEN);
+        agregarOpcion("Alemania", -500, 175, Color.LIGHTBLUE);
+        agregarOpcion("Argentina", 500, 175, Color.LIGHTYELLOW);
 
         var scene = new Scene(layout, 640, 480);
 
         stage.setTitle("Kahoot!");
         stage.setScene(scene);
+        stage.setMaximized(true); // o setFullScreen, despues vemos.
         stage.show();
     }
 
     void inicializarLayout(){
 
         layout = new StackPane();
-        layout.setBackground(new Background(new BackgroundFill(Color.LIGHTGRAY, CornerRadii.EMPTY, Insets.EMPTY)));
+        layout.setBackground(new Background(new BackgroundFill(Color.LIGHTSLATEGRAY, CornerRadii.EMPTY, Insets.EMPTY)));
     }
 
-    void agregarPregunta
+    void agregarEnunciadoDeLaPregunta(String enunciado){
+
+        var enunciadoDeLaPregunta = new Label(enunciado);
+
+        enunciadoDeLaPregunta.setTranslateY(-400.0);
+        enunciadoDeLaPregunta.setFont(new Font("FreeSans", 50));
+
+        layout.getChildren().add(enunciadoDeLaPregunta);
+    }
+
+    void agregarOpcion(String enunciado, Integer desplazamientoEnX, Integer desplazamientoEnY, Color color){
+
+        Button opcion = new Button();
+
+        opcion.setBackground(new Background(new BackgroundFill(color, CornerRadii.EMPTY, Insets.EMPTY)));
+        opcion.setText(enunciado);
+        opcion.setTranslateX(desplazamientoEnX);
+        opcion.setTranslateY(desplazamientoEnY);
+
+        opcion.setFont(new Font("FreeSans", 55));
+        opcion.setPrefSize(350, 100);
+
+        layout.getChildren().add(opcion);
+    }
 
     public static void main(String[] args) {
         launch();
