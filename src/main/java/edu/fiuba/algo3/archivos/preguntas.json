@@ -1,0 +1,83 @@
+{
+  "preguntas": {
+    "1": {
+      "modalidad id": 1,
+      "tipo pregunta id": 1,
+      "enunciado": "La seleccion de futbol de Brasil ha ganado cinco mundiales a lo largo de su historia.",
+      "opciones": {
+        "0": "Falso",
+        "1": "Verdadero"
+      }
+    },
+    "2": {
+      "modalidad id": 2,
+      "tipo pregunta id": 1,
+      "enunciado": "La seleccion de futbol de Argentina ha ganado tres mundiales a lo largo de su historia.",
+      "opciones": {
+        "0": "Verdadero",
+        "1": "Falso"
+      }
+    },
+    "3": {
+      "modalidad id": 1,
+      "tipo pregunta id": 2,
+      "enunciado": "Cuales de los siguientes equipos fueron finalistas de la Copa del Mundo de 1998?",
+      "opciones": {
+        "0": "Italia",
+        "0": "Alemania",
+        "0": "Argentina",
+        "1": "Brasil",
+        "1": "Francia"
+      }
+    },
+    "4": {
+      "modalidad id": 2,
+      "tipo pregunta id": 2,
+      "enunciado": "Cuales de los siguientes futbolistas han marcado en la final de una copa mundial?",
+      "opciones": {
+        "0": "Miroslav Klose (Alemania)",
+        "0": "Diego Maradona (Argentina)",
+        "1": "Pele (Brasil)",
+        "1": "Zinedine Zidane (Francia)",
+        "1": "Mario Kempes (Argentina)"
+      }
+    },
+    "5": {
+      "modalidad id": 3,
+      "tipo pregunta id": 2,
+      "enunciado": "Cuales de las siguientes selecciones nacionales ha ganado una Copa del Mundo celebrada en su pais?",
+      "opciones": {
+        "0": "Brasil",
+        "0": "España",
+        "1": "Uruguay",
+        "1": "Inglaterra",
+        "1": "Argentina"
+      }
+    },
+    "6": {
+      "modalidad id": 1,
+      "tipo pregunta id": 3,
+      "enunciado": "Agrupar los siguientes mundiales segun si la sede fue la de un pais europeo o no.",
+      "opciones": {
+        "0": "Mundial 2014",
+        "0": "Mundial 1970",
+        "1": "Mundial 1998",
+        "1": "Mundial 1982",
+        "1": "Mundial 1958",
+        "1": "Mundial 1934"
+      }
+    },
+    "7": {
+      "modalidad id": 1,
+      "tipo pregunta id": 4,
+      "enunciado": "Ordenar los siguientes paises segun la fecha de obtencion de su primer Copa Mundial (de mas antigua a mas reciente).",
+      "opciones": {
+        "0": "Uruguay",
+        "1": "Alemania",
+        "2": "Brasil",
+        "3": "Argentina",
+        "4": "Francia"
+      }
+    }
+  }
+}
