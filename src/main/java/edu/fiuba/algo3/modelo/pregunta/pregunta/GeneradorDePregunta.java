@@ -4,30 +4,35 @@ import edu.fiuba.algo3.modelo.pregunta.modalidad.modalidad.Modalidad;
 import edu.fiuba.algo3.modelo.pregunta.respuesta.*;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
-public class GeneradorDePregunta {
+public class GeneradorDePregunta {  //el codigo comentado es para generar las preguntas aleatoriamente
 
-    private ArrayList<Pregunta> Preguntas;
-    private HashMap<Integer, Respuesta> id_TipoDePregunta;
+    private ArrayList<Pregunta> preguntas;
+    private int indicePreguntaActual; // se va
 
-    public GeneradorDePregunta() {
-
-        id_TipoDePregunta = new HashMap<>();
-        id_TipoDePregunta.put(1, new RespuestaVerdaderoFalso());
-        id_TipoDePregunta.put(2, new RespuestaMultipleChoice());
-        id_TipoDePregunta.put(3, new RespuestaGroupChoice());
-        id_TipoDePregunta.put(4, new RespuestaOrderedChoice());
-
+    public GeneradorDePregunta(ArrayList<InformacionPregunta> informacionPreguntas) {
+        preguntas = new ArrayList<>();
+        indicePreguntaActual = 0; // se va
+        generarTodasLasPreguntas(informacionPreguntas);
     }
 
-    ArrayList<Opcion> formatearOpciones() { return new ArrayList<>(); }
+    public Pregunta obtenerPreguntaNueva(){
+        // Random randomizador = new Random();
+        // int indiceRandom = randomizador.nextInt(preguntas.size())
+        Pregunta preguntaNueva = preguntas.get(indicePreguntaActual);// preguntas.get(indiceRandom);
+        indicePreguntaActual++;// se va
+        // preguntas.remove(indiceRandom);
+        return preguntaNueva;
+    }
 
-    Pregunta generarPregunta(Modalidad modalidad, int tipoDePregunta, String enunciado, EnunciadosOpciones opciones) {
+    void generarTodasLasPreguntas(ArrayList<InformacionPregunta> informacionPreguntas){
 
-        Respuesta respuestaCorrecta = id_TipoDePregunta.get(tipoDePregunta);
-        respuestaCorrecta.rellenar(opciones);
-
-        return new Pregunta(modalidad, enunciado, respuestaCorrecta);
+        for (InformacionPregunta informacion : informacionPreguntas){
+            Modalidad modalidad = informacion.obtenerModalidad();
+            Respuesta respuestaCorrecta = informacion.obtenerRespuestaCorrecta();
+            String enunciado = informacion.obtenerEnunciado();
+            Pregunta preguntaNueva = new Pregunta(modalidad, enunciado, respuestaCorrecta);
+            preguntas.add(preguntaNueva);
+        }
     }
 }

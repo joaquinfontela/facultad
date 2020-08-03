@@ -40,7 +40,7 @@ public abstract class Modalidad {
         for (Bonificacion bonificacion : bonificacionesAplicadas) {
             bonificacion.aplicar(puntajes);
         }
-        bonificacionesAplicadas.clear();
+        //bonificacionesAplicadas.clear();   es al pedo
     }
 
     public void guardarPuntajes(ArrayList<Puntaje> puntajes){
