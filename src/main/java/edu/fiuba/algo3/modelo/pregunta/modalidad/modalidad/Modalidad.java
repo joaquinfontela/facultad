@@ -26,16 +26,7 @@ public abstract class Modalidad {
     }
 
     public void recibirBonificacion(Bonificacion bonificacion) {
-
-        try {
-            this.verificarCorrectaBonificacion(bonificacion);
-            this.verificarBonificacionConDistintoDuenio(bonificacion);
-            bonificacionesAplicadas.add(bonificacion);
-        } catch (BonificacionMalColocadaException exception) {
-            System.out.println("Se colocó mal la Bonificación");
-        } catch (MismoDuenioEnDosBonificacionesException exception) {
-            System.out.println("No se pueden recibir 2 bonificaciones del mismo duenio");
-        }
+        bonificacionesAplicadas.add(bonificacion);
     }
 
     public void aplicarBonificaciones(ArrayList<Puntaje> puntajes) {
