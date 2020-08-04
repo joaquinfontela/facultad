@@ -3,20 +3,22 @@ package edu.fiuba.algo3.interfaz;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
-import javafx.scene.layout.CornerRadii;
-import javafx.scene.layout.StackPane;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 
 public class LayoutPregunta {
 
-    private StackPane layout;
+    private BorderPane layout;
+    private StackPane layoutEnunciado;
+    private StackPane layoutOpciones;
 
     public LayoutPregunta() {
 
-        layout = new StackPane();
+        layout = new BorderPane();
+        layoutEnunciado = new StackPane();
+        layoutOpciones = new StackPane();
+
         layout.setBackground(new Background(new BackgroundFill(Color.SLATEGRAY, CornerRadii.EMPTY, Insets.EMPTY)));
     }
 
@@ -24,31 +26,28 @@ public class LayoutPregunta {
 
         var enunciadoDeLaPregunta = new Label(enunciado);
 
-        enunciadoDeLaPregunta.setTranslateY(-400.0);
+        enunciadoDeLaPregunta.setTranslateY(75.0);
         enunciadoDeLaPregunta.setFont(new Font("FreeSans", 50));
 
-        layout.getChildren().add(enunciadoDeLaPregunta);
+        layoutEnunciado.getChildren().add(enunciadoDeLaPregunta);
+        layout.setTop(layoutEnunciado);
     }
 
     public void agregarOpcion(String enunciado, Integer desplazamientoEnX, Integer desplazamientoEnY, Color color){
 
         Button opcion = new Button();
 
-        opcion.setSkin(new MyButtonSkin(opcion));
+        opcion.setSkin(new EstilosBotonOpcion(opcion, color));
 
-        opcion.setBackground(new Background(new BackgroundFill(color, CornerRadii.EMPTY, Insets.EMPTY)));
         opcion.setText(enunciado);
-        opcion.setTextFill(Color.SLATEGRAY);
         opcion.setTranslateX(desplazamientoEnX);
         opcion.setTranslateY(desplazamientoEnY);
 
-        opcion.setFont(new Font("FreeSans", 55));
-        opcion.setPrefSize(350, 100);
-
-        layout.getChildren().add(opcion);
+        layoutOpciones.getChildren().add(opcion);
+        layout.setCenter(layoutOpciones);
     }
 
-    public StackPane getLayout() {
+    public BorderPane getLayout() {
 
         return layout;
     }
