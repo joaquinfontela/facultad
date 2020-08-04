@@ -29,9 +29,12 @@ public abstract class Modalidad {
 
         try {
             this.verificarCorrectaBonificacion(bonificacion);
+            this.verificarBonificacionConDistintoDuenio(bonificacion);
             bonificacionesAplicadas.add(bonificacion);
-        } catch(BonificacionMalColocadaException exception) {
+        } catch (BonificacionMalColocadaException exception) {
             System.out.println("Se colocó mal la Bonificación");
+        } catch (MismoDuenioEnDosBonificacionesException exception) {
+            System.out.println("No se pueden recibir 2 bonificaciones del mismo duenio");
         }
     }
 
@@ -43,11 +46,22 @@ public abstract class Modalidad {
         //bonificacionesAplicadas.clear();   es al pedo
     }
 
+    public void verificarBonificacionConDistintoDuenio(Bonificacion nuevaBonificacion)
+                                                                throws MismoDuenioEnDosBonificacionesException {
+
+        for (Bonificacion bonificacion : bonificacionesAplicadas) {
+            if (bonificacion.tieneMismoDuenio(nuevaBonificacion)) {
+                throw new MismoDuenioEnDosBonificacionesException();
+            }
+        }
+    }
+
     public void guardarPuntajes(ArrayList<Puntaje> puntajes){
         for (Puntaje puntaje : puntajes) puntaje.guardar();
     }
 
     public abstract int calcularPuntos(EstadisticasRespuesta estadisticas);
 
-    public abstract void verificarCorrectaBonificacion(Bonificacion bonificacion) throws BonificacionMalColocadaException;
+    public abstract void verificarCorrectaBonificacion(Bonificacion bonificacion)
+                                                                        throws BonificacionMalColocadaException;
 }

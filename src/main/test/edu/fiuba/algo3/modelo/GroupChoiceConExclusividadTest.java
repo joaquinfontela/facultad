@@ -34,7 +34,7 @@ public class GroupChoiceConExclusividadTest {
 
         Modalidad modalidad = new ModalidadClasica();
 
-        ExclusividadDePuntaje exclusividadDePuntaje = new ExclusividadDePuntaje();
+        ExclusividadDePuntaje exclusividadDePuntaje = new ExclusividadDePuntaje(jugador1);
         modalidad.recibirBonificacion(exclusividadDePuntaje);
 
         String enunciado = "Agrupar los siguientes paises en africanos (0) y asiaticos (1).";

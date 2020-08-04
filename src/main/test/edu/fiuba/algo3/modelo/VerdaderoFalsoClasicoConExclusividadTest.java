@@ -33,7 +33,7 @@ public class VerdaderoFalsoClasicoConExclusividadTest {
 
         Modalidad modalidad = new ModalidadClasica();
 
-        ExclusividadDePuntaje exclusividadDePuntaje = new ExclusividadDePuntaje();
+        ExclusividadDePuntaje exclusividadDePuntaje = new ExclusividadDePuntaje(jugador1);
         modalidad.recibirBonificacion(exclusividadDePuntaje);
 
         String enunciado = "El agua hierve a 100 C.";

@@ -34,7 +34,7 @@ public class ModalidadClasicaTest {
         estadisticasJugador2 = new EstadisticasRespuesta();
         respuestaJugador1 = mock(RespuestaDeJugador.class);
         respuestaJugador2 = mock(RespuestaDeJugador.class);
-        exclusividad = new ExclusividadDePuntaje();
+        exclusividad = new ExclusividadDePuntaje(jugador1);
 
         when(respuestaJugador1.obtenerEstadisticasRespuesta()).thenReturn(estadisticasJugador1);
         when(respuestaJugador2.obtenerEstadisticasRespuesta()).thenReturn(estadisticasJugador2);
@@ -110,7 +110,7 @@ public class ModalidadClasicaTest {
         ArrayList<RespuestaDeJugador> respuestas = new ArrayList<>(List.of(respuestaJugador1, respuestaJugador2));
 
         modalidad.recibirBonificacion(exclusividad);
-        exclusividad = new ExclusividadDePuntaje();
+        exclusividad = new ExclusividadDePuntaje(jugador2);
         modalidad.recibirBonificacion(exclusividad);
         modalidad.establecerPuntajes(respuestas);
 

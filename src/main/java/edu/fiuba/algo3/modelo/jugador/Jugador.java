@@ -30,7 +30,7 @@ public class Jugador {
         multiplicadorX2 = new Multiplicador(2, this);
         multiplicadorX3 = new Multiplicador(3, this);
         exclusividades = new Stack<>();
-        for (int i = 0; i < 2; i++) exclusividades.push(new ExclusividadDePuntaje());
+        for (int i = 0; i < 2; i++) exclusividades.push(new ExclusividadDePuntaje(this));
     }
 
     public void sumarPuntos(int puntos) {

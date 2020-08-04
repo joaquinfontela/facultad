@@ -34,7 +34,7 @@ public class MultipleChoicePuntajeParcialConExclusividadTest {
 
         Modalidad modalidad = new ModalidadPuntajeParcial();
 
-        ExclusividadDePuntaje exclusividadDePuntaje = new ExclusividadDePuntaje();
+        ExclusividadDePuntaje exclusividadDePuntaje = new ExclusividadDePuntaje(jugador1);
         modalidad.recibirBonificacion(exclusividadDePuntaje);
 
         String enunciado = "¿Cuáles de estos animales son Venenosos?";
