@@ -22,10 +22,10 @@ public class AppModel extends Application {
 
         layoutPregunta.agregarEnunciadoDeLaPregunta("Que seleccion es la mas ganadora de la historia de los mundiales?");
 
-        layoutPregunta.agregarOpcion("Brasil", -500, -175, Color.DARKRED);
-        layoutPregunta.agregarOpcion("Italia", 500, -175, Color.DARKGREEN);
-        layoutPregunta.agregarOpcion("Alemania", -500, 175, Color.BLUE);
-        layoutPregunta.agregarOpcion("Argentina", 500, 175, Color.YELLOW);
+        layoutPregunta.agregarOpcion("Italia", -400, -125, Color.BLACK);
+        layoutPregunta.agregarOpcion("Brasil", 400, -125, Color.BLACK);
+        layoutPregunta.agregarOpcion("Argentina", -400, 125, Color.BLACK);
+        layoutPregunta.agregarOpcion("Alemania", 400, 125, Color.BLACK);
 
         var scene = new Scene(layoutPregunta.getLayout(), 640, 480);
 

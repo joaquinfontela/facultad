@@ -17,11 +17,11 @@ public class EstilosBotonOpcion extends ButtonSkin {
         eventoMousePasaPorArriba(opcion);
 
         opcion.setBackground(new Background(new BackgroundFill(color, CornerRadii.EMPTY, Insets.EMPTY)));
-        opcion.setTextFill(Color.SLATEGRAY);
+        opcion.setTextFill(Color.ORANGE);
 
         opcion.setFont(new Font("FreeSans", 55));
         opcion.setPrefSize(350, 100);
-        
+
     }
 
     private void eventoMousePasaPorArriba(Button opcion) {

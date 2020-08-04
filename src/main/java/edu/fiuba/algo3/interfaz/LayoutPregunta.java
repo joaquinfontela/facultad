@@ -12,14 +12,17 @@ public class LayoutPregunta {
     private BorderPane layout;
     private StackPane layoutEnunciado;
     private StackPane layoutOpciones;
+    private StackPane layoutBottom;
 
     public LayoutPregunta() {
 
         layout = new BorderPane();
         layoutEnunciado = new StackPane();
         layoutOpciones = new StackPane();
+        layoutBottom = new StackPane();
 
-        layout.setBackground(new Background(new BackgroundFill(Color.SLATEGRAY, CornerRadii.EMPTY, Insets.EMPTY)));
+        layout.setBackground(new Background(new BackgroundFill(Color.ORANGE, CornerRadii.EMPTY, Insets.EMPTY)));
+        agregarLayoutBottom();
     }
 
      public void agregarEnunciadoDeLaPregunta(String enunciado){
@@ -50,5 +53,18 @@ public class LayoutPregunta {
     public BorderPane getLayout() {
 
         return layout;
+    }
+
+    private void agregarLayoutBottom() {
+
+        Button botonEnviarRespuesta = new Button();
+
+        botonEnviarRespuesta.setSkin(new EstilosBotonEnviarRespuesta(botonEnviarRespuesta));
+
+        botonEnviarRespuesta.setText("ENVIAR RESPUESTA >>");
+        botonEnviarRespuesta.setTranslateY(-75.0);
+
+        layoutBottom.getChildren().add(botonEnviarRespuesta);
+        layout.setBottom(layoutBottom);
     }
 }
