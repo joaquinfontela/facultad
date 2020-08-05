@@ -33,7 +33,7 @@ public class LayoutOpciones {
             layout = new DistribuidorDeCincoOpciones().getLayout(opciones);
         } else if (opciones.size() == 6) {
             layout = new DistribuidorDeSeisOpciones().getLayout(opciones);
-        } 
+        }
 
         layout.getChildren().add(new BotonEnviarRespuesta().getBoton());
         return layout;

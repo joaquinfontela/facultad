@@ -8,12 +8,12 @@ public class DistribuidorDeSeisOpciones extends DistribuidorDeOpciones {
 
     public StackPane getLayout(ArrayList<String> opciones) {
 
-        agregarOpcion(opciones.get(0), -400, -275);
-        agregarOpcion(opciones.get(1), 400, -275);
+        agregarOpcion(opciones.get(0), -400, -200);
+        agregarOpcion(opciones.get(1), 400, -200);
         agregarOpcion(opciones.get(2), -400, -50);
         agregarOpcion(opciones.get(3), 400, -50);
         agregarOpcion(opciones.get(4), 0, -50);
-        agregarOpcion(opciones.get(5), 0, -275);
+        agregarOpcion(opciones.get(5), 0, -200);
         return layout;
     }
 }
