@@ -1,6 +1,6 @@
 package edu.fiuba.algo3;
 
-import edu.fiuba.algo3.interfaz.LayoutPregunta;
+import edu.fiuba.algo3.interfaz.layouts.LayoutPregunta;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
@@ -20,12 +20,12 @@ public class AppModel extends Application {
 
         LayoutPregunta layoutPregunta = new LayoutPregunta();
 
-        layoutPregunta.agregarEnunciadoDeLaPregunta("Que seleccion/es es/son la/s mas ganadora/s de la historia de los mundiales?");
+        layoutPregunta.agregarEnunciadoDeLaPregunta("Que seleccion es la mas ganadora de la historia de los mundiales? (seleccionar mas de una en caso de ser necesario)");
 
-        layoutPregunta.agregarOpcion("Italia", -400, -125, Color.BLACK);
-        layoutPregunta.agregarOpcion("Brasil", 400, -125, Color.BLACK);
-        layoutPregunta.agregarOpcion("Argentina", -400, 125, Color.BLACK);
-        layoutPregunta.agregarOpcion("Alemania", 400, 125, Color.BLACK);
+        layoutPregunta.agregarOpcion("Italia", -400, -200);
+        layoutPregunta.agregarOpcion("Brasil", 400, -200);
+        layoutPregunta.agregarOpcion("Argentina", -400, 50);
+        layoutPregunta.agregarOpcion("Alemania", 400, 50);
 
         var scene = new Scene(layoutPregunta.getLayout(), 640, 480);
 
