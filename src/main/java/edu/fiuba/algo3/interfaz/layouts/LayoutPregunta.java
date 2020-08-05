@@ -40,9 +40,9 @@ public class LayoutPregunta {
         layout.setTop(layoutEnunciado);
     }
 
-    public void agregarOpcion(String enunciado, Integer desplazamientoEnX, Integer desplazamientoEnY){
+    public void agregarOpcion(String enunciado){
 
-        layoutOpciones.agregarOpcion(enunciado, desplazamientoEnX, desplazamientoEnY);
+        layoutOpciones.agregarOpcion(enunciado);
         layout.setCenter(layoutOpciones.getLayout());
     }
 
