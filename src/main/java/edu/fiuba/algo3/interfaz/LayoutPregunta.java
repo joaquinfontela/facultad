@@ -1,5 +1,8 @@
 package edu.fiuba.algo3.interfaz;
 
+import edu.fiuba.algo3.interfaz.botones.BotonEnviarRespuesta;
+import edu.fiuba.algo3.interfaz.botones.BotonOpcion;
+import edu.fiuba.algo3.interfaz.estilos.EstilosBotonEnviarRespuesta;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -12,17 +15,17 @@ public class LayoutPregunta {
     private BorderPane layout;
     private StackPane layoutEnunciado;
     private StackPane layoutOpciones;
-    private StackPane layoutBottom;
+    private StackPane layoutInferior;
 
     public LayoutPregunta() {
 
         layout = new BorderPane();
         layoutEnunciado = new StackPane();
         layoutOpciones = new StackPane();
-        layoutBottom = new StackPane();
+        layoutInferior = new StackPane();
 
         layout.setBackground(new Background(new BackgroundFill(Color.ORANGE, CornerRadii.EMPTY, Insets.EMPTY)));
-        agregarLayoutBottom();
+        agregarLayoutInferior();
     }
 
      public void agregarEnunciadoDeLaPregunta(String enunciado){
@@ -38,15 +41,9 @@ public class LayoutPregunta {
 
     public void agregarOpcion(String enunciado, Integer desplazamientoEnX, Integer desplazamientoEnY, Color color){
 
-        Button opcion = new Button();
+        BotonOpcion opcion = new BotonOpcion(enunciado, desplazamientoEnX, desplazamientoEnY, color);
 
-        opcion.setSkin(new EstilosBotonOpcion(opcion, color));
-
-        opcion.setText(enunciado);
-        opcion.setTranslateX(desplazamientoEnX);
-        opcion.setTranslateY(desplazamientoEnY);
-
-        layoutOpciones.getChildren().add(opcion);
+        layoutOpciones.getChildren().add(opcion.getBoton());
         layout.setCenter(layoutOpciones);
     }
 
@@ -55,16 +52,11 @@ public class LayoutPregunta {
         return layout;
     }
 
-    private void agregarLayoutBottom() {
+    private void agregarLayoutInferior() {
 
-        Button botonEnviarRespuesta = new Button();
+        BotonEnviarRespuesta botonEnviarRespuesta = new BotonEnviarRespuesta();
 
-        botonEnviarRespuesta.setSkin(new EstilosBotonEnviarRespuesta(botonEnviarRespuesta));
-
-        botonEnviarRespuesta.setText("ENVIAR RESPUESTA >>");
-        botonEnviarRespuesta.setTranslateY(-75.0);
-
-        layoutBottom.getChildren().add(botonEnviarRespuesta);
-        layout.setBottom(layoutBottom);
+        layoutInferior.getChildren().add(botonEnviarRespuesta.getBoton());
+        layout.setBottom(layoutInferior);
     }
 }

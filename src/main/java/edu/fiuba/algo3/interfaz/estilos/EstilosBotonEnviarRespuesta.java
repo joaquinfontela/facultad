@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.interfaz;
+package edu.fiuba.algo3.interfaz.estilos;
 
 import javafx.animation.FadeTransition;
 import javafx.geometry.Insets;
@@ -23,7 +23,6 @@ public class EstilosBotonEnviarRespuesta extends ButtonSkin {
 
         boton.setFont(new Font("FreeSans", 35));
         boton.setPrefSize(500, 80);
-
     }
 
     private void eventoMousePasaPorArriba(Button boton) {
