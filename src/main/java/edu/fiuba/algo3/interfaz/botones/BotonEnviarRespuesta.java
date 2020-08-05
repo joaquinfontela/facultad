@@ -10,7 +10,7 @@ public class BotonEnviarRespuesta {
     public BotonEnviarRespuesta() {
 
         boton = new Button("ENVIAR RESPUESTA >>");
-        boton.setTranslateY(-75.0);
+        boton.setTranslateY(350.0);
 
         boton.setSkin(new EstilosBotonEnviarRespuesta(boton));
     }

@@ -2,7 +2,6 @@ package edu.fiuba.algo3.interfaz.botones;
 
 import edu.fiuba.algo3.interfaz.estilos.EstilosBotonOpcion;
 import javafx.scene.control.Button;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 
 public class BotonOpcion {

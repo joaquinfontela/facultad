@@ -20,7 +20,7 @@ public class AppModel extends Application {
 
         LayoutPregunta layoutPregunta = new LayoutPregunta();
 
-        layoutPregunta.agregarEnunciadoDeLaPregunta("Que seleccion es la mas ganadora de la historia de los mundiales?");
+        layoutPregunta.agregarEnunciadoDeLaPregunta("Que seleccion/es es/son la/s mas ganadora/s de la historia de los mundiales?");
 
         layoutPregunta.agregarOpcion("Italia", -400, -125, Color.BLACK);
         layoutPregunta.agregarOpcion("Brasil", 400, -125, Color.BLACK);

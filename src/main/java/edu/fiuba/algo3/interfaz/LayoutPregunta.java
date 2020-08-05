@@ -2,9 +2,7 @@ package edu.fiuba.algo3.interfaz;
 
 import edu.fiuba.algo3.interfaz.botones.BotonEnviarRespuesta;
 import edu.fiuba.algo3.interfaz.botones.BotonOpcion;
-import edu.fiuba.algo3.interfaz.estilos.EstilosBotonEnviarRespuesta;
 import javafx.geometry.Insets;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
@@ -15,17 +13,15 @@ public class LayoutPregunta {
     private BorderPane layout;
     private StackPane layoutEnunciado;
     private StackPane layoutOpciones;
-    private StackPane layoutInferior;
 
     public LayoutPregunta() {
 
         layout = new BorderPane();
         layoutEnunciado = new StackPane();
         layoutOpciones = new StackPane();
-        layoutInferior = new StackPane();
 
+        agregarBotonEnviarRespuesta();
         layout.setBackground(new Background(new BackgroundFill(Color.ORANGE, CornerRadii.EMPTY, Insets.EMPTY)));
-        agregarLayoutInferior();
     }
 
      public void agregarEnunciadoDeLaPregunta(String enunciado){
@@ -52,11 +48,11 @@ public class LayoutPregunta {
         return layout;
     }
 
-    private void agregarLayoutInferior() {
+    private void agregarBotonEnviarRespuesta() {
 
         BotonEnviarRespuesta botonEnviarRespuesta = new BotonEnviarRespuesta();
 
-        layoutInferior.getChildren().add(botonEnviarRespuesta.getBoton());
-        layout.setBottom(layoutInferior);
+        layoutOpciones.getChildren().add(botonEnviarRespuesta.getBoton());
+        layout.setCenter(layoutOpciones);
     }
 }

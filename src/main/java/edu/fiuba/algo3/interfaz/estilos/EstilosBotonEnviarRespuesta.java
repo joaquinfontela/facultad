@@ -23,6 +23,10 @@ public class EstilosBotonEnviarRespuesta extends ButtonSkin {
 
         boton.setFont(new Font("FreeSans", 35));
         boton.setPrefSize(500, 80);
+
+        boton.setOnMouseClicked(e -> {
+            System.out.println("RESPUESTA ENVIADA!");
+        });
     }
 
     private void eventoMousePasaPorArriba(Button boton) {
