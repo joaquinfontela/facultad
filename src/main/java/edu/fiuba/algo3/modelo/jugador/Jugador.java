@@ -9,21 +9,23 @@ public class Jugador {
 
     private String nombre;
     private int puntaje;
-    private Multiplicador multiplicadorX2;
-    private Multiplicador multiplicadorX3;
+    private Stack<Multiplicador> multiplicadoresX2;
+    private Stack<Multiplicador> multiplicadoresX3;
     private Stack<ExclusividadDePuntaje> exclusividades;
 
     public Jugador(String nombreIngresado) {
 
         puntaje = 0;
         nombre = nombreIngresado;
-        inicializarBonificaciones();
+        this.inicializarBonificaciones();
     }
 
     private void inicializarBonificaciones(){
 
-        multiplicadorX2 = new Multiplicador(2, this);
-        multiplicadorX3 = new Multiplicador(3, this);
+        multiplicadoresX2 = new Stack<>();
+        multiplicadoresX2.add(new Multiplicador(2, this));
+        multiplicadoresX3 = new Stack<>();
+        multiplicadoresX3.add(new Multiplicador(3, this));
         exclusividades = new Stack<>();
         for (int i = 0; i < 2; i++) exclusividades.push(new ExclusividadDePuntaje(this));
     }
@@ -38,22 +40,30 @@ public class Jugador {
 
     public Multiplicador obtenerMultiplicadorX2() throws Exception {
 
-        if (multiplicadorX2 == null) throw new Exception();
-        return multiplicadorX2;
+        if (multiplicadoresX2.empty()) throw new Exception();
+        return multiplicadoresX2.peek();
     }
 
     public void eliminarMultiplicadorX2() {
-        multiplicadorX2 = null;
+        multiplicadoresX2.pop();
+    }
+
+    public int cantidadMultiplicadoresX2() {
+        return multiplicadoresX2.size();
     }
 
     public Multiplicador obtenerMultiplicadorX3() throws Exception {
 
-        if (multiplicadorX3 == null) throw new Exception();
-        return multiplicadorX3;
+        if (multiplicadoresX3.empty()) throw new Exception();
+        return multiplicadoresX3.peek();
     }
 
     public void eliminarMultiplicadorX3() {
-        multiplicadorX3 = null;
+        multiplicadoresX3.pop();
+    }
+
+    public int cantidadMultiplicadoresX3() {
+        return multiplicadoresX3.size();
     }
 
     public ExclusividadDePuntaje obtenerExclusividad() throws Exception {
@@ -64,5 +74,9 @@ public class Jugador {
 
     public void eliminarExclusividad() {
         exclusividades.pop();
+    }
+
+    public int cantidadExclusividades() {
+        return exclusividades.size();
     }
 }

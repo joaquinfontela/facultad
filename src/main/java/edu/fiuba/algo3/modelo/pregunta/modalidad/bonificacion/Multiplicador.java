@@ -10,10 +10,10 @@ public class Multiplicador implements Bonificacion {
     private int factor;
     private Jugador duenio;
 
-    public Multiplicador(int factorIngresado, Jugador DuenioIngresado) {
+    public Multiplicador(int factorIngresado, Jugador duenioIngresado) {
 
         factor = factorIngresado;
-        duenio = DuenioIngresado;
+        duenio = duenioIngresado;
     }
 
     @Override
@@ -33,6 +33,6 @@ public class Multiplicador implements Bonificacion {
     public boolean tieneMismoDuenio(Bonificacion otraBonificacion) {
 
         Multiplicador otroMultiplicador = (Multiplicador) otraBonificacion;
-        return (this.duenio == otroMultiplicador.duenio);
+        return (duenio == otroMultiplicador.duenio);
     }
 }
