@@ -12,8 +12,8 @@ public class ModalidadPenalidad extends Modalidad {
     }
 
     @Override
-    public void verificarCorrectaBonificacion(Bonificacion bonificacion) throws BonificacionMalColocadaException {
+    public void verificarCorrectaBonificacion(Bonificacion bonificacion) throws Exception {
 
-        if (bonificacion.esExclusividad()) throw new BonificacionMalColocadaException();
+        if (bonificacion.esExclusividad()) throw new Exception();
     }
 }

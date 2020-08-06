@@ -7,9 +7,6 @@ import java.util.Stack;
 
 public class Jugador {
 
-    /*private static int proximoId = 1;
-    private int id;*/
-
     private String nombre;
     private int puntaje;
     private Multiplicador multiplicadorX2;
@@ -18,8 +15,6 @@ public class Jugador {
 
     public Jugador(String nombreIngresado) {
 
-        /*id = proximoId;
-        proximoId++;*/
         puntaje = 0;
         nombre = nombreIngresado;
         inicializarBonificaciones();
@@ -41,25 +36,33 @@ public class Jugador {
         return puntaje;
     }
 
-    public Multiplicador obtenerMultiplicadorX2() {
+    public Multiplicador obtenerMultiplicadorX2() throws Exception {
 
-        //if (multiplicadorx2 == null) lanzar excepcion;
-        Multiplicador multiplicador = multiplicadorX2;
+        if (multiplicadorX2 == null) throw new Exception();
+        return multiplicadorX2;
+    }
+
+    public void eliminarMultiplicadorX2() {
         multiplicadorX2 = null;
-        return multiplicador;
     }
 
-    public Multiplicador obtenerMultiplicadorX3() {
+    public Multiplicador obtenerMultiplicadorX3() throws Exception {
 
-        //if (multiplicadorx3 == null) lanzar excepcion;
-        Multiplicador multiplicador = multiplicadorX3;
+        if (multiplicadorX3 == null) throw new Exception();
+        return multiplicadorX3;
+    }
+
+    public void eliminarMultiplicadorX3() {
         multiplicadorX3 = null;
-        return multiplicador;
     }
 
-    public ExclusividadDePuntaje obtenerExclusividad() {
+    public ExclusividadDePuntaje obtenerExclusividad() throws Exception {
 
-        //if (exclusividades.empty()) lanzar excepcion;
-        return exclusividades.pop();
+        if (exclusividades.empty()) throw new Exception();
+        return exclusividades.peek();
+    }
+
+    public void eliminarExclusividad() {
+        exclusividades.pop();
     }
 }

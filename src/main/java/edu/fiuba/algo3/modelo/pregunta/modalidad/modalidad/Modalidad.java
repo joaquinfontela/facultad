@@ -34,15 +34,14 @@ public abstract class Modalidad {
         for (Bonificacion bonificacion : bonificacionesAplicadas) {
             bonificacion.aplicar(puntajes);
         }
-        //bonificacionesAplicadas.clear();   es al pedo
+        bonificacionesAplicadas.clear();
     }
 
-    public void verificarBonificacionConDistintoDuenio(Bonificacion nuevaBonificacion)
-                                                                throws MismoDuenioEnDosBonificacionesException {
+    public void verificarBonificacionConDistintoDuenio(Bonificacion nuevaBonificacion) throws Exception {
 
         for (Bonificacion bonificacion : bonificacionesAplicadas) {
             if (bonificacion.tieneMismoDuenio(nuevaBonificacion)) {
-                throw new MismoDuenioEnDosBonificacionesException();
+                throw new Exception();
             }
         }
     }
@@ -53,6 +52,5 @@ public abstract class Modalidad {
 
     public abstract int calcularPuntos(EstadisticasRespuesta estadisticas);
 
-    public abstract void verificarCorrectaBonificacion(Bonificacion bonificacion)
-                                                                        throws BonificacionMalColocadaException;
+    public abstract void verificarCorrectaBonificacion(Bonificacion bonificacion) throws Exception;
 }

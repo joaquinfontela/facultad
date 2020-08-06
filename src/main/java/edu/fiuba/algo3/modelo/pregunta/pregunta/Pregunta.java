@@ -1,8 +1,6 @@
 package edu.fiuba.algo3.modelo.pregunta.pregunta;
 
 import edu.fiuba.algo3.modelo.pregunta.modalidad.bonificacion.Bonificacion;
-import edu.fiuba.algo3.modelo.pregunta.modalidad.modalidad.BonificacionMalColocadaException;
-import edu.fiuba.algo3.modelo.pregunta.modalidad.modalidad.MismoDuenioEnDosBonificacionesException;
 import edu.fiuba.algo3.modelo.pregunta.modalidad.modalidad.Modalidad;
 import edu.fiuba.algo3.modelo.pregunta.respuesta.Respuesta;
 import edu.fiuba.algo3.modelo.pregunta.respuesta.RespuestaDeJugador;
@@ -31,7 +29,7 @@ public class Pregunta {
         return respuestaCorrecta;
     }
 
-    public void evaluarRespuestas(ArrayList<RespuestaDeJugador> respuestasJugadores){
+    public void evaluarRespuestas(ArrayList<RespuestaDeJugador> respuestasJugadores) {
 
         for (RespuestaDeJugador respuesta : respuestasJugadores) {
             respuesta.generarEstadisticasRespuesta(respuestaCorrecta);
@@ -39,16 +37,10 @@ public class Pregunta {
         modalidad.establecerPuntajes(respuestasJugadores);
     }
 
-    public void recibirBonificacion(Bonificacion bonificacion){
+    public void recibirBonificacion(Bonificacion bonificacion) throws Exception {
 
-        try {
-            modalidad.verificarCorrectaBonificacion(bonificacion);
-            modalidad.verificarBonificacionConDistintoDuenio(bonificacion);
-            modalidad.recibirBonificacion(bonificacion);
-        } catch (BonificacionMalColocadaException exception) {
-            System.out.println("Se colocó mal la Bonificación");
-        } catch (MismoDuenioEnDosBonificacionesException exception) {
-            System.out.println("No se pueden recibir 2 bonificaciones del mismo duenio");
-        }
+        modalidad.verificarCorrectaBonificacion(bonificacion);
+        modalidad.verificarBonificacionConDistintoDuenio(bonificacion);
+        modalidad.recibirBonificacion(bonificacion);
     }
 }
