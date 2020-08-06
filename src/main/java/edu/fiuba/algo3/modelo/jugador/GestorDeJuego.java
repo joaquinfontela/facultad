@@ -30,25 +30,27 @@ public class GestorDeJuego {
         rondaActual++;
     }
 
-    public void guardarRespuesta(Respuesta respuesta, Jugador jugador) {
+    public void guardarRespuesta(Respuesta respuesta, Jugador jugador) throws Exception {
 
+        this.verificarJugadorValido(jugador);
         RespuestaDeJugador respuestaJugador = new RespuestaDeJugador(jugador, respuesta);
         respuestasActuales.add(respuestaJugador);
     }
 
+    private void verificarJugadorValido(Jugador jugador) throws Exception {
+
+        if (!jugadoresRegistrados.contains(jugador)) throw new Exception();
+        for (RespuestaDeJugador respuestaJugador: respuestasActuales) {
+            if (jugador == respuestaJugador.obtenerDuenio()) throw new Exception();
+        }
+    }
+
     public void enviarRespuestas() throws Exception {
 
-        this.verificarTotalidadDeRespuestasJugadores();
+        if (respuestasActuales.size() != jugadoresRegistrados.size()) throw new Exception();
         preguntaActual.evaluarRespuestas(respuestasActuales);
         respuestasActuales.clear();
         this.comenzarNuevaRonda();
-    }
-
-    private void verificarTotalidadDeRespuestasJugadores() throws Exception {
-
-        for (RespuestaDeJugador respuesta : respuestasActuales) {
-            if (!jugadoresRegistrados.contains(respuesta.obtenerDuenio())) throw new Exception();
-        }
     }
 
     public void aplicarMultiplicadorX2(Jugador jugador) throws Exception {
