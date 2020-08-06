@@ -70,4 +70,8 @@ public class GestorDeJuego {
         preguntaActual.recibirBonificacion(jugador.obtenerExclusividad());
         jugador.eliminarExclusividad();
     }
+
+    public int obtenerRondaActual() {
+        return rondaActual;
+    }
 }
