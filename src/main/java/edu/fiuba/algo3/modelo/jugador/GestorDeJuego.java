@@ -17,7 +17,7 @@ public class GestorDeJuego {
     private Pregunta preguntaActual;
     private ArrayList<RespuestaDeJugador> respuestasActuales;
 
-    public GestorDeJuego(ArrayList<InformacionPregunta> informacionPreguntas, ArrayList<Jugador> jugadoresIngresados) {
+    public GestorDeJuego(ArrayList<InformacionPregunta> informacionPreguntas) {
 
         rondaActual = 0;
         generadorDePreguntas = new GeneradorDePreguntas(informacionPreguntas);
