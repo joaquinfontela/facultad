@@ -30,6 +30,10 @@ public class Jugador {
         for (int i = 0; i < 2; i++) exclusividades.push(new ExclusividadDePuntaje(this));
     }
 
+    public String obtenerNombre() {
+        return nombre;
+    }
+
     public void sumarPuntos(int puntos) {
         puntaje += puntos;
     }

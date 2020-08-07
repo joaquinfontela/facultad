@@ -11,67 +11,78 @@ import java.util.ArrayList;
 public class GestorDeJuego {
 
     private ArrayList<Jugador> jugadoresRegistrados;
-    private int rondaActual;
+    private int turnoActual;
+    private int rondasRestantes;
     private GeneradorDePreguntas generadorDePreguntas;
     private Pregunta preguntaActual;
     private ArrayList<RespuestaDeJugador> respuestasActuales;
 
-    public GestorDeJuego(ArrayList<InformacionPregunta> informacionPreguntas, ArrayList<Jugador> jugadores) {
+    public GestorDeJuego(ArrayList<InformacionPregunta> informacionPreguntas, ArrayList<Jugador> jugadores,
+                                                                                                int rondasTotales) {
 
         jugadoresRegistrados = jugadores;
-        rondaActual = 0;
+        rondasRestantes = rondasTotales;
         generadorDePreguntas = new GeneradorDePreguntas(informacionPreguntas);
         this.comenzarNuevaRonda();
     }
 
     private void comenzarNuevaRonda() {
 
+        turnoActual = 0;
         preguntaActual = generadorDePreguntas.obtenerNuevaPregunta();
-        rondaActual++;
+        rondasRestantes--;
     }
 
-    public void guardarRespuesta(Respuesta respuesta, Jugador jugador) throws Exception {
+    public void terminarTurno(Respuesta respuesta) throws Exception {
 
-        this.verificarJugadorValido(jugador);
+        if (rondasRestantes == 0) throw new Exception();
+        this.guardarRespuesta(respuesta, jugadoresRegistrados.get(turnoActual));
+        turnoActual++;
+        if (respuestasActuales.size() == jugadoresRegistrados.size()) this.enviarRespuestas();
+    }
+
+    private void guardarRespuesta(Respuesta respuesta, Jugador jugador) {
+
         RespuestaDeJugador respuestaJugador = new RespuestaDeJugador(jugador, respuesta);
         respuestasActuales.add(respuestaJugador);
     }
 
-    private void verificarJugadorValido(Jugador jugador) throws Exception {
+    private void enviarRespuestas() {
 
-        if (!jugadoresRegistrados.contains(jugador)) throw new Exception();
-        for (RespuestaDeJugador respuestaJugador: respuestasActuales) {
-            if (jugador == respuestaJugador.obtenerDuenio()) throw new Exception();
-        }
-    }
-
-    public void enviarRespuestas() throws Exception {
-
-        if (respuestasActuales.size() != jugadoresRegistrados.size()) throw new Exception();
         preguntaActual.evaluarRespuestas(respuestasActuales);
         respuestasActuales.clear();
-        this.comenzarNuevaRonda();
+        if (rondasRestantes != 0) this.comenzarNuevaRonda();
     }
 
-    public void aplicarMultiplicadorX2(Jugador jugador) throws Exception {
+    public void aplicarMultiplicadorX2DelJugadorActual() throws Exception {
 
-        preguntaActual.recibirBonificacion(jugador.obtenerMultiplicadorX2());
-        jugador.eliminarMultiplicadorX2();
+        if (rondasRestantes == 0) throw new Exception();
+        Jugador jugadorActual = jugadoresRegistrados.get(turnoActual);
+        preguntaActual.recibirBonificacion(jugadorActual.obtenerMultiplicadorX2());
+        jugadorActual.eliminarMultiplicadorX2();
     }
 
-    public void aplicarMultiplicadorX3(Jugador jugador) throws Exception {
+    public void aplicarMultiplicadorX3DelJugadorActual() throws Exception {
 
-        preguntaActual.recibirBonificacion(jugador.obtenerMultiplicadorX3());
-        jugador.eliminarMultiplicadorX3();
+        if (rondasRestantes == 0) throw new Exception();
+        Jugador jugadorActual = jugadoresRegistrados.get(turnoActual);
+        preguntaActual.recibirBonificacion(jugadorActual.obtenerMultiplicadorX3());
+        jugadorActual.eliminarMultiplicadorX3();
     }
 
-    public void aplicarExclusividad(Jugador jugador) throws Exception {
+    public void aplicarExclusividadDelJugadorActual() throws Exception {
 
-        preguntaActual.recibirBonificacion(jugador.obtenerExclusividad());
-        jugador.eliminarExclusividad();
+        if (rondasRestantes == 0) throw new Exception();
+        Jugador jugadorActual = jugadoresRegistrados.get(turnoActual);
+        preguntaActual.recibirBonificacion(jugadorActual.obtenerExclusividad());
+        jugadorActual.eliminarExclusividad();
     }
 
-    public int obtenerRondaActual() {
-        return rondaActual;
+    public String obtenerJugadorActual() {
+        return jugadoresRegistrados.get(turnoActual).obtenerNombre();
+    }
+
+    public ArrayList<Jugador> obtenerJugadores() {
+        return jugadoresRegistrados;
     }
 }
