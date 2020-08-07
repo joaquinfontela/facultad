@@ -16,6 +16,7 @@ public class GestorDeJuego {
     private GeneradorDePreguntas generadorDePreguntas;
     private Pregunta preguntaActual;
     private ArrayList<RespuestaDeJugador> respuestasActuales;
+    private boolean juegoEnProgreso;
 
     public GestorDeJuego(ArrayList<InformacionPregunta> informacionPreguntas, ArrayList<Jugador> jugadores,
                                                                                                 int rondasTotales) {
@@ -23,6 +24,7 @@ public class GestorDeJuego {
         jugadoresRegistrados = jugadores;
         rondasRestantes = rondasTotales;
         generadorDePreguntas = new GeneradorDePreguntas(informacionPreguntas);
+        juegoEnProgreso = true;
         this.comenzarNuevaRonda();
     }
 
@@ -35,7 +37,7 @@ public class GestorDeJuego {
 
     public void terminarTurno(Respuesta respuesta) throws Exception {
 
-        if (rondasRestantes == 0) throw new Exception();
+        if (!juegoEnProgreso) throw new Exception();
         this.guardarRespuesta(respuesta, jugadoresRegistrados.get(turnoActual));
         turnoActual++;
         if (respuestasActuales.size() == jugadoresRegistrados.size()) this.enviarRespuestas();
@@ -51,12 +53,20 @@ public class GestorDeJuego {
 
         preguntaActual.evaluarRespuestas(respuestasActuales);
         respuestasActuales.clear();
-        if (rondasRestantes != 0) this.comenzarNuevaRonda();
+        if (rondasRestantes > 0) {
+            this.comenzarNuevaRonda();
+        } else {
+            this.finalizarJuego();
+        }
+    }
+
+    private void finalizarJuego() {
+        juegoEnProgreso = false;
     }
 
     public void aplicarMultiplicadorX2DelJugadorActual() throws Exception {
 
-        if (rondasRestantes == 0) throw new Exception();
+        if (!juegoEnProgreso) throw new Exception();
         Jugador jugadorActual = jugadoresRegistrados.get(turnoActual);
         preguntaActual.recibirBonificacion(jugadorActual.obtenerMultiplicadorX2());
         jugadorActual.eliminarMultiplicadorX2();
@@ -64,7 +74,7 @@ public class GestorDeJuego {
 
     public void aplicarMultiplicadorX3DelJugadorActual() throws Exception {
 
-        if (rondasRestantes == 0) throw new Exception();
+        if (!juegoEnProgreso) throw new Exception();
         Jugador jugadorActual = jugadoresRegistrados.get(turnoActual);
         preguntaActual.recibirBonificacion(jugadorActual.obtenerMultiplicadorX3());
         jugadorActual.eliminarMultiplicadorX3();
@@ -72,7 +82,7 @@ public class GestorDeJuego {
 
     public void aplicarExclusividadDelJugadorActual() throws Exception {
 
-        if (rondasRestantes == 0) throw new Exception();
+        if (!juegoEnProgreso) throw new Exception();
         Jugador jugadorActual = jugadoresRegistrados.get(turnoActual);
         preguntaActual.recibirBonificacion(jugadorActual.obtenerExclusividad());
         jugadorActual.eliminarExclusividad();
@@ -80,9 +90,5 @@ public class GestorDeJuego {
 
     public String obtenerJugadorActual() {
         return jugadoresRegistrados.get(turnoActual).obtenerNombre();
-    }
-
-    public ArrayList<Jugador> obtenerJugadores() {
-        return jugadoresRegistrados;
     }
 }
