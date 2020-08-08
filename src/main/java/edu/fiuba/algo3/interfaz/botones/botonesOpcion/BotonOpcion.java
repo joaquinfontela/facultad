@@ -1,20 +1,17 @@
-package edu.fiuba.algo3.interfaz.botones;
+package edu.fiuba.algo3.interfaz.botones.botonesOpcion;
 
-import edu.fiuba.algo3.interfaz.estilos.EstilosBotonOpcion;
 import javafx.scene.control.Button;
 import javafx.scene.paint.Color;
 
-public class BotonOpcion {
+public abstract class BotonOpcion {
 
-    private Button boton;
+    protected Button boton;
 
     public BotonOpcion(String enunciado, double posX, double posY, Color color) {
 
         boton = new Button(enunciado);
         boton.setTranslateX(posX);
         boton.setTranslateY(posY);
-
-        boton.setSkin(new EstilosBotonOpcion(boton, color));
     }
 
     public Button getBoton() {

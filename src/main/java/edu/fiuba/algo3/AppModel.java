@@ -7,7 +7,7 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 /**
- * JavaFX App
+ * JavaFX App cC
  */
 public class AppModel extends Application {
 
@@ -26,6 +26,8 @@ public class AppModel extends Application {
         layoutPregunta.agregarOpcion("Brasil");
         layoutPregunta.agregarOpcion("Argentina");
         layoutPregunta.agregarOpcion("Alemania");
+        //layoutPregunta.agregarOpcion("Holanda");
+        //layoutPregunta.agregarOpcion("Uruguay");
 
         var scene = new Scene(layoutPregunta.getLayout(), 640, 480);
 

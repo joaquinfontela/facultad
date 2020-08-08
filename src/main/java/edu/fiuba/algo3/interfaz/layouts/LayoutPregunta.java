@@ -1,7 +1,5 @@
 package edu.fiuba.algo3.interfaz.layouts;
 
-import edu.fiuba.algo3.interfaz.botones.BotonEnviarRespuesta;
-import edu.fiuba.algo3.interfaz.botones.BotonOpcion;
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.layout.*;
@@ -21,7 +19,7 @@ public class LayoutPregunta {
         layoutEnunciado = new StackPane();
         layoutOpciones = new LayoutOpciones();
 
-        layout.setBackground(new Background(new BackgroundFill(Color.ORANGE, CornerRadii.EMPTY, Insets.EMPTY)));
+        layout.setBackground(new Background(new BackgroundFill(Color.DARKSLATEGRAY, CornerRadii.EMPTY, Insets.EMPTY)));
         layout.setCenter(layoutOpciones.getLayout());
     }
 
@@ -35,6 +33,7 @@ public class LayoutPregunta {
         enunciadoDeLaPregunta.setTextAlignment(TextAlignment.CENTER);
         enunciadoDeLaPregunta.setTranslateY(10.0);
         enunciadoDeLaPregunta.setFont(new Font("FreeSans", 50));
+        enunciadoDeLaPregunta.setTextFill(Color.BLACK);
 
         layoutEnunciado.getChildren().add(enunciadoDeLaPregunta);
         layout.setTop(layoutEnunciado);
@@ -43,11 +42,11 @@ public class LayoutPregunta {
     public void agregarOpcion(String enunciado){
 
         layoutOpciones.agregarOpcion(enunciado);
-        layout.setCenter(layoutOpciones.getLayout());
     }
 
     public BorderPane getLayout() {
 
+        layout.setCenter(layoutOpciones.getLayout());
         return layout;
     }
 

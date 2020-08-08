@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.interfaz.estilos;
+package edu.fiuba.algo3.interfaz.estilos.estilosBotonOpcion;
 
 import javafx.animation.FadeTransition;
 import javafx.geometry.Insets;
@@ -10,7 +10,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.util.Duration;
 
-public class EstilosBotonOpcion extends ButtonSkin {
+public abstract class EstilosBotonOpcion extends ButtonSkin {
 
     private boolean seleccionado;
 
@@ -23,10 +23,7 @@ public class EstilosBotonOpcion extends ButtonSkin {
         eventoBotonClickeado(opcion);
 
         opcion.setBackground(new Background(new BackgroundFill(color, CornerRadii.EMPTY, Insets.EMPTY)));
-        opcion.setTextFill(Color.ORANGE);
-
-        opcion.setFont(new Font("FreeSans", 55));
-        opcion.setPrefSize(350, 100);
+        opcion.setTextFill(Color.WHITE);
 
     }
 
@@ -35,7 +32,7 @@ public class EstilosBotonOpcion extends ButtonSkin {
         opcion.setOnMouseClicked(e -> {
 
             if (e.getEventType().equals(MouseEvent.MOUSE_CLICKED)){
-                switchSeleccionado();
+                switchSeleccionado(opcion);
             }
         });
     }
@@ -44,27 +41,32 @@ public class EstilosBotonOpcion extends ButtonSkin {
 
         final FadeTransition fadeIn = new FadeTransition(Duration.millis(100));
         fadeIn.setNode(opcion);
-        fadeIn.setToValue(1);
-        opcion.setOnMouseEntered(e -> fadeIn.playFromStart());
+        fadeIn.setToValue(0.8);
+        opcion.setOnMouseEntered(e -> {
+            if (! seleccionado) {
+                fadeIn.playFromStart();
+            }
+        });
 
         final FadeTransition fadeOut = new FadeTransition(Duration.millis(100));
         fadeOut.setNode(opcion);
-        fadeOut.setToValue(0.7);
+        fadeOut.setToValue(0.6);
         opcion.setOnMouseExited(e -> {
             if (! seleccionado) {
                 fadeOut.playFromStart();
             }
         });
 
-        opcion.setOpacity(0.7);
+        opcion.setOpacity(0.6);
     }
 
-    public void switchSeleccionado() {
+    public void switchSeleccionado(Button opcion) {
 
         if (seleccionado) {
             seleccionado = false;
         } else {
             seleccionado = true;
+            opcion.setOpacity(1);
         }
     }
 }

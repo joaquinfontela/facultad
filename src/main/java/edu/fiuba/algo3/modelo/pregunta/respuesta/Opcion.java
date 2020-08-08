@@ -8,6 +8,10 @@ public class Opcion {
         enunciado = enunciadoIngresado;
     }
 
+    boolean equals(Opcion otraOpcion) {
+        return enunciado.equals(otraOpcion.enunciado);
+    }
+
     boolean esLaMismaQue(Opcion opcion) {
         return (enunciado.equals(opcion.enunciado));
     }
