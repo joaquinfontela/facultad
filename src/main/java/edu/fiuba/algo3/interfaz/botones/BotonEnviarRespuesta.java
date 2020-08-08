@@ -3,9 +3,7 @@ package edu.fiuba.algo3.interfaz.botones;
 import edu.fiuba.algo3.interfaz.estilos.EstilosBotonEnviarRespuesta;
 import javafx.scene.control.Button;
 
-public class BotonEnviarRespuesta {
-
-    private Button boton;
+public class BotonEnviarRespuesta extends Boton {
 
     public BotonEnviarRespuesta() {
 
@@ -13,10 +11,5 @@ public class BotonEnviarRespuesta {
         boton.setTranslateY(225.0);
 
         boton.setSkin(new EstilosBotonEnviarRespuesta(boton));
-    }
-
-    public Button getBoton() {
-
-        return boton;
     }
 }

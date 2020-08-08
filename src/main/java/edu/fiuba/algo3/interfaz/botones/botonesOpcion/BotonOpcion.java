@@ -1,11 +1,10 @@
 package edu.fiuba.algo3.interfaz.botones.botonesOpcion;
 
+import edu.fiuba.algo3.interfaz.botones.Boton;
 import javafx.scene.control.Button;
 import javafx.scene.paint.Color;
 
-public abstract class BotonOpcion {
-
-    protected Button boton;
+public abstract class BotonOpcion extends Boton {
 
     public BotonOpcion(String enunciado, double posX, double posY, Color color) {
 
@@ -13,9 +12,4 @@ public abstract class BotonOpcion {
         boton.setTranslateX(posX);
         boton.setTranslateY(posY);
     }
-
-    public Button getBoton() {
-        return boton;
-    }
-
 }

@@ -1,16 +1,9 @@
 package edu.fiuba.algo3.interfaz.botones.botonesBonificacion;
 
-import javafx.geometry.Insets;
+import edu.fiuba.algo3.interfaz.botones.Boton;
 import javafx.scene.control.Button;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
-import javafx.scene.layout.CornerRadii;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Polygon;
 
-public abstract class BotonBonificacion {
-
-    protected Button boton;
+public abstract class BotonBonificacion extends Boton {
 
     public BotonBonificacion(double posX, double posY) {
 
@@ -18,10 +11,5 @@ public abstract class BotonBonificacion {
         boton.setPrefSize(110,110);
         boton.setTranslateX(posX);
         boton.setTranslateY(posY);
-    }
-
-    public Button getBoton() {
-
-        return boton;
     }
 }

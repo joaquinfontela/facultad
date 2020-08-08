@@ -14,5 +14,9 @@ public class EstilosBotonMultiplicadorX3 extends EstilosBotonMultiplicador {
         super(boton);
         boton.setBackground(new Background(new BackgroundFill(Color.YELLOW, CornerRadii.EMPTY, Insets.EMPTY)));
         boton.setText("X3");
+
+        boton.setOnMouseClicked(e -> {
+            System.out.println("MULTIPLICADOR X3 SELECCIONADO!");
+        });
     }
 }
