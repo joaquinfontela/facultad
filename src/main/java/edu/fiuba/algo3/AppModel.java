@@ -16,9 +16,9 @@ public class AppModel extends Application {
     @Override
     public void start(Stage stage) throws Exception {
 
-        //System.out.println(javafx.scene.text.Font.getFamilies());
+        System.out.println(javafx.scene.text.Font.getFamilies());
 
-        LayoutPregunta layoutPregunta = new LayoutPregunta();
+        layoutPregunta = new LayoutPregunta();
 
         layoutPregunta.agregarEnunciadoDeLaPregunta("Que seleccion es la mas ganadora de la historia de los mundiales? (seleccionar mas de una en caso de ser necesario)");
 

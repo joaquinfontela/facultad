@@ -36,6 +36,7 @@ public class LayoutOpciones {
         }
 
         layout.getChildren().add(new BotonEnviarRespuesta().getBoton());
+        layout.setTranslateX(50.0);
         return layout;
     }
 

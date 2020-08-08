@@ -9,9 +9,9 @@ public class DistribuidorDeTresOpciones extends DistribuidorDeOpcionesGrandes {
 
     public StackPane getLayout(ArrayList<String> opciones) {
 
-        agregarOpcion(opciones.get(0), -550, 50, Color.RED);
-        agregarOpcion(opciones.get(1), 550, 50, Color.BLUE);
-        agregarOpcion(opciones.get(2), 0, 50, Color.GREEN);
+        agregarOpcion(opciones.get(0), -550, -25, Color.RED);
+        agregarOpcion(opciones.get(1), 550, -25, Color.GOLD);
+        agregarOpcion(opciones.get(2), 0, -25, Color.BLUE);
         return layout;
     }
 
