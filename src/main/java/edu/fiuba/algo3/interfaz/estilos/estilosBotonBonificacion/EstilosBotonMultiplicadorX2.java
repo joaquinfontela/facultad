@@ -14,9 +14,5 @@ public class EstilosBotonMultiplicadorX2 extends EstilosBotonMultiplicador {
         super(boton);
         boton.setBackground(new Background(new BackgroundFill(Color.DARKORANGE, CornerRadii.EMPTY, Insets.EMPTY)));
         boton.setText("X2");
-
-        boton.setOnMouseClicked(e -> {
-            System.out.println("MULTIPLICADOR X2 SELECCIONADO!");
-        });
     }
 }

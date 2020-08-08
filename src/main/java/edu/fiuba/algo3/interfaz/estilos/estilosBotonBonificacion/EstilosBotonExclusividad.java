@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.interfaz.estilos.estilosBotonBonificacion;
 
 import edu.fiuba.algo3.interfaz.botones.botonesBonificacion.PolygonEditor;
+import edu.fiuba.algo3.interfaz.estilos.EstilosBoton;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.skin.ButtonSkin;
@@ -11,7 +12,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Polygon;
 import javafx.scene.text.Font;
 
-public class EstilosBotonExclusividad extends ButtonSkin  {
+public class EstilosBotonExclusividad extends EstilosBoton {
 
     public EstilosBotonExclusividad(Button boton) {
         super(boton);
