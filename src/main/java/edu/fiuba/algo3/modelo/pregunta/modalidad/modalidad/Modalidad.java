@@ -37,7 +37,6 @@ public abstract class Modalidad {
         for (Bonificacion bonificacion : bonificacionesAplicadas) {
             bonificacion.aplicar(puntajes);
         }
-        bonificacionesAplicadas.clear();
     }
 
     private void verificarBonificacionConDistintoDuenio(Bonificacion nuevaBonificacion) throws Exception {
