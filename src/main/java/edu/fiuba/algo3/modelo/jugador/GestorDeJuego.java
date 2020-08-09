@@ -24,6 +24,7 @@ public class GestorDeJuego {
         jugadoresRegistrados = jugadores;
         rondasRestantes = rondasTotales;
         generadorDePreguntas = new GeneradorDePreguntas(informacionPreguntas);
+        respuestasActuales = new ArrayList<>();
         juegoEnProgreso = true;
         this.comenzarNuevaRonda();
     }
