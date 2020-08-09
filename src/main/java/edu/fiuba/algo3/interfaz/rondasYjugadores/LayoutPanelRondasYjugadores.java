@@ -1,5 +1,5 @@
 package edu.fiuba.algo3.interfaz.rondasYjugadores;
-
+/*
 import edu.fiuba.algo3.interfaz.estilos.EstilosBotonEnviarRespuesta;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -41,3 +41,4 @@ public class LayoutPanelRondasYjugadores {
 
     }
 }
+*/

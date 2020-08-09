@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.interfaz.layouts;
+package edu.fiuba.algo3.interfaz.layouts.preguntaSubLayouts;
 
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
@@ -15,7 +15,7 @@ public class LayoutEnunciadoPregunta {
     Label enunciadoDeLaPregunta;
     StackPane layout;
 
-    LayoutEnunciadoPregunta(String enunciado) {
+    public LayoutEnunciadoPregunta(String enunciado) {
 
         layout = new StackPane();
         enunciadoDeLaPregunta = new Label(enunciado);

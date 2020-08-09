@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.interfaz.layouts;
+package edu.fiuba.algo3.interfaz.layouts.preguntaSubLayouts;
 
 import edu.fiuba.algo3.interfaz.botones.botonesBonificacion.BotonExclusividad;
 import edu.fiuba.algo3.interfaz.botones.botonesBonificacion.BotonMultiplicadorX2;
@@ -9,7 +9,7 @@ public class LayoutBonificaciones {
 
     private StackPane layout;
 
-    LayoutBonificaciones() {
+    public LayoutBonificaciones() {
 
         layout = new StackPane();
         layout.getChildren().add(new BotonExclusividad(-50,-575).getBoton());

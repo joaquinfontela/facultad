@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.interfaz.layouts;
+package edu.fiuba.algo3.interfaz.layouts.preguntaSubLayouts;
 
 import edu.fiuba.algo3.interfaz.botones.BotonEnviarRespuesta;
 import edu.fiuba.algo3.interfaz.layouts.distribuidoresDeOpciones.*;
@@ -10,7 +10,7 @@ public class LayoutOpciones {
 
     private ArrayList<String> opciones;
 
-    LayoutOpciones() {
+    public LayoutOpciones() {
 
         opciones = new ArrayList<>();
     }
@@ -36,7 +36,6 @@ public class LayoutOpciones {
         }
 
         layout.getChildren().add(new BotonEnviarRespuesta().getBoton());
-        layout.setTranslateX(50.0);
         return layout;
     }
 
