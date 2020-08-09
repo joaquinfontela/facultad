@@ -3,7 +3,6 @@ package edu.fiuba.algo3.interfaz.layouts.distribuidoresDeOpciones;
 //cC
 
 import edu.fiuba.algo3.interfaz.botones.botonesOpcion.BotonOpcion;
-import edu.fiuba.algo3.interfaz.botones.botonesOpcion.BotonOpcionChico;
 import edu.fiuba.algo3.interfaz.botones.botonesOpcion.BotonOpcionChicoLargo;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
@@ -22,10 +21,10 @@ public class DistribuidorDeCuatroOpciones implements DistribuidorDeOpciones {
     @Override
     public StackPane getLayout(ArrayList<String> opciones) {
 
-        agregarOpcion(opciones.get(0), -400, -100, Color.RED);
-        agregarOpcion(opciones.get(1), 400, -100, Color.BLUE);
-        agregarOpcion(opciones.get(2), -400, 50, Color.GOLD);
-        agregarOpcion(opciones.get(3), 400, 50, Color.GREEN);
+        agregarOpcion(opciones.get(0), -375, -100, Color.RED);
+        agregarOpcion(opciones.get(1), 375, -100, Color.BLUE);
+        agregarOpcion(opciones.get(2), -375, 50, Color.GOLD);
+        agregarOpcion(opciones.get(3), 375, 50, Color.GREEN);
         return layout;
     }
 }

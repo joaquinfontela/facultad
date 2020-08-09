@@ -35,7 +35,6 @@ public class AppModel extends Application {
         stage.setScene(scene);
         stage.setHeight(900);
         stage.setWidth(1500);
-        //stage.setMaximized(true); // o setFullScreen, despues vemos.
         stage.show();
     }
 

@@ -21,7 +21,7 @@ public class EstilosBotonEnviarRespuesta extends EstilosBoton {
         boton.setTextFill(Color.SLATEGRAY);
 
         boton.setFont(new Font("FreeSans", 35));
-        boton.setPrefSize(500, 80);
+        boton.setPrefSize(500, 75);
 
         boton.setOnMouseClicked(e -> {
             System.out.println("RESPUESTA ENVIADA!");

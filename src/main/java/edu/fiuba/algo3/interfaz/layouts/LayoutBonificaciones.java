@@ -12,9 +12,9 @@ public class LayoutBonificaciones {
     LayoutBonificaciones() {
 
         layout = new StackPane();
-        layout.getChildren().add(new BotonExclusividad(-50,-625).getBoton());
-        layout.getChildren().add(new BotonMultiplicadorX2(-50, -450).getBoton());
-        layout.getChildren().add(new BotonMultiplicadorX3(-50, -300).getBoton());
+        layout.getChildren().add(new BotonExclusividad(-50,-575).getBoton());
+        layout.getChildren().add(new BotonMultiplicadorX2(-50, -400).getBoton());
+        layout.getChildren().add(new BotonMultiplicadorX3(-50, -250).getBoton());
     }
 
     public StackPane getLayout() {
