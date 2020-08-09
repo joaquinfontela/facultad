@@ -7,7 +7,7 @@ public abstract class BotonBonificacion extends Boton {
 
     public BotonBonificacion(double posX, double posY) {
 
-        boton = new Button();
+        super();
         boton.setPrefSize(110,110);
         boton.setTranslateX(posX);
         boton.setTranslateY(posY);

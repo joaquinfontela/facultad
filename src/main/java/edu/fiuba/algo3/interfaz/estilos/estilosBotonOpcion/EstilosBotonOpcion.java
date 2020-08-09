@@ -10,6 +10,7 @@ public abstract class EstilosBotonOpcion extends EstilosBoton {
 
     public EstilosBotonOpcion(Boton manejadorDeBoton, Color color) {
         super(manejadorDeBoton);
+        boton.setStyle("-fx-border-color: black; -fx-border-width: 2px");
 
         boton.setBackground(new Background(new BackgroundFill(color, CornerRadii.EMPTY, Insets.EMPTY)));
         boton.setTextFill(Color.WHITE);

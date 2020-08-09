@@ -28,8 +28,8 @@ public class AppModel extends Application {
         layoutPregunta.agregarOpcion("Brasil");
         layoutPregunta.agregarOpcion("Argentina");
         layoutPregunta.agregarOpcion("Alemania");
-        //layoutPregunta.agregarOpcion("Holanda");
-        //layoutPregunta.agregarOpcion("Uruguay");
+        layoutPregunta.agregarOpcion("Holanda");
+        layoutPregunta.agregarOpcion("Uruguay");
 
         var scene = new Scene(layoutPregunta.getLayout(), 640, 480);
 

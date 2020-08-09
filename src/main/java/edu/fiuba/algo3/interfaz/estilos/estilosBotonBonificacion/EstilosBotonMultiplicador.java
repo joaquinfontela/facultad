@@ -6,7 +6,7 @@ import edu.fiuba.algo3.interfaz.estilos.EstilosBoton;
 import javafx.scene.shape.Polygon;
 import javafx.scene.text.Font;
 
-public abstract class EstilosBotonMultiplicador extends EstilosBoton {
+public abstract class EstilosBotonMultiplicador extends EstilosBotonBonificacion {
 
     public EstilosBotonMultiplicador(Boton manejadorDeBoton) {
         super(manejadorDeBoton);

@@ -13,14 +13,15 @@ public class EstilosBotonEnviarRespuesta extends EstilosBoton {
         super(manejadorDeBoton);
 
         boton.setBackground(new Background(new BackgroundFill(Color.DARKGREEN, CornerRadii.EMPTY, Insets.EMPTY)));
-
         boton.setPrefSize(150, 75);
+
+        Tic formaBoton = new Tic();
+        boton.setShape(formaBoton);
+
+        boton.setStyle("-fx-border-width: 2px; -fx-border-color: green");
 
         boton.setOnMouseClicked(e -> {
             System.out.println("RESPUESTA ENVIADA!");
         });
-
-        Tic formaBoton = new Tic();
-        boton.setShape(formaBoton);
     }
 }

@@ -9,6 +9,7 @@ public abstract class Boton {
 
     public Boton() {
 
+        boton = new Button();
         seleccionado = false;
     }
 

@@ -11,7 +11,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Polygon;
 import javafx.scene.text.Font;
 
-public class EstilosBotonExclusividad extends EstilosBoton {
+public class EstilosBotonExclusividad extends EstilosBotonBonificacion {
 
     public EstilosBotonExclusividad(Boton manejadorDeBoton) {
         super(manejadorDeBoton);
