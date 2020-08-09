@@ -3,13 +3,6 @@ package edu.fiuba.algo3.interfaz.estilos.estilosBotonBonificacion;
 import edu.fiuba.algo3.interfaz.botones.Boton;
 import edu.fiuba.algo3.interfaz.botones.botonesBonificacion.PolygonEditor;
 import edu.fiuba.algo3.interfaz.estilos.EstilosBoton;
-import javafx.geometry.Insets;
-import javafx.scene.control.Button;
-import javafx.scene.control.skin.ButtonSkin;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
-import javafx.scene.layout.CornerRadii;
-import javafx.scene.paint.Color;
 import javafx.scene.shape.Polygon;
 import javafx.scene.text.Font;
 

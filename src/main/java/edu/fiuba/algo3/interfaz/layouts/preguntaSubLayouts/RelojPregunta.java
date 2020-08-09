@@ -1,8 +1,6 @@
 package edu.fiuba.algo3.interfaz.layouts.preguntaSubLayouts;
 
-import javafx.animation.PauseTransition;
 import javafx.application.Platform;
-import javafx.concurrent.Task;
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Background;
@@ -12,7 +10,6 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Font;
-import javafx.util.Duration;
 
 import java.util.Timer;
 import java.util.TimerTask;

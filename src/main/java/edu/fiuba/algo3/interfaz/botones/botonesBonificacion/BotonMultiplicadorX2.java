@@ -1,6 +1,5 @@
 package edu.fiuba.algo3.interfaz.botones.botonesBonificacion;
 
-import edu.fiuba.algo3.interfaz.estilos.estilosBotonBonificacion.EstilosBotonMultiplicador;
 import edu.fiuba.algo3.interfaz.estilos.estilosBotonBonificacion.EstilosBotonMultiplicadorX2;
 
 public class BotonMultiplicadorX2 extends BotonBonificacion {

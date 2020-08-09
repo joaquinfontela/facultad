@@ -4,7 +4,6 @@ import edu.fiuba.algo3.interfaz.layouts.preguntaSubLayouts.LayoutBonificaciones;
 import edu.fiuba.algo3.interfaz.layouts.preguntaSubLayouts.LayoutEnunciadoPregunta;
 import edu.fiuba.algo3.interfaz.layouts.preguntaSubLayouts.LayoutIzquierdoPregunta;
 import edu.fiuba.algo3.interfaz.layouts.preguntaSubLayouts.LayoutOpciones;
-import javafx.concurrent.Task;
 import javafx.geometry.Insets;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
@@ -17,7 +16,7 @@ public class LayoutPregunta {
     private LayoutBonificaciones layoutBonificaciones;
     private LayoutIzquierdoPregunta layoutIzquierdo;
 
-    public LayoutPregunta() throws InterruptedException {
+    public LayoutPregunta() {
 
         layout = new BorderPane();
         layoutOpciones = new LayoutOpciones();

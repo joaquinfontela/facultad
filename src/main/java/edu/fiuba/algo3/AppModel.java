@@ -14,15 +14,13 @@ import javafx.stage.Stage;
 public class AppModel extends Application {
 
     LayoutPregunta layoutPregunta;
-    private Integer segundosRestantes;
 
     @Override
-    public void start(Stage stage) throws Exception {
+    public void start(Stage stage) {
 
         System.out.println(javafx.scene.text.Font.getFamilies());
 
         layoutPregunta = new LayoutPregunta();
-        segundosRestantes = 30;
 
         layoutPregunta.agregarEnunciadoDeLaPregunta("Que seleccion es la mas ganadora de la historia de los mundiales? (seleccionar mas de una en caso de ser necesario)");
 

@@ -1,7 +1,5 @@
 package edu.fiuba.algo3.interfaz.layouts.distribuidoresDeOpciones;
 
-//cC
-
 import edu.fiuba.algo3.interfaz.botones.botonesOpcion.BotonOpcion;
 import edu.fiuba.algo3.interfaz.botones.botonesOpcion.BotonOpcionChicoLargo;
 import javafx.scene.layout.StackPane;

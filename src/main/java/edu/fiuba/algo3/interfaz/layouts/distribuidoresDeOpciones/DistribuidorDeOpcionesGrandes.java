@@ -1,7 +1,6 @@
 package edu.fiuba.algo3.interfaz.layouts.distribuidoresDeOpciones;
 
 import edu.fiuba.algo3.interfaz.botones.botonesOpcion.BotonOpcion;
-import edu.fiuba.algo3.interfaz.botones.botonesOpcion.BotonOpcionChico;
 import edu.fiuba.algo3.interfaz.botones.botonesOpcion.BotonOpcionGrande;
 import javafx.scene.paint.Color;
 
