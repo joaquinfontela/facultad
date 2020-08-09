@@ -25,7 +25,7 @@ public class AppModel extends Application {
         layoutPregunta.agregarOpcion("Italia");
         layoutPregunta.agregarOpcion("Brasil");
         layoutPregunta.agregarOpcion("Argentina");
-        layoutPregunta.agregarOpcion("Alemania");
+        //layoutPregunta.agregarOpcion("Alemania");
         //layoutPregunta.agregarOpcion("Holanda");
         //layoutPregunta.agregarOpcion("Uruguay");
 

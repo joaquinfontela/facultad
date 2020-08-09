@@ -9,6 +9,7 @@ import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Polygon;
 import javafx.scene.text.Font;
 import javafx.util.Duration;
 
@@ -17,14 +18,15 @@ public class EstilosBotonEnviarRespuesta extends EstilosBoton {
     public EstilosBotonEnviarRespuesta(Boton manejadorDeBoton) {
         super(manejadorDeBoton);
 
-        boton.setBackground(new Background(new BackgroundFill(Color.DARKGRAY, CornerRadii.EMPTY, Insets.EMPTY)));
-        boton.setTextFill(Color.SLATEGRAY);
+        boton.setBackground(new Background(new BackgroundFill(Color.DARKGREEN, CornerRadii.EMPTY, Insets.EMPTY)));
 
-        boton.setFont(new Font("FreeSans", 35));
-        boton.setPrefSize(500, 75);
+        boton.setPrefSize(150, 75);
 
         boton.setOnMouseClicked(e -> {
             System.out.println("RESPUESTA ENVIADA!");
         });
+
+        Tic formaBoton = new Tic();
+        boton.setShape(formaBoton);
     }
 }

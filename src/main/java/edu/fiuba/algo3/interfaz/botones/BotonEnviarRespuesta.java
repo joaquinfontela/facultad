@@ -7,7 +7,7 @@ public class BotonEnviarRespuesta extends Boton {
 
     public BotonEnviarRespuesta() {
 
-        boton = new Button("ENVIAR RESPUESTA >>");
+        boton = new Button();
         boton.setTranslateY(160.0);
 
         boton.setSkin(new EstilosBotonEnviarRespuesta(this));
