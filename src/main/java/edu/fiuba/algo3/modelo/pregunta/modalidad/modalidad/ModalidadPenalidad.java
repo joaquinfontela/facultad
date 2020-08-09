@@ -12,8 +12,8 @@ public class ModalidadPenalidad extends Modalidad {
     }
 
     @Override
-    public void verificarCorrectaBonificacion(Bonificacion bonificacion) throws Exception {
+    protected void verificarCorrectaBonificacion(Bonificacion bonificacion) throws Exception {
 
-        if (bonificacion.esExclusividad()) throw new Exception();
+        if (bonificacion.esExclusividad()) throw new Exception("No se puede aplicar una exclusividad de puntaje en esta pregunta");
     }
 }

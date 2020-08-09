@@ -25,7 +25,10 @@ public abstract class Modalidad {
         this.guardarPuntajes(puntajes);
     }
 
-    public void recibirBonificacion(Bonificacion bonificacion) {
+    public void recibirBonificacion(Bonificacion bonificacion) throws Exception {
+
+        this.verificarCorrectaBonificacion(bonificacion);
+        this.verificarBonificacionConDistintoDuenio(bonificacion);
         bonificacionesAplicadas.add(bonificacion);
     }
 
@@ -37,11 +40,11 @@ public abstract class Modalidad {
         bonificacionesAplicadas.clear();
     }
 
-    public void verificarBonificacionConDistintoDuenio(Bonificacion nuevaBonificacion) throws Exception {
+    private void verificarBonificacionConDistintoDuenio(Bonificacion nuevaBonificacion) throws Exception {
 
         for (Bonificacion bonificacion : bonificacionesAplicadas) {
             if (bonificacion.tieneMismoDuenio(nuevaBonificacion)) {
-                throw new Exception();
+                throw new Exception("El jugador ya aplicó una bonificación en esta pregunta");
             }
         }
     }
@@ -52,5 +55,5 @@ public abstract class Modalidad {
 
     public abstract int calcularPuntos(EstadisticasRespuesta estadisticas);
 
-    public abstract void verificarCorrectaBonificacion(Bonificacion bonificacion) throws Exception;
+    protected abstract void verificarCorrectaBonificacion(Bonificacion bonificacion) throws Exception;
 }

@@ -39,8 +39,6 @@ public class Pregunta {
 
     public void recibirBonificacion(Bonificacion bonificacion) throws Exception {
 
-        modalidad.verificarCorrectaBonificacion(bonificacion);
-        modalidad.verificarBonificacionConDistintoDuenio(bonificacion);
         modalidad.recibirBonificacion(bonificacion);
     }
 }

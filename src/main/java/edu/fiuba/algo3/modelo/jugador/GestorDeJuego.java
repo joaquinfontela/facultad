@@ -37,7 +37,7 @@ public class GestorDeJuego {
 
     public void terminarTurno(Respuesta respuesta) throws Exception {
 
-        if (!juegoEnProgreso) throw new Exception();
+        if (!juegoEnProgreso) throw new Exception("El juego ha finalizado");
         this.guardarRespuesta(respuesta, jugadoresRegistrados.get(turnoActual));
         turnoActual++;
         if (respuestasActuales.size() == jugadoresRegistrados.size()) this.enviarRespuestas();
@@ -66,7 +66,7 @@ public class GestorDeJuego {
 
     public void aplicarMultiplicadorX2DelJugadorActual() throws Exception {
 
-        if (!juegoEnProgreso) throw new Exception();
+        if (!juegoEnProgreso) throw new Exception("El juego ha finalizado");
         Jugador jugadorActual = jugadoresRegistrados.get(turnoActual);
         preguntaActual.recibirBonificacion(jugadorActual.obtenerMultiplicadorX2());
         jugadorActual.eliminarMultiplicadorX2();
@@ -74,7 +74,7 @@ public class GestorDeJuego {
 
     public void aplicarMultiplicadorX3DelJugadorActual() throws Exception {
 
-        if (!juegoEnProgreso) throw new Exception();
+        if (!juegoEnProgreso) throw new Exception("El juego ha finalizado");
         Jugador jugadorActual = jugadoresRegistrados.get(turnoActual);
         preguntaActual.recibirBonificacion(jugadorActual.obtenerMultiplicadorX3());
         jugadorActual.eliminarMultiplicadorX3();
@@ -82,7 +82,7 @@ public class GestorDeJuego {
 
     public void aplicarExclusividadDelJugadorActual() throws Exception {
 
-        if (!juegoEnProgreso) throw new Exception();
+        if (!juegoEnProgreso) throw new Exception("El juego ha finalizado");
         Jugador jugadorActual = jugadoresRegistrados.get(turnoActual);
         preguntaActual.recibirBonificacion(jugadorActual.obtenerExclusividad());
         jugadorActual.eliminarExclusividad();
