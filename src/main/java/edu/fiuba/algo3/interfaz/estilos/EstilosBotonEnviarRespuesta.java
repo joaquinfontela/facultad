@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.interfaz.estilos;
 
+import edu.fiuba.algo3.interfaz.botones.Boton;
 import javafx.animation.FadeTransition;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
@@ -13,8 +14,8 @@ import javafx.util.Duration;
 
 public class EstilosBotonEnviarRespuesta extends EstilosBoton {
 
-    public EstilosBotonEnviarRespuesta(Button boton) {
-        super(boton);
+    public EstilosBotonEnviarRespuesta(Boton manejadorDeBoton) {
+        super(manejadorDeBoton);
 
         boton.setBackground(new Background(new BackgroundFill(Color.DARKGRAY, CornerRadii.EMPTY, Insets.EMPTY)));
         boton.setTextFill(Color.SLATEGRAY);

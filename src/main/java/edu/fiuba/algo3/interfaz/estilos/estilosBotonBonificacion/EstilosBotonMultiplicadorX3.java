@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.interfaz.estilos.estilosBotonBonificacion;
 
+import edu.fiuba.algo3.interfaz.botones.Boton;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Background;
@@ -9,9 +10,9 @@ import javafx.scene.paint.Color;
 
 public class EstilosBotonMultiplicadorX3 extends EstilosBotonMultiplicador {
 
-    public EstilosBotonMultiplicadorX3(Button boton) {
+    public EstilosBotonMultiplicadorX3(Boton manejadorDeBoton) {
 
-        super(boton);
+        super(manejadorDeBoton);
         boton.setBackground(new Background(new BackgroundFill(Color.YELLOW, CornerRadii.EMPTY, Insets.EMPTY)));
         boton.setText("X3");
     }

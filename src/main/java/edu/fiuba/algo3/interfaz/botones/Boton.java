@@ -7,11 +7,25 @@ public abstract class Boton {
     protected Button boton;
     private Boolean seleccionado;
 
+    public Boton() {
+
+        seleccionado = false;
+    }
+
     public Button getBoton() {
         return boton;
     }
 
-    public Boolean seleccionado() {
+    public void switchSeleccionado() {
+
+        if (seleccionado) {
+            seleccionado = false;
+        } else {
+            seleccionado = true;
+        }
+    }
+
+    public Boolean fueSeleccionado() {
 
         return seleccionado;
     }

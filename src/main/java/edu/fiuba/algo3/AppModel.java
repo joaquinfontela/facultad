@@ -33,7 +33,9 @@ public class AppModel extends Application {
 
         stage.setTitle("Kahoot!");
         stage.setScene(scene);
-        stage.setMaximized(true); // o setFullScreen, despues vemos.
+        stage.setHeight(900);
+        stage.setWidth(1500);
+        //stage.setMaximized(true); // o setFullScreen, despues vemos.
         stage.show();
     }
 

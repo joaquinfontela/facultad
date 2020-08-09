@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.interfaz.estilos.estilosBotonBonificacion;
 
+import edu.fiuba.algo3.interfaz.botones.Boton;
 import edu.fiuba.algo3.interfaz.botones.botonesBonificacion.PolygonEditor;
 import edu.fiuba.algo3.interfaz.estilos.EstilosBoton;
 import javafx.geometry.Insets;
@@ -14,8 +15,8 @@ import javafx.scene.text.Font;
 
 public class EstilosBotonExclusividad extends EstilosBoton {
 
-    public EstilosBotonExclusividad(Button boton) {
-        super(boton);
+    public EstilosBotonExclusividad(Boton manejadorDeBoton) {
+        super(manejadorDeBoton);
 
         Polygon forma = new Polygon();
         Polygon pentagonoEquilatero = new PolygonEditor().setPolygonSides(forma, 1, 1, 1, 5);

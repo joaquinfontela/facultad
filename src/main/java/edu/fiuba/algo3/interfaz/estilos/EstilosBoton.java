@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.interfaz.estilos;
 
+import edu.fiuba.algo3.interfaz.botones.Boton;
 import javafx.animation.FadeTransition;
 import javafx.scene.control.Button;
 import javafx.scene.control.skin.ButtonSkin;
@@ -8,58 +9,61 @@ import javafx.util.Duration;
 
 public class EstilosBoton extends ButtonSkin {
 
-    private Boolean seleccionado;
+    protected Button boton;
+    protected Boton manejadorDeBoton;
 
-    public EstilosBoton(Button boton) {
+    public EstilosBoton(Boton unManejadorDeBoton) {
 
-        super(boton);
-        seleccionado = false;
+        super(unManejadorDeBoton.getBoton());
 
-        eventoMousePasaPorArriba(boton);
-        eventoBotonClickeado(boton);
+        manejadorDeBoton = unManejadorDeBoton;
+        boton = manejadorDeBoton.getBoton();
+
+        eventoMousePasaPorArriba();
+        eventoBotonClickeado();
     }
 
-
-    private void eventoBotonClickeado(Button opcion) {
-
-        opcion.setOnMouseClicked(e -> {
-
-            if (e.getEventType().equals(MouseEvent.MOUSE_CLICKED)){
-                switchSeleccionado(opcion);
-            }
-        });
-    }
-
-    private void eventoMousePasaPorArriba(Button opcion) {
+    private void eventoMousePasaPorArriba() {
 
         final FadeTransition fadeIn = new FadeTransition(Duration.millis(100));
-        fadeIn.setNode(opcion);
+        fadeIn.setNode(boton);
         fadeIn.setToValue(0.8);
-        opcion.setOnMouseEntered(e -> {
-            if (! seleccionado) {
+        boton.setOnMouseEntered(e -> {
+            if (!manejadorDeBoton.fueSeleccionado()) {
                 fadeIn.playFromStart();
             }
         });
 
         final FadeTransition fadeOut = new FadeTransition(Duration.millis(100));
-        fadeOut.setNode(opcion);
+        fadeOut.setNode(boton);
         fadeOut.setToValue(0.6);
-        opcion.setOnMouseExited(e -> {
-            if (! seleccionado) {
+        boton.setOnMouseExited(e -> {
+            if (!manejadorDeBoton.fueSeleccionado()) {
                 fadeOut.playFromStart();
             }
         });
 
-        opcion.setOpacity(0.6);
+        boton.setOpacity(0.6);
     }
 
-    public void switchSeleccionado(Button opcion) {
+    private void eventoBotonClickeado() {
 
-        if (seleccionado) {
-            seleccionado = false;
+        boton.setOnMouseClicked(e -> {
+
+            if (e.getEventType().equals(MouseEvent.MOUSE_CLICKED)){
+                manejadorDeBoton.switchSeleccionado();
+                actualizarOpacidad();
+            }
+        });
+    }
+
+    private void actualizarOpacidad() {
+
+        if (manejadorDeBoton.fueSeleccionado()) {
+            boton.setOpacity(1.0);
         } else {
-            seleccionado = true;
-            opcion.setOpacity(1);
+            boton.setOpacity(0.6);
         }
     }
+
 }

@@ -8,6 +8,6 @@ public class BotonOpcionGrande extends BotonOpcion {
     public BotonOpcionGrande(String enunciado, double posX, double posY, Color color) {
 
         super(enunciado, posX, posY, color);
-        boton.setSkin(new EstilosBotonOpcionGrande(boton, color));
+        boton.setSkin(new EstilosBotonOpcionGrande(this, color));
     }
 }
