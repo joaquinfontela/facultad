@@ -40,8 +40,14 @@ public class GestorDeJuego {
 
         if (!juegoEnProgreso) throw new Exception("El juego ha finalizado");
         this.guardarRespuesta(respuesta, jugadoresRegistrados.get(turnoActual));
+        this.avanzarSiguienteTurno();
+    }
+
+    public void avanzarSiguienteTurno() throws Exception {
+
+        if (!juegoEnProgreso) throw new Exception("El juego ha finalizado");
         turnoActual++;
-        if (respuestasActuales.size() == jugadoresRegistrados.size()) this.enviarRespuestas();
+        if (turnoActual == jugadoresRegistrados.size()) this.enviarRespuestas();
     }
 
     private void guardarRespuesta(Respuesta respuesta, Jugador jugador) {
