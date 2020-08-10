@@ -9,6 +9,7 @@ import java.util.ArrayList;
 public class LayoutOpciones {
 
     private ArrayList<String> opciones;
+    private BotonEnviarRespuesta botonEnviarRespuesta;
 
     public LayoutOpciones() {
 
@@ -35,7 +36,7 @@ public class LayoutOpciones {
             layout = new DistribuidorDeSeisOpciones().getLayout(opciones);
         }
 
-        layout.getChildren().add(new BotonEnviarRespuesta().getBoton());
+
         return layout;
     }
 

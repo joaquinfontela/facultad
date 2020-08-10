@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.interfaz.layouts;
 
+import edu.fiuba.algo3.interfaz.botones.BotonEnviarRespuesta;
 import edu.fiuba.algo3.interfaz.layouts.preguntaSubLayouts.LayoutBonificaciones;
 import edu.fiuba.algo3.interfaz.layouts.preguntaSubLayouts.LayoutEnunciadoPregunta;
 import edu.fiuba.algo3.interfaz.layouts.preguntaSubLayouts.LayoutIzquierdoPregunta;
@@ -15,6 +16,7 @@ public class LayoutPregunta {
     private LayoutOpciones layoutOpciones;
     private LayoutBonificaciones layoutBonificaciones;
     private LayoutIzquierdoPregunta layoutIzquierdo;
+    private BotonEnviarRespuesta botonEnviarRespuesta;
 
     public LayoutPregunta(Integer preguntaActual, Integer preguntasTotales) {
 
@@ -27,6 +29,11 @@ public class LayoutPregunta {
         layout.setCenter(layoutOpciones.getLayout());
         layout.setRight(layoutBonificaciones.getLayout());
         layout.setLeft(layoutIzquierdo.getLayout());
+
+        botonEnviarRespuesta = new BotonEnviarRespuesta();
+        botonEnviarRespuesta.getBoton().setTranslateY(-20.0);
+        botonEnviarRespuesta.getBoton().setTranslateX(680.0);
+        layout.setBottom(botonEnviarRespuesta.getBoton());
     }
 
     public void agregarEnunciadoDeLaPregunta(String enunciado){

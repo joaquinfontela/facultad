@@ -19,10 +19,10 @@ public class DistribuidorDeCuatroOpciones implements DistribuidorDeOpciones {
     @Override
     public StackPane getLayout(ArrayList<String> opciones) {
 
-        agregarOpcion(opciones.get(0), -375, -100, Color.RED);
-        agregarOpcion(opciones.get(1), 375, -100, Color.BLUE);
-        agregarOpcion(opciones.get(2), -375, 50, Color.GOLD);
-        agregarOpcion(opciones.get(3), 375, 50, Color.GREEN);
+        agregarOpcion(opciones.get(0), -375, -75, Color.RED);
+        agregarOpcion(opciones.get(1), 375, -75, Color.BLUE);
+        agregarOpcion(opciones.get(2), -375, 75, Color.GOLD);
+        agregarOpcion(opciones.get(3), 375, 75, Color.GREEN);
         return layout;
     }
 }

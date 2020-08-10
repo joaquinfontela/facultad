@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.interfaz.layouts;
 
-import edu.fiuba.algo3.interfaz.layouts.puntajesParcialesSubLayouts.LayoutPuntajeJugador;
+import edu.fiuba.algo3.interfaz.layouts.puntajesSubLayouts.LayoutPuntajeJugador;
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Background;

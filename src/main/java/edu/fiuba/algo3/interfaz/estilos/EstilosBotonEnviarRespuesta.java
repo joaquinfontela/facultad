@@ -19,9 +19,5 @@ public class EstilosBotonEnviarRespuesta extends EstilosBoton {
         boton.setShape(formaBoton);
 
         boton.setStyle("-fx-border-width: 2px; -fx-border-color: green");
-
-        boton.setOnMouseClicked(e -> {
-            System.out.println("RESPUESTA ENVIADA!");
-        });
     }
 }

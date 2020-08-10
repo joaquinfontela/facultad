@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.interfaz.layouts.puntajesParcialesSubLayouts;
+package edu.fiuba.algo3.interfaz.layouts.puntajesSubLayouts;
 
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
