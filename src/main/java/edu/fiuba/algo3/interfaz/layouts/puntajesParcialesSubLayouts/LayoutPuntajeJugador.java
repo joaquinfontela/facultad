@@ -7,17 +7,15 @@ import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
 import javafx.scene.text.Font;
-import javafx.scene.text.TextAlignment;
 
-public class LayoutPuntajeParcialJugador {
+public class LayoutPuntajeJugador {
 
     private StackPane layout;
     private String nickname;
     private Integer puntaje;
 
-    public LayoutPuntajeParcialJugador(String unNickname, Integer unPuntaje){
+    public LayoutPuntajeJugador(String unNickname, Integer unPuntaje, Color color){
 
         layout = new StackPane();
         nickname = unNickname;
@@ -25,7 +23,7 @@ public class LayoutPuntajeParcialJugador {
 
         layout.setMinSize(1550, 200);
         layout.setMaxSize(1550, 200);
-        layout.setBackground(new Background(new BackgroundFill(Color.GOLD, CornerRadii.EMPTY, Insets.EMPTY)));
+        layout.setBackground(new Background(new BackgroundFill(color, CornerRadii.EMPTY, Insets.EMPTY)));
         layout.setStyle("-fx-border-color: black");
 
         agregarNickname();

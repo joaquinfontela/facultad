@@ -4,7 +4,7 @@ import javafx.scene.shape.Polygon;
 
 public class Tic extends Polygon {
 
-    Tic() {
+    public Tic() {
 
         super();
         this.getPoints().addAll(0.0, 0.0,
