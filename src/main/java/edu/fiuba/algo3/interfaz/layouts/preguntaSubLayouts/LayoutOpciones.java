@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.interfaz.layouts.preguntaSubLayouts;
 
 import edu.fiuba.algo3.interfaz.botones.BotonEnviarRespuesta;
-import edu.fiuba.algo3.interfaz.layouts.distribuidoresDeOpciones.*;
+import edu.fiuba.algo3.interfaz.layouts.preguntaSubLayouts.distribuidoresDeOpciones.*;
 import javafx.scene.layout.StackPane;
 
 import java.util.ArrayList;

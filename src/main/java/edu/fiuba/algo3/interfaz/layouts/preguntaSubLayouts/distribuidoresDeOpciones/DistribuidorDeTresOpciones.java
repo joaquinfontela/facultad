@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.interfaz.layouts.distribuidoresDeOpciones;
+package edu.fiuba.algo3.interfaz.layouts.preguntaSubLayouts.distribuidoresDeOpciones;
 
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;

@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.interfaz.layouts.distribuidoresDeOpciones;
+package edu.fiuba.algo3.interfaz.layouts.preguntaSubLayouts.distribuidoresDeOpciones;
 
 import edu.fiuba.algo3.interfaz.botones.botonesOpcion.BotonOpcion;
 import edu.fiuba.algo3.interfaz.botones.botonesOpcion.BotonOpcionGrande;

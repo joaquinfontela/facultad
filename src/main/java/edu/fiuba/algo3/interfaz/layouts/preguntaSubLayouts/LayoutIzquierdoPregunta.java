@@ -6,10 +6,10 @@ public class LayoutIzquierdoPregunta {
 
     private StackPane layout;
 
-    public LayoutIzquierdoPregunta() {
+    public LayoutIzquierdoPregunta(Integer numeroPreguntaActual, Integer cantidadPreguntasTotales) {
 
         layout = new StackPane();
-        layout.getChildren().add(new ContadorPregunta(7, 10).getLayout());
+        layout.getChildren().add(new ContadorPregunta(numeroPreguntaActual, cantidadPreguntasTotales).getLayout());
         layout.getChildren().add(new RelojPregunta().getContador());
         layout.setTranslateX(35.0);
         layout.setTranslateY(-550.0);

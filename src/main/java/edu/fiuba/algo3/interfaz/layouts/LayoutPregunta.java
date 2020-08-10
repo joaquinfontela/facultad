@@ -16,12 +16,12 @@ public class LayoutPregunta {
     private LayoutBonificaciones layoutBonificaciones;
     private LayoutIzquierdoPregunta layoutIzquierdo;
 
-    public LayoutPregunta() {
+    public LayoutPregunta(Integer preguntaActual, Integer preguntasTotales) {
 
         layout = new BorderPane();
         layoutOpciones = new LayoutOpciones();
         layoutBonificaciones = new LayoutBonificaciones();
-        layoutIzquierdo = new LayoutIzquierdoPregunta();
+        layoutIzquierdo = new LayoutIzquierdoPregunta(preguntaActual, preguntasTotales);
 
         layout.setBackground(new Background(new BackgroundFill(Color.DIMGRAY, CornerRadii.EMPTY, Insets.EMPTY)));
         layout.setCenter(layoutOpciones.getLayout());
