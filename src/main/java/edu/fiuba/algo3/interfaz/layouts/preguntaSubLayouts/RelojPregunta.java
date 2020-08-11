@@ -29,8 +29,8 @@ public class RelojPregunta {
         forma.setRadius(1.0);
         contador.setShape(forma);
 
-        contador.setMinSize(120, 120);
-        contador.setMaxSize(120, 120);
+        contador.setMinSize(100, 90);
+        contador.setMaxSize(100, 90);
         contador.setBackground(new Background(new BackgroundFill(Color.PURPLE, CornerRadii.EMPTY, Insets.EMPTY)));
         contador.setStyle("-fx-border-color: gold");
 

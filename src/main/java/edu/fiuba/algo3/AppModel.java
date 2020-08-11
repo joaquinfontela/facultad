@@ -31,8 +31,8 @@ public class AppModel extends Application {
 
         stage.setTitle("Kahoot!");
         stage.setScene(scene);
-        stage.setHeight(900);
-        stage.setWidth(1500);
+        stage.setHeight(720);
+        stage.setWidth(1200);
         stage.show();
     }
 
@@ -56,7 +56,7 @@ public class AppModel extends Application {
 
         layoutPuntajesParciales = new LayoutPuntajesParciales();
         layoutPuntajesParciales.agregarPuntaje("Miguel", 3);
-        layoutPuntajesParciales.agregarPuntaje("Tomas", 1);
+        layoutPuntajesParciales.agregarPuntaje("Tomás", 1);
 
         scene = new Scene(layoutPuntajesParciales.getLayout(), 640, 480);
     }
@@ -64,7 +64,7 @@ public class AppModel extends Application {
     private void mostrarLayoutPuntajeFinal() {
 
         layoutPuntajeFinal = new LayoutPuntajeFinal();
-        layoutPuntajeFinal.agregarJugadorGanador("Tomas", 14);
+        layoutPuntajeFinal.agregarJugadorGanador("Tomás", 14);
         layoutPuntajeFinal.agregarJugadorPerdedor("Miguel", 11);
 
         scene = new Scene(layoutPuntajeFinal.getLayout(), 640, 480);

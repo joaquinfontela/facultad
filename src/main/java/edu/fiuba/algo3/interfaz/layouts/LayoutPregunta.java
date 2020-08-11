@@ -31,8 +31,8 @@ public class LayoutPregunta {
         layout.setLeft(layoutIzquierdo.getLayout());
 
         botonEnviarRespuesta = new BotonEnviarRespuesta();
-        botonEnviarRespuesta.setTranslateY(-20.0);
-        botonEnviarRespuesta.setTranslateX(680.0);
+        botonEnviarRespuesta.setTranslateY(-10.0);
+        botonEnviarRespuesta.setTranslateX(500.0);
         layout.setBottom(botonEnviarRespuesta);
     }
 

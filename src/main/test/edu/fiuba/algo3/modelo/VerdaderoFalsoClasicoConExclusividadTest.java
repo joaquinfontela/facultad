@@ -1,5 +1,5 @@
-package edu.fiuba.algo3.modelo;
-
+//package edu.fiuba.algo3.modelo;
+/*
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.pregunta.modalidad.modalidad.Modalidad;
 import edu.fiuba.algo3.modelo.pregunta.modalidad.modalidad.ModalidadClasica;
@@ -161,4 +161,4 @@ public class VerdaderoFalsoClasicoConExclusividadTest {
         assertEquals(jugador1.obtenerPuntaje(), 0);
         assertEquals(jugador2.obtenerPuntaje(), 0);
     }
-}
+}*/

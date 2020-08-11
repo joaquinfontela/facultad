@@ -19,9 +19,9 @@ public class ContadorPregunta {
     ContadorPregunta(Integer numPreguntaActual, Integer numPreguntasTotales) {
 
         layout = new StackPane();
-        layout.setMaxSize(120, 100);
-        layout.setMinSize(120, 100);
-        layout.setTranslateY(275.0);
+        layout.setMaxSize(100, 80);
+        layout.setMinSize(100, 80);
+        layout.setTranslateY(175.0);
         layout.setStyle("-fx-border-color: gold; -fx-border-width: 2px");
         layout.setBackground(new Background(new BackgroundFill(Color.BLACK, CornerRadii.EMPTY, Insets.EMPTY)));
 

@@ -21,10 +21,10 @@ public class LayoutPuntajeJugador {
         nickname = unNickname;
         puntaje = unPuntaje;
 
-        layout.setMinSize(1550, 200);
-        layout.setMaxSize(1550, 200);
+        layout.setMinSize(1200, 150);
+        layout.setMaxSize(1200, 150);
         layout.setBackground(new Background(new BackgroundFill(color, CornerRadii.EMPTY, Insets.EMPTY)));
-        layout.setStyle("-fx-border-color: black");
+        layout.setStyle("-fx-border-color: white");
 
         agregarNickname();
         agregarPuntuacion();
@@ -34,6 +34,7 @@ public class LayoutPuntajeJugador {
 
         Label contenedorDeNickname = new Label(nickname);
         contenedorDeNickname.setFont(new Font("FreeSans", 100));
+        contenedorDeNickname.setTextFill(Color.WHITE);
         contenedorDeNickname.setTranslateX(-400.0);
         layout.getChildren().add(contenedorDeNickname);
     }
@@ -44,6 +45,7 @@ public class LayoutPuntajeJugador {
 
         contenedorDePuntuacion.setFont(new Font("FreeSans", 110));
         contenedorDePuntuacion.setTranslateX(400.0);
+        contenedorDePuntuacion.setTextFill(Color.WHITE);
         layout.getChildren().add(contenedorDePuntuacion);
     }
 

@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.modelo;
 
-
+/*
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.pregunta.modalidad.modalidad.Modalidad;
 import edu.fiuba.algo3.modelo.pregunta.modalidad.modalidad.ModalidadPenalidad;
@@ -187,4 +187,4 @@ public class VerdaderoFalsoPenalidadConMultiplicadorTest {
         assertEquals(jugador1.obtenerPuntaje(), 1);
         assertEquals(jugador2.obtenerPuntaje(), -3);
     }
-}
+}*/

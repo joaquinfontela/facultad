@@ -1,5 +1,5 @@
-package edu.fiuba.algo3.modelo;
-
+//package edu.fiuba.algo3.modelo;
+/*
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.pregunta.modalidad.modalidad.ModalidadPenalidad;
 import edu.fiuba.algo3.modelo.pregunta.modalidad.modalidad.ModalidadPuntajeParcial;
@@ -97,4 +97,4 @@ public class ModalidadPuntajeParcialTest {
         assertEquals(jugador1.obtenerPuntaje(),12);
         assertEquals(jugador2.obtenerPuntaje(),0);
     }
-}
+}*/

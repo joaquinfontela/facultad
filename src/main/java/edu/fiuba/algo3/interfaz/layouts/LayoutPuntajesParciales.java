@@ -1,6 +1,5 @@
 package edu.fiuba.algo3.interfaz.layouts;
 
-import edu.fiuba.algo3.interfaz.botones.BotonContinuar;
 import edu.fiuba.algo3.interfaz.layouts.puntajesSubLayouts.LayoutPuntajeJugador;
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
@@ -16,28 +15,26 @@ public class LayoutPuntajesParciales {
     StackPane layout;
     LayoutPuntajeJugador layoutPuntajeParcialJugador1;
     LayoutPuntajeJugador layoutPuntajeParcialJugador2;
-    BotonContinuar botonContinuar;
 
     public LayoutPuntajesParciales() {
 
         layout = new StackPane();
         layout.setBackground(new Background(new BackgroundFill(Color.DIMGRAY, CornerRadii.EMPTY, Insets.EMPTY)));
         agregarTituloDelLayout();
-        agregarBotonContinuar();
     }
 
     private void agregarTituloDelLayout() {
 
         StackPane contenedorTitulo = new StackPane();
-        contenedorTitulo.setMinSize(1550, 75);
-        contenedorTitulo.setMaxSize(1550, 75);
+        contenedorTitulo.setMinSize(1200, 95);
+        contenedorTitulo.setMaxSize(1200, 95);
         contenedorTitulo.setBackground(new Background(new BackgroundFill(Color.PURPLE, CornerRadii.EMPTY, Insets.EMPTY)));
-        contenedorTitulo.setStyle("-fx-border-color: black");
+        contenedorTitulo.setStyle("-fx-border-color: white");
         contenedorTitulo.setTranslateY(-300.0);
 
         Label titulo = new Label("PUNTUACIONES");
         titulo.setFont(new Font("FreeSans", 50));
-        titulo.setTextFill(Color.ORANGE);
+        titulo.setTextFill(Color.YELLOW);
 
         contenedorTitulo.getChildren().add(titulo);
         layout.getChildren().add(contenedorTitulo);
@@ -46,21 +43,14 @@ public class LayoutPuntajesParciales {
     public void agregarPuntaje(String nicknameJugador, Integer puntuacion) {
 
         if (layoutPuntajeParcialJugador1 == null) {
-            layoutPuntajeParcialJugador1 = new LayoutPuntajeJugador(nicknameJugador, puntuacion, Color.ROYALBLUE);
+            layoutPuntajeParcialJugador1 = new LayoutPuntajeJugador(nicknameJugador, puntuacion, Color.BLUE);
             layoutPuntajeParcialJugador1.getLayout().setTranslateY(-120.0);
             layout.getChildren().add(layoutPuntajeParcialJugador1.getLayout());
         } else {
-            layoutPuntajeParcialJugador2 = new LayoutPuntajeJugador(nicknameJugador, puntuacion, Color.DARKRED);
+            layoutPuntajeParcialJugador2 = new LayoutPuntajeJugador(nicknameJugador, puntuacion, Color.RED);
             layoutPuntajeParcialJugador2.getLayout().setTranslateY(120.0);
             layout.getChildren().add(layoutPuntajeParcialJugador2.getLayout());
         }
-    }
-
-    public void agregarBotonContinuar() {
-
-        botonContinuar = new BotonContinuar();
-        botonContinuar.setTranslateY(375.0);
-        layout.getChildren().add(botonContinuar);
     }
 
     public StackPane getLayout() {

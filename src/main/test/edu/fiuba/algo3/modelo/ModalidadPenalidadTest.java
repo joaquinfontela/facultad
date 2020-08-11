@@ -1,5 +1,5 @@
 package edu.fiuba.algo3.modelo;
-
+/*
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.pregunta.modalidad.modalidad.ModalidadPenalidad;
 import edu.fiuba.algo3.modelo.pregunta.modalidad.bonificacion.Multiplicador;
@@ -109,4 +109,4 @@ public class ModalidadPenalidadTest {
         assertEquals(jugador1.obtenerPuntaje(),3);
         assertEquals(jugador2.obtenerPuntaje(),-9);
     }
-}
+}*/

@@ -22,16 +22,16 @@ public class LayoutEnunciadoPregunta {
 
         enunciadoDeLaPregunta.setBackground(new Background(new BackgroundFill(Color.LIGHTGRAY, CornerRadii.EMPTY, Insets.EMPTY)));
         enunciadoDeLaPregunta.setWrapText(true);
-        enunciadoDeLaPregunta.setMaxSize(1050,425);
-        enunciadoDeLaPregunta.setMinSize(1050,425);
+        enunciadoDeLaPregunta.setMaxSize(770,355);
+        enunciadoDeLaPregunta.setMinSize(770,355);
         enunciadoDeLaPregunta.setTextAlignment(TextAlignment.CENTER);
-        enunciadoDeLaPregunta.setFont(new Font("KacstPoster", 50));
+        enunciadoDeLaPregunta.setFont(new Font("KacstPoster", 40));
         enunciadoDeLaPregunta.setTextFill(Color.BLACK);
 
-        layout.setMaxSize(1100, 450);
-        layout.setMinSize(1100, 450);
-        layout.setTranslateY(25.0);
-        layout.setTranslateX(190.0);
+        layout.setMaxSize(785, 370);
+        layout.setMinSize(785, 370);
+        layout.setTranslateY(15.0);
+        layout.setTranslateX(200.0);
         layout.setStyle("-fx-background-color: gray; -fx-border: 5000");
         layout.getChildren().add(enunciadoDeLaPregunta);
     }

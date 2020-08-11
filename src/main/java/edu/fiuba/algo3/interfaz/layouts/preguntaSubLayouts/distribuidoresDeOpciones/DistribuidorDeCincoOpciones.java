@@ -10,11 +10,11 @@ public class DistribuidorDeCincoOpciones extends DistribuidorDeOpcionesChicas {
     @Override
     public StackPane getLayout(ArrayList<String> opciones) {
 
-        agregarOpcion(opciones.get(0), -450, -75, Color.RED);
-        agregarOpcion(opciones.get(1), 450, -75, Color.BLUE);
-        agregarOpcion(opciones.get(2), -450, 75, Color.GOLD);
-        agregarOpcion(opciones.get(3), 450, 75, Color.GREEN);
-        agregarOpcion(opciones.get(4), 0, -75, Color.BLUEVIOLET);
+        agregarOpcion(opciones.get(0), -400, -30, Color.RED);
+        agregarOpcion(opciones.get(1), 400, -30, Color.BLUE);
+        agregarOpcion(opciones.get(2), -400, 80, Color.GOLD);
+        agregarOpcion(opciones.get(3), 400, 80, Color.GREEN);
+        agregarOpcion(opciones.get(4), 0, -30, Color.BLUEVIOLET);
         return layout;
     }
 }

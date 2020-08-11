@@ -10,7 +10,7 @@ public class EstilosBotonOpcionChico extends EstilosBotonOpcion {
 
         super(unBoton, color);
 
-        boton.setFont(new Font("FreeSans", 55));
-        boton.setPrefSize(400, 100);
+        boton.setFont(new Font("FreeSans", 50));
+        boton.setPrefSize(375, 90);
     }
 }

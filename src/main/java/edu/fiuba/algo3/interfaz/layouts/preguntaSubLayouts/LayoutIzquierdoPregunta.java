@@ -12,7 +12,7 @@ public class LayoutIzquierdoPregunta {
         layout.getChildren().add(new ContadorPregunta(numeroPreguntaActual, cantidadPreguntasTotales).getLayout());
         layout.getChildren().add(new RelojPregunta().getContador());
         layout.setTranslateX(35.0);
-        layout.setTranslateY(-525.0);
+        layout.setTranslateY(-415.0);
     }
 
     public StackPane getLayout() {

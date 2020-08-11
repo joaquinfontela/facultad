@@ -10,7 +10,7 @@ public class EstilosBotonOpcionGrande extends EstilosBotonOpcion {
 
         super(unBoton, color);
 
-        boton.setFont(new Font("FreeSans", 55));
-        boton.setPrefSize(400, 225);
+        boton.setFont(new Font("FreeSans", 50));
+        boton.setPrefSize(390, 180);
     }
 }
