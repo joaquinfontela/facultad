@@ -12,12 +12,10 @@ public class LayoutOpciones {
     private BotonEnviarRespuesta botonEnviarRespuesta;
 
     public LayoutOpciones() {
-
         opciones = new ArrayList<>();
     }
 
     public void agregarOpcion(String enunciado) {
-
         opciones.add(enunciado);
     }
 
@@ -35,9 +33,6 @@ public class LayoutOpciones {
         } else if (opciones.size() == 6) {
             layout = new DistribuidorDeSeisOpciones().getLayout(opciones);
         }
-
-
         return layout;
     }
-
 }

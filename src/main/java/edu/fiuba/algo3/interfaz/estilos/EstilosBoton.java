@@ -9,15 +9,13 @@ import javafx.util.Duration;
 
 public class EstilosBoton extends ButtonSkin {
 
-    protected Button boton;
-    protected Boton manejadorDeBoton;
+    protected Boton boton;
 
-    public EstilosBoton(Boton unManejadorDeBoton) {
+    public EstilosBoton(Boton unBoton) {
 
-        super(unManejadorDeBoton.getBoton());
+        super(unBoton);
 
-        manejadorDeBoton = unManejadorDeBoton;
-        boton = manejadorDeBoton.getBoton();
+        boton = unBoton;
 
         eventoMousePasaPorArriba();
         eventoBotonClickeado();
@@ -29,7 +27,7 @@ public class EstilosBoton extends ButtonSkin {
         fadeIn.setNode(boton);
         fadeIn.setToValue(0.8);
         boton.setOnMouseEntered(e -> {
-            if (!manejadorDeBoton.fueSeleccionado()) {
+            if (!boton.fueSeleccionado()) {
                 fadeIn.playFromStart();
             }
         });
@@ -38,7 +36,7 @@ public class EstilosBoton extends ButtonSkin {
         fadeOut.setNode(boton);
         fadeOut.setToValue(0.6);
         boton.setOnMouseExited(e -> {
-            if (!manejadorDeBoton.fueSeleccionado()) {
+            if (!boton.fueSeleccionado()) {
                 fadeOut.playFromStart();
             }
         });
@@ -51,7 +49,7 @@ public class EstilosBoton extends ButtonSkin {
         boton.setOnMouseClicked(e -> {
 
             if (e.getEventType().equals(MouseEvent.MOUSE_CLICKED)){
-                manejadorDeBoton.switchSeleccionado();
+                boton.switchSeleccionado();
                 actualizarOpacidad();
             }
         });
@@ -59,11 +57,10 @@ public class EstilosBoton extends ButtonSkin {
 
     private void actualizarOpacidad() {
 
-        if (manejadorDeBoton.fueSeleccionado()) {
+        if (boton.fueSeleccionado()) {
             boton.setOpacity(1.0);
         } else {
             boton.setOpacity(0.6);
         }
     }
-
 }

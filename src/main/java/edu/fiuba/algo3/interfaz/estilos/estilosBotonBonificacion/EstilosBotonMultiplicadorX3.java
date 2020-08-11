@@ -9,9 +9,9 @@ import javafx.scene.paint.Color;
 
 public class EstilosBotonMultiplicadorX3 extends EstilosBotonMultiplicador {
 
-    public EstilosBotonMultiplicadorX3(Boton manejadorDeBoton) {
+    public EstilosBotonMultiplicadorX3(Boton unBoton) {
 
-        super(manejadorDeBoton);
+        super(unBoton);
         boton.setBackground(new Background(new BackgroundFill(Color.YELLOW, CornerRadii.EMPTY, Insets.EMPTY)));
         boton.setText("X3");
     }

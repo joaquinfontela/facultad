@@ -9,8 +9,9 @@ import javafx.scene.paint.Color;
 
 public class EstilosBotonEnviarRespuesta extends EstilosBoton {
 
-    public EstilosBotonEnviarRespuesta(Boton manejadorDeBoton) {
-        super(manejadorDeBoton);
+    public EstilosBotonEnviarRespuesta(Boton unBoton) {
+
+        super(unBoton);
 
         boton.setBackground(new Background(new BackgroundFill(Color.DARKGREEN, CornerRadii.EMPTY, Insets.EMPTY)));
         boton.setPrefSize(150, 75);

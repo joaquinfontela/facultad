@@ -8,8 +8,8 @@ public abstract class BotonBonificacion extends Boton {
     public BotonBonificacion(double posX, double posY) {
 
         super();
-        boton.setPrefSize(110,110);
-        boton.setTranslateX(posX);
-        boton.setTranslateY(posY);
+        this.setPrefSize(110,110);
+        this.setTranslateX(posX);
+        this.setTranslateY(posY);
     }
 }

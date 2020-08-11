@@ -9,8 +9,8 @@ public abstract class BotonOpcion extends Boton {
     public BotonOpcion(String enunciado, double posX, double posY, Color color) {
 
         super();
-        boton.setText(enunciado);
-        boton.setTranslateX(posX);
-        boton.setTranslateY(posY);
+        this.setText(enunciado);
+        this.setTranslateX(posX);
+        this.setTranslateY(posY);
     }
 }

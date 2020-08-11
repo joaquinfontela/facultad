@@ -13,7 +13,7 @@ public class DistribuidorDeCuatroOpciones implements DistribuidorDeOpciones {
     public void agregarOpcion(String enunciado, Integer desplazamientoEnX, Integer desplazamientoEnY, Color color) {
 
         BotonOpcion opcion = new BotonOpcionChicoLargo(enunciado, desplazamientoEnX, desplazamientoEnY, color);
-        layout.getChildren().add(opcion.getBoton());
+        layout.getChildren().add(opcion);
     }
 
     @Override

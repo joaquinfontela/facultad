@@ -17,5 +17,4 @@ public class DistribuidorDeCincoOpciones extends DistribuidorDeOpcionesChicas {
         agregarOpcion(opciones.get(4), 0, -75, Color.BLUEVIOLET);
         return layout;
     }
-
 }

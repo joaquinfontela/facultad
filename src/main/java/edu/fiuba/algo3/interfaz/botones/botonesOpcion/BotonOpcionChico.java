@@ -8,6 +8,6 @@ public class BotonOpcionChico extends BotonOpcion {
     public BotonOpcionChico(String enunciado, double posX, double posY, Color color) {
 
         super(enunciado, posX, posY, color);
-        boton.setSkin(new EstilosBotonOpcionChico(this, color));
+        this.setSkin(new EstilosBotonOpcionChico(this, color));
     }
 }

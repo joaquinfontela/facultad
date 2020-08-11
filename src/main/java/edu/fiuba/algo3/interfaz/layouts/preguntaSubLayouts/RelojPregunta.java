@@ -71,7 +71,6 @@ public class RelojPregunta {
     }
 
     public StackPane getContador() {
-
         return contador;
     }
 }

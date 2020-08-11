@@ -7,6 +7,6 @@ public class BotonMultiplicadorX2 extends BotonBonificacion {
     public BotonMultiplicadorX2(double posX, double posY) {
 
         super(posX, posY);
-        boton.setSkin(new EstilosBotonMultiplicadorX2(this));
+        this.setSkin(new EstilosBotonMultiplicadorX2(this));
     }
 }

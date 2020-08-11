@@ -8,9 +8,9 @@ import javafx.scene.text.Font;
 
 public abstract class EstilosBotonMultiplicador extends EstilosBotonBonificacion {
 
-    public EstilosBotonMultiplicador(Boton manejadorDeBoton) {
-        super(manejadorDeBoton);
+    public EstilosBotonMultiplicador(Boton unBoton) {
 
+        super(unBoton);
         Polygon forma = new Polygon();
         Polygon hexagonoEquilatero = new PolygonEditor().setPolygonSides(forma, 1, 1, 1, 6);
         boton.setShape(hexagonoEquilatero);

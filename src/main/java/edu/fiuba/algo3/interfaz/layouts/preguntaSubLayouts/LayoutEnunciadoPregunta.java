@@ -37,7 +37,6 @@ public class LayoutEnunciadoPregunta {
     }
 
     public StackPane getLayout() {
-
         return layout;
     }
 }

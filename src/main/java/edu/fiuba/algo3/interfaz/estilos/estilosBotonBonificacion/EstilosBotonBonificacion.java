@@ -5,9 +5,9 @@ import edu.fiuba.algo3.interfaz.estilos.EstilosBoton;
 
 public class EstilosBotonBonificacion extends EstilosBoton {
 
-    public EstilosBotonBonificacion(Boton unManejadorDeBoton) {
+    public EstilosBotonBonificacion(Boton unBoton) {
 
-        super(unManejadorDeBoton);
+        super(unBoton);
         boton.setStyle("-fx-border-color: black; -fx-border-width: 4px");
     }
 }

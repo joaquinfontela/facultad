@@ -16,7 +16,6 @@ public class LayoutIzquierdoPregunta {
     }
 
     public StackPane getLayout() {
-
         return layout;
     }
 }

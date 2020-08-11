@@ -12,8 +12,8 @@ import javafx.scene.text.Font;
 
 public class EstilosBotonExclusividad extends EstilosBotonBonificacion {
 
-    public EstilosBotonExclusividad(Boton manejadorDeBoton) {
-        super(manejadorDeBoton);
+    public EstilosBotonExclusividad(Boton unBoton) {
+        super(unBoton);
 
         Polygon forma = new Polygon();
         Polygon pentagonoEquilatero = new PolygonEditor().setPolygonSides(forma, 1, 1, 1, 5);

@@ -7,10 +7,10 @@ public class BotonEnviarRespuesta extends Boton {
     public BotonEnviarRespuesta() {
 
         super();
-        boton.setTranslateY(160.0);
-        boton.setSkin(new EstilosBotonEnviarRespuesta(this));
+        this.setTranslateY(160.0);
+        this.setSkin(new EstilosBotonEnviarRespuesta(this));
 
-        boton.setOnMouseClicked(e -> {
+        this.setOnMouseClicked(e -> {
             System.out.println("RESPUESTA ENVIADA!");
         });
     }

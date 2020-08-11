@@ -10,6 +10,6 @@ public abstract class DistribuidorDeOpcionesChicas implements DistribuidorDeOpci
     public void agregarOpcion(String enunciado, Integer desplazamientoEnX, Integer desplazamientoEnY, Color color) {
 
         BotonOpcion opcion = new BotonOpcionChico(enunciado, desplazamientoEnX, desplazamientoEnY, color);
-        layout.getChildren().add(opcion.getBoton());
+        layout.getChildren().add(opcion);
     }
 }

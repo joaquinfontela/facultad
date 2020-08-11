@@ -36,7 +36,6 @@ public class ContadorPregunta {
     }
 
     public StackPane getLayout() {
-
         return layout;
     }
 }

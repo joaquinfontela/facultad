@@ -14,5 +14,4 @@ public class DistribuidorDeTresOpciones extends DistribuidorDeOpcionesGrandes {
         agregarOpcion(opciones.get(2), 0, 0, Color.BLUE);
         return layout;
     }
-
 }

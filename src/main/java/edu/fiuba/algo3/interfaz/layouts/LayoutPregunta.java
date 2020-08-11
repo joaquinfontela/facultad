@@ -31,9 +31,9 @@ public class LayoutPregunta {
         layout.setLeft(layoutIzquierdo.getLayout());
 
         botonEnviarRespuesta = new BotonEnviarRespuesta();
-        botonEnviarRespuesta.getBoton().setTranslateY(-20.0);
-        botonEnviarRespuesta.getBoton().setTranslateX(680.0);
-        layout.setBottom(botonEnviarRespuesta.getBoton());
+        botonEnviarRespuesta.setTranslateY(-20.0);
+        botonEnviarRespuesta.setTranslateX(680.0);
+        layout.setBottom(botonEnviarRespuesta);
     }
 
     public void agregarEnunciadoDeLaPregunta(String enunciado){
@@ -52,5 +52,4 @@ public class LayoutPregunta {
         layout.setCenter(layoutOpciones.getLayout());
         return layout;
     }
-
 }

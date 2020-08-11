@@ -6,9 +6,9 @@ import javafx.scene.text.Font;
 
 public class EstilosBotonOpcionGrande extends EstilosBotonOpcion {
 
-    public EstilosBotonOpcionGrande(Boton manejadorDeBoton, Color color) {
+    public EstilosBotonOpcionGrande(Boton unBoton, Color color) {
 
-        super(manejadorDeBoton, color);
+        super(unBoton, color);
 
         boton.setFont(new Font("FreeSans", 55));
         boton.setPrefSize(400, 225);

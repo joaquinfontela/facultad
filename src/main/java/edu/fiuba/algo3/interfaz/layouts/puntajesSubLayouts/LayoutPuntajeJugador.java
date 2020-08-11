@@ -48,7 +48,6 @@ public class LayoutPuntajeJugador {
     }
 
     public StackPane getLayout() {
-
         return layout;
     }
 }

@@ -6,10 +6,9 @@ import javafx.scene.text.Font;
 
 public class EstilosBotonOpcionChicoLargo extends EstilosBotonOpcion {
 
+    public EstilosBotonOpcionChicoLargo(Boton unBoton, Color color) {
 
-    public EstilosBotonOpcionChicoLargo(Boton manejadorDeBoton, Color color) {
-
-        super(manejadorDeBoton, color);
+        super(unBoton, color);
 
         boton.setFont(new Font("FreeSans", 55));
         boton.setPrefSize(650, 100);
