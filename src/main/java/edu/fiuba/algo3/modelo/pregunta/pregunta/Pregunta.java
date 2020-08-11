@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.pregunta.pregunta;
 
+import edu.fiuba.algo3.modelo.pregunta.modalidad.bonificacion.Bonificacion;
 import edu.fiuba.algo3.modelo.pregunta.modalidad.modalidad.Modalidad;
 import edu.fiuba.algo3.modelo.pregunta.respuesta.Respuesta;
 import edu.fiuba.algo3.modelo.pregunta.respuesta.RespuestaDeJugador;
@@ -28,11 +29,16 @@ public class Pregunta {
         return respuestaCorrecta;
     }
 
-    public void evaluarRespuestas(ArrayList<RespuestaDeJugador> respuestasJugadores){
+    public void evaluarRespuestas(ArrayList<RespuestaDeJugador> respuestasJugadores) {
 
         for (RespuestaDeJugador respuesta : respuestasJugadores) {
             respuesta.generarEstadisticasRespuesta(respuestaCorrecta);
         }
         modalidad.establecerPuntajes(respuestasJugadores);
+    }
+
+    public void recibirBonificacion(Bonificacion bonificacion) throws Exception {
+
+        modalidad.recibirBonificacion(bonificacion);
     }
 }

@@ -8,24 +8,31 @@ import java.util.ArrayList;
 public class Multiplicador implements Bonificacion {
 
     private int factor;
-    private Jugador Duenio;
+    private Jugador duenio;
 
-    public Multiplicador(int factorIngresado, Jugador DuenioIngresado) {
+    public Multiplicador(int factorIngresado, Jugador duenioIngresado) {
 
         factor = factorIngresado;
-        Duenio = DuenioIngresado;
+        duenio = duenioIngresado;
     }
 
     @Override
     public void aplicar(ArrayList<Puntaje> puntajes) {
 
         for (Puntaje puntaje : puntajes) {
-            puntaje.multiplicar(Duenio, factor);
+            puntaje.multiplicar(duenio, factor);
         }
     }
 
     @Override
     public boolean esExclusividad() {
         return false;
+    }
+
+    @Override
+    public boolean tieneMismoDuenio(Bonificacion otraBonificacion) {
+
+        Multiplicador otroMultiplicador = (Multiplicador) otraBonificacion;
+        return (duenio == otroMultiplicador.duenio);
     }
 }

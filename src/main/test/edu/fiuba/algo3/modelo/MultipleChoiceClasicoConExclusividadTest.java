@@ -34,7 +34,7 @@ public class MultipleChoiceClasicoConExclusividadTest {
 
         Modalidad modalidad = new ModalidadClasica();
 
-        ExclusividadDePuntaje exclusividadDePuntaje = new ExclusividadDePuntaje();
+        ExclusividadDePuntaje exclusividadDePuntaje = new ExclusividadDePuntaje(jugador1);
         modalidad.recibirBonificacion(exclusividadDePuntaje);
 
         String enunciado = "¿Cuáles de estos animales son Venenosos?";
@@ -79,7 +79,7 @@ public class MultipleChoiceClasicoConExclusividadTest {
         RespuestaDeJugador respuestaDeJugador1 = new RespuestaDeJugador(jugador1, respuestaJugador1);
         RespuestaDeJugador respuestaDeJugador2 = new RespuestaDeJugador(jugador2, respuestaJugador2);
 
-        ArrayList<RespuestaDeJugador> respuestasJugadores = new ArrayList<RespuestaDeJugador>();
+        ArrayList<RespuestaDeJugador> respuestasJugadores = new ArrayList<>();
         respuestasJugadores.add(respuestaDeJugador1);
         respuestasJugadores.add(respuestaDeJugador2);
 

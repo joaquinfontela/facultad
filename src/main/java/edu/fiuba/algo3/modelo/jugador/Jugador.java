@@ -7,30 +7,31 @@ import java.util.Stack;
 
 public class Jugador {
 
-    /*private static int proximoId = 1;
-    private int id;*/
-
     private String nombre;
     private int puntaje;
-    private Multiplicador multiplicadorX2;
-    private Multiplicador multiplicadorX3;
+    private Stack<Multiplicador> multiplicadoresX2;
+    private Stack<Multiplicador> multiplicadoresX3;
     private Stack<ExclusividadDePuntaje> exclusividades;
 
     public Jugador(String nombreIngresado) {
 
-        /*id = proximoId;
-        proximoId++;*/
         puntaje = 0;
         nombre = nombreIngresado;
-        inicializarBonificaciones();
+        this.inicializarBonificaciones();
     }
 
     private void inicializarBonificaciones(){
 
-        multiplicadorX2 = new Multiplicador(2, this);
-        multiplicadorX3 = new Multiplicador(3, this);
+        multiplicadoresX2 = new Stack<>();
+        multiplicadoresX2.add(new Multiplicador(2, this));
+        multiplicadoresX3 = new Stack<>();
+        multiplicadoresX3.add(new Multiplicador(3, this));
         exclusividades = new Stack<>();
-        for (int i = 0; i < 2; i++) exclusividades.push(new ExclusividadDePuntaje());
+        for (int i = 0; i < 2; i++) exclusividades.push(new ExclusividadDePuntaje(this));
+    }
+
+    public String obtenerNombre() {
+        return nombre;
     }
 
     public void sumarPuntos(int puntos) {
@@ -41,25 +42,45 @@ public class Jugador {
         return puntaje;
     }
 
-    public Multiplicador obtenerMultiplicadorX2() {
+    public Multiplicador obtenerMultiplicadorX2() throws Exception {
 
-        //if (multiplicadorx2 == null) lanzar excepcion;
-        Multiplicador multiplicador = multiplicadorX2;
-        multiplicadorX2 = null;
-        return multiplicador;
+        if (multiplicadoresX2.empty()) throw new Exception();
+        return multiplicadoresX2.peek();
     }
 
-    public Multiplicador obtenerMultiplicadorX3() {
-
-        //if (multiplicadorx3 == null) lanzar excepcion;
-        Multiplicador multiplicador = multiplicadorX3;
-        multiplicadorX3 = null;
-        return multiplicador;
+    public void eliminarMultiplicadorX2() {
+        multiplicadoresX2.pop();
     }
 
-    public ExclusividadDePuntaje obtenerExclusividad() {
+    public int cantidadMultiplicadoresX2() {
+        return multiplicadoresX2.size();
+    }
 
-        //if (exclusividades.empty()) lanzar excepcion;
-        return exclusividades.pop();
+    public Multiplicador obtenerMultiplicadorX3() throws Exception {
+
+        if (multiplicadoresX3.empty()) throw new Exception();
+        return multiplicadoresX3.peek();
+    }
+
+    public void eliminarMultiplicadorX3() {
+        multiplicadoresX3.pop();
+    }
+
+    public int cantidadMultiplicadoresX3() {
+        return multiplicadoresX3.size();
+    }
+
+    public ExclusividadDePuntaje obtenerExclusividad() throws Exception {
+
+        if (exclusividades.empty()) throw new Exception();
+        return exclusividades.peek();
+    }
+
+    public void eliminarExclusividad() {
+        exclusividades.pop();
+    }
+
+    public int cantidadExclusividades() {
+        return exclusividades.size();
     }
 }

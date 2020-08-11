@@ -6,8 +6,9 @@ import edu.fiuba.algo3.modelo.pregunta.respuesta.EstadisticasRespuesta;
 public abstract class ModalidadConExclusividad extends Modalidad {
 
     @Override
-    public void verificarCorrectaBonificacion(Bonificacion bonificacion) throws BonificacionMalColocadaException {
-        if (!bonificacion.esExclusividad()) throw new BonificacionMalColocadaException();
+    protected void verificarCorrectaBonificacion(Bonificacion bonificacion) throws Exception {
+
+        if (!bonificacion.esExclusividad()) throw new Exception("No se puede aplicar un multiplicador en esta pregunta");
     }
 
     public abstract int calcularPuntos(EstadisticasRespuesta estadisticas);

@@ -25,14 +25,11 @@ public abstract class Modalidad {
         this.guardarPuntajes(puntajes);
     }
 
-    public void recibirBonificacion(Bonificacion bonificacion) {
+    public void recibirBonificacion(Bonificacion bonificacion) throws Exception {
 
-        try {
-            this.verificarCorrectaBonificacion(bonificacion);
-            bonificacionesAplicadas.add(bonificacion);
-        } catch(BonificacionMalColocadaException exception) {
-            System.out.println("Se colocó mal la Bonificación");
-        }
+        this.verificarCorrectaBonificacion(bonificacion);
+        this.verificarBonificacionConDistintoDuenio(bonificacion);
+        bonificacionesAplicadas.add(bonificacion);
     }
 
     public void aplicarBonificaciones(ArrayList<Puntaje> puntajes) {
@@ -40,7 +37,15 @@ public abstract class Modalidad {
         for (Bonificacion bonificacion : bonificacionesAplicadas) {
             bonificacion.aplicar(puntajes);
         }
-        //bonificacionesAplicadas.clear();   es al pedo
+    }
+
+    private void verificarBonificacionConDistintoDuenio(Bonificacion nuevaBonificacion) throws Exception {
+
+        for (Bonificacion bonificacion : bonificacionesAplicadas) {
+            if (bonificacion.tieneMismoDuenio(nuevaBonificacion)) {
+                throw new Exception("El jugador ya aplicó una bonificación en esta pregunta");
+            }
+        }
     }
 
     public void guardarPuntajes(ArrayList<Puntaje> puntajes){
@@ -49,5 +54,5 @@ public abstract class Modalidad {
 
     public abstract int calcularPuntos(EstadisticasRespuesta estadisticas);
 
-    public abstract void verificarCorrectaBonificacion(Bonificacion bonificacion) throws BonificacionMalColocadaException;
+    protected abstract void verificarCorrectaBonificacion(Bonificacion bonificacion) throws Exception;
 }

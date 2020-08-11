@@ -9,4 +9,6 @@ public interface Bonificacion {
     void aplicar(ArrayList<Puntaje> puntajes);
 
     boolean esExclusividad();
+
+    boolean tieneMismoDuenio(Bonificacion otraBonificacion);
 }
