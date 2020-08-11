@@ -9,7 +9,6 @@ import java.util.ArrayList;
 public class LayoutOpciones {
 
     private ArrayList<String> opciones;
-    private BotonEnviarRespuesta botonEnviarRespuesta;
 
     public LayoutOpciones() {
         opciones = new ArrayList<>();

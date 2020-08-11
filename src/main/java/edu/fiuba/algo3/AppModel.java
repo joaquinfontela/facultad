@@ -25,8 +25,8 @@ public class AppModel extends Application {
 
         //System.out.println(javafx.scene.text.Font.getFamilies());
 
-        mostrarLayoutPregunta();
-        //mostrarLayoutPuntajesParciales();
+        //mostrarLayoutPregunta();
+        mostrarLayoutPuntajesParciales();
         //mostrarLayoutPuntajeFinal();
 
         stage.setTitle("Kahoot!");

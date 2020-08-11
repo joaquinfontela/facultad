@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.interfaz.layouts;
 
+import edu.fiuba.algo3.interfaz.botones.BotonContinuar;
 import edu.fiuba.algo3.interfaz.layouts.puntajesSubLayouts.LayoutPuntajeJugador;
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
@@ -15,12 +16,14 @@ public class LayoutPuntajesParciales {
     StackPane layout;
     LayoutPuntajeJugador layoutPuntajeParcialJugador1;
     LayoutPuntajeJugador layoutPuntajeParcialJugador2;
+    BotonContinuar botonContinuar;
 
     public LayoutPuntajesParciales() {
 
         layout = new StackPane();
         layout.setBackground(new Background(new BackgroundFill(Color.DIMGRAY, CornerRadii.EMPTY, Insets.EMPTY)));
         agregarTituloDelLayout();
+        agregarBotonContinuar();
     }
 
     private void agregarTituloDelLayout() {
@@ -51,6 +54,13 @@ public class LayoutPuntajesParciales {
             layoutPuntajeParcialJugador2.getLayout().setTranslateY(120.0);
             layout.getChildren().add(layoutPuntajeParcialJugador2.getLayout());
         }
+    }
+
+    public void agregarBotonContinuar() {
+
+        botonContinuar = new BotonContinuar();
+        botonContinuar.setTranslateY(375.0);
+        layout.getChildren().add(botonContinuar);
     }
 
     public StackPane getLayout() {
