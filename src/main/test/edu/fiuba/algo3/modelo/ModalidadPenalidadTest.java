@@ -1,5 +1,5 @@
 package edu.fiuba.algo3.modelo;
-/*
+
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.pregunta.modalidad.modalidad.ModalidadPenalidad;
 import edu.fiuba.algo3.modelo.pregunta.modalidad.bonificacion.Multiplicador;
@@ -77,7 +77,7 @@ public class ModalidadPenalidadTest {
     }
 
     @Test
-    public void test03SeCreaUnaRespuestaCorrectaMultipleYOtraIncorrectaMultipleYSeVerificanLosPuntajesCorrespondientesConMultiplicadorX2DelJugadorUno() {
+    public void test03SeCreaUnaRespuestaCorrectaMultipleYOtraIncorrectaMultipleYSeVerificanLosPuntajesCorrespondientesConMultiplicadorX2DelJugadorUno() throws Exception {
 
         for (int i = 0; i < 3; i++){
             estadisticasJugador1.sumarCorrectaElegida();
@@ -94,7 +94,7 @@ public class ModalidadPenalidadTest {
     }
 
     @Test
-    public void test04SeCreaUnaRespuestaCorrectaMultipleYOtraIncorrectaMultipleYSeVerificanLosPuntajesCorrespondientesConMultiplicadorX3DelJugadorDos() {
+    public void test04SeCreaUnaRespuestaCorrectaMultipleYOtraIncorrectaMultipleYSeVerificanLosPuntajesCorrespondientesConMultiplicadorX3DelJugadorDos() throws Exception {
 
         for (int i = 0; i < 3; i++){
             estadisticasJugador1.sumarCorrectaElegida();
@@ -109,4 +109,4 @@ public class ModalidadPenalidadTest {
         assertEquals(jugador1.obtenerPuntaje(),3);
         assertEquals(jugador2.obtenerPuntaje(),-9);
     }
-}*/
+}

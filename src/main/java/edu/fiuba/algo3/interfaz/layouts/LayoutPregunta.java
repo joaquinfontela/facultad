@@ -32,7 +32,7 @@ public class LayoutPregunta {
 
         botonEnviarRespuesta = new BotonEnviarRespuesta();
         botonEnviarRespuesta.setTranslateY(-10.0);
-        botonEnviarRespuesta.setTranslateX(500.0);
+        botonEnviarRespuesta.setTranslateX(525.0);
         layout.setBottom(botonEnviarRespuesta);
     }
 

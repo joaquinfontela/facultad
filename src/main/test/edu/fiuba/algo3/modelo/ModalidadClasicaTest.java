@@ -1,4 +1,4 @@
-//package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.modelo;
 
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.pregunta.modalidad.bonificacion.ExclusividadDePuntaje;
@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-/*
+
 public class ModalidadClasicaTest {
 
     Jugador jugador1, jugador2;
@@ -25,7 +25,7 @@ public class ModalidadClasicaTest {
     ExclusividadDePuntaje exclusividad;
 
     @BeforeEach
-    public void init() {
+    public void init() throws Exception {
 
         jugador1 = new Jugador("Pablito");
         jugador2 = new Jugador("Ramona");
@@ -87,7 +87,7 @@ public class ModalidadClasicaTest {
     }
 
     @Test
-    public void test04SeCreaUnaRespuestaCorrectaYOtraIncorrectaYSeVerificanLosPuntajesCorrespondientesConExlusividad() {
+    public void test04SeCreaUnaRespuestaCorrectaYOtraIncorrectaYSeVerificanLosPuntajesCorrespondientesConExlusividad() throws Exception {
 
         estadisticasJugador1.sumarCorrectaElegida();
         estadisticasJugador2.sumarIncorrectaElegida();
@@ -102,7 +102,7 @@ public class ModalidadClasicaTest {
     }
 
     @Test
-    public void test05SeCreaUnaRespuestaCorrectaYOtraIncorrectaYSeVerificanLosPuntajesCorrespondientesConExlusividadDoble() {
+    public void test05SeCreaUnaRespuestaCorrectaYOtraIncorrectaYSeVerificanLosPuntajesCorrespondientesConExlusividadDoble() throws Exception {
 
         estadisticasJugador1.sumarCorrectaElegida();
         estadisticasJugador2.sumarIncorrectaElegida();
@@ -119,7 +119,7 @@ public class ModalidadClasicaTest {
     }
 
     @Test
-    public void test06SeCreaDosRespuestasCorrectasYLaExclusividadNoAfecta() {
+    public void test06SeCreaDosRespuestasCorrectasYLaExclusividadNoAfecta()throws Exception {
 
         estadisticasJugador1.sumarCorrectaElegida();
         estadisticasJugador2.sumarCorrectaElegida();
@@ -134,7 +134,7 @@ public class ModalidadClasicaTest {
     }
 
     @Test
-    public void test07SeCreaDosRespuestasIncorrectasYLaExclusividadNoAfecta() {
+    public void test07SeCreaDosRespuestasIncorrectasYLaExclusividadNoAfecta() throws Exception {
 
         estadisticasJugador1.sumarIncorrectaElegida();
         estadisticasJugador2.sumarIncorrectaElegida();
@@ -148,4 +148,3 @@ public class ModalidadClasicaTest {
         assertEquals(jugador2.obtenerPuntaje(),0);
     }
 }
-*/

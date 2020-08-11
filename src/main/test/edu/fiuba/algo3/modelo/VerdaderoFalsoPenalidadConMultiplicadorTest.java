@@ -1,6 +1,5 @@
 package edu.fiuba.algo3.modelo;
 
-/*
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.pregunta.modalidad.modalidad.Modalidad;
 import edu.fiuba.algo3.modelo.pregunta.modalidad.modalidad.ModalidadPenalidad;
@@ -26,7 +25,7 @@ public class VerdaderoFalsoPenalidadConMultiplicadorTest {
     Jugador jugador2;
 
     @BeforeEach
-    public void init() {
+    public void init() throws Exception {
 
         jugador1 = new Jugador("Santiago");
         jugador2 = new Jugador("Roberto");
@@ -45,7 +44,7 @@ public class VerdaderoFalsoPenalidadConMultiplicadorTest {
     }
 
     @Test
-    public void test01seCreaUnaPreguntaVerdaderoOFalsoPenalidadYSeVerificaLaCorrectaAsignacionDePuntos() {
+    public void test01seCreaUnaPreguntaVerdaderoOFalsoPenalidadYSeVerificaLaCorrectaAsignacionDePuntos() throws Exception{
 
         Modalidad modalidad = new ModalidadPenalidad();
 
@@ -81,7 +80,7 @@ public class VerdaderoFalsoPenalidadConMultiplicadorTest {
     }
 
     @Test
-    public void test02seCreaUnaPreguntaVerdaderoOFalsoPenalidadYSeVerificaLaCorrectaAsignacionDePuntos() {
+    public void test02seCreaUnaPreguntaVerdaderoOFalsoPenalidadYSeVerificaLaCorrectaAsignacionDePuntos() throws Exception {
 
         Modalidad modalidad = new ModalidadPenalidad();
 
@@ -117,7 +116,7 @@ public class VerdaderoFalsoPenalidadConMultiplicadorTest {
     }
 
     @Test
-    public void test03seCreaUnaPreguntaVerdaderoOFalsoPenalidadYSeVerificaLaCorrectaAsignacionDePuntos() {
+    public void test03seCreaUnaPreguntaVerdaderoOFalsoPenalidadYSeVerificaLaCorrectaAsignacionDePuntos() throws Exception {
 
         Modalidad modalidad = new ModalidadPenalidad();
 
@@ -153,7 +152,7 @@ public class VerdaderoFalsoPenalidadConMultiplicadorTest {
     }
 
     @Test
-    public void test04seCreaUnaPreguntaVerdaderoOFalsoPenalidadYSeVerificaLaCorrectaAsignacionDePuntos() {
+    public void test04seCreaUnaPreguntaVerdaderoOFalsoPenalidadYSeVerificaLaCorrectaAsignacionDePuntos() throws Exception {
 
         Modalidad modalidad = new ModalidadPenalidad();
 
@@ -187,4 +186,4 @@ public class VerdaderoFalsoPenalidadConMultiplicadorTest {
         assertEquals(jugador1.obtenerPuntaje(), 1);
         assertEquals(jugador2.obtenerPuntaje(), -3);
     }
-}*/
+}

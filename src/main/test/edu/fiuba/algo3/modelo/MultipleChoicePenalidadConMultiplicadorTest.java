@@ -1,5 +1,5 @@
-//package edu.fiuba.algo3.modelo;
-/*
+package edu.fiuba.algo3.modelo;
+
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.pregunta.modalidad.modalidad.Modalidad;
 import edu.fiuba.algo3.modelo.pregunta.modalidad.modalidad.ModalidadPenalidad;
@@ -26,7 +26,7 @@ public class MultipleChoicePenalidadConMultiplicadorTest {
     Jugador jugador2;
 
     @BeforeEach
-    public void init() {
+    public void init() throws Exception {
 
         jugador1 = new Jugador("Santiago");
         jugador2 = new Jugador("Roberto");
@@ -46,7 +46,7 @@ public class MultipleChoicePenalidadConMultiplicadorTest {
     }
 
     @Test
-    public void test01seCreaUnaPreguntaMultipleChoicePenalidadYSeVerificaLaCorrectaAsignacionDePuntos() {
+    public void test01seCreaUnaPreguntaMultipleChoicePenalidadYSeVerificaLaCorrectaAsignacionDePuntos() throws Exception {
 
         Modalidad modalidad = new ModalidadPenalidad();
 
@@ -90,7 +90,7 @@ public class MultipleChoicePenalidadConMultiplicadorTest {
     }
 
     @Test
-    public void test02seCreaUnaPreguntaMultipleChoicePenalidadYSeVerificaLaCorrectaAsignacionDePuntos() {
+    public void test02seCreaUnaPreguntaMultipleChoicePenalidadYSeVerificaLaCorrectaAsignacionDePuntos() throws Exception {
 
         Modalidad modalidad = new ModalidadPenalidad();
 
@@ -133,7 +133,7 @@ public class MultipleChoicePenalidadConMultiplicadorTest {
     }
 
     @Test
-    public void test03seCreaUnaPreguntaMultipleChoicePenalidadYSeVerificaLaCorrectaAsignacionDePuntos() {
+    public void test03seCreaUnaPreguntaMultipleChoicePenalidadYSeVerificaLaCorrectaAsignacionDePuntos() throws Exception {
 
         Modalidad modalidad = new ModalidadPenalidad();
 
@@ -177,7 +177,7 @@ public class MultipleChoicePenalidadConMultiplicadorTest {
     }
 
     @Test
-    public void test04seCreaUnaPreguntaMultipleChoicePenalidadYSeVerificaLaCorrectaAsignacionDePuntos() {
+    public void test04seCreaUnaPreguntaMultipleChoicePenalidadYSeVerificaLaCorrectaAsignacionDePuntos() throws Exception {
 
         Modalidad modalidad = new ModalidadPenalidad();
 
@@ -219,4 +219,4 @@ public class MultipleChoicePenalidadConMultiplicadorTest {
         assertEquals(jugador1.obtenerPuntaje(), 2);
         assertEquals(jugador2.obtenerPuntaje(), -6);
     }
-}*/
+}

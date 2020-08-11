@@ -1,5 +1,5 @@
-//package edu.fiuba.algo3.modelo;
-/*
+package edu.fiuba.algo3.modelo;
+
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.pregunta.modalidad.modalidad.ModalidadPenalidad;
 import edu.fiuba.algo3.modelo.pregunta.modalidad.modalidad.ModalidadPuntajeParcial;
@@ -26,7 +26,7 @@ public class ModalidadPuntajeParcialTest {
     ExclusividadDePuntaje exclusividad;
 
     @BeforeEach
-    public void init() {
+    public void init() throws Exception {
 
         jugador1 = new Jugador("Pablito");
         jugador2 = new Jugador("Ramona");
@@ -61,7 +61,7 @@ public class ModalidadPuntajeParcialTest {
     }
 
     @Test
-    public void test02SeCreaUnaRespuestaCorrectaMultipleYOtraIncorrectaMultipleYSeVerificanLosPuntajesCorrespondientesConExclusividad() {
+    public void test02SeCreaUnaRespuestaCorrectaMultipleYOtraIncorrectaMultipleYSeVerificanLosPuntajesCorrespondientesConExclusividad() throws Exception {
 
         for (int i = 0; i < 3; i++){
             estadisticasJugador1.sumarCorrectaElegida();
@@ -79,7 +79,7 @@ public class ModalidadPuntajeParcialTest {
     }
 
     @Test
-    public void test03SeCreaUnaRespuestaCorrectaMultipleYOtraIncorrectaMultipleYSeVerificanLosPuntajesCorrespondientesConExclusividadDoble() {
+    public void test03SeCreaUnaRespuestaCorrectaMultipleYOtraIncorrectaMultipleYSeVerificanLosPuntajesCorrespondientesConExclusividadDoble() throws Exception {
 
         for (int i = 0; i < 3; i++){
             estadisticasJugador1.sumarCorrectaElegida();
@@ -97,4 +97,4 @@ public class ModalidadPuntajeParcialTest {
         assertEquals(jugador1.obtenerPuntaje(),12);
         assertEquals(jugador2.obtenerPuntaje(),0);
     }
-}*/
+}

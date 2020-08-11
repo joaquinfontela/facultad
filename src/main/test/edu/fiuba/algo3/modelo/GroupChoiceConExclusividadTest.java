@@ -1,4 +1,4 @@
-/*
+
 package edu.fiuba.algo3.modelo;
 
 import edu.fiuba.algo3.modelo.jugador.Jugador;
@@ -31,7 +31,7 @@ public class GroupChoiceConExclusividadTest {
     EnunciadosOpciones opcionesParaAgregarJugador2;
 
     @BeforeEach
-    public void init() {
+    public void init() throws Exception {
 
         Modalidad modalidad = new ModalidadClasica();
 
@@ -164,4 +164,4 @@ public class GroupChoiceConExclusividadTest {
         assertEquals(jugador1.obtenerPuntaje(), 1);
         assertEquals(jugador2.obtenerPuntaje(), 1);
     }
-}*/
+}
