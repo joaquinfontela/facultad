@@ -10,7 +10,7 @@ public class BotonJugar extends Boton {
         this.setSkin(new EstilosBotonJugar(this));
 
         this.setOnMouseClicked(e -> {
-            System.out.println("CONTINUAR");
+            System.out.println("JUGAR");
         });
     }
 }
