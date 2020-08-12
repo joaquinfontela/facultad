@@ -2,27 +2,21 @@ package edu.fiuba.algo3.interfaz.layouts;
 
 import edu.fiuba.algo3.interfaz.estilos.Tic;
 import edu.fiuba.algo3.interfaz.layouts.puntajesSubLayouts.LayoutPuntajeJugador;
-import javafx.geometry.Insets;
-import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
-import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
 
 public class LayoutPuntajeFinal {
 
-    StackPane layout;
+    private StackPane layout;
     private final Image fondo = new Image("file:src/imagenes/fondo.jpg");
     private final Image caraGanador = new Image("file:src/imagenes/caraGanador.png");
     private final Image caraPerdedor = new Image("file:src/imagenes/caraPerdedor.png");
-    String nicknameGanador;
-    Integer puntajeGanador;
-    String nicknamePerdedor;
-    Integer puntajePerdedor;
+    private String nicknameGanador;
+    private Integer puntajeGanador;
+    private String nicknamePerdedor;
+    private Integer puntajePerdedor;
 
     public LayoutPuntajeFinal() {
 
@@ -32,7 +26,6 @@ public class LayoutPuntajeFinal {
         imageView.setFitHeight(760);
         imageView.setFitWidth(1300);
         layout.getChildren().add(imageView);
-
     }
 
     public void agregarJugadorGanador(String nickname, Integer puntaje) {
@@ -97,7 +90,6 @@ public class LayoutPuntajeFinal {
         imageView.setTranslateX(150);
         imageView.setTranslateY(150);
         layout.getChildren().add(imageView);
-
     }
 
     public StackPane getLayout() {
