@@ -2,7 +2,6 @@ package edu.fiuba.algo3.interfaz.estilos;
 
 import edu.fiuba.algo3.interfaz.botones.Boton;
 import javafx.animation.FadeTransition;
-import javafx.scene.control.Button;
 import javafx.scene.control.skin.ButtonSkin;
 import javafx.scene.input.MouseEvent;
 import javafx.util.Duration;
