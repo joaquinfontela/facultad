@@ -15,7 +15,7 @@ import javafx.scene.paint.Color;
 public class LayoutInicio {
 
     private StackPane layout;
-    private final Image logo = new Image("file:src/imagenes/logo.jpeg");
+    private final Image logo = new Image("file:src/imagenes/logo.png");
 
     public LayoutInicio() {
 
@@ -25,7 +25,7 @@ public class LayoutInicio {
         imageView.setTranslateY(-90);
         imageView.setFitHeight(300);
         imageView.setFitWidth(1000);
-        layout.setBackground(new Background(new BackgroundFill(Color.GHOSTWHITE, CornerRadii.EMPTY, Insets.EMPTY)));
+        layout.setBackground(new Background(new BackgroundFill(Color.ORANGE, CornerRadii.EMPTY, Insets.EMPTY)));
         layout.getChildren().add(imageView);
     }
 

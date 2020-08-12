@@ -9,9 +9,9 @@ public class EstilosBotonJugar extends EstilosBoton {
 
         super(unBoton);
         boton.setText("JUGAR");
-        boton.setTextFill(Color.BLUEVIOLET);
-        boton.setPrefSize(450, 150);
-        boton.setStyle("-fx-background-color: transparent; -fx-font-size: 75px; -fx-border-color: blueviolet;" +
-                "-fx-border-radius: 40px; -fx-border-width: 5px");
+        boton.setTextFill(Color.web("2D06A2"));
+        boton.setPrefSize(800, 50);
+        boton.setStyle("-fx-background-color: orange; -fx-font-size: 120px; -fx-border-color: orange;" +
+                "-fx-border-radius: 40px; -fx-border-width: 40px");
     }
 }
