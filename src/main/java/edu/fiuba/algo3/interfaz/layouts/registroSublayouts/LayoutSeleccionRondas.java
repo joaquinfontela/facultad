@@ -11,6 +11,7 @@ public class LayoutSeleccionRondas {
     private CantidadRondasCheckbox cincoRondasCheckbox;
     private CantidadRondasCheckbox diezRondasCheckbox;
     private CantidadRondasCheckbox quinceRondasCheckbox;
+    private ListaDeCheckboxes listaDeCheckboxes;
     private BotonComenzar botonComenzar;
 
     public LayoutSeleccionRondas() {
@@ -34,18 +35,23 @@ public class LayoutSeleccionRondas {
 
     private void agregarRondasBox() {
 
+        listaDeCheckboxes = new ListaDeCheckboxes();
+
         cincoRondasCheckbox = new CantidadRondasCheckbox("5");
         cincoRondasCheckbox.setTranslateX(-400.0);
         cincoRondasCheckbox.setTranslateY(150.0);
+        listaDeCheckboxes.add(cincoRondasCheckbox);
         layout.getChildren().add(cincoRondasCheckbox);
 
         diezRondasCheckbox = new CantidadRondasCheckbox("10");
         diezRondasCheckbox.setTranslateY(150.0);
+        listaDeCheckboxes.add(diezRondasCheckbox);
         layout.getChildren().add(diezRondasCheckbox);
 
         quinceRondasCheckbox = new CantidadRondasCheckbox("15");
         quinceRondasCheckbox.setTranslateX(400.0);
         quinceRondasCheckbox.setTranslateY(150.0);
+        listaDeCheckboxes.add(quinceRondasCheckbox);
         layout.getChildren().add(quinceRondasCheckbox);
     }
 
