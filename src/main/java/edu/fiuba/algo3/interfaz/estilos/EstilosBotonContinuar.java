@@ -9,9 +9,9 @@ public class EstilosBotonContinuar extends EstilosBoton {
 
         super(unBoton);
         boton.setText("CONTINUAR >>");
-        boton.setTextFill(Color.ORANGE);
+        boton.setTextFill(Color.WHITE);
         boton.setPrefSize(500, 100);
-        boton.setStyle("-fx-background-color: transparent; -fx-font-size: 50px; -fx-border-color: orange;" +
+        boton.setStyle("-fx-background-color: transparent; -fx-font-size: 50px; -fx-border-color: white;" +
                        "-fx-border-radius: 40px; -fx-border-width: 5px");
     }
 }

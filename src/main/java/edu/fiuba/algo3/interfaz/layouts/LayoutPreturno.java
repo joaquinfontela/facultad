@@ -24,9 +24,10 @@ public class LayoutPreturno {
         layout.setBackground(new Background(new BackgroundFill(Color.PURPLE, CornerRadii.EMPTY, Insets.EMPTY)));
 
         TextField textArea = new TextField();
-        textArea.setPrefSize(1200, 200);
+        textArea.setMaxSize(1500, 300);
+        textArea.setMinSize(1500, 300);
         textArea.setTranslateY(-85.0);
-        textArea.setStyle("-fx-background-color: mediumpurple");
+        textArea.setStyle("-fx-border-color: mediumpurple; -fx-background-color: transparent; -fx-border-width: 5px");
         layout.getChildren().add(textArea);
 
         agregarBotonContinuar();
@@ -45,7 +46,7 @@ public class LayoutPreturno {
 
         Label titulo = new Label("Turno de");
         titulo.setFont(new Font("KacstPoster", 70));
-        titulo.setTextFill(Color.ORANGE);
+        titulo.setTextFill(Color.WHITE);
         titulo.setTranslateY(-140.0);
         layout.getChildren().add(titulo);
     }
@@ -56,7 +57,7 @@ public class LayoutPreturno {
         cartelProximoTurno.setTranslateY(-50.0);
         cartelProximoTurno.setText(nicknameJugadorProximoTurno);
         cartelProximoTurno.setFont(new Font("KacstPoster", 95));
-        cartelProximoTurno.setTextFill(Color.ORANGE);
+        cartelProximoTurno.setTextFill(Color.WHITE);
         layout.getChildren().add(cartelProximoTurno);
     }
 
