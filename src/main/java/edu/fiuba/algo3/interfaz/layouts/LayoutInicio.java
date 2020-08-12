@@ -25,7 +25,7 @@ public class LayoutInicio {
         imageView.setTranslateY(-90);
         imageView.setFitHeight(300);
         imageView.setFitWidth(1000);
-        layout.setBackground(new Background(new BackgroundFill(Color.ORANGE, CornerRadii.EMPTY, Insets.EMPTY)));
+        layout.setBackground(new Background(new BackgroundFill(Color.web("f17316"), CornerRadii.EMPTY, Insets.EMPTY)));
         layout.getChildren().add(imageView);
     }
 
