@@ -28,7 +28,7 @@ public class LayoutSeleccionRondas {
         Label tituloRondas = new Label("RONDAS");
         tituloRondas.setFont(new Font("KacstPoster", 55));
         tituloRondas.setTranslateX(-380.0);
-        tituloRondas.setTranslateY(50.0);
+        tituloRondas.setTranslateY(-250.0);
         tituloRondas.setStyle("-fx-text-fill: black");
         layout.getChildren().add(tituloRondas);
     }
@@ -39,18 +39,18 @@ public class LayoutSeleccionRondas {
 
         cincoRondasCheckbox = new CantidadRondasCheckbox("5");
         cincoRondasCheckbox.setTranslateX(-400.0);
-        cincoRondasCheckbox.setTranslateY(150.0);
+        cincoRondasCheckbox.setTranslateY(-150.0);
         listaDeCheckboxes.add(cincoRondasCheckbox);
         layout.getChildren().add(cincoRondasCheckbox);
 
         diezRondasCheckbox = new CantidadRondasCheckbox("10");
-        diezRondasCheckbox.setTranslateY(150.0);
+        diezRondasCheckbox.setTranslateY(-150.0);
         listaDeCheckboxes.add(diezRondasCheckbox);
         layout.getChildren().add(diezRondasCheckbox);
 
         quinceRondasCheckbox = new CantidadRondasCheckbox("15");
         quinceRondasCheckbox.setTranslateX(400.0);
-        quinceRondasCheckbox.setTranslateY(150.0);
+        quinceRondasCheckbox.setTranslateY(-150.0);
         listaDeCheckboxes.add(quinceRondasCheckbox);
         layout.getChildren().add(quinceRondasCheckbox);
     }
@@ -58,7 +58,7 @@ public class LayoutSeleccionRondas {
     private void agregarBotonComenzar() {
 
         botonComenzar = new BotonComenzar();
-        botonComenzar.setTranslateY(270.0);
+        botonComenzar.setTranslateY(-30.0);
         layout.getChildren().add(botonComenzar);
     }
 

@@ -2,27 +2,28 @@ package edu.fiuba.algo3.interfaz.layouts;
 
 import edu.fiuba.algo3.interfaz.layouts.registroSublayouts.LayoutRegistroJugadores;
 import edu.fiuba.algo3.interfaz.layouts.registroSublayouts.LayoutSeleccionRondas;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 
 public class LayoutRegistro {
 
-    private StackPane layout;
+    private BorderPane layout;
     private LayoutRegistroJugadores layoutRegistroJugadores;
     private LayoutSeleccionRondas layoutSeleccionRondas;
 
     public LayoutRegistro() {
 
-        layout = new StackPane();
+        layout = new BorderPane();
         layout.setStyle("-fx-background-color: orange");
 
-        layoutRegistroJugadores = new LayoutRegistroJugadores();
-        layout.getChildren().add(layoutRegistroJugadores.getLayout());
-
         layoutSeleccionRondas = new LayoutSeleccionRondas();
-        layout.getChildren().add(layoutSeleccionRondas.getLayout());
+        layout.setBottom(layoutSeleccionRondas.getLayout());
+
+        layoutRegistroJugadores = new LayoutRegistroJugadores();
+        layout.setTop(layoutRegistroJugadores.getLayout());
     }
 
-    public StackPane getLayout() {
+    public BorderPane getLayout() {
 
         return layout;
     }
