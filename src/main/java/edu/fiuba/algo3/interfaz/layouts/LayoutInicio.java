@@ -22,10 +22,10 @@ public class LayoutInicio {
         layout = new StackPane();
         ImageView imageView = new ImageView();
         imageView.setImage(logo);
-        imageView.setTranslateY(-50);
+        imageView.setTranslateY(-90);
         imageView.setFitHeight(300);
         imageView.setFitWidth(1000);
-        //layout.setBackground(new Background(new BackgroundFill(Color.SALMON, CornerRadii.EMPTY, Insets.EMPTY)));
+        layout.setBackground(new Background(new BackgroundFill(Color.GHOSTWHITE, CornerRadii.EMPTY, Insets.EMPTY)));
         layout.getChildren().add(imageView);
     }
 
