@@ -5,6 +5,7 @@ import edu.fiuba.algo3.interfaz.layouts.LayoutPregunta;
 import edu.fiuba.algo3.interfaz.layouts.LayoutPreturno;
 import edu.fiuba.algo3.interfaz.layouts.LayoutPuntajeFinal;
 import edu.fiuba.algo3.interfaz.layouts.LayoutPuntajesParciales;
+import edu.fiuba.algo3.interfaz.rondasYjugadores.PantallaRondasYjugadores;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.concurrent.Task;
@@ -32,7 +33,9 @@ public class AppModel extends Application {
         //mostrarLayoutPuntajesParciales();
         //mostrarLayoutPuntajeFinal();
         //mostrarLayoutInicio();
-        mostrarLayoutPreturno();
+        //mostrarLayoutPreturno();
+        mostrarPantallaRondasYJugadores();
+
 
         stage.setTitle("Kahoot!");
         stage.setScene(scene);
@@ -73,6 +76,10 @@ public class AppModel extends Application {
         layoutPuntajeFinal.agregarJugadorPerdedor("Miguel", 11);
 
         scene = new Scene(layoutPuntajeFinal.getLayout(), 640, 480);
+    }
+    private void mostrarPantallaRondasYJugadores(){
+        PantallaRondasYjugadores pantalla = new PantallaRondasYjugadores();
+        scene = new Scene(pantalla.getLayout(), 640 ,480);
     }
 
     public void mostrarLayoutInicio() {
