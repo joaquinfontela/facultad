@@ -33,8 +33,8 @@ public class AppModel extends Application {
         //mostrarLayoutPuntajesParciales();
         //mostrarLayoutPuntajeFinal();
         //mostrarLayoutInicio();
-        //mostrarLayoutPreturno();
-        mostrarPantallaRondasYJugadores();
+        mostrarLayoutPreturno();
+        //mostrarPantallaRondasYJugadores();
 
 
         stage.setTitle("Kahoot!");

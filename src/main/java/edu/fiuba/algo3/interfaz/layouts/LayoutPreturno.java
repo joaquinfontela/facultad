@@ -3,6 +3,8 @@ package edu.fiuba.algo3.interfaz.layouts;
 import edu.fiuba.algo3.interfaz.botones.BotonContinuar;
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.CornerRadii;
@@ -21,9 +23,34 @@ public class LayoutPreturno {
         layout = new StackPane();
         layout.setBackground(new Background(new BackgroundFill(Color.PURPLE, CornerRadii.EMPTY, Insets.EMPTY)));
 
+        TextField textArea = new TextField();
+        textArea.setPrefSize(1200, 200);
+        textArea.setTranslateY(-85.0);
+        textArea.setStyle("-fx-background-color: mediumpurple");
+        layout.getChildren().add(textArea);
+
+        agregarBotonContinuar();
+        agregarTitulo();
+        agregarNicknameProximoTurno(nicknameJugadorProximoTurno);
+    }
+
+    private void agregarBotonContinuar() {
+
         botonContinuar = new BotonContinuar();
         botonContinuar.setTranslateY(200.0);
         layout.getChildren().add(botonContinuar);
+    }
+
+    private void agregarTitulo() {
+
+        Label titulo = new Label("Turno de");
+        titulo.setFont(new Font("KacstPoster", 70));
+        titulo.setTextFill(Color.ORANGE);
+        titulo.setTranslateY(-140.0);
+        layout.getChildren().add(titulo);
+    }
+
+    private void agregarNicknameProximoTurno(String nicknameJugadorProximoTurno) {
 
         cartelProximoTurno = new Label();
         cartelProximoTurno.setTranslateY(-50.0);
