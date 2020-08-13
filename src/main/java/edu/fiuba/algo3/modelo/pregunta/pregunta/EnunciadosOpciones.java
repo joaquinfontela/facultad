@@ -72,4 +72,10 @@ public class EnunciadosOpciones {
         }
         return enunciadosOrdenados;
     }
+
+    @Override
+    public String toString() {
+
+        return opciones.toString();
+    }
 }

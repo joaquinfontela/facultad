@@ -1,6 +1,7 @@
 package edu.fiuba.algo3;
 
 import edu.fiuba.algo3.interfaz.layouts.*;
+import edu.fiuba.algo3.modelo.LectorDeArchivo;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -19,7 +20,7 @@ public class AppModel extends Application {
     Scene scene;
 
     @Override
-    public void start(Stage stage) {
+    public void start(Stage stage) throws Exception {
 
         //System.out.println(javafx.scene.text.Font.getFamilies());
 
@@ -28,7 +29,16 @@ public class AppModel extends Application {
         //mostrarLayoutPuntajeFinal();
         //mostrarLayoutInicio();
         //mostrarLayoutPreturno();
-        mostrarLayoutRegistro();
+        //mostrarLayoutRegistro();
+
+        //mostrarStage(stage);
+
+        LectorDeArchivo lectorDeArchivo = new LectorDeArchivo();
+        lectorDeArchivo.obtenerListaDeInformacionDePreguntas();
+
+    }
+
+    private void mostrarStage(Stage stage) {
 
         stage.setTitle("Algohoot!");
         stage.setScene(scene);
