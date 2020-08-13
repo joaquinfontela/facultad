@@ -1,7 +1,9 @@
 package edu.fiuba.algo3.interfaz.layouts;
 
+import edu.fiuba.algo3.controladores.BotonCambiarPantallaHandler;
 import edu.fiuba.algo3.interfaz.botones.BotonContinuar;
 import javafx.geometry.Insets;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Background;
@@ -10,13 +12,11 @@ import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import javafx.stage.Stage;
 
 public class LayoutPreturno extends StackPane {
 
-    private BotonContinuar botonContinuar;
-    private Label cartelProximoTurno;
-
-    public LayoutPreturno(String nicknameJugadorProximoTurno) {
+    public LayoutPreturno(Stage stage, Scene proximaEscena, String nicknameJugadorProximoTurno) {
 
         this.setBackground(new Background(new BackgroundFill(Color.PURPLE, CornerRadii.EMPTY, Insets.EMPTY)));
 
@@ -27,15 +27,16 @@ public class LayoutPreturno extends StackPane {
         textArea.setStyle("-fx-border-color: mediumpurple; -fx-background-color: transparent; -fx-border-width: 5px");
         this.getChildren().add(textArea);
 
-        agregarBotonContinuar();
+        agregarBotonContinuar(stage, proximaEscena);
         agregarTitulo();
         agregarNicknameProximoTurno(nicknameJugadorProximoTurno);
     }
 
-    private void agregarBotonContinuar() {
+    private void agregarBotonContinuar(Stage stage, Scene proximaEscena) {
 
-        botonContinuar = new BotonContinuar();
+        BotonContinuar botonContinuar = new BotonContinuar();
         botonContinuar.setTranslateY(200.0);
+        botonContinuar.setOnAction(new BotonCambiarPantallaHandler(stage, proximaEscena));
         this.getChildren().add(botonContinuar);
     }
 
@@ -50,7 +51,7 @@ public class LayoutPreturno extends StackPane {
 
     private void agregarNicknameProximoTurno(String nicknameJugadorProximoTurno) {
 
-        cartelProximoTurno = new Label();
+        Label cartelProximoTurno = new Label();
         cartelProximoTurno.setTranslateY(-50.0);
         cartelProximoTurno.setText(nicknameJugadorProximoTurno);
         cartelProximoTurno.setFont(new Font("KacstPoster", 95));
