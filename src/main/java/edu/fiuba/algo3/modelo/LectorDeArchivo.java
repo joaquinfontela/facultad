@@ -8,14 +8,13 @@ import com.google.gson.*;
 import edu.fiuba.algo3.modelo.pregunta.pregunta.EnunciadosOpciones;
 import edu.fiuba.algo3.modelo.pregunta.pregunta.InformacionPregunta;
 
-
 public class LectorDeArchivo {
 
-    Gson gson;
-    JsonParser parser;
-    FileReader lector;
-    JsonArray preguntasEnFormatoJson;
-    ArrayList<InformacionPregunta> informacionPreguntas;
+    private Gson gson;
+    private JsonParser parser;
+    private FileReader lector;
+    private JsonArray preguntasEnFormatoJson;
+    private ArrayList<InformacionPregunta> informacionPreguntas;
 
     public LectorDeArchivo() {
 
@@ -51,8 +50,8 @@ public class LectorDeArchivo {
     private void agregarInformacionDePreguntaALaLista(JsonElement preguntaEnFormatoJson) {
 
         EnunciadosOpciones enunciadosOpciones = obtenerEnunciadosOpcionesDeLaPregunta(preguntaEnFormatoJson);
-        Integer modalidadId = preguntaEnFormatoJson.getAsJsonObject().get("modalidad id").getAsInt();
-        Integer tipoPreguntaId = preguntaEnFormatoJson.getAsJsonObject().get("tipo pregunta id").getAsInt();
+        int modalidadId = preguntaEnFormatoJson.getAsJsonObject().get("modalidad id").getAsInt();
+        int tipoPreguntaId = preguntaEnFormatoJson.getAsJsonObject().get("tipo pregunta id").getAsInt();
         String enunciadoPregunta = preguntaEnFormatoJson.getAsJsonObject().get("enunciado").getAsString();
 
         informacionPreguntas.add(new InformacionPregunta(modalidadId, tipoPreguntaId,
