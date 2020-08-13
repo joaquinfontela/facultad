@@ -4,26 +4,18 @@ import edu.fiuba.algo3.modelo.pregunta.modalidad.modalidad.Modalidad;
 import edu.fiuba.algo3.modelo.pregunta.respuesta.*;
 
 import java.util.ArrayList;
+import java.util.Random;
 
-public class GeneradorDePreguntas {  //el codigo comentado es para generar las preguntas aleatoriamente
+public class GeneradorDePreguntas {
 
     private ArrayList<Pregunta> preguntas;
-    private int indicePreguntaActual; // se va
+    private Random randomizador;
 
     public GeneradorDePreguntas(ArrayList<InformacionPregunta> informacionPreguntas) {
 
         preguntas = new ArrayList<>();
-        indicePreguntaActual = 0; // se va
+        randomizador = new Random();
         generarTodasLasPreguntas(informacionPreguntas);
-    }
-
-    public Pregunta obtenerNuevaPregunta(){
-        // Random randomizador = new Random();
-        // int indiceRandom = randomizador.nextInt(preguntas.size())
-        Pregunta preguntaNueva = preguntas.get(indicePreguntaActual);// preguntas.get(indiceRandom);
-        indicePreguntaActual++;// se va
-        // preguntas.remove(indiceRandom);
-        return preguntaNueva;
     }
 
     private void generarTodasLasPreguntas(ArrayList<InformacionPregunta> informacionPreguntas) {
@@ -35,5 +27,13 @@ public class GeneradorDePreguntas {  //el codigo comentado es para generar las p
             Pregunta preguntaNueva = new Pregunta(modalidad, enunciado, respuestaCorrecta);
             preguntas.add(preguntaNueva);
         }
+    }
+
+    public Pregunta obtenerNuevaPregunta(){
+
+        int indiceRandom = randomizador.nextInt(preguntas.size());
+        Pregunta preguntaNueva = preguntas.get(indiceRandom);
+        preguntas.remove(indiceRandom);
+        return preguntaNueva;
     }
 }
