@@ -5,12 +5,12 @@ import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class BotonJugarHandler implements EventHandler<ActionEvent> {
+public class BotonCambiarPantallaHandler implements EventHandler<ActionEvent> {
 
-    Stage stage;
-    Scene proximaEscena;
+    protected Stage stage;
+    protected Scene proximaEscena;
 
-    public BotonJugarHandler(Stage unStage, Scene scene) {
+    public BotonCambiarPantallaHandler(Stage unStage, Scene scene) {
 
         stage = unStage;
         proximaEscena = scene;

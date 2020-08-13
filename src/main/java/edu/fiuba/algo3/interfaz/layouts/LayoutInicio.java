@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.interfaz.layouts;
 
-import edu.fiuba.algo3.controladores.BotonJugarHandler;
+import edu.fiuba.algo3.controladores.BotonCambiarPantallaHandler;
 import edu.fiuba.algo3.interfaz.botones.BotonJugar;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
@@ -29,7 +29,7 @@ public class LayoutInicio extends StackPane {
 
         BotonJugar boton = new BotonJugar();
         boton.setTranslateY(200);
-        boton.setOnAction(new BotonJugarHandler(stage, proximaEscena));
+        boton.setOnAction(new BotonCambiarPantallaHandler(stage, proximaEscena));
 
         this.getChildren().add(boton);
     }
