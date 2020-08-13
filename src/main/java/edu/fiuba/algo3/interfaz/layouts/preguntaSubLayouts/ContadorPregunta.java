@@ -9,33 +9,23 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 
-public class ContadorPregunta {
-
-    StackPane layout;
-    Label textoContador;
-    Integer preguntaActual;
-    Integer preguntasTotales;
+public class ContadorPregunta extends StackPane {
 
     ContadorPregunta(Integer numPreguntaActual, Integer numPreguntasTotales) {
 
-        layout = new StackPane();
-        layout.setMaxSize(100, 80);
-        layout.setMinSize(100, 80);
-        layout.setTranslateY(175.0);
-        layout.setStyle("-fx-border-color: gold; -fx-border-width: 2px");
-        layout.setBackground(new Background(new BackgroundFill(Color.BLACK, CornerRadii.EMPTY, Insets.EMPTY)));
+        this.setMaxSize(100, 80);
+        this.setMinSize(100, 80);
+        this.setTranslateY(175.0);
+        this.setStyle("-fx-border-color: gold; -fx-border-width: 2px");
+        this.setBackground(new Background(new BackgroundFill(Color.BLACK, CornerRadii.EMPTY, Insets.EMPTY)));
 
-        preguntaActual = numPreguntaActual;
-        preguntasTotales = numPreguntasTotales;
+        int preguntaActual = numPreguntaActual;
+        int preguntasTotales = numPreguntasTotales;
 
-        textoContador = new Label(preguntaActual.toString() + " / " + preguntasTotales.toString());
+        Label textoContador = new Label(preguntaActual + " / " + preguntasTotales);
         textoContador.setTextFill(Color.GOLD);
         textoContador.setFont(new Font("KacstPoster", 30));
 
-        layout.getChildren().add(textoContador);
-    }
-
-    public StackPane getLayout() {
-        return layout;
+        this.getChildren().add(textoContador);
     }
 }

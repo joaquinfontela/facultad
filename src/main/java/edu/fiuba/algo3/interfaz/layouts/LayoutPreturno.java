@@ -11,23 +11,21 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 
-public class LayoutPreturno {
+public class LayoutPreturno extends StackPane {
 
-    private StackPane layout;
     private BotonContinuar botonContinuar;
     private Label cartelProximoTurno;
 
     public LayoutPreturno(String nicknameJugadorProximoTurno) {
 
-        layout = new StackPane();
-        layout.setBackground(new Background(new BackgroundFill(Color.PURPLE, CornerRadii.EMPTY, Insets.EMPTY)));
+        this.setBackground(new Background(new BackgroundFill(Color.PURPLE, CornerRadii.EMPTY, Insets.EMPTY)));
 
         TextField textArea = new TextField();
         textArea.setMaxSize(1500, 300);
         textArea.setMinSize(1500, 300);
         textArea.setTranslateY(-85.0);
         textArea.setStyle("-fx-border-color: mediumpurple; -fx-background-color: transparent; -fx-border-width: 5px");
-        layout.getChildren().add(textArea);
+        this.getChildren().add(textArea);
 
         agregarBotonContinuar();
         agregarTitulo();
@@ -38,7 +36,7 @@ public class LayoutPreturno {
 
         botonContinuar = new BotonContinuar();
         botonContinuar.setTranslateY(200.0);
-        layout.getChildren().add(botonContinuar);
+        this.getChildren().add(botonContinuar);
     }
 
     private void agregarTitulo() {
@@ -47,7 +45,7 @@ public class LayoutPreturno {
         titulo.setFont(new Font("KacstPoster", 70));
         titulo.setTextFill(Color.WHITE);
         titulo.setTranslateY(-140.0);
-        layout.getChildren().add(titulo);
+        this.getChildren().add(titulo);
     }
 
     private void agregarNicknameProximoTurno(String nicknameJugadorProximoTurno) {
@@ -57,11 +55,6 @@ public class LayoutPreturno {
         cartelProximoTurno.setText(nicknameJugadorProximoTurno);
         cartelProximoTurno.setFont(new Font("KacstPoster", 95));
         cartelProximoTurno.setTextFill(Color.WHITE);
-        layout.getChildren().add(cartelProximoTurno);
-    }
-
-    public StackPane getLayout() {
-
-        return layout;
+        this.getChildren().add(cartelProximoTurno);
     }
 }

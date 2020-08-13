@@ -10,17 +10,15 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 
-public class LayoutPuntajesParciales {
+public class LayoutPuntajesParciales extends StackPane {
 
-    StackPane layout;
     LayoutPuntajeJugador layoutPuntajeParcialJugador1;
     LayoutPuntajeJugador layoutPuntajeParcialJugador2;
 
     public LayoutPuntajesParciales() {
 
-        layout = new StackPane();
-        layout.setBackground(new Background(new BackgroundFill(Color.DIMGRAY, CornerRadii.EMPTY, Insets.EMPTY)));
-        agregarTituloDelLayout();
+        this.setBackground(new Background(new BackgroundFill(Color.DIMGRAY, CornerRadii.EMPTY, Insets.EMPTY)));
+        this.agregarTituloDelLayout();
     }
 
     private void agregarTituloDelLayout() {
@@ -37,24 +35,19 @@ public class LayoutPuntajesParciales {
         titulo.setTextFill(Color.YELLOW);
 
         contenedorTitulo.getChildren().add(titulo);
-        layout.getChildren().add(contenedorTitulo);
+        this.getChildren().add(contenedorTitulo);
     }
 
     public void agregarPuntaje(String nicknameJugador, Integer puntuacion) {
 
         if (layoutPuntajeParcialJugador1 == null) {
             layoutPuntajeParcialJugador1 = new LayoutPuntajeJugador(nicknameJugador, puntuacion, Color.BLUE);
-            layoutPuntajeParcialJugador1.getLayout().setTranslateY(-120.0);
-            layout.getChildren().add(layoutPuntajeParcialJugador1.getLayout());
+            layoutPuntajeParcialJugador1.setTranslateY(-120.0);
+            this.getChildren().add(layoutPuntajeParcialJugador1);
         } else {
             layoutPuntajeParcialJugador2 = new LayoutPuntajeJugador(nicknameJugador, puntuacion, Color.RED);
-            layoutPuntajeParcialJugador2.getLayout().setTranslateY(120.0);
-            layout.getChildren().add(layoutPuntajeParcialJugador2.getLayout());
+            layoutPuntajeParcialJugador2.setTranslateY(120.0);
+            this.getChildren().add(layoutPuntajeParcialJugador2);
         }
-    }
-
-    public StackPane getLayout() {
-
-        return layout;
     }
 }

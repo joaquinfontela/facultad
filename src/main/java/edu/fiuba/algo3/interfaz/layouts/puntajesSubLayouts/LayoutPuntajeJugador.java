@@ -9,47 +9,35 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 
-public class LayoutPuntajeJugador {
+public class LayoutPuntajeJugador extends StackPane {
 
-    private StackPane layout;
-    private String nickname;
-    private Integer puntaje;
+    public LayoutPuntajeJugador(String nickname, int puntaje, Color color){
 
-    public LayoutPuntajeJugador(String unNickname, Integer unPuntaje, Color color){
+        this.setMinSize(1200, 150);
+        this.setMaxSize(1200, 150);
+        this.setBackground(new Background(new BackgroundFill(color, CornerRadii.EMPTY, Insets.EMPTY)));
+        this.setStyle("-fx-border-color: white");
 
-        layout = new StackPane();
-        nickname = unNickname;
-        puntaje = unPuntaje;
-
-        layout.setMinSize(1200, 150);
-        layout.setMaxSize(1200, 150);
-        layout.setBackground(new Background(new BackgroundFill(color, CornerRadii.EMPTY, Insets.EMPTY)));
-        layout.setStyle("-fx-border-color: white");
-
-        agregarNickname();
-        agregarPuntuacion();
+        agregarNickname(nickname);
+        agregarPuntuacion(puntaje);
     }
 
-    private void agregarNickname() {
+    private void agregarNickname(String nickname) {
 
         Label contenedorDeNickname = new Label(nickname);
         contenedorDeNickname.setFont(new Font("FreeSans", 100));
         contenedorDeNickname.setTextFill(Color.WHITE);
         contenedorDeNickname.setTranslateX(-400.0);
-        layout.getChildren().add(contenedorDeNickname);
+        this.getChildren().add(contenedorDeNickname);
     }
 
-    private void agregarPuntuacion() {
+    private void agregarPuntuacion(Integer puntaje) {
 
         Label contenedorDePuntuacion = new Label(puntaje.toString());
 
         contenedorDePuntuacion.setFont(new Font("FreeSans", 110));
         contenedorDePuntuacion.setTranslateX(400.0);
         contenedorDePuntuacion.setTextFill(Color.WHITE);
-        layout.getChildren().add(contenedorDePuntuacion);
-    }
-
-    public StackPane getLayout() {
-        return layout;
+        this.getChildren().add(contenedorDePuntuacion);
     }
 }

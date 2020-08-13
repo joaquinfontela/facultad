@@ -4,19 +4,16 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Font;
 
-public class LayoutRegistroJugadores {
+public class LayoutRegistroJugadores extends StackPane {
 
-    private StackPane layout;
     private TextFieldJugador textFieldJugador1;
     private TextFieldJugador textFieldJugador2;
 
     public LayoutRegistroJugadores() {
 
-        layout = new StackPane();
-
-        agregarTituloJugador1();
-        agregarTituloJugador2();
-        agregarTextFields();
+        this.agregarTituloJugador1();
+        this.agregarTituloJugador2();
+        this.agregarTextFields();
     }
 
     private void agregarTituloJugador1() {
@@ -26,7 +23,7 @@ public class LayoutRegistroJugadores {
         tituloJugador1.setTranslateX(-350.0);
         tituloJugador1.setTranslateY(50.0);
         tituloJugador1.setStyle("-fx-text-fill: black");
-        layout.getChildren().add(tituloJugador1);
+        this.getChildren().add(tituloJugador1);
     }
 
     private void agregarTituloJugador2() {
@@ -36,7 +33,7 @@ public class LayoutRegistroJugadores {
         tituloJugador2.setTranslateX(-350.0);
         tituloJugador2.setTranslateY(200.0);
         tituloJugador2.setStyle("-fx-text-fill: black");
-        layout.getChildren().add(tituloJugador2);
+        this.getChildren().add(tituloJugador2);
     }
 
     private void agregarTextFields() {
@@ -44,16 +41,11 @@ public class LayoutRegistroJugadores {
         textFieldJugador1 = new TextFieldJugador();
         textFieldJugador1.setTranslateX(250.0);
         textFieldJugador1.setTranslateY(50.0);
-        layout.getChildren().add(textFieldJugador1);
+        this.getChildren().add(textFieldJugador1);
 
         textFieldJugador2 = new TextFieldJugador();
         textFieldJugador2.setTranslateX(250.0);
         textFieldJugador2.setTranslateY(200.0);
-        layout.getChildren().add(textFieldJugador2);
-    }
-
-    public StackPane getLayout() {
-
-        return layout;
+        this.getChildren().add(textFieldJugador2);
     }
 }

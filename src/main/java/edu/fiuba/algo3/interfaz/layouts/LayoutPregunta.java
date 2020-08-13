@@ -27,8 +27,8 @@ public class LayoutPregunta {
 
         layout.setBackground(new Background(new BackgroundFill(Color.DIMGRAY, CornerRadii.EMPTY, Insets.EMPTY)));
         layout.setCenter(layoutOpciones.getLayout());
-        layout.setRight(layoutBonificaciones.getLayout());
-        layout.setLeft(layoutIzquierdo.getLayout());
+        layout.setRight(layoutBonificaciones);
+        layout.setLeft(layoutIzquierdo);
 
         botonEnviarRespuesta = new BotonEnviarRespuesta();
         botonEnviarRespuesta.setTranslateY(-10.0);
@@ -39,7 +39,7 @@ public class LayoutPregunta {
     public void agregarEnunciadoDeLaPregunta(String enunciado){
 
         layoutEnunciado = new LayoutEnunciadoPregunta(enunciado);
-        layout.setTop(layoutEnunciado.getLayout());
+        layout.setTop(layoutEnunciado);
     }
 
     public void agregarOpcion(String enunciado){

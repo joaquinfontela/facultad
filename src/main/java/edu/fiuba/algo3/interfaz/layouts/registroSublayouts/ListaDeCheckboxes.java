@@ -14,7 +14,7 @@ public class ListaDeCheckboxes extends ArrayList<CheckBox> {
     @Override
     public boolean add(CheckBox checkBox) {
 
-        Boolean valorADevolver = super.add(checkBox);
+        boolean valorADevolver = super.add(checkBox);
         checkBox.setOnMouseClicked(e -> {
             for (CheckBox c : this){
                 if (!c.equals(checkBox)) {

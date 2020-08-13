@@ -14,9 +14,9 @@ public class LayoutPuntajeFinal {
     private final Image caraGanador = new Image("file:src/imagenes/caraGanador.png");
     private final Image caraPerdedor = new Image("file:src/imagenes/caraPerdedor.png");
     private String nicknameGanador;
-    private Integer puntajeGanador;
+    private int puntajeGanador;
     private String nicknamePerdedor;
-    private Integer puntajePerdedor;
+    private int puntajePerdedor;
 
     public LayoutPuntajeFinal() {
 
@@ -28,13 +28,13 @@ public class LayoutPuntajeFinal {
         layout.getChildren().add(imageView);
     }
 
-    public void agregarJugadorGanador(String nickname, Integer puntaje) {
+    public void agregarJugadorGanador(String nickname, int puntaje) {
 
         nicknameGanador = nickname;
         puntajeGanador = puntaje;
     }
 
-    public void agregarJugadorPerdedor(String nickname, Integer puntaje) {
+    public void agregarJugadorPerdedor(String nickname, int puntaje) {
 
         nicknamePerdedor = nickname;
         puntajePerdedor = puntaje;
@@ -46,17 +46,18 @@ public class LayoutPuntajeFinal {
         crearLayoutParteJugadorPerdedor();
     }
 
+
     private void crearLayoutParteJugadorGanador() {
 
         LayoutPuntajeJugador layoutPuntajeGanador = new LayoutPuntajeJugador(nicknameGanador, puntajeGanador, Color.LIMEGREEN);
-        layoutPuntajeGanador.getLayout().setTranslateY(-120.0);
+        layoutPuntajeGanador.setTranslateY(-120.0);
 
         Tic tic = new Tic();
         tic.setScaleX(20);
         tic.setScaleY(20);
         tic.setFill(Color.DARKGREEN);
         tic.setTranslateX(650.0);
-        layoutPuntajeGanador.getLayout().getChildren().add(tic);
+        layoutPuntajeGanador.getChildren().add(tic);
 
 
         //Label tituloGanador = new Label("GANADOR");
@@ -64,7 +65,7 @@ public class LayoutPuntajeFinal {
         //tituloGanador.setFont(new Font("FreeSans", 90));
         //tituloGanador.setTranslateY(-250.0);
 
-        layout.getChildren().add(layoutPuntajeGanador.getLayout());
+        layout.getChildren().add(layoutPuntajeGanador);
 
         ImageView imageView = new ImageView();
         imageView.setImage(caraGanador);
@@ -80,8 +81,8 @@ public class LayoutPuntajeFinal {
     private void crearLayoutParteJugadorPerdedor() {
 
         LayoutPuntajeJugador layoutPuntajePerdedor = new LayoutPuntajeJugador(nicknamePerdedor, puntajePerdedor, Color.DARKRED);
-        layoutPuntajePerdedor.getLayout().setTranslateY(150.0);
-        layout.getChildren().add(layoutPuntajePerdedor.getLayout());
+        layoutPuntajePerdedor.setTranslateY(150.0);
+        layout.getChildren().add(layoutPuntajePerdedor);
 
         ImageView imageView = new ImageView();
         imageView.setImage(caraPerdedor);

@@ -14,25 +14,23 @@ import javafx.scene.text.Font;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class RelojPregunta {
+public class RelojPregunta extends StackPane {
 
-    private StackPane contador;
     private Label contadorTiempoRestante;
     private Integer tiempoRestante;
 
     public RelojPregunta() {
 
-        contador = new StackPane();
         tiempoRestante = 30;
 
         Circle forma = new Circle();
         forma.setRadius(1.0);
-        contador.setShape(forma);
+        this.setShape(forma);
 
-        contador.setMinSize(100, 90);
-        contador.setMaxSize(100, 90);
-        contador.setBackground(new Background(new BackgroundFill(Color.PURPLE, CornerRadii.EMPTY, Insets.EMPTY)));
-        contador.setStyle("-fx-border-color: gold");
+        this.setMinSize(100, 90);
+        this.setMaxSize(100, 90);
+        this.setBackground(new Background(new BackgroundFill(Color.PURPLE, CornerRadii.EMPTY, Insets.EMPTY)));
+        this.setStyle("-fx-border-color: gold");
 
         agregarContadorTiempoRestante();
     }
@@ -43,7 +41,7 @@ public class RelojPregunta {
         contadorTiempoRestante.setText(tiempoRestante.toString());
         contadorTiempoRestante.setTextFill(Color.GOLD);
         contadorTiempoRestante.setFont(new Font("KacstPoster", 40));
-        contador.getChildren().add(contadorTiempoRestante);
+        this.getChildren().add(contadorTiempoRestante);
 
         agregarAnimacionContador();
     }
@@ -68,9 +66,5 @@ public class RelojPregunta {
 
         tiempoRestante--;
         contadorTiempoRestante.setText(tiempoRestante.toString());
-    }
-
-    public StackPane getContador() {
-        return contador;
     }
 }
