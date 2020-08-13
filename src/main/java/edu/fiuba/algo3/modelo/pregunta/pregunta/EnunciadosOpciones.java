@@ -6,9 +6,12 @@ import java.util.HashMap;
 public class EnunciadosOpciones {
 
     private HashMap<Integer, ArrayList<String>> opciones;
+    private int orden;
 
     public EnunciadosOpciones(){
+
         opciones = new HashMap<>();
+        orden = 0;
     }
 
     public void agregarEnunciadoEidentificador(int identificador, String enunciado) {
@@ -21,6 +24,28 @@ public class EnunciadosOpciones {
         }
         enunciadosActuales.add(enunciado);
         opciones.put(identificador, enunciadosActuales);
+    }
+
+    public void agregarEnunciadoCorrecto(String enunciado) {
+        this.agregarEnunciadoEidentificador(1,enunciado);
+    }
+
+    public void agregarEnunciadoIncorrecto(String enunciado) {
+        this.agregarEnunciadoEidentificador(0,enunciado);
+    }
+
+    public void agregarEnunciadoGrupoA(String enunciado) {
+        this.agregarEnunciadoEidentificador(0,enunciado);
+    }
+
+    public void agregarEnunciadoGrupoB(String enunciado) {
+        this.agregarEnunciadoEidentificador(1,enunciado);
+    }
+
+    public void agregarEnunciadoOrdenado(String enunciado) {
+
+        this.agregarEnunciadoEidentificador(orden,enunciado);
+        orden = orden + 1;
     }
 
     public ArrayList<String> enunciadosCorrectos(){
