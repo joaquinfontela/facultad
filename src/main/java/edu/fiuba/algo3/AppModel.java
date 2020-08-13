@@ -29,12 +29,9 @@ public class AppModel extends Application {
         //mostrarLayoutPuntajeFinal();
         //mostrarLayoutInicio();
         //mostrarLayoutPreturno();
-        //mostrarLayoutRegistro();
+        mostrarLayoutRegistro();
 
-        //mostrarStage(stage);
-
-        LectorDeArchivo lectorDeArchivo = new LectorDeArchivo();
-        lectorDeArchivo.obtenerListaDeInformacionDePreguntas();
+        mostrarStage(stage);
 
     }
 
