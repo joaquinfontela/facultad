@@ -20,16 +20,16 @@ public class AppModel extends Application {
     Scene scene;
 
     @Override
-    public void start(Stage stage) throws Exception {
+    public void start(Stage stage) {
 
         //System.out.println(javafx.scene.text.Font.getFamilies());
 
         //mostrarLayoutPregunta();
         //mostrarLayoutPuntajesParciales();
         //mostrarLayoutPuntajeFinal();
-        //mostrarLayoutInicio();
+        mostrarLayoutInicio(stage);
         //mostrarLayoutPreturno();
-        mostrarLayoutRegistro();
+        //mostrarLayoutRegistro();
 
         mostrarStage(stage);
 
@@ -78,10 +78,11 @@ public class AppModel extends Application {
         scene = new Scene(layoutPuntajeFinal.getLayout(), 640, 480);
     }
 
-    public void mostrarLayoutInicio() {
+    public void mostrarLayoutInicio(Stage stage) {
 
-        layoutInicio = new LayoutInicio();
-        scene = new Scene(layoutInicio.getLayout(), 640, 480);
+        layoutRegistro = new LayoutRegistro();
+        layoutInicio = new LayoutInicio(stage, new Scene(layoutRegistro.getLayout(), 640, 480));
+        scene = new Scene(layoutInicio, 640, 480);
     }
 
     private void mostrarLayoutPreturno() {
