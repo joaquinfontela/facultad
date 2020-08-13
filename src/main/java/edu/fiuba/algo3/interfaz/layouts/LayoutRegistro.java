@@ -4,7 +4,6 @@ import edu.fiuba.algo3.interfaz.botones.BotonComenzar;
 import edu.fiuba.algo3.interfaz.layouts.registroSublayouts.LayoutRegistroJugadores;
 import edu.fiuba.algo3.interfaz.layouts.registroSublayouts.LayoutSeleccionRondas;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.StackPane;
 
 public class LayoutRegistro {
 

@@ -2,7 +2,6 @@ package edu.fiuba.algo3.interfaz.layouts.preguntaSubLayouts.distribuidoresDeOpci
 
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
-
 import java.util.ArrayList;
 
 public class DistribuidorDeSeisOpciones extends DistribuidorDeOpcionesChicas {

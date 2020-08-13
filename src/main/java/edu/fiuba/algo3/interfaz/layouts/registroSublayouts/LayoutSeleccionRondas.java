@@ -1,6 +1,5 @@
 package edu.fiuba.algo3.interfaz.layouts.registroSublayouts;
 
-import edu.fiuba.algo3.interfaz.botones.BotonComenzar;
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Font;

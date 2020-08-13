@@ -4,7 +4,6 @@ import edu.fiuba.algo3.interfaz.botones.botonesOpcion.BotonOpcion;
 import edu.fiuba.algo3.interfaz.botones.botonesOpcion.BotonOpcionChicoLargo;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
-
 import java.util.ArrayList;
 
 public class DistribuidorDeCuatroOpciones implements DistribuidorDeOpciones {
