@@ -1,5 +1,6 @@
-package edu.fiuba.algo3.modelo.jugador;
+package edu.fiuba.algo3.modelo;
 
+import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.pregunta.pregunta.GeneradorDePreguntas;
 import edu.fiuba.algo3.modelo.pregunta.pregunta.InformacionPregunta;
 import edu.fiuba.algo3.modelo.pregunta.pregunta.Pregunta;

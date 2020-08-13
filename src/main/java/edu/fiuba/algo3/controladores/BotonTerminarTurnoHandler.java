@@ -1,7 +1,7 @@
 /*package edu.fiuba.algo3.controladores;
 
 import edu.fiuba.algo3.interfaz.botones.Boton;
-import edu.fiuba.algo3.modelo.jugador.GestorDeJuego;
+import edu.fiuba.algo3.modelo.GestorDeJuego;
 import edu.fiuba.algo3.modelo.pregunta.pregunta.EnunciadosOpciones;
 import edu.fiuba.algo3.modelo.pregunta.respuesta.*;
 import javafx.event.ActionEvent;

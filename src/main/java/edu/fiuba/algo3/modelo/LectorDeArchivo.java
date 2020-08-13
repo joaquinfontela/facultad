@@ -17,7 +17,7 @@ public class LectorDeArchivo {
     JsonArray preguntasEnFormatoJson;
     ArrayList<InformacionPregunta> informacionPreguntas;
 
-    public LectorDeArchivo() throws FileNotFoundException {
+    public LectorDeArchivo() {
 
         gson = new Gson();
         parser = new JsonParser();
