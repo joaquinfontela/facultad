@@ -45,4 +45,9 @@ public class RespuestaVerdaderoFalso implements Respuesta {
         enunciadosOpciones.add(opcionIncorrecta.obtenerEnunciado());
         return enunciadosOpciones;
     }
+
+    @Override
+    public Respuesta crearRespuestaComparable() {
+        return new RespuestaVerdaderoFalso();
+    }
 }

@@ -46,4 +46,9 @@ public class RespuestaOrderedChoice implements Respuesta {
         }
         return enunciadosOpciones;
     }
+
+    @Override
+    public Respuesta crearRespuestaComparable() {
+        return new RespuestaOrderedChoice();
+    }
 }

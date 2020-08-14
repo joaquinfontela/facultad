@@ -66,4 +66,9 @@ public class RespuestaGroupChoice implements Respuesta {
         enunciadosOpciones.addAll(opcionesGrupoB);
         return enunciadosOpciones;
     }
+
+    @Override
+    public Respuesta crearRespuestaComparable() {
+        return new RespuestaGroupChoice();
+    }
 }

@@ -99,4 +99,9 @@ public class RespuestaMultipleChoice implements Respuesta{
         }
         return enunciadosOpciones;
     }
+
+    @Override
+    public Respuesta crearRespuestaComparable() {
+        return new RespuestaMultipleChoice();
+    }
 }

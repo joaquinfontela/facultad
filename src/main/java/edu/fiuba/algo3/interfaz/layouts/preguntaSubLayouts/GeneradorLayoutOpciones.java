@@ -5,21 +5,21 @@ import javafx.scene.layout.StackPane;
 
 import java.util.ArrayList;
 
-public class LayoutOpciones {
+public class GeneradorLayoutOpciones {
 
     public StackPane generarLayout(ArrayList<String> opciones) {
 
         StackPane layout;
         if (opciones.size() == 2){
-            layout = new DistribuidorDeDosOpciones().getLayout(opciones);
+            layout = new DistribuidorDeDosOpciones(opciones);
         } else if (opciones.size() == 3) {
-            layout = new DistribuidorDeTresOpciones().getLayout(opciones);
+            layout = new DistribuidorDeTresOpciones(opciones);
         } else if (opciones.size() == 4) {
-            layout = new DistribuidorDeCuatroOpciones().getLayout(opciones);
+            layout = new DistribuidorDeCuatroOpciones(opciones);
         } else if (opciones.size() == 5) {
-            layout = new DistribuidorDeCincoOpciones().getLayout(opciones);
+            layout = new DistribuidorDeCincoOpciones(opciones);
         } else {
-            layout = new DistribuidorDeSeisOpciones().getLayout(opciones);
+            layout = new DistribuidorDeSeisOpciones(opciones);
         }
         return layout;
     }

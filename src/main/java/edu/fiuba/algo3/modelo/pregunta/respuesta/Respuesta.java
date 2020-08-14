@@ -11,4 +11,6 @@ public interface Respuesta {
     void rellenar(EnunciadosOpciones opcionesParaAgregar);
 
     ArrayList<String> obtenerEnunciadosOpciones();
+
+    Respuesta crearRespuestaComparable();
 }

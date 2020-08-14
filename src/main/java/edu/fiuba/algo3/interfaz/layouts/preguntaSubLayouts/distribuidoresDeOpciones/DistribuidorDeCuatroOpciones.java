@@ -6,22 +6,19 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import java.util.ArrayList;
 
-public class DistribuidorDeCuatroOpciones implements DistribuidorDeOpciones {
+public class DistribuidorDeCuatroOpciones extends StackPane {
 
-    @Override
-    public void agregarOpcion(String enunciado, Integer desplazamientoEnX, Integer desplazamientoEnY, Color color) {
+    public DistribuidorDeCuatroOpciones(ArrayList<String> opciones) {
 
-        BotonOpcion opcion = new BotonOpcionChicoLargo(enunciado, desplazamientoEnX, desplazamientoEnY, color);
-        layout.getChildren().add(opcion);
+        this.agregarOpcion(opciones.get(0), -300, -50, Color.RED);
+        this.agregarOpcion(opciones.get(1), 300, -50, Color.BLUE);
+        this.agregarOpcion(opciones.get(2), -300, 60, Color.GOLD);
+        this.agregarOpcion(opciones.get(3), 300, 60, Color.GREEN);
     }
 
-    @Override
-    public StackPane getLayout(ArrayList<String> opciones) {
+    private void agregarOpcion(String enunciado, Integer desplazamientoEnX, Integer desplazamientoEnY, Color color) {
 
-        agregarOpcion(opciones.get(0), -300, -50, Color.RED);
-        agregarOpcion(opciones.get(1), 300, -50, Color.BLUE);
-        agregarOpcion(opciones.get(2), -300, 60, Color.GOLD);
-        agregarOpcion(opciones.get(3), 300, 60, Color.GREEN);
-        return layout;
+        BotonOpcion opcion = new BotonOpcionChicoLargo(enunciado, desplazamientoEnX, desplazamientoEnY, color);
+        this.getChildren().add(opcion);
     }
 }

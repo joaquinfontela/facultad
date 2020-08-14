@@ -54,4 +54,8 @@ public class Pregunta {
         Collections.shuffle(enunciadosOpciones, new Random());
         return enunciadosOpciones;
     }
+
+    public Respuesta obtenerNuevaRespuestaComparable() {
+        return respuestaCorrecta.crearRespuestaComparable();
+    }
 }
