@@ -2,6 +2,8 @@ package edu.fiuba.algo3.modelo.pregunta.respuesta;
 
 import edu.fiuba.algo3.modelo.pregunta.pregunta.EnunciadosOpciones;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
 
 public class RespuestaGroupChoice implements Respuesta {
@@ -53,5 +55,15 @@ public class RespuestaGroupChoice implements Respuesta {
 
         opcionesGrupoA.addAll(enunciadosOpciones.enunciadosGrupoA());
         opcionesGrupoB.addAll(enunciadosOpciones.enunciadosGrupoB());
+    }
+
+    @Override
+    public ArrayList<String> obtenerEnunciadosOpciones() {
+
+        ArrayList<String> enunciadosOpciones = new ArrayList<>();
+        enunciadosOpciones.addAll(opcionesGrupoA);
+        enunciadosOpciones.addAll(opcionesGrupoB);
+        Collections.shuffle(enunciadosOpciones);
+        return enunciadosOpciones;
     }
 }

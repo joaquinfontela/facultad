@@ -1,9 +1,14 @@
 package edu.fiuba.algo3;
 
 import edu.fiuba.algo3.interfaz.layouts.*;
+import edu.fiuba.algo3.modelo.GestorDeJuego;
+import edu.fiuba.algo3.modelo.LectorDeArchivo;
+import edu.fiuba.algo3.modelo.jugador.Jugador;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+
+import java.util.ArrayList;
 
 /**
  * JavaFX App cC
@@ -26,18 +31,13 @@ public class App extends Application {
         //mostrarLayoutPuntajesParciales();
         //mostrarLayoutPuntajeFinal();
 
-        layoutPregunta = new LayoutPregunta(7, 10);
+        ArrayList<Jugador> jugadores = new ArrayList<>();
+        jugadores.add(new Jugador("Willyrex"));
+        jugadores.add(new Jugador("Vegetta777"));
+        LectorDeArchivo lector = new LectorDeArchivo();
+        GestorDeJuego gestor = new GestorDeJuego(lector.obtenerListaDeInformacionDePreguntas(), jugadores, 10);
 
-        layoutPregunta.agregarEnunciadoDeLaPregunta("Que seleccion es la mas ganadora de la historia de los mundiales? " +
-                "(seleccionar mas de una en caso de ser necesario)");
-
-        layoutPregunta.agregarOpcion("Italia");
-        layoutPregunta.agregarOpcion("Brasil");
-        layoutPregunta.agregarOpcion("Argentina");
-        layoutPregunta.agregarOpcion("Alemania");
-
-        layoutPreturno = new LayoutPreturno(stage, new Scene(layoutPregunta.getLayout(), 640, 480),
-                "LOLITOFDEZ");
+        layoutPreturno = new LayoutPreturno(stage, gestor);
         layoutRegistro = new LayoutRegistro(stage, new Scene(layoutPreturno, 640, 480));
         layoutInicio = new LayoutInicio(stage, new Scene(layoutRegistro, 640, 480));
         scene = new Scene(layoutInicio, 640, 480);

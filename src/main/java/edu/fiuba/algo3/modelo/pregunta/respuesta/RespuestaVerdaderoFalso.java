@@ -2,6 +2,9 @@ package edu.fiuba.algo3.modelo.pregunta.respuesta;
 
 import edu.fiuba.algo3.modelo.pregunta.pregunta.EnunciadosOpciones;
 
+import java.util.ArrayList;
+import java.util.Collections;
+
 public class RespuestaVerdaderoFalso implements Respuesta {
 
     private Opcion opcionCorrecta;
@@ -32,5 +35,15 @@ public class RespuestaVerdaderoFalso implements Respuesta {
 
         opcionCorrecta = new Opcion(opcionesParaAgregar.enunciadosCorrectos().get(0));
         opcionIncorrecta = new Opcion(opcionesParaAgregar.enunciadosIncorrectos().get(0));
+    }
+
+    @Override
+    public ArrayList<String> obtenerEnunciadosOpciones() {
+
+        ArrayList<String> enunciadosOpciones = new ArrayList<>();
+        enunciadosOpciones.add(opcionCorrecta.obtenerEnunciado());
+        enunciadosOpciones.add(opcionIncorrecta.obtenerEnunciado());
+        Collections.shuffle(enunciadosOpciones);
+        return enunciadosOpciones;
     }
 }

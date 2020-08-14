@@ -3,6 +3,7 @@ package edu.fiuba.algo3.modelo.pregunta.respuesta;
 import edu.fiuba.algo3.modelo.pregunta.pregunta.EnunciadosOpciones;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class RespuestaMultipleChoice implements Respuesta{
 
@@ -84,5 +85,19 @@ public class RespuestaMultipleChoice implements Respuesta{
         for (int i = 0; i < (opcionesParaAgregar.enunciadosIncorrectos()).size(); i++) {
             opcionesIncorrectas.add(new Opcion(opcionesParaAgregar.enunciadosIncorrectos().get(i)));
         }
+    }
+
+    @Override
+    public ArrayList<String> obtenerEnunciadosOpciones() {
+
+        ArrayList<String> enunciadosOpciones = new ArrayList<>();
+        for(Opcion opcion : opcionesCorrectas) {
+            enunciadosOpciones.add(opcion.obtenerEnunciado());
+        }
+        for(Opcion opcion : opcionesIncorrectas) {
+            enunciadosOpciones.add(opcion.obtenerEnunciado());
+        }
+        Collections.shuffle(enunciadosOpciones);
+        return enunciadosOpciones;
     }
 }

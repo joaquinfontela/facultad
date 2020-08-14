@@ -9,47 +9,32 @@ import javafx.geometry.Insets;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 
-public class LayoutPregunta {
+import java.util.ArrayList;
 
-    private BorderPane layout;
+public class LayoutPregunta extends BorderPane {
+
     private LayoutEnunciadoPregunta layoutEnunciado;
     private LayoutOpciones layoutOpciones;
     private LayoutBonificaciones layoutBonificaciones;
     private LayoutIzquierdoPregunta layoutIzquierdo;
     private BotonEnviarRespuesta botonEnviarRespuesta;
 
-    public LayoutPregunta(Integer preguntaActual, Integer preguntasTotales) {
+    public LayoutPregunta(Integer preguntaActual, Integer preguntasTotales,
+                          String enunciadoPregunta, ArrayList<String> enunciadosOpciones) {
 
-        layout = new BorderPane();
         layoutOpciones = new LayoutOpciones();
         layoutBonificaciones = new LayoutBonificaciones();
         layoutIzquierdo = new LayoutIzquierdoPregunta(preguntaActual, preguntasTotales);
-
-        layout.setBackground(new Background(new BackgroundFill(Color.DIMGRAY, CornerRadii.EMPTY, Insets.EMPTY)));
-        layout.setCenter(layoutOpciones.getLayout());
-        layout.setRight(layoutBonificaciones);
-        layout.setLeft(layoutIzquierdo);
+        layoutEnunciado = new LayoutEnunciadoPregunta(enunciadoPregunta);
+        this.setBackground(new Background(new BackgroundFill(Color.DIMGRAY, CornerRadii.EMPTY, Insets.EMPTY)));
+        this.setTop(layoutEnunciado);
+        this.setCenter(layoutOpciones.generarLayout(enunciadosOpciones));
+        this.setRight(layoutBonificaciones);
+        this.setLeft(layoutIzquierdo);
 
         botonEnviarRespuesta = new BotonEnviarRespuesta();
         botonEnviarRespuesta.setTranslateY(-10.0);
         botonEnviarRespuesta.setTranslateX(525.0);
-        layout.setBottom(botonEnviarRespuesta);
-    }
-
-    public void agregarEnunciadoDeLaPregunta(String enunciado){
-
-        layoutEnunciado = new LayoutEnunciadoPregunta(enunciado);
-        layout.setTop(layoutEnunciado);
-    }
-
-    public void agregarOpcion(String enunciado){
-
-        layoutOpciones.agregarOpcion(enunciado);
-    }
-
-    public BorderPane getLayout() {
-
-        layout.setCenter(layoutOpciones.getLayout());
-        return layout;
+        this.setBottom(botonEnviarRespuesta);
     }
 }

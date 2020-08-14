@@ -3,6 +3,7 @@ package edu.fiuba.algo3.modelo.pregunta.respuesta;
 import edu.fiuba.algo3.modelo.pregunta.pregunta.EnunciadosOpciones;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class RespuestaOrderedChoice implements Respuesta {
 
@@ -34,5 +35,16 @@ public class RespuestaOrderedChoice implements Respuesta {
         for (String enunciado : enunciadosOpciones.enunciadosOrdenados()){
             opcionesOrdenadas.add(new Opcion(enunciado));
         }
+    }
+
+    @Override
+    public ArrayList<String> obtenerEnunciadosOpciones() {
+
+        ArrayList<String> enunciadosOpciones = new ArrayList<>();
+        for(Opcion opcion : opcionesOrdenadas) {
+            enunciadosOpciones.add(opcion.obtenerEnunciado());
+        }
+        Collections.shuffle(enunciadosOpciones);
+        return enunciadosOpciones;
     }
 }

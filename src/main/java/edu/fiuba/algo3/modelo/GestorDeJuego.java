@@ -13,17 +13,19 @@ public class GestorDeJuego {
 
     private ArrayList<Jugador> jugadoresRegistrados;
     private int turnoActual;
-    private int rondasRestantes;
+    private int rondaActual;
+    private int rondasTotales;
     private GeneradorDePreguntas generadorDePreguntas;
     private Pregunta preguntaActual;
     private ArrayList<RespuestaDeJugador> respuestasActuales;
     private boolean juegoEnProgreso;
 
     public GestorDeJuego(ArrayList<InformacionPregunta> informacionPreguntas, ArrayList<Jugador> jugadores,
-                                                                                                int rondasTotales) {
+                                                                                                int cantidadRondas) {
 
+        rondaActual = 0;
         jugadoresRegistrados = jugadores;
-        rondasRestantes = rondasTotales;
+        rondasTotales = cantidadRondas;
         generadorDePreguntas = new GeneradorDePreguntas(informacionPreguntas);
         respuestasActuales = new ArrayList<>();
         juegoEnProgreso = true;
@@ -34,7 +36,7 @@ public class GestorDeJuego {
 
         turnoActual = 0;
         preguntaActual = generadorDePreguntas.obtenerNuevaPregunta();
-        rondasRestantes--;
+        rondaActual++;
     }
 
     public void terminarTurno(Respuesta respuesta) throws Exception {
@@ -61,7 +63,7 @@ public class GestorDeJuego {
 
         preguntaActual.evaluarRespuestas(respuestasActuales);
         respuestasActuales.clear();
-        if (rondasRestantes > 0) {
+        if (rondaActual < rondasTotales) {
             this.comenzarNuevaRonda();
         } else {
             this.finalizarJuego();
@@ -96,7 +98,23 @@ public class GestorDeJuego {
         jugadorActual.eliminarExclusividad();
     }
 
-    public String obtenerJugadorActual() {
+    public String obtenerNombreJugadorActual() {
         return jugadoresRegistrados.get(turnoActual).obtenerNombre();
+    }
+
+    public int obtenerRondaActual() {
+        return rondaActual;
+    }
+
+    public int obtenerRondasTotales() {
+        return rondasTotales;
+    }
+
+    public String obtenerEnunciadoPreguntaActual() {
+        return preguntaActual.obtenerEnunciado();
+    }
+
+    public ArrayList<String> obtenerEnunciadosOpcionesActuales() {
+        return preguntaActual.obtenerEnunciadosOpciones();
     }
 }

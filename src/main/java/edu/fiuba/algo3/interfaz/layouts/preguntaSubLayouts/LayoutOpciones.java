@@ -7,19 +7,9 @@ import java.util.ArrayList;
 
 public class LayoutOpciones {
 
-    private ArrayList<String> opciones;
+    public StackPane generarLayout(ArrayList<String> opciones) {
 
-    public LayoutOpciones() {
-        opciones = new ArrayList<>();
-    }
-
-    public void agregarOpcion(String enunciado) {
-        opciones.add(enunciado);
-    }
-
-    public StackPane getLayout() {
-
-        StackPane layout = new StackPane();
+        StackPane layout;
         if (opciones.size() == 2){
             layout = new DistribuidorDeDosOpciones().getLayout(opciones);
         } else if (opciones.size() == 3) {
@@ -28,7 +18,7 @@ public class LayoutOpciones {
             layout = new DistribuidorDeCuatroOpciones().getLayout(opciones);
         } else if (opciones.size() == 5) {
             layout = new DistribuidorDeCincoOpciones().getLayout(opciones);
-        } else if (opciones.size() == 6) {
+        } else {
             layout = new DistribuidorDeSeisOpciones().getLayout(opciones);
         }
         return layout;

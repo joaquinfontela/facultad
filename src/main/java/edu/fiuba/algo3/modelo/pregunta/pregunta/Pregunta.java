@@ -41,4 +41,12 @@ public class Pregunta {
 
         modalidad.recibirBonificacion(bonificacion);
     }
+
+    public String obtenerEnunciado() {
+        return enunciado;
+    }
+
+    public ArrayList<String> obtenerEnunciadosOpciones() {
+        return respuestaCorrecta.obtenerEnunciadosOpciones();
+    }
 }
