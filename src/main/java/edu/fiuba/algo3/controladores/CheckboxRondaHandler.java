@@ -19,6 +19,11 @@ public class CheckboxRondaHandler implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent event) {
-        cantidadRondas.push(Integer.parseInt(checkbox.getText()));
+
+        if(checkbox.isSelected()) {
+            cantidadRondas.push(Integer.parseInt(checkbox.getText()));
+        } else {
+            checkbox.setSelected(true);
+        }
     }
 }
