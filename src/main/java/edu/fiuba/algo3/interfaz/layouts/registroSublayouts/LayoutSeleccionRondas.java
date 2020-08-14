@@ -39,21 +39,32 @@ public class LayoutSeleccionRondas extends StackPane {
         cincoRondasCheckbox.setTranslateX(-400.0);
         cincoRondasCheckbox.setTranslateY(150.0);
         cincoRondasCheckbox.setSelected(true);
-        cincoRondasCheckbox.setOnAction(new CheckboxRondaHandler(rondas, cincoRondasCheckbox));
+        cincoRondasCheckbox.setOnAction(new CheckboxRondaHandler(cincoRondasCheckbox));
         listaDeCheckboxes.add(cincoRondasCheckbox);
         this.getChildren().add(cincoRondasCheckbox);
 
         diezRondasCheckbox = new CantidadRondasCheckbox("10");
         diezRondasCheckbox.setTranslateY(150.0);
-        diezRondasCheckbox.setOnAction(new CheckboxRondaHandler(rondas, diezRondasCheckbox));
+        diezRondasCheckbox.setOnAction(new CheckboxRondaHandler(diezRondasCheckbox));
         listaDeCheckboxes.add(diezRondasCheckbox);
         this.getChildren().add(diezRondasCheckbox);
 
         quinceRondasCheckbox = new CantidadRondasCheckbox("15");
         quinceRondasCheckbox.setTranslateX(400.0);
         quinceRondasCheckbox.setTranslateY(150.0);
-        quinceRondasCheckbox.setOnAction(new CheckboxRondaHandler(rondas, quinceRondasCheckbox));
+        quinceRondasCheckbox.setOnAction(new CheckboxRondaHandler(quinceRondasCheckbox));
         listaDeCheckboxes.add(quinceRondasCheckbox);
         this.getChildren().add(quinceRondasCheckbox);
+    }
+
+    public int obtenerCantidadRondas() {
+
+        if(cincoRondasCheckbox.isSelected()) {
+            return 5;
+        }
+        if(diezRondasCheckbox.isSelected()) {
+            return 10;
+        }
+        return 15;
     }
 }

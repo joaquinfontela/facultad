@@ -1,9 +1,11 @@
 package edu.fiuba.algo3.controladores;
 
 import edu.fiuba.algo3.interfaz.layouts.LayoutPreturno;
+import edu.fiuba.algo3.interfaz.layouts.LayoutRegistro;
 import edu.fiuba.algo3.modelo.GestorDeJuego;
 import edu.fiuba.algo3.modelo.LectorDeArchivo;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
+import edu.fiuba.algo3.modelo.pregunta.pregunta.InformacionPregunta;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
@@ -17,26 +19,31 @@ public class BotonComenzarHandler implements EventHandler<ActionEvent> {
 
     private Stage stage;
     private Scene proximaEscena;
-    private GestorDeJuego gestor;
-    private Stack<Integer> cantidadRondas;
+    private LayoutRegistro layoutActual;
 
-    public BotonComenzarHandler(Stage unStage, Stack<Integer> rondas) {
+    public BotonComenzarHandler(Stage unStage, LayoutRegistro layout) {
 
         stage = unStage;
-        cantidadRondas = rondas;
+        layoutActual = layout;
     }
 
     @Override
     public void handle(ActionEvent event) {
 
-        ArrayList<Jugador> jugadores = new ArrayList<>();
-        jugadores.add(new Jugador("Willyrex"));
-        jugadores.add(new Jugador("Vegetta777"));
-        Collections.shuffle(jugadores);
-        LectorDeArchivo lector = new LectorDeArchivo();
-        gestor = new GestorDeJuego(lector.obtenerListaDeInformacionDePreguntas(), jugadores, cantidadRondas.pop());
-        LayoutPreturno layoutPreturno = new LayoutPreturno(stage, gestor);
-        proximaEscena = new Scene(layoutPreturno, 640, 480);
-        stage.setScene(proximaEscena);
+        try {
+            ArrayList<String> nombresJugadores = layoutActual.obtenerNombresJugadores();
+            ArrayList<Jugador> jugadores = new ArrayList<>();
+            for (String nombre : nombresJugadores) jugadores.add(new Jugador(nombre));
+            Collections.shuffle(jugadores);
+            int cantidadRondas = layoutActual.obtenerCantidadRondas();
+            LectorDeArchivo lector = new LectorDeArchivo();
+            ArrayList<InformacionPregunta> infoLector = lector.obtenerListaDeInformacionDePreguntas();
+            GestorDeJuego gestor = new GestorDeJuego(infoLector, jugadores, cantidadRondas);
+            LayoutPreturno layoutPreturno = new LayoutPreturno(stage, gestor);
+            proximaEscena = new Scene(layoutPreturno, 640, 480);
+            stage.setScene(proximaEscena);
+        } catch (Exception exception) {
+            System.out.println("Error");
+        }
     }
 }

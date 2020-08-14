@@ -8,22 +8,14 @@ import java.util.Stack;
 
 public class CheckboxRondaHandler implements EventHandler<ActionEvent> {
 
-    Stack<Integer> cantidadRondas;
     private CantidadRondasCheckbox checkbox;
 
-    public CheckboxRondaHandler(Stack<Integer> rondas, CantidadRondasCheckbox unCheckbox){
-
-        cantidadRondas = rondas;
+    public CheckboxRondaHandler(CantidadRondasCheckbox unCheckbox){
         checkbox = unCheckbox;
     }
 
     @Override
     public void handle(ActionEvent event) {
-
-        if(checkbox.isSelected()) {
-            cantidadRondas.push(Integer.parseInt(checkbox.getText()));
-        } else {
-            checkbox.setSelected(true);
-        }
+        if (!checkbox.isSelected()) checkbox.setSelected(true);
     }
 }

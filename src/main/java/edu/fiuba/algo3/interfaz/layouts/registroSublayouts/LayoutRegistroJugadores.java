@@ -4,6 +4,8 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Font;
 
+import java.util.ArrayList;
+
 public class LayoutRegistroJugadores extends StackPane {
 
     private TextFieldJugador textFieldJugador1;
@@ -47,5 +49,20 @@ public class LayoutRegistroJugadores extends StackPane {
         textFieldJugador2.setTranslateX(250.0);
         textFieldJugador2.setTranslateY(200.0);
         this.getChildren().add(textFieldJugador2);
+    }
+
+    public ArrayList<String> obtenerNombresJugadores() throws Exception {
+
+        this.verificarTextField(textFieldJugador1);
+        this.verificarTextField(textFieldJugador2);
+        ArrayList<String> nombres = new ArrayList<>();
+        nombres.add(textFieldJugador1.getText());
+        nombres.add(textFieldJugador1.getText());
+        return nombres;
+    }
+
+    private void verificarTextField(TextFieldJugador textfield) throws Exception {
+
+        if(textfield.getText().isEmpty() || textfield.getText() == null) throw new Exception();
     }
 }
