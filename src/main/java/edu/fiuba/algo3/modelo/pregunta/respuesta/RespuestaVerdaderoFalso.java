@@ -43,7 +43,6 @@ public class RespuestaVerdaderoFalso implements Respuesta {
         ArrayList<String> enunciadosOpciones = new ArrayList<>();
         enunciadosOpciones.add(opcionCorrecta.obtenerEnunciado());
         enunciadosOpciones.add(opcionIncorrecta.obtenerEnunciado());
-        Collections.shuffle(enunciadosOpciones);
         return enunciadosOpciones;
     }
 }

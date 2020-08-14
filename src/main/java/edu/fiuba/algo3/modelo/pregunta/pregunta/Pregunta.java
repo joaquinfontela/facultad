@@ -6,6 +6,8 @@ import edu.fiuba.algo3.modelo.pregunta.respuesta.Respuesta;
 import edu.fiuba.algo3.modelo.pregunta.respuesta.RespuestaDeJugador;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Random;
 
 public class Pregunta {
 
@@ -47,6 +49,9 @@ public class Pregunta {
     }
 
     public ArrayList<String> obtenerEnunciadosOpciones() {
-        return respuestaCorrecta.obtenerEnunciadosOpciones();
+
+        ArrayList<String> enunciadosOpciones = respuestaCorrecta.obtenerEnunciadosOpciones();
+        Collections.shuffle(enunciadosOpciones, new Random());
+        return enunciadosOpciones;
     }
 }

@@ -44,7 +44,6 @@ public class RespuestaOrderedChoice implements Respuesta {
         for(Opcion opcion : opcionesOrdenadas) {
             enunciadosOpciones.add(opcion.obtenerEnunciado());
         }
-        Collections.shuffle(enunciadosOpciones);
         return enunciadosOpciones;
     }
 }

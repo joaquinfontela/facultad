@@ -55,14 +55,21 @@ public class LayoutRegistroJugadores extends StackPane {
 
         this.verificarTextField(textFieldJugador1);
         this.verificarTextField(textFieldJugador2);
+        this.verificarTextFieldDistintos();
         ArrayList<String> nombres = new ArrayList<>();
         nombres.add(textFieldJugador1.getText());
-        nombres.add(textFieldJugador1.getText());
+        nombres.add(textFieldJugador2.getText());
         return nombres;
     }
 
     private void verificarTextField(TextFieldJugador textfield) throws Exception {
 
-        if(textfield.getText().isEmpty() || textfield.getText() == null) throw new Exception();
+        if (textfield.getText().isEmpty() || textfield.getText() == null)
+            throw new Exception("Falta ingresar alguno de los Jugadores");
+    }
+    private void verificarTextFieldDistintos() throws Exception {
+
+        if (textFieldJugador1.getText().equals(textFieldJugador2.getText()))
+            throw new Exception("Los jugadores no pueden tener nombres idénticos");
     }
 }

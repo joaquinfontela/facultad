@@ -97,7 +97,6 @@ public class RespuestaMultipleChoice implements Respuesta{
         for(Opcion opcion : opcionesIncorrectas) {
             enunciadosOpciones.add(opcion.obtenerEnunciado());
         }
-        Collections.shuffle(enunciadosOpciones);
         return enunciadosOpciones;
     }
 }

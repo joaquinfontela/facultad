@@ -9,10 +9,12 @@ import edu.fiuba.algo3.modelo.pregunta.pregunta.InformacionPregunta;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Random;
 import java.util.Stack;
 
 public class BotonComenzarHandler implements EventHandler<ActionEvent> {
@@ -34,7 +36,7 @@ public class BotonComenzarHandler implements EventHandler<ActionEvent> {
             ArrayList<String> nombresJugadores = layoutActual.obtenerNombresJugadores();
             ArrayList<Jugador> jugadores = new ArrayList<>();
             for (String nombre : nombresJugadores) jugadores.add(new Jugador(nombre));
-            Collections.shuffle(jugadores);
+            Collections.shuffle(jugadores, new Random());
             int cantidadRondas = layoutActual.obtenerCantidadRondas();
             LectorDeArchivo lector = new LectorDeArchivo();
             ArrayList<InformacionPregunta> infoLector = lector.obtenerListaDeInformacionDePreguntas();
@@ -43,7 +45,9 @@ public class BotonComenzarHandler implements EventHandler<ActionEvent> {
             proximaEscena = new Scene(layoutPreturno, 640, 480);
             stage.setScene(proximaEscena);
         } catch (Exception exception) {
-            System.out.println("Error");
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText(exception.getMessage());
+            alert.show();
         }
     }
 }

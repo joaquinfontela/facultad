@@ -5,6 +5,7 @@ import edu.fiuba.algo3.modelo.pregunta.pregunta.EnunciadosOpciones;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.Random;
 
 public class RespuestaGroupChoice implements Respuesta {
 
@@ -63,7 +64,6 @@ public class RespuestaGroupChoice implements Respuesta {
         ArrayList<String> enunciadosOpciones = new ArrayList<>();
         enunciadosOpciones.addAll(opcionesGrupoA);
         enunciadosOpciones.addAll(opcionesGrupoB);
-        Collections.shuffle(enunciadosOpciones);
         return enunciadosOpciones;
     }
 }
