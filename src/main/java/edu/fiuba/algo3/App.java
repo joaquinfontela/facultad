@@ -46,23 +46,23 @@ public class App extends Application {
         stage.show();
     }
 
-    private void mostrarLayoutPuntajesParciales() {
+    /*private void mostrarLayoutPuntajesParciales() {
 
         layoutPuntajesParciales = new LayoutPuntajesParciales();
         layoutPuntajesParciales.agregarPuntaje("Miguel", 3);
         layoutPuntajesParciales.agregarPuntaje("Tomás", 1);
 
         scene = new Scene(layoutPuntajesParciales, 640, 480);
-    }
+    }*/
 
-    private void mostrarLayoutPuntajeFinal() {
+    /*private void mostrarLayoutPuntajeFinal() {
 
         layoutPuntajeFinal = new LayoutPuntajeFinal();
         layoutPuntajeFinal.agregarJugadorGanador("Tomás", 14);
         layoutPuntajeFinal.agregarJugadorPerdedor("Miguel", 11);
 
         scene = new Scene(layoutPuntajeFinal.getLayout(), 640, 480);
-    }
+    }*/
 
     public static void main(String[] args) {
         launch();

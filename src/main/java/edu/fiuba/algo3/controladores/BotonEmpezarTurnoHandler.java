@@ -7,8 +7,6 @@ import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import java.util.ArrayList;
-
 public class BotonEmpezarTurnoHandler implements EventHandler<ActionEvent> {
 
     private Stage stage;
@@ -23,11 +21,7 @@ public class BotonEmpezarTurnoHandler implements EventHandler<ActionEvent> {
     @Override
     public void handle(ActionEvent event) {
 
-        int rondaActual = gestor.obtenerRondaActual();
-        int rondasTotales = gestor.obtenerRondasTotales();
-        String pregunta = gestor.obtenerEnunciadoPreguntaActual();
-        ArrayList<String> opciones = gestor.obtenerEnunciadosOpcionesActuales();
-        LayoutPregunta layoutPregunta = new LayoutPregunta(rondaActual, rondasTotales, pregunta, opciones);
+        LayoutPregunta layoutPregunta = new LayoutPregunta(stage, gestor);
         stage.setScene(new Scene(layoutPregunta, 640, 480));
     }
 }

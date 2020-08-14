@@ -76,7 +76,7 @@ public class GestorDeJuego {
 
     public void aplicarMultiplicadorX2DelJugadorActual() throws Exception {
 
-        if (!juegoEnProgreso) throw new Exception("El juego ha finalizado");
+        if (!juegoEnProgreso) throw new Exception("El juego ha finalizgestorado");
         Jugador jugadorActual = jugadoresRegistrados.get(turnoActual);
         preguntaActual.recibirBonificacion(jugadorActual.obtenerMultiplicadorX2());
         jugadorActual.eliminarMultiplicadorX2();
@@ -116,5 +116,37 @@ public class GestorDeJuego {
 
     public ArrayList<String> obtenerEnunciadosOpcionesActuales() {
         return preguntaActual.obtenerEnunciadosOpciones();
+    }
+
+    public boolean juegoFinalizado() {
+        return !juegoEnProgreso;
+    }
+
+    public ArrayList<Jugador> obtenerJugadoresRegistrados() {
+        return jugadoresRegistrados;
+    }
+
+    public Jugador obtenerJugadorGanador() {
+
+        int contador = 0;
+        Jugador candidatoGanador = jugadoresRegistrados.get(0);
+        for (Jugador jugador : jugadoresRegistrados) {
+            if(jugador.obtenerPuntaje() > candidatoGanador.obtenerPuntaje()) {
+                candidatoGanador = jugador;
+            }
+        }
+        return candidatoGanador;
+    }
+
+    public Jugador obtenerJugadorPerdedor() {
+
+        Jugador jugadorGanador = obtenerJugadorGanador();
+        Jugador jugadorPerdedor = null;
+        for (Jugador jugador : jugadoresRegistrados) {
+            if(jugadorGanador != jugador) {
+                jugadorPerdedor = jugador;
+            }
+        }
+        return jugadorPerdedor;
     }
 }

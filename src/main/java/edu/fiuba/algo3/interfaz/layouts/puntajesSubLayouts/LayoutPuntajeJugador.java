@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.interfaz.layouts.puntajesSubLayouts;
 
+import edu.fiuba.algo3.modelo.jugador.Jugador;
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Background;
@@ -11,15 +12,15 @@ import javafx.scene.text.Font;
 
 public class LayoutPuntajeJugador extends StackPane {
 
-    public LayoutPuntajeJugador(String nickname, int puntaje, Color color){
+    public LayoutPuntajeJugador(Jugador jugador, Color color){
 
         this.setMinSize(1200, 150);
         this.setMaxSize(1200, 150);
         this.setBackground(new Background(new BackgroundFill(color, CornerRadii.EMPTY, Insets.EMPTY)));
         this.setStyle("-fx-border-color: white");
 
-        agregarNickname(nickname);
-        agregarPuntuacion(puntaje);
+        agregarNickname(jugador.obtenerNombre());
+        agregarPuntuacion(jugador.obtenerPuntaje());
     }
 
     private void agregarNickname(String nickname) {

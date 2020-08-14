@@ -19,6 +19,7 @@ public class LayoutRegistro extends BorderPane{
     public LayoutRegistro(Stage stage) {
 
         Stack<Integer> rondas = new Stack<>(); //solucion provisoria
+        rondas.push(5);
 
         this.setStyle("-fx-background-color: orange");
 
