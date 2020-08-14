@@ -1,11 +1,9 @@
 package edu.fiuba.algo3.interfaz.layouts;
 
-import edu.fiuba.algo3.controladores.BotonCambiarPantallaHandler;
 import edu.fiuba.algo3.controladores.BotonEmpezarTurnoHandler;
 import edu.fiuba.algo3.interfaz.botones.BotonContinuar;
 import edu.fiuba.algo3.modelo.GestorDeJuego;
 import javafx.geometry.Insets;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Background;

@@ -31,15 +31,7 @@ public class App extends Application {
         //mostrarLayoutPuntajesParciales();
         //mostrarLayoutPuntajeFinal();
 
-        ArrayList<Jugador> jugadores = new ArrayList<>();
-        jugadores.add(new Jugador("Willyrex"));
-        jugadores.add(new Jugador("Vegetta777"));
-        LectorDeArchivo lector = new LectorDeArchivo();
-        GestorDeJuego gestor = new GestorDeJuego(lector.obtenerListaDeInformacionDePreguntas(), jugadores, 10);
-
-        layoutPreturno = new LayoutPreturno(stage, gestor);
-        layoutRegistro = new LayoutRegistro(stage, new Scene(layoutPreturno, 640, 480));
-        layoutInicio = new LayoutInicio(stage, new Scene(layoutRegistro, 640, 480));
+        layoutInicio = new LayoutInicio(stage);
         scene = new Scene(layoutInicio, 640, 480);
 
         mostrarStage(stage);
