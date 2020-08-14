@@ -12,22 +12,22 @@ import java.util.ArrayList;
 public class BotonEmpezarTurnoHandler implements EventHandler<ActionEvent> {
 
     private Stage stage;
-    private Scene proximaEscena;
+    private GestorDeJuego gestor;
 
-    public BotonEmpezarTurnoHandler(Stage unStage, GestorDeJuego gestor) {
+    public BotonEmpezarTurnoHandler(Stage unStage, GestorDeJuego unGestor) {
 
         stage = unStage;
-        int rondaActual = gestor.obtenerRondaActual();
-        int rondasTotales = gestor.obtenerRondasTotales();
-        String pregunta = gestor.obtenerEnunciadoPreguntaActual();
-        ArrayList<String> opciones = gestor.obtenerEnunciadosOpcionesActuales();
-        LayoutPregunta layoutPregunta = new LayoutPregunta(rondaActual, rondasTotales, pregunta, opciones);
-        proximaEscena = new Scene(layoutPregunta, 640, 480);
+        gestor = unGestor;
     }
 
     @Override
     public void handle(ActionEvent event) {
 
-        stage.setScene(proximaEscena);
+        int rondaActual = gestor.obtenerRondaActual();
+        int rondasTotales = gestor.obtenerRondasTotales();
+        String pregunta = gestor.obtenerEnunciadoPreguntaActual();
+        ArrayList<String> opciones = gestor.obtenerEnunciadosOpcionesActuales();
+        LayoutPregunta layoutPregunta = new LayoutPregunta(rondaActual, rondasTotales, pregunta, opciones);
+        stage.setScene(new Scene(layoutPregunta, 640, 480));
     }
 }
