@@ -110,6 +110,10 @@ public class GestorDeJuego {
         return rondasTotales;
     }
 
+    public boolean comienzaNuevaRonda() {
+        return turnoActual == 0;
+    }
+
     public String obtenerEnunciadoPreguntaActual() {
         return preguntaActual.obtenerEnunciado();
     }
