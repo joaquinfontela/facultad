@@ -14,7 +14,7 @@ public class GeneradorLayoutMultipleChoice implements GeneradorLayoutOpciones {
     public StackPane generarLayout(ArrayList<String> opciones) {
 
         if (opciones.size() == 2){
-            layout = new DistribuidorDeDosOpciones(opciones);
+            layout = new DistribuidorDeDosOpciones(opciones);  // se le pasa un evento q diferencia el estilo segun el tipo de pregunta.
         } else if (opciones.size() == 3) {
             layout = new DistribuidorDeTresOpciones(opciones);
         } else if (opciones.size() == 4) {

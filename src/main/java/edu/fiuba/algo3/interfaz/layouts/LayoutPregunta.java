@@ -12,7 +12,7 @@ import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
-public class LayoutPregunta extends BorderPane {
+public abstract class LayoutPregunta extends BorderPane {
 
     protected GeneradorLayoutOpciones generadorLayoutOpciones;
 
