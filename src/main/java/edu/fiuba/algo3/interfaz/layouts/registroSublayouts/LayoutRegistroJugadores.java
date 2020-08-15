@@ -53,8 +53,8 @@ public class LayoutRegistroJugadores extends StackPane {
 
     public ArrayList<String> obtenerNombresJugadores() throws Exception {
 
-        this.verificarTextField(textFieldJugador1);
-        this.verificarTextField(textFieldJugador2);
+        this.verificarTextFieldNoVacio(textFieldJugador1);
+        this.verificarTextFieldNoVacio(textFieldJugador2);
         this.verificarTextFieldDistintos();
         ArrayList<String> nombres = new ArrayList<>();
         nombres.add(textFieldJugador1.getText());
@@ -62,7 +62,7 @@ public class LayoutRegistroJugadores extends StackPane {
         return nombres;
     }
 
-    private void verificarTextField(TextFieldJugador textfield) throws Exception {
+    private void verificarTextFieldNoVacio(TextFieldJugador textfield) throws Exception {
 
         if (textfield.getText().isEmpty() || textfield.getText() == null)
             throw new Exception("Falta ingresar alguno de los Jugadores");

@@ -1,14 +1,9 @@
 package edu.fiuba.algo3;
 
 import edu.fiuba.algo3.interfaz.layouts.*;
-import edu.fiuba.algo3.modelo.GestorDeJuego;
-import edu.fiuba.algo3.modelo.LectorDeArchivo;
-import edu.fiuba.algo3.modelo.jugador.Jugador;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
-import java.util.ArrayList;
 
 /**
  * JavaFX App cC
