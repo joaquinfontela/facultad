@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.interfaz.layouts;
 
 import edu.fiuba.algo3.controladores.BotonEmpezarTurnoHandler;
-import edu.fiuba.algo3.interfaz.botones.BotonContinuar;
+import edu.fiuba.algo3.interfaz.botones.BotonPreturno;
 import edu.fiuba.algo3.modelo.GestorDeJuego;
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
@@ -27,17 +27,17 @@ public class LayoutPreturno extends StackPane {
         textArea.setStyle("-fx-border-color: mediumpurple; -fx-background-color: transparent; -fx-border-width: 5px");
         this.getChildren().add(textArea);
 
-        agregarBotonContinuar(stage, gestor);
-        agregarTitulo();
-        agregarNicknameProximoTurno(gestor.obtenerNombreJugadorActual());
+        this.agregarBoton(stage, gestor);
+        this.agregarTitulo();
+        this.agregarNicknameProximoTurno(gestor.obtenerNombreJugadorActual());
     }
 
-    private void agregarBotonContinuar(Stage stage, GestorDeJuego gestor) {
+    private void agregarBoton(Stage stage, GestorDeJuego gestor) {
 
-        BotonContinuar botonContinuar = new BotonContinuar();
-        botonContinuar.setTranslateY(200.0);
-        botonContinuar.setOnAction(new BotonEmpezarTurnoHandler(stage, gestor));
-        this.getChildren().add(botonContinuar);
+        BotonPreturno botonPreturno = new BotonPreturno();
+        botonPreturno.setTranslateY(200.0);
+        botonPreturno.setOnAction(new BotonEmpezarTurnoHandler(stage, gestor));
+        this.getChildren().add(botonPreturno);
     }
 
     private void agregarTitulo() {

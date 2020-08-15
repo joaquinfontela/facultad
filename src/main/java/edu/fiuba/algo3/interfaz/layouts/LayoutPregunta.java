@@ -20,8 +20,7 @@ public class LayoutPregunta extends BorderPane {
 
         GeneradorLayoutOpciones generadorLayoutOpciones = new GeneradorLayoutOpciones();
         LayoutBonificaciones layoutBonificaciones = new LayoutBonificaciones();
-        layoutIzquierdo = new LayoutIzquierdoPregunta(gestor.obtenerRondaActual(),
-                gestor.obtenerRondasTotales(), stage, gestor);
+        layoutIzquierdo = new LayoutIzquierdoPregunta(stage, gestor);
         LayoutEnunciadoPregunta layoutEnunciado = new LayoutEnunciadoPregunta(gestor.obtenerEnunciadoPreguntaActual());
         this.setBackground(new Background(new BackgroundFill(Color.DIMGRAY, CornerRadii.EMPTY, Insets.EMPTY)));
         this.setTop(layoutEnunciado);

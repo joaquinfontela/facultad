@@ -60,7 +60,7 @@ public class RelojPregunta extends StackPane {
                 Platform.runLater(new Runnable() {
                     @Override
                     public void run() {
-                        if (tiempoRestante > 0) {
+                        if (tiempoRestante > 1) {
                             disminuirContador();
                         } else {
                             LayoutSeAcaboElTiempo layout = new LayoutSeAcaboElTiempo(stage, gestor);
@@ -70,7 +70,7 @@ public class RelojPregunta extends StackPane {
                     }
                 });
             }
-        }, 1000, 1000);
+        }, 100, 100);
     }
 
     private void disminuirContador(){

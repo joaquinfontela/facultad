@@ -8,10 +8,9 @@ public class LayoutIzquierdoPregunta extends StackPane {
 
     private RelojPregunta reloj;
 
-    public LayoutIzquierdoPregunta(Integer numeroPreguntaActual, Integer cantidadPreguntasTotales, Stage stage,
-                                   GestorDeJuego gestor) {
+    public LayoutIzquierdoPregunta(Stage stage, GestorDeJuego gestor) {
 
-        this.getChildren().add(new ContadorPregunta(numeroPreguntaActual, cantidadPreguntasTotales));
+        this.getChildren().add(new ContadorPregunta(gestor.obtenerRondaActual(), gestor.obtenerRondasTotales()));
         reloj = new RelojPregunta(stage, gestor);
         this.getChildren().add(reloj);
         this.setTranslateX(35.0);
