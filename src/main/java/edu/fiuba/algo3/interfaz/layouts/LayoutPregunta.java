@@ -14,13 +14,14 @@ import javafx.stage.Stage;
 
 public class LayoutPregunta extends BorderPane {
 
+    private LayoutIzquierdoPregunta layoutIzquierdo;
 
     public LayoutPregunta(Stage stage, GestorDeJuego gestor) {
 
         GeneradorLayoutOpciones generadorLayoutOpciones = new GeneradorLayoutOpciones();
         LayoutBonificaciones layoutBonificaciones = new LayoutBonificaciones();
-        LayoutIzquierdoPregunta layoutIzquierdo = new LayoutIzquierdoPregunta(gestor.obtenerRondaActual(),
-                gestor.obtenerRondasTotales());
+        layoutIzquierdo = new LayoutIzquierdoPregunta(gestor.obtenerRondaActual(),
+                gestor.obtenerRondasTotales(), stage, gestor);
         LayoutEnunciadoPregunta layoutEnunciado = new LayoutEnunciadoPregunta(gestor.obtenerEnunciadoPreguntaActual());
         this.setBackground(new Background(new BackgroundFill(Color.DIMGRAY, CornerRadii.EMPTY, Insets.EMPTY)));
         this.setTop(layoutEnunciado);
@@ -31,7 +32,11 @@ public class LayoutPregunta extends BorderPane {
         BotonEnviarRespuesta botonEnviarRespuesta = new BotonEnviarRespuesta();
         botonEnviarRespuesta.setTranslateY(-10.0);
         botonEnviarRespuesta.setTranslateX(525.0);
-        botonEnviarRespuesta.setOnAction(new BotonEnviarRespuestaHandler(stage, gestor));
+        botonEnviarRespuesta.setOnAction(new BotonEnviarRespuestaHandler(stage, gestor, this));
         this.setBottom(botonEnviarRespuesta);
+    }
+
+    public void detenerTemporizador() {
+        layoutIzquierdo.detenerTemporizador();
     }
 }
