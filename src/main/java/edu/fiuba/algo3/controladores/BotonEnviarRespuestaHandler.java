@@ -35,7 +35,7 @@ public class BotonEnviarRespuestaHandler implements EventHandler<ActionEvent> {
             Jugador posibleJugadorGanador = gestor.obtenerPosibleJugadorGanador();
             Jugador posibleJugadorPerdedor = gestor.obtenerPosibleJugadorPerdedor();
             if (posibleJugadorGanador.obtenerPuntaje() == posibleJugadorPerdedor.obtenerPuntaje()) {
-                layout = new LayoutEmpate(posibleJugadorGanador, posibleJugadorPerdedor);
+                layout = new LayoutRondaExtra(posibleJugadorGanador, posibleJugadorPerdedor);
             } else {
                 layout = new LayoutPuntajeFinal(posibleJugadorGanador, posibleJugadorPerdedor);
             }

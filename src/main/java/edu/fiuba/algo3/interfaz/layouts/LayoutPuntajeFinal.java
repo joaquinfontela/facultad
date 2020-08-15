@@ -10,15 +10,15 @@ import javafx.scene.paint.Color;
 
 public class LayoutPuntajeFinal extends StackPane {
 
-    public LayoutPuntajeFinal(Jugador jugadorGanador, Jugador jugadorPerdedor) {
+    public LayoutPuntajeFinal(Jugador posibleJugadorGanador, Jugador posibleJugadorPerdedor) {
 
         ImageView imageView = new ImageView();
         imageView.setImage(new Image("file:src/imagenes/fondo.jpg"));
         imageView.setFitHeight(760);
         imageView.setFitWidth(1300);
         this.getChildren().add(imageView);
-        crearLayoutParteJugadorGanador(jugadorGanador);
-        crearLayoutParteJugadorPerdedor(jugadorPerdedor);
+        this.crearLayoutParteJugadorGanador(posibleJugadorGanador);
+        this.crearLayoutParteJugadorPerdedor(posibleJugadorPerdedor);
     }
 
 
