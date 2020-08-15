@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.interfaz.layouts.registroSublayouts;
 
 import edu.fiuba.algo3.controladores.CheckboxRondaHandler;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Font;
@@ -59,12 +60,13 @@ public class LayoutSeleccionRondas extends StackPane {
 
     public int obtenerCantidadRondas() {
 
-        if (cincoRondasCheckbox.isSelected()) {
-            return 5;
+        Integer cantidadRondas = 5;
+        for (CheckBox c : listaDeCheckboxes) {
+            if (c.isSelected()){
+                cantidadRondas = Integer.parseInt(c.getText());
+            }
         }
-        if (diezRondasCheckbox.isSelected()) {
-            return 10;
-        }
-        return 15;
+        return cantidadRondas;
+
     }
 }
