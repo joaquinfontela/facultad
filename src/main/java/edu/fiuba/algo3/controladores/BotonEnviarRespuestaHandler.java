@@ -34,11 +34,7 @@ public class BotonEnviarRespuestaHandler implements EventHandler<ActionEvent> {
         if (gestor.juegoFinalizado()) {
             Jugador posibleJugadorGanador = gestor.obtenerPosibleJugadorGanador();
             Jugador posibleJugadorPerdedor = gestor.obtenerPosibleJugadorPerdedor();
-            if (posibleJugadorGanador.obtenerPuntaje() == posibleJugadorPerdedor.obtenerPuntaje()) {
-                layout = new LayoutRondaExtra(posibleJugadorGanador, posibleJugadorPerdedor);
-            } else {
-                layout = new LayoutPuntajeFinal(posibleJugadorGanador, posibleJugadorPerdedor);
-            }
+            layout = new LayoutPuntajeFinal(posibleJugadorGanador, posibleJugadorPerdedor);
         } else if (gestor.comienzaNuevaRonda()) {
             layout = new LayoutPuntajesParciales(gestor.obtenerJugadoresRegistrados());
         } else {

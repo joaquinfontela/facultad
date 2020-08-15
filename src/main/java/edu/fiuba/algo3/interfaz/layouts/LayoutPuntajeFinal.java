@@ -10,57 +10,65 @@ import javafx.scene.paint.Color;
 
 public class LayoutPuntajeFinal extends StackPane {
 
-    public LayoutPuntajeFinal(Jugador posibleJugadorGanador, Jugador posibleJugadorPerdedor) {
+    public LayoutPuntajeFinal(Jugador jugadorArriba, Jugador jugadorAbajo) {
 
         ImageView imageView = new ImageView();
         imageView.setImage(new Image("file:src/imagenes/fondo.jpg"));
         imageView.setFitHeight(760);
         imageView.setFitWidth(1300);
         this.getChildren().add(imageView);
-        this.crearLayoutParteJugadorGanador(posibleJugadorGanador);
-        this.crearLayoutParteJugadorPerdedor(posibleJugadorPerdedor);
+        this.crearLayoutParteJugadorArriba(jugadorArriba, jugadorAbajo);
+        this.crearLayoutParteJugadorAbajo(jugadorArriba,jugadorAbajo);
     }
 
 
-    private void crearLayoutParteJugadorGanador(Jugador jugadorGanador) {
+    private void crearLayoutParteJugadorArriba(Jugador jugadorArriba,Jugador jugadorAbajo) {
 
-        LayoutPuntajeJugador layoutPuntajeGanador = new LayoutPuntajeJugador(jugadorGanador, Color.LIMEGREEN);
-        layoutPuntajeGanador.setTranslateY(-120.0);
+        ImageView imageView = new ImageView();
+        Color color;
+        if (jugadorArriba.obtenerPuntaje() == jugadorAbajo.obtenerPuntaje()) {
+            imageView.setImage(new Image("file:src/imagenes/Empate.jpeg"));
+            color = Color.BROWN;
+        } else {
+            imageView.setImage(new Image("file:src/imagenes/caraGanador.png"));
+            color = Color.LIMEGREEN;
+        }
+
+        LayoutPuntajeJugador layoutPuntajeArriba = new LayoutPuntajeJugador(jugadorArriba, color);
+        layoutPuntajeArriba.setTranslateY(-120.0);
 
         Tic tic = new Tic();
         tic.setScaleX(20);
         tic.setScaleY(20);
         tic.setFill(Color.DARKGREEN);
         tic.setTranslateX(650.0);
-        layoutPuntajeGanador.getChildren().add(tic);
+        layoutPuntajeArriba.getChildren().add(tic);
 
+        this.getChildren().add(layoutPuntajeArriba);
 
-        //Label tituloGanador = new Label("GANADOR");
-        //tituloGanador.setTextFill(Color.WHITE);
-        //tituloGanador.setFont(new Font("FreeSans", 90));
-        //tituloGanador.setTranslateY(-250.0);
-
-        this.getChildren().add(layoutPuntajeGanador);
-
-        ImageView imageView = new ImageView();
-        imageView.setImage(new Image("file:src/imagenes/caraGanador.png"));
         imageView.setFitHeight(100);
         imageView.setFitWidth(100);
         imageView.setTranslateX(150);
         imageView.setTranslateY(-120);
         this.getChildren().add(imageView);
-
-        //layout.getChildren().add(tituloGanador);
     }
 
-    private void crearLayoutParteJugadorPerdedor(Jugador jugadorPerdedor) {
-
-        LayoutPuntajeJugador layoutPuntajePerdedor = new LayoutPuntajeJugador(jugadorPerdedor, Color.DARKRED);
-        layoutPuntajePerdedor.setTranslateY(150.0);
-        this.getChildren().add(layoutPuntajePerdedor);
+    private void crearLayoutParteJugadorAbajo(Jugador jugadorArriba, Jugador jugadorAbajo) {
 
         ImageView imageView = new ImageView();
-        imageView.setImage(new Image("file:src/imagenes/caraPerdedor.png"));
+        Color color;
+        if (jugadorArriba.obtenerPuntaje() == jugadorAbajo.obtenerPuntaje()) {
+            imageView.setImage(new Image("file:src/imagenes/Empate.jpeg"));
+            color = Color.BROWN;
+        } else {
+            imageView.setImage(new Image("file:src/imagenes/caraPerdedor.png"));
+            color = Color.DARKRED;
+        }
+
+        LayoutPuntajeJugador layoutPuntajeAbajo = new LayoutPuntajeJugador(jugadorAbajo, color);
+        layoutPuntajeAbajo.setTranslateY(150.0);
+        this.getChildren().add(layoutPuntajeAbajo);
+
         imageView.setFitHeight(100);
         imageView.setFitWidth(100);
         imageView.setTranslateX(150);
