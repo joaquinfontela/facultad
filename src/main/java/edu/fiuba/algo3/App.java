@@ -15,21 +15,11 @@ import java.util.ArrayList;
  */
 public class App extends Application {
 
-    LayoutPregunta layoutPregunta;
-    LayoutPuntajesParciales layoutPuntajesParciales;
-    LayoutPuntajeFinal layoutPuntajeFinal;
-    LayoutPreturno layoutPreturno;
     LayoutInicio layoutInicio;
-    LayoutRegistro layoutRegistro;
     Scene scene;
 
     @Override
     public void start(Stage stage) {
-
-        //System.out.println(javafx.scene.text.Font.getFamilies());
-
-        //mostrarLayoutPuntajesParciales();
-        //mostrarLayoutPuntajeFinal();
 
         layoutInicio = new LayoutInicio(stage);
         scene = new Scene(layoutInicio, 640, 480);
@@ -45,24 +35,6 @@ public class App extends Application {
         stage.setWidth(1200);
         stage.show();
     }
-
-    /*private void mostrarLayoutPuntajesParciales() {
-
-        layoutPuntajesParciales = new LayoutPuntajesParciales();
-        layoutPuntajesParciales.agregarPuntaje("Miguel", 3);
-        layoutPuntajesParciales.agregarPuntaje("Tomás", 1);
-
-        scene = new Scene(layoutPuntajesParciales, 640, 480);
-    }*/
-
-    /*private void mostrarLayoutPuntajeFinal() {
-
-        layoutPuntajeFinal = new LayoutPuntajeFinal();
-        layoutPuntajeFinal.agregarJugadorGanador("Tomás", 14);
-        layoutPuntajeFinal.agregarJugadorPerdedor("Miguel", 11);
-
-        scene = new Scene(layoutPuntajeFinal.getLayout(), 640, 480);
-    }*/
 
     public static void main(String[] args) {
         launch();
