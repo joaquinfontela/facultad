@@ -32,12 +32,12 @@ public class BotonEnviarRespuestaHandler implements EventHandler<ActionEvent> {
 
         StackPane layout;
         if (gestor.juegoFinalizado()) {
-            Jugador jugadorGanador = gestor.obtenerJugadorGanador();
-            Jugador jugadorPerdedor = gestor.obtenerJugadorPerdedor();
-            if (jugadorGanador.obtenerPuntaje() == jugadorPerdedor.obtenerPuntaje()) {
-                layout = new LayoutEmpate();
+            Jugador posibleJugadorGanador = gestor.obtenerPosibleJugadorGanador();
+            Jugador posibleJugadorPerdedor = gestor.obtenerPosibleJugadorPerdedor();
+            if (posibleJugadorGanador.obtenerPuntaje() == posibleJugadorPerdedor.obtenerPuntaje()) {
+                layout = new LayoutEmpate(posibleJugadorGanador, posibleJugadorPerdedor);
             } else {
-                layout = new LayoutPuntajeFinal(jugadorGanador, jugadorPerdedor);
+                layout = new LayoutPuntajeFinal(posibleJugadorGanador, posibleJugadorPerdedor);
             }
         } else if (gestor.comienzaNuevaRonda()) {
             layout = new LayoutPuntajesParciales(gestor.obtenerJugadoresRegistrados());

@@ -63,7 +63,7 @@ public class GestorDeJuego {
 
         preguntaActual.evaluarRespuestas(respuestasActuales);
         respuestasActuales.clear();
-        if (rondaActual <= rondasTotales) {
+        if (rondaActual < rondasTotales) {
             this.comenzarNuevaRonda();
         } else {
             this.finalizarJuego();
@@ -130,7 +130,7 @@ public class GestorDeJuego {
         return jugadoresRegistrados;
     }
 
-    public Jugador obtenerJugadorGanador() {
+    public Jugador obtenerPosibleJugadorGanador() {
 
         int contador = 0;
         Jugador candidatoGanador = jugadoresRegistrados.get(0);
@@ -142,9 +142,9 @@ public class GestorDeJuego {
         return candidatoGanador;
     }
 
-    public Jugador obtenerJugadorPerdedor() {
+    public Jugador obtenerPosibleJugadorPerdedor() {
 
-        Jugador jugadorGanador = obtenerJugadorGanador();
+        Jugador jugadorGanador = obtenerPosibleJugadorGanador();
         Jugador jugadorPerdedor = null;
         for (Jugador jugador : jugadoresRegistrados) {
             if(jugadorGanador != jugador) {
