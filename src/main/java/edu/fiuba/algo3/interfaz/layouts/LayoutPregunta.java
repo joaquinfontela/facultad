@@ -14,17 +14,16 @@ import javafx.stage.Stage;
 
 public class LayoutPregunta extends BorderPane {
 
+    protected GeneradorLayoutOpciones generadorLayoutOpciones;
 
     public LayoutPregunta(Stage stage, GestorDeJuego gestor) {
 
-        GeneradorLayoutOpciones generadorLayoutOpciones = new GeneradorLayoutOpciones();
         LayoutBonificaciones layoutBonificaciones = new LayoutBonificaciones();
         LayoutIzquierdoPregunta layoutIzquierdo = new LayoutIzquierdoPregunta(gestor.obtenerRondaActual(),
                 gestor.obtenerRondasTotales());
         LayoutEnunciadoPregunta layoutEnunciado = new LayoutEnunciadoPregunta(gestor.obtenerEnunciadoPreguntaActual());
         this.setBackground(new Background(new BackgroundFill(Color.DIMGRAY, CornerRadii.EMPTY, Insets.EMPTY)));
         this.setTop(layoutEnunciado);
-        this.setCenter(generadorLayoutOpciones.generarLayout(gestor.obtenerEnunciadosOpcionesActuales()));
         this.setRight(layoutBonificaciones);
         this.setLeft(layoutIzquierdo);
 
