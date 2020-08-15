@@ -103,7 +103,7 @@ public class GestorDeJuego {
     }
 
     public int obtenerRondaActual() {
-        return rondaActual+1;
+        return rondaActual;
     }
 
     public int obtenerRondasTotales() {

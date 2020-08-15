@@ -31,15 +31,15 @@ public class BotonEnviarRespuestaHandler implements EventHandler<ActionEvent> {
     private void cambiarEscena() {
 
         StackPane layout;
-        if (gestor.juegoFinalizado()) {
+        //if (gestor.juegoFinalizado()) {
             Jugador posibleJugadorGanador = gestor.obtenerPosibleJugadorGanador();
             Jugador posibleJugadorPerdedor = gestor.obtenerPosibleJugadorPerdedor();
             layout = new LayoutPuntajeFinal(posibleJugadorGanador, posibleJugadorPerdedor);
-        } else if (gestor.comienzaNuevaRonda()) {
+        /*} else if (gestor.comienzaNuevaRonda()) {
             layout = new LayoutPuntajesParciales(gestor.obtenerJugadoresRegistrados());
         } else {
             layout = new LayoutPreturno(stage, gestor);
-        }
+        }*/
         stage.setScene(new Scene(layout, 640, 480));
     }
 }

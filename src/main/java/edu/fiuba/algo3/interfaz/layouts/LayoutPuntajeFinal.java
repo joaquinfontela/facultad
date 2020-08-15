@@ -1,6 +1,5 @@
 package edu.fiuba.algo3.interfaz.layouts;
 
-import edu.fiuba.algo3.interfaz.estilos.Tic;
 import edu.fiuba.algo3.interfaz.layouts.puntajesSubLayouts.LayoutPuntajeJugador;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import javafx.scene.image.Image;
@@ -36,14 +35,6 @@ public class LayoutPuntajeFinal extends StackPane {
 
         LayoutPuntajeJugador layoutPuntajeArriba = new LayoutPuntajeJugador(jugadorArriba, color);
         layoutPuntajeArriba.setTranslateY(-120.0);
-
-        Tic tic = new Tic();
-        tic.setScaleX(20);
-        tic.setScaleY(20);
-        tic.setFill(Color.DARKGREEN);
-        tic.setTranslateX(650.0);
-        layoutPuntajeArriba.getChildren().add(tic);
-
         this.getChildren().add(layoutPuntajeArriba);
 
         imageView.setFitHeight(100);
