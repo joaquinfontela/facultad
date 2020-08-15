@@ -70,7 +70,7 @@ public class RelojPregunta extends StackPane {
                     }
                 });
             }
-        }, 100, 100);
+        }, 1000, 1000);
     }
 
     private void disminuirContador(){
