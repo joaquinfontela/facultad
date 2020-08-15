@@ -7,7 +7,7 @@ import javafx.scene.paint.Color;
 
 public abstract class DistribuidorDeOpcionesGrandes extends StackPane {
 
-    public void agregarOpcion(String enunciado, Integer desplazamientoEnX, Integer desplazamientoEnY, Color color) {
+    protected void agregarOpcion(String enunciado, Integer desplazamientoEnX, Integer desplazamientoEnY, Color color) {
 
         BotonOpcion opcion = new BotonOpcionGrande(enunciado, desplazamientoEnX, desplazamientoEnY, color);
         this.getChildren().add(opcion);

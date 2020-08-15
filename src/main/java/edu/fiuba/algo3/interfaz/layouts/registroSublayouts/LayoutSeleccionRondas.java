@@ -15,10 +15,10 @@ public class LayoutSeleccionRondas extends StackPane {
     private CantidadRondasCheckbox quinceRondasCheckbox;
     private ListaDeCheckboxes listaDeCheckboxes;
 
-    public LayoutSeleccionRondas(Stack<Integer> rondas) {
+    public LayoutSeleccionRondas() {
 
         this.agregarTituloRondas();
-        this.agregarRondasBox(rondas);
+        this.agregarRondasBox();
     }
 
     private void agregarTituloRondas() {
@@ -31,7 +31,7 @@ public class LayoutSeleccionRondas extends StackPane {
         this.getChildren().add(tituloRondas);
     }
 
-    private void agregarRondasBox(Stack<Integer> rondas) {
+    private void agregarRondasBox() {
 
         listaDeCheckboxes = new ListaDeCheckboxes();
 
@@ -59,10 +59,10 @@ public class LayoutSeleccionRondas extends StackPane {
 
     public int obtenerCantidadRondas() {
 
-        if(cincoRondasCheckbox.isSelected()) {
+        if (cincoRondasCheckbox.isSelected()) {
             return 5;
         }
-        if(diezRondasCheckbox.isSelected()) {
+        if (diezRondasCheckbox.isSelected()) {
             return 10;
         }
         return 15;

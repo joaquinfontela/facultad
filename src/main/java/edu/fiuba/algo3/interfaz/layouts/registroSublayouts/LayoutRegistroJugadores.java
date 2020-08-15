@@ -67,6 +67,7 @@ public class LayoutRegistroJugadores extends StackPane {
         if (textfield.getText().isEmpty() || textfield.getText() == null)
             throw new Exception("Falta ingresar alguno de los Jugadores");
     }
+
     private void verificarTextFieldDistintos() throws Exception {
 
         if (textFieldJugador1.getText().equals(textFieldJugador2.getText()))

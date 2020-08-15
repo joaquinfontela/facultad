@@ -3,11 +3,9 @@ package edu.fiuba.algo3.modelo.pregunta.respuesta;
 import edu.fiuba.algo3.modelo.pregunta.pregunta.EnunciadosOpciones;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashSet;
-import java.util.Random;
 
-public class RespuestaGroupChoice implements Respuesta {
+public class RespuestaGroupChoice extends Respuesta {
 
     private HashSet<String> opcionesGrupoA;
     private HashSet<String> opcionesGrupoB;

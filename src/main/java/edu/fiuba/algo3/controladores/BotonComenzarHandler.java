@@ -20,7 +20,6 @@ import java.util.Stack;
 public class BotonComenzarHandler implements EventHandler<ActionEvent> {
 
     private Stage stage;
-    private Scene proximaEscena;
     private LayoutRegistro layoutActual;
 
     public BotonComenzarHandler(Stage unStage, LayoutRegistro layout) {
@@ -33,21 +32,25 @@ public class BotonComenzarHandler implements EventHandler<ActionEvent> {
     public void handle(ActionEvent event) {
 
         try {
-            ArrayList<String> nombresJugadores = layoutActual.obtenerNombresJugadores();
-            ArrayList<Jugador> jugadores = new ArrayList<>();
-            for (String nombre : nombresJugadores) jugadores.add(new Jugador(nombre));
-            Collections.shuffle(jugadores, new Random());
-            int cantidadRondas = layoutActual.obtenerCantidadRondas();
-            LectorDeArchivo lector = new LectorDeArchivo();
-            ArrayList<InformacionPregunta> infoLector = lector.obtenerListaDeInformacionDePreguntas();
-            GestorDeJuego gestor = new GestorDeJuego(infoLector, jugadores, cantidadRondas);
+            GestorDeJuego gestor = this.crearModelo();
             LayoutPreturno layoutPreturno = new LayoutPreturno(stage, gestor);
-            proximaEscena = new Scene(layoutPreturno, 640, 480);
-            stage.setScene(proximaEscena);
+            stage.setScene(new Scene(layoutPreturno, 640, 480));
         } catch (Exception exception) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setContentText(exception.getMessage());
             alert.show();
         }
+    }
+
+    private GestorDeJuego crearModelo() throws Exception {
+
+        ArrayList<String> nombresJugadores = layoutActual.obtenerNombresJugadores();
+        ArrayList<Jugador> jugadores = new ArrayList<>();
+        for (String nombre : nombresJugadores) jugadores.add(new Jugador(nombre));
+        Collections.shuffle(jugadores, new Random());
+        int cantidadRondas = layoutActual.obtenerCantidadRondas();
+        LectorDeArchivo lector = new LectorDeArchivo();
+        ArrayList<InformacionPregunta> infoLector = lector.obtenerListaDeInformacionDePreguntas();
+        return new GestorDeJuego(infoLector, jugadores, cantidadRondas);
     }
 }

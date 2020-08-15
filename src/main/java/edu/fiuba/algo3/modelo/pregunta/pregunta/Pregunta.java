@@ -58,4 +58,9 @@ public class Pregunta {
     public Respuesta obtenerNuevaRespuestaComparable() {
         return respuestaCorrecta.crearRespuestaComparable();
     }
+
+    public boolean esTipoDeRespuestaComparable(Class clase) {
+
+        return respuestaCorrecta.esTipoDeRespuestaComparable(clase);
+    }
 }

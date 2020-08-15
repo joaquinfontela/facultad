@@ -32,7 +32,7 @@ public class GestorDeJuego {
         this.comenzarNuevaRonda();
     }
 
-    private void comenzarNuevaRonda() {
+    private void comenzarNuevaRonda(){
 
         turnoActual = 0;
         preguntaActual = generadorDePreguntas.obtenerNuevaPregunta();
@@ -63,7 +63,7 @@ public class GestorDeJuego {
 
         preguntaActual.evaluarRespuestas(respuestasActuales);
         respuestasActuales.clear();
-        if (rondaActual < rondasTotales) {
+        if (rondaActual <= rondasTotales) {
             this.comenzarNuevaRonda();
         } else {
             this.finalizarJuego();
@@ -103,7 +103,7 @@ public class GestorDeJuego {
     }
 
     public int obtenerRondaActual() {
-        return rondaActual;
+        return rondaActual+1;
     }
 
     public int obtenerRondasTotales() {
@@ -152,5 +152,10 @@ public class GestorDeJuego {
             }
         }
         return jugadorPerdedor;
+    }
+
+    public boolean esTipoDeRespuestaComparable(Class clase) {
+
+        return preguntaActual.esTipoDeRespuestaComparable(clase);
     }
 }

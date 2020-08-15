@@ -1,6 +1,8 @@
 package edu.fiuba.algo3.interfaz.layouts.preguntaSubLayouts;
 
 import edu.fiuba.algo3.interfaz.layouts.preguntaSubLayouts.distribuidoresDeOpciones.*;
+import edu.fiuba.algo3.modelo.pregunta.respuesta.RespuestaGroupChoice;
+import edu.fiuba.algo3.modelo.pregunta.respuesta.RespuestaOrderedChoice;
 import javafx.scene.layout.StackPane;
 
 import java.util.ArrayList;

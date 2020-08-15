@@ -4,13 +4,17 @@ import edu.fiuba.algo3.modelo.pregunta.pregunta.EnunciadosOpciones;
 
 import java.util.ArrayList;
 
-public interface Respuesta {
+public abstract class Respuesta {
 
-    EstadisticasRespuesta compararCon(Respuesta otraRespuesta);
+    public abstract EstadisticasRespuesta compararCon(Respuesta otraRespuesta);
 
-    void rellenar(EnunciadosOpciones opcionesParaAgregar);
+    public abstract void rellenar(EnunciadosOpciones opcionesParaAgregar);
 
-    ArrayList<String> obtenerEnunciadosOpciones();
+    public abstract ArrayList<String> obtenerEnunciadosOpciones();
 
-    Respuesta crearRespuestaComparable();
+    public abstract Respuesta crearRespuestaComparable();
+
+    public boolean esTipoDeRespuestaComparable(Class clase) {
+        return clase == this.getClass();
+    }
 }

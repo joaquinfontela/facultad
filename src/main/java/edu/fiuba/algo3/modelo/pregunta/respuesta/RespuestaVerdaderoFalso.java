@@ -3,9 +3,8 @@ package edu.fiuba.algo3.modelo.pregunta.respuesta;
 import edu.fiuba.algo3.modelo.pregunta.pregunta.EnunciadosOpciones;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
-public class RespuestaVerdaderoFalso implements Respuesta {
+public class RespuestaVerdaderoFalso extends Respuesta {
 
     private Opcion opcionCorrecta;
     private Opcion opcionIncorrecta;
