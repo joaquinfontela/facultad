@@ -30,7 +30,7 @@ public class LayoutSeAcaboElTiempo extends StackPane {
         ImageView imageView = new ImageView();
         imageView.setImage(imagen);
         imageView.setTranslateY(0);
-        imageView.setFitHeight(300);
+        imageView.setFitHeight(350);
         imageView.setFitWidth(350);
         this.getChildren().add(imageView);
 

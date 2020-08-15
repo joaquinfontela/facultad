@@ -26,7 +26,7 @@ public class LayoutPuntajeFinal extends StackPane {
         ImageView imageView = new ImageView();
         Color color;
         if (jugadorArriba.obtenerPuntaje() == jugadorAbajo.obtenerPuntaje()) {
-            imageView.setImage(new Image("file:src/imagenes/Empate.jpeg"));
+            imageView.setImage(new Image("file:src/imagenes/empatamos.png"));
             color = Color.BROWN;
         } else {
             imageView.setImage(new Image("file:src/imagenes/caraGanador.png"));
@@ -49,7 +49,7 @@ public class LayoutPuntajeFinal extends StackPane {
         ImageView imageView = new ImageView();
         Color color;
         if (jugadorArriba.obtenerPuntaje() == jugadorAbajo.obtenerPuntaje()) {
-            imageView.setImage(new Image("file:src/imagenes/Empate.jpeg"));
+            imageView.setImage(new Image("file:src/imagenes/empatamos.png"));
             color = Color.BROWN;
         } else {
             imageView.setImage(new Image("file:src/imagenes/caraPerdedor.png"));
