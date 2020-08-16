@@ -1,8 +1,13 @@
 package edu.fiuba.algo3.interfaz.layouts.registroSublayouts;
 
+import edu.fiuba.algo3.controladores.CheckboxRondaHandler;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Font;
+import javafx.stage.Stage;
+
+import java.util.Stack;
 
 public class LayoutSeleccionRondas extends StackPane {
 
@@ -34,18 +39,34 @@ public class LayoutSeleccionRondas extends StackPane {
         cincoRondasCheckbox = new CantidadRondasCheckbox("5");
         cincoRondasCheckbox.setTranslateX(-400.0);
         cincoRondasCheckbox.setTranslateY(150.0);
+        cincoRondasCheckbox.setSelected(true);
+        cincoRondasCheckbox.setOnAction(new CheckboxRondaHandler(cincoRondasCheckbox));
         listaDeCheckboxes.add(cincoRondasCheckbox);
         this.getChildren().add(cincoRondasCheckbox);
 
         diezRondasCheckbox = new CantidadRondasCheckbox("10");
         diezRondasCheckbox.setTranslateY(150.0);
+        diezRondasCheckbox.setOnAction(new CheckboxRondaHandler(diezRondasCheckbox));
         listaDeCheckboxes.add(diezRondasCheckbox);
         this.getChildren().add(diezRondasCheckbox);
 
         quinceRondasCheckbox = new CantidadRondasCheckbox("15");
         quinceRondasCheckbox.setTranslateX(400.0);
         quinceRondasCheckbox.setTranslateY(150.0);
+        quinceRondasCheckbox.setOnAction(new CheckboxRondaHandler(quinceRondasCheckbox));
         listaDeCheckboxes.add(quinceRondasCheckbox);
         this.getChildren().add(quinceRondasCheckbox);
+    }
+
+    public int obtenerCantidadRondas() {
+
+        Integer cantidadRondas = 5;
+        for (CheckBox c : listaDeCheckboxes) {
+            if (c.isSelected()){
+                cantidadRondas = Integer.parseInt(c.getText());
+            }
+        }
+        return cantidadRondas;
+
     }
 }

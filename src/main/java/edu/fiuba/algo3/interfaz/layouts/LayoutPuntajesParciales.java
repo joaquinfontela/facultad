@@ -1,6 +1,10 @@
 package edu.fiuba.algo3.interfaz.layouts;
 
+import edu.fiuba.algo3.controladores.BotonPuntajesParcialesHandler;
+import edu.fiuba.algo3.interfaz.botones.BotonPuntajesParciales;
 import edu.fiuba.algo3.interfaz.layouts.puntajesSubLayouts.LayoutPuntajeJugador;
+import edu.fiuba.algo3.modelo.GestorDeJuego;
+import edu.fiuba.algo3.modelo.jugador.Jugador;
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Background;
@@ -9,16 +13,19 @@ import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import javafx.stage.Stage;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class LayoutPuntajesParciales extends StackPane {
 
-    LayoutPuntajeJugador layoutPuntajeParcialJugador1;
-    LayoutPuntajeJugador layoutPuntajeParcialJugador2;
-
-    public LayoutPuntajesParciales() {
+    public LayoutPuntajesParciales(Stage stage, GestorDeJuego gestor) {
 
         this.setBackground(new Background(new BackgroundFill(Color.DIMGRAY, CornerRadii.EMPTY, Insets.EMPTY)));
         this.agregarTituloDelLayout();
+        this.agregarPuntajes(gestor);
+        this.agregarBoton(stage, gestor);
     }
 
     private void agregarTituloDelLayout() {
@@ -38,16 +45,27 @@ public class LayoutPuntajesParciales extends StackPane {
         this.getChildren().add(contenedorTitulo);
     }
 
-    public void agregarPuntaje(String nicknameJugador, Integer puntuacion) {
+    private void agregarPuntajes(GestorDeJuego gestor) {
 
-        if (layoutPuntajeParcialJugador1 == null) {
-            layoutPuntajeParcialJugador1 = new LayoutPuntajeJugador(nicknameJugador, puntuacion, Color.BLUE);
-            layoutPuntajeParcialJugador1.setTranslateY(-120.0);
-            this.getChildren().add(layoutPuntajeParcialJugador1);
-        } else {
-            layoutPuntajeParcialJugador2 = new LayoutPuntajeJugador(nicknameJugador, puntuacion, Color.RED);
-            layoutPuntajeParcialJugador2.setTranslateY(120.0);
-            this.getChildren().add(layoutPuntajeParcialJugador2);
+        ArrayList<Color> colores = new ArrayList<>();
+        colores.add(Color.BLUE);
+        colores.add(Color.RED);
+        ArrayList<Jugador> jugadores = gestor.obtenerJugadoresRegistrados();
+        int contador = 0;
+        for (Jugador jugador : jugadores) {
+            LayoutPuntajeJugador layout = new LayoutPuntajeJugador(jugador, colores.get(contador));
+            if (contador == 0) layout.setTranslateY(-120.0);
+            else layout.setTranslateY(120.0);
+            this.getChildren().add(layout);
+            contador++;
         }
+    }
+
+    private void agregarBoton(Stage stage, GestorDeJuego gestor) {
+
+        BotonPuntajesParciales boton = new BotonPuntajesParciales();
+        boton.setTranslateY(275);
+        boton.setOnAction(new BotonPuntajesParcialesHandler(stage, gestor));
+        this.getChildren().add(boton);
     }
 }

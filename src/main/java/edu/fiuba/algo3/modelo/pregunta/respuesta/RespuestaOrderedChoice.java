@@ -4,7 +4,7 @@ import edu.fiuba.algo3.modelo.pregunta.pregunta.EnunciadosOpciones;
 
 import java.util.ArrayList;
 
-public class RespuestaOrderedChoice implements Respuesta {
+public class RespuestaOrderedChoice extends Respuesta {
 
     ArrayList<Opcion> opcionesOrdenadas;
 
@@ -34,5 +34,20 @@ public class RespuestaOrderedChoice implements Respuesta {
         for (String enunciado : enunciadosOpciones.enunciadosOrdenados()){
             opcionesOrdenadas.add(new Opcion(enunciado));
         }
+    }
+
+    @Override
+    public ArrayList<String> obtenerEnunciadosOpciones() {
+
+        ArrayList<String> enunciadosOpciones = new ArrayList<>();
+        for(Opcion opcion : opcionesOrdenadas) {
+            enunciadosOpciones.add(opcion.obtenerEnunciado());
+        }
+        return enunciadosOpciones;
+    }
+
+    @Override
+    public Respuesta crearRespuestaComparable() {
+        return new RespuestaOrderedChoice();
     }
 }

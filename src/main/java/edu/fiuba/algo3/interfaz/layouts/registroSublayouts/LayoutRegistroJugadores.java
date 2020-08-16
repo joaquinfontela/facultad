@@ -4,6 +4,8 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Font;
 
+import java.util.ArrayList;
+
 public class LayoutRegistroJugadores extends StackPane {
 
     private TextFieldJugador textFieldJugador1;
@@ -47,5 +49,28 @@ public class LayoutRegistroJugadores extends StackPane {
         textFieldJugador2.setTranslateX(250.0);
         textFieldJugador2.setTranslateY(200.0);
         this.getChildren().add(textFieldJugador2);
+    }
+
+    public ArrayList<String> obtenerNombresJugadores() throws Exception {
+
+        this.verificarTextFieldNoVacio(textFieldJugador1);
+        this.verificarTextFieldNoVacio(textFieldJugador2);
+        this.verificarTextFieldDistintos();
+        ArrayList<String> nombres = new ArrayList<>();
+        nombres.add(textFieldJugador1.getText());
+        nombres.add(textFieldJugador2.getText());
+        return nombres;
+    }
+
+    private void verificarTextFieldNoVacio(TextFieldJugador textfield) throws Exception {
+
+        if (textfield.getText().isEmpty() || textfield.getText() == null)
+            throw new Exception("Falta ingresar alguno de los Jugadores");
+    }
+
+    private void verificarTextFieldDistintos() throws Exception {
+
+        if (textFieldJugador1.getText().equals(textFieldJugador2.getText()))
+            throw new Exception("Los jugadores no pueden tener nombres idénticos");
     }
 }

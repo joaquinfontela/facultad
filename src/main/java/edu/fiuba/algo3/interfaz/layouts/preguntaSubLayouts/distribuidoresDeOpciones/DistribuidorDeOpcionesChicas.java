@@ -2,14 +2,18 @@ package edu.fiuba.algo3.interfaz.layouts.preguntaSubLayouts.distribuidoresDeOpci
 
 import edu.fiuba.algo3.interfaz.botones.botonesOpcion.BotonOpcion;
 import edu.fiuba.algo3.interfaz.botones.botonesOpcion.BotonOpcionChico;
+import edu.fiuba.algo3.modelo.pregunta.respuesta.RespuestaGroupChoice;
+import edu.fiuba.algo3.modelo.pregunta.respuesta.RespuestaOrderedChoice;
+import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 
-public abstract class DistribuidorDeOpcionesChicas implements DistribuidorDeOpciones {
+import java.util.Stack;
 
-    @Override
-    public void agregarOpcion(String enunciado, Integer desplazamientoEnX, Integer desplazamientoEnY, Color color) {
+public abstract class DistribuidorDeOpcionesChicas extends StackPane {
+
+    protected void agregarOpcion(String enunciado, Integer desplazamientoEnX, Integer desplazamientoEnY, Color color) {
 
         BotonOpcion opcion = new BotonOpcionChico(enunciado, desplazamientoEnX, desplazamientoEnY, color);
-        layout.getChildren().add(opcion);
+        this.getChildren().add(opcion);
     }
 }

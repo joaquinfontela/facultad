@@ -1,101 +1,69 @@
 package edu.fiuba.algo3.interfaz.layouts;
 
-import edu.fiuba.algo3.interfaz.estilos.Tic;
 import edu.fiuba.algo3.interfaz.layouts.puntajesSubLayouts.LayoutPuntajeJugador;
+import edu.fiuba.algo3.modelo.jugador.Jugador;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 
-public class LayoutPuntajeFinal {
+public class LayoutPuntajeFinal extends StackPane {
 
-    private StackPane layout;
-    private final Image fondo = new Image("file:src/imagenes/fondo.jpg");
-    private final Image caraGanador = new Image("file:src/imagenes/caraGanador.png");
-    private final Image caraPerdedor = new Image("file:src/imagenes/caraPerdedor.png");
-    private String nicknameGanador;
-    private int puntajeGanador;
-    private String nicknamePerdedor;
-    private int puntajePerdedor;
+    public LayoutPuntajeFinal(Jugador jugadorArriba, Jugador jugadorAbajo) {
 
-    public LayoutPuntajeFinal() {
-
-        layout = new StackPane();
         ImageView imageView = new ImageView();
-        imageView.setImage(fondo);
+        imageView.setImage(new Image("file:src/imagenes/fondo.jpg"));
         imageView.setFitHeight(760);
         imageView.setFitWidth(1300);
-        layout.getChildren().add(imageView);
-    }
-
-    public void agregarJugadorGanador(String nickname, int puntaje) {
-
-        nicknameGanador = nickname;
-        puntajeGanador = puntaje;
-    }
-
-    public void agregarJugadorPerdedor(String nickname, int puntaje) {
-
-        nicknamePerdedor = nickname;
-        puntajePerdedor = puntaje;
-    }
-
-    private void crearLayout() {
-
-        crearLayoutParteJugadorGanador();
-        crearLayoutParteJugadorPerdedor();
+        this.getChildren().add(imageView);
+        this.crearLayoutParteJugadorArriba(jugadorArriba, jugadorAbajo);
+        this.crearLayoutParteJugadorAbajo(jugadorArriba,jugadorAbajo);
     }
 
 
-    private void crearLayoutParteJugadorGanador() {
-
-        LayoutPuntajeJugador layoutPuntajeGanador = new LayoutPuntajeJugador(nicknameGanador, puntajeGanador, Color.LIMEGREEN);
-        layoutPuntajeGanador.setTranslateY(-120.0);
-
-        Tic tic = new Tic();
-        tic.setScaleX(20);
-        tic.setScaleY(20);
-        tic.setFill(Color.DARKGREEN);
-        tic.setTranslateX(650.0);
-        layoutPuntajeGanador.getChildren().add(tic);
-
-
-        //Label tituloGanador = new Label("GANADOR");
-        //tituloGanador.setTextFill(Color.WHITE);
-        //tituloGanador.setFont(new Font("FreeSans", 90));
-        //tituloGanador.setTranslateY(-250.0);
-
-        layout.getChildren().add(layoutPuntajeGanador);
+    private void crearLayoutParteJugadorArriba(Jugador jugadorArriba,Jugador jugadorAbajo) {
 
         ImageView imageView = new ImageView();
-        imageView.setImage(caraGanador);
+        Color color;
+        if (jugadorArriba.obtenerPuntaje() == jugadorAbajo.obtenerPuntaje()) {
+            imageView.setImage(new Image("file:src/imagenes/empatamos.png"));
+            color = Color.BROWN;
+        } else {
+            imageView.setImage(new Image("file:src/imagenes/caraGanador.png"));
+            color = Color.LIMEGREEN;
+        }
+
+        LayoutPuntajeJugador layoutPuntajeArriba = new LayoutPuntajeJugador(jugadorArriba, color);
+        layoutPuntajeArriba.setTranslateY(-120.0);
+        this.getChildren().add(layoutPuntajeArriba);
+
         imageView.setFitHeight(100);
         imageView.setFitWidth(100);
         imageView.setTranslateX(150);
         imageView.setTranslateY(-120);
-        layout.getChildren().add(imageView);
-
-        //layout.getChildren().add(tituloGanador);
+        this.getChildren().add(imageView);
     }
 
-    private void crearLayoutParteJugadorPerdedor() {
-
-        LayoutPuntajeJugador layoutPuntajePerdedor = new LayoutPuntajeJugador(nicknamePerdedor, puntajePerdedor, Color.DARKRED);
-        layoutPuntajePerdedor.setTranslateY(150.0);
-        layout.getChildren().add(layoutPuntajePerdedor);
+    private void crearLayoutParteJugadorAbajo(Jugador jugadorArriba, Jugador jugadorAbajo) {
 
         ImageView imageView = new ImageView();
-        imageView.setImage(caraPerdedor);
+        Color color;
+        if (jugadorArriba.obtenerPuntaje() == jugadorAbajo.obtenerPuntaje()) {
+            imageView.setImage(new Image("file:src/imagenes/empatamos.png"));
+            color = Color.BROWN;
+        } else {
+            imageView.setImage(new Image("file:src/imagenes/caraPerdedor.png"));
+            color = Color.DARKRED;
+        }
+
+        LayoutPuntajeJugador layoutPuntajeAbajo = new LayoutPuntajeJugador(jugadorAbajo, color);
+        layoutPuntajeAbajo.setTranslateY(150.0);
+        this.getChildren().add(layoutPuntajeAbajo);
+
         imageView.setFitHeight(100);
         imageView.setFitWidth(100);
         imageView.setTranslateX(150);
         imageView.setTranslateY(150);
-        layout.getChildren().add(imageView);
-    }
-
-    public StackPane getLayout() {
-
-        crearLayout();
-        return layout;
+        this.getChildren().add(imageView);
     }
 }

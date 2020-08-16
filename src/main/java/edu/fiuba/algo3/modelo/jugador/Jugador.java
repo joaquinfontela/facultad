@@ -52,8 +52,8 @@ public class Jugador {
         multiplicadoresX2.pop();
     }
 
-    public int cantidadMultiplicadoresX2() {
-        return multiplicadoresX2.size();
+    public boolean tieneAlgunMultiplicadorX2() {
+        return !multiplicadoresX2.isEmpty();
     }
 
     public Multiplicador obtenerMultiplicadorX3() throws Exception {
@@ -66,8 +66,8 @@ public class Jugador {
         multiplicadoresX3.pop();
     }
 
-    public int cantidadMultiplicadoresX3() {
-        return multiplicadoresX3.size();
+    public boolean tieneAlgunMultiplicadorX3() {
+        return !multiplicadoresX3.isEmpty();
     }
 
     public ExclusividadDePuntaje obtenerExclusividad() throws Exception {
@@ -80,7 +80,7 @@ public class Jugador {
         exclusividades.pop();
     }
 
-    public int cantidadExclusividades() {
-        return exclusividades.size();
+    public boolean tieneAlgunaExclusividad() {
+        return !exclusividades.isEmpty();
     }
 }

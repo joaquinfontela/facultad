@@ -4,7 +4,7 @@ import edu.fiuba.algo3.modelo.pregunta.pregunta.EnunciadosOpciones;
 
 import java.util.ArrayList;
 
-public class RespuestaMultipleChoice implements Respuesta{
+public class RespuestaMultipleChoice extends Respuesta{
 
     private ArrayList<Opcion> opcionesCorrectas;
     private ArrayList<Opcion> opcionesIncorrectas;
@@ -84,5 +84,23 @@ public class RespuestaMultipleChoice implements Respuesta{
         for (int i = 0; i < (opcionesParaAgregar.enunciadosIncorrectos()).size(); i++) {
             opcionesIncorrectas.add(new Opcion(opcionesParaAgregar.enunciadosIncorrectos().get(i)));
         }
+    }
+
+    @Override
+    public ArrayList<String> obtenerEnunciadosOpciones() {
+
+        ArrayList<String> enunciadosOpciones = new ArrayList<>();
+        for(Opcion opcion : opcionesCorrectas) {
+            enunciadosOpciones.add(opcion.obtenerEnunciado());
+        }
+        for(Opcion opcion : opcionesIncorrectas) {
+            enunciadosOpciones.add(opcion.obtenerEnunciado());
+        }
+        return enunciadosOpciones;
+    }
+
+    @Override
+    public Respuesta crearRespuestaComparable() {
+        return new RespuestaMultipleChoice();
     }
 }

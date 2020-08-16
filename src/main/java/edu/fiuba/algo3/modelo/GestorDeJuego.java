@@ -13,28 +13,30 @@ public class GestorDeJuego {
 
     private ArrayList<Jugador> jugadoresRegistrados;
     private int turnoActual;
-    private int rondasRestantes;
+    private int rondaActual;
+    private int rondasTotales;
     private GeneradorDePreguntas generadorDePreguntas;
     private Pregunta preguntaActual;
     private ArrayList<RespuestaDeJugador> respuestasActuales;
     private boolean juegoEnProgreso;
 
     public GestorDeJuego(ArrayList<InformacionPregunta> informacionPreguntas, ArrayList<Jugador> jugadores,
-                                                                                                int rondasTotales) {
+                                                                                                int cantidadRondas) {
 
+        rondaActual = 0;
         jugadoresRegistrados = jugadores;
-        rondasRestantes = rondasTotales;
+        rondasTotales = cantidadRondas;
         generadorDePreguntas = new GeneradorDePreguntas(informacionPreguntas);
         respuestasActuales = new ArrayList<>();
         juegoEnProgreso = true;
         this.comenzarNuevaRonda();
     }
 
-    private void comenzarNuevaRonda() {
+    private void comenzarNuevaRonda(){
 
         turnoActual = 0;
         preguntaActual = generadorDePreguntas.obtenerNuevaPregunta();
-        rondasRestantes--;
+        rondaActual++;
     }
 
     public void terminarTurno(Respuesta respuesta) throws Exception {
@@ -61,7 +63,7 @@ public class GestorDeJuego {
 
         preguntaActual.evaluarRespuestas(respuestasActuales);
         respuestasActuales.clear();
-        if (rondasRestantes > 0) {
+        if (rondaActual < rondasTotales) {
             this.comenzarNuevaRonda();
         } else {
             this.finalizarJuego();
@@ -74,10 +76,15 @@ public class GestorDeJuego {
 
     public void aplicarMultiplicadorX2DelJugadorActual() throws Exception {
 
-        if (!juegoEnProgreso) throw new Exception("El juego ha finalizado");
+        if (!juegoEnProgreso) throw new Exception("El juego ha finalizgestorado");
         Jugador jugadorActual = jugadoresRegistrados.get(turnoActual);
         preguntaActual.recibirBonificacion(jugadorActual.obtenerMultiplicadorX2());
         jugadorActual.eliminarMultiplicadorX2();
+    }
+
+    public boolean jugadorActualTieneAlgunMultiplicadorX2() {
+
+        return jugadoresRegistrados.get(turnoActual).tieneAlgunMultiplicadorX2();
     }
 
     public void aplicarMultiplicadorX3DelJugadorActual() throws Exception {
@@ -86,6 +93,10 @@ public class GestorDeJuego {
         Jugador jugadorActual = jugadoresRegistrados.get(turnoActual);
         preguntaActual.recibirBonificacion(jugadorActual.obtenerMultiplicadorX3());
         jugadorActual.eliminarMultiplicadorX3();
+    }
+    public boolean jugadorActualTieneAlgunMultiplicadorX3() {
+
+        return jugadoresRegistrados.get(turnoActual).tieneAlgunMultiplicadorX3();
     }
 
     public void aplicarExclusividadDelJugadorActual() throws Exception {
@@ -96,7 +107,72 @@ public class GestorDeJuego {
         jugadorActual.eliminarExclusividad();
     }
 
-    public String obtenerJugadorActual() {
+    public boolean jugadorActualTieneAlgunaExclusividad() {
+
+        return jugadoresRegistrados.get(turnoActual).tieneAlgunaExclusividad();
+    }
+
+    public boolean sePuedeUsarExclusividad() {
+        return preguntaActual.sePuedeUsarExclusividad();
+    }
+
+    public String obtenerNombreJugadorActual() {
         return jugadoresRegistrados.get(turnoActual).obtenerNombre();
+    }
+
+    public int obtenerRondaActual() {
+        return rondaActual;
+    }
+
+    public int obtenerRondasTotales() {
+        return rondasTotales;
+    }
+
+    public boolean comienzaNuevaRonda() {
+        return turnoActual == 0;
+    }
+
+    public String obtenerEnunciadoPreguntaActual() {
+        return preguntaActual.obtenerEnunciado();
+    }
+
+    public ArrayList<String> obtenerEnunciadosOpcionesActuales() {
+        return preguntaActual.obtenerEnunciadosOpciones();
+    }
+
+    public boolean juegoFinalizado() {
+        return !juegoEnProgreso;
+    }
+
+    public ArrayList<Jugador> obtenerJugadoresRegistrados() {
+        return jugadoresRegistrados;
+    }
+
+    public Jugador obtenerPosibleJugadorGanador() {
+
+        Jugador candidatoGanador = jugadoresRegistrados.get(0);
+        for (Jugador jugador : jugadoresRegistrados) {
+            if(jugador.obtenerPuntaje() > candidatoGanador.obtenerPuntaje()) {
+                candidatoGanador = jugador;
+            }
+        }
+        return candidatoGanador;
+    }
+
+    public Jugador obtenerPosibleJugadorPerdedor() {
+
+        Jugador jugadorGanador = obtenerPosibleJugadorGanador();
+        Jugador jugadorPerdedor = null;
+        for (Jugador jugador : jugadoresRegistrados) {
+            if(jugadorGanador != jugador) {
+                jugadorPerdedor = jugador;
+            }
+        }
+        return jugadorPerdedor;
+    }
+
+    public boolean esTipoDeRespuestaComparable(Class clase) {
+
+        return preguntaActual.esTipoDeRespuestaComparable(clase);
     }
 }

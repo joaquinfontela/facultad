@@ -30,8 +30,8 @@ public class GestorDeJuegoTest {
     public void test01SeVerificaQueAlTerminarTurnoElJugadorActualCambia() throws Exception {
 
         RespuestaVerdaderoFalso respuesta = new RespuestaVerdaderoFalso();
-        assertEquals(jugadores.get(0).obtenerNombre(),gestor.obtenerJugadorActual());
+        assertEquals(jugadores.get(0).obtenerNombre(),gestor.obtenerNombreJugadorActual());
         gestor.terminarTurno(respuesta);
-        assertEquals(jugadores.get(1).obtenerNombre(),gestor.obtenerJugadorActual());
+        assertEquals(jugadores.get(1).obtenerNombre(),gestor.obtenerNombreJugadorActual());
     }
 }

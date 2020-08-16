@@ -8,11 +8,15 @@ public class Opcion {
         enunciado = enunciadoIngresado;
     }
 
-    boolean equals(Opcion otraOpcion) {
+    public boolean equals(Opcion otraOpcion) {
         return enunciado.equals(otraOpcion.enunciado);
     }
 
-    boolean esLaMismaQue(Opcion opcion) {
+    public boolean esLaMismaQue(Opcion opcion) {
         return (enunciado.equals(opcion.enunciado));
+    }
+
+    public String obtenerEnunciado() {
+        return enunciado;
     }
 }

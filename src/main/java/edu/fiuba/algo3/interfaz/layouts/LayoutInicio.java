@@ -1,9 +1,8 @@
 package edu.fiuba.algo3.interfaz.layouts;
 
-import edu.fiuba.algo3.controladores.BotonCambiarPantallaHandler;
+import edu.fiuba.algo3.controladores.BotonJugarHandler;
 import edu.fiuba.algo3.interfaz.botones.BotonJugar;
 import javafx.geometry.Insets;
-import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Background;
@@ -15,7 +14,7 @@ import javafx.stage.Stage;
 
 public class LayoutInicio extends StackPane {
 
-    public LayoutInicio(Stage stage, Scene proximaEscena) {
+    public LayoutInicio(Stage stage) {
 
         Image logo = new Image("file:src/imagenes/logo.png");
         ImageView imageView = new ImageView();
@@ -29,7 +28,7 @@ public class LayoutInicio extends StackPane {
 
         BotonJugar boton = new BotonJugar();
         boton.setTranslateY(200);
-        boton.setOnAction(new BotonCambiarPantallaHandler(stage, proximaEscena));
+        boton.setOnAction(new BotonJugarHandler(stage));
 
         this.getChildren().add(boton);
     }

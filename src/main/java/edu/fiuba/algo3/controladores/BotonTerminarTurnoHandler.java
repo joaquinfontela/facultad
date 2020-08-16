@@ -1,49 +1,41 @@
-/*package edu.fiuba.algo3.controladores;
+package edu.fiuba.algo3.controladores;
 
-import edu.fiuba.algo3.interfaz.botones.Boton;
+import edu.fiuba.algo3.interfaz.layouts.LayoutPreturno;
+import edu.fiuba.algo3.interfaz.layouts.LayoutPuntajeFinal;
+import edu.fiuba.algo3.interfaz.layouts.LayoutPuntajesParciales;
 import edu.fiuba.algo3.modelo.GestorDeJuego;
-import edu.fiuba.algo3.modelo.pregunta.pregunta.EnunciadosOpciones;
-import edu.fiuba.algo3.modelo.pregunta.respuesta.*;
+import edu.fiuba.algo3.modelo.jugador.Jugador;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.Scene;
+import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
 
-import java.util.ArrayList;
+public abstract class BotonTerminarTurnoHandler implements EventHandler<ActionEvent> {
 
-public class BotonTerminarTurnoHandler implements EventHandler<ActionEvent> {
+    protected Stage stage;
+    protected GestorDeJuego gestor;
 
-    private GestorDeJuego gestor;
-    private ArrayList<Boton> botones;
+    public BotonTerminarTurnoHandler(Stage unStage, GestorDeJuego unGestor) {
 
-    public BotonTerminarTurnoHandler(GestorDeJuego unGestor, ArrayList<Boton> unaListaDeBotones) {
-
+        stage = unStage;
         gestor = unGestor;
-        botones = unaListaDeBotones;
     }
 
-    @Override
-    public void handle(ActionEvent event) {
+    public abstract void handle(ActionEvent event);
 
-        Respuesta respuesta;
-        EnunciadosOpciones opciones = new EnunciadosOpciones();
-        if (gestor.obtenerTipoRespuesta == RespuestaVerdaderoFalso.class) {
-            respuesta = new RespuestaVerdaderoFalso();
-        } else if (gestor.obtenerTipoRespuesta == RespuestaMultipleChoice.class) {
-            respuesta = new RespuestaMultipleChoice();
-        } else if (gestor.obtenerTipoRespuesta == RespuestaGroupChoice.class) {
-            respuesta = new RespuestaGroupChoice();
+    protected void cambiarEscena() {
+
+        StackPane layout;
+        if (gestor.juegoFinalizado()) {
+            Jugador posibleJugadorGanador = gestor.obtenerPosibleJugadorGanador();
+            Jugador posibleJugadorPerdedor = gestor.obtenerPosibleJugadorPerdedor();
+            layout = new LayoutPuntajeFinal(posibleJugadorGanador, posibleJugadorPerdedor);
+        } else if (gestor.comienzaNuevaRonda()) {
+            layout = new LayoutPuntajesParciales(stage, gestor);
         } else {
-            respuesta = new RespuestaOrderedChoice();
+            layout = new LayoutPreturno(stage, gestor);
         }
-        for (Boton boton : botones) {
-            if(boton.fueSeleccionado()) {
-                opciones.agregarEnunciadoEidentificador(1, boton.getText());
-            } else {
-                opciones.agregarEnunciadoEidentificador(0, boton.getText());
-            }
-        }
-        respuesta.rellenar(opciones);
-        try {
-            gestor.terminarTurno(respuesta);
-        } catch (Exception exception) { }
+        stage.setScene(new Scene(layout, 640, 480));
     }
-}*/
+}

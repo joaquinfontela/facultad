@@ -1,55 +1,41 @@
 package edu.fiuba.algo3.interfaz.layouts;
 
+import edu.fiuba.algo3.controladores.BotonEnviarRespuestaHandler;
 import edu.fiuba.algo3.interfaz.botones.BotonEnviarRespuesta;
 import edu.fiuba.algo3.interfaz.layouts.preguntaSubLayouts.LayoutBonificaciones;
 import edu.fiuba.algo3.interfaz.layouts.preguntaSubLayouts.LayoutEnunciadoPregunta;
 import edu.fiuba.algo3.interfaz.layouts.preguntaSubLayouts.LayoutIzquierdoPregunta;
-import edu.fiuba.algo3.interfaz.layouts.preguntaSubLayouts.LayoutOpciones;
+import edu.fiuba.algo3.interfaz.layouts.preguntaSubLayouts.GeneradorLayoutOpciones;
+import edu.fiuba.algo3.modelo.GestorDeJuego;
 import javafx.geometry.Insets;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
+import javafx.stage.Stage;
 
-public class LayoutPregunta {
+public class LayoutPregunta extends BorderPane {
 
-    private BorderPane layout;
-    private LayoutEnunciadoPregunta layoutEnunciado;
-    private LayoutOpciones layoutOpciones;
-    private LayoutBonificaciones layoutBonificaciones;
     private LayoutIzquierdoPregunta layoutIzquierdo;
-    private BotonEnviarRespuesta botonEnviarRespuesta;
 
-    public LayoutPregunta(Integer preguntaActual, Integer preguntasTotales) {
+    public LayoutPregunta(Stage stage, GestorDeJuego gestor) {
 
-        layout = new BorderPane();
-        layoutOpciones = new LayoutOpciones();
-        layoutBonificaciones = new LayoutBonificaciones();
-        layoutIzquierdo = new LayoutIzquierdoPregunta(preguntaActual, preguntasTotales);
+        GeneradorLayoutOpciones generadorLayoutOpciones = new GeneradorLayoutOpciones();
+        LayoutBonificaciones layoutBonificaciones = new LayoutBonificaciones(gestor);
+        layoutIzquierdo = new LayoutIzquierdoPregunta(stage, gestor);
+        LayoutEnunciadoPregunta layoutEnunciado = new LayoutEnunciadoPregunta(gestor.obtenerEnunciadoPreguntaActual());
+        this.setBackground(new Background(new BackgroundFill(Color.DIMGRAY, CornerRadii.EMPTY, Insets.EMPTY)));
+        this.setTop(layoutEnunciado);
+        this.setCenter(generadorLayoutOpciones.generarLayout(gestor.obtenerEnunciadosOpcionesActuales()));
+        this.setRight(layoutBonificaciones);
+        this.setLeft(layoutIzquierdo);
 
-        layout.setBackground(new Background(new BackgroundFill(Color.DIMGRAY, CornerRadii.EMPTY, Insets.EMPTY)));
-        layout.setCenter(layoutOpciones.getLayout());
-        layout.setRight(layoutBonificaciones);
-        layout.setLeft(layoutIzquierdo);
-
-        botonEnviarRespuesta = new BotonEnviarRespuesta();
+        BotonEnviarRespuesta botonEnviarRespuesta = new BotonEnviarRespuesta();
         botonEnviarRespuesta.setTranslateY(-10.0);
         botonEnviarRespuesta.setTranslateX(525.0);
-        layout.setBottom(botonEnviarRespuesta);
+        botonEnviarRespuesta.setOnAction(new BotonEnviarRespuestaHandler(stage, gestor, this));
+        this.setBottom(botonEnviarRespuesta);
     }
 
-    public void agregarEnunciadoDeLaPregunta(String enunciado){
-
-        layoutEnunciado = new LayoutEnunciadoPregunta(enunciado);
-        layout.setTop(layoutEnunciado);
-    }
-
-    public void agregarOpcion(String enunciado){
-
-        layoutOpciones.agregarOpcion(enunciado);
-    }
-
-    public BorderPane getLayout() {
-
-        layout.setCenter(layoutOpciones.getLayout());
-        return layout;
+    public void detenerTemporizador() {
+        layoutIzquierdo.detenerTemporizador();
     }
 }
