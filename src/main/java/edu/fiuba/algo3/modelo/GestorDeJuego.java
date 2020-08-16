@@ -132,7 +132,6 @@ public class GestorDeJuego {
 
     public Jugador obtenerPosibleJugadorGanador() {
 
-        int contador = 0;
         Jugador candidatoGanador = jugadoresRegistrados.get(0);
         for (Jugador jugador : jugadoresRegistrados) {
             if(jugador.obtenerPuntaje() > candidatoGanador.obtenerPuntaje()) {
