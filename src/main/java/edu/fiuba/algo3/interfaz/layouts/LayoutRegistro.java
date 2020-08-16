@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.interfaz.layouts;
 
 import edu.fiuba.algo3.controladores.BotonPreturnoHandler;
-import edu.fiuba.algo3.interfaz.botones.BotonPreturno;
+import edu.fiuba.algo3.interfaz.botones.botonesComunes.BotonPreturno;
 import edu.fiuba.algo3.interfaz.layouts.registroSublayouts.LayoutRegistroJugadores;
 import edu.fiuba.algo3.interfaz.layouts.registroSublayouts.LayoutSeleccionRondas;
 import javafx.scene.layout.BorderPane;

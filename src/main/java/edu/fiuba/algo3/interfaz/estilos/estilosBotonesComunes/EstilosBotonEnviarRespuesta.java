@@ -1,15 +1,17 @@
-package edu.fiuba.algo3.interfaz.estilos;
+package edu.fiuba.algo3.interfaz.estilos.estilosBotonesComunes;
 
-import edu.fiuba.algo3.interfaz.botones.Boton;
+import edu.fiuba.algo3.interfaz.estilos.EstilosBotonComun;
+import edu.fiuba.algo3.interfaz.estilos.Tic;
 import javafx.geometry.Insets;
+import javafx.scene.control.Button;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.paint.Color;
 
-public class EstilosBotonEnviarRespuesta extends EstilosBoton {
+public class EstilosBotonEnviarRespuesta extends EstilosBotonComun {
 
-    public EstilosBotonEnviarRespuesta(Boton unBoton) {
+    public EstilosBotonEnviarRespuesta(Button unBoton) {
 
         super(unBoton);
 

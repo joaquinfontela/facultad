@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.interfaz.layouts;
 
 import edu.fiuba.algo3.controladores.BotonPuntajesParcialesHandler;
-import edu.fiuba.algo3.interfaz.botones.BotonPuntajesParciales;
+import edu.fiuba.algo3.interfaz.botones.botonesComunes.BotonPuntajesParciales;
 import edu.fiuba.algo3.interfaz.layouts.puntajesSubLayouts.LayoutPuntajeJugador;
 import edu.fiuba.algo3.modelo.GestorDeJuego;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
@@ -16,7 +16,6 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class LayoutPuntajesParciales extends StackPane {
 

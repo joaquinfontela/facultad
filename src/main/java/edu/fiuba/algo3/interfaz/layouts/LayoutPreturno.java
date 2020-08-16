@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.interfaz.layouts;
 
 import edu.fiuba.algo3.controladores.BotonEmpezarTurnoHandler;
-import edu.fiuba.algo3.interfaz.botones.BotonPreturno;
+import edu.fiuba.algo3.interfaz.botones.botonesComunes.BotonPreturno;
 import edu.fiuba.algo3.modelo.GestorDeJuego;
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;

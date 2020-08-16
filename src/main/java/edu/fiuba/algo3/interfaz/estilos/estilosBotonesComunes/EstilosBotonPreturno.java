@@ -1,11 +1,12 @@
-package edu.fiuba.algo3.interfaz.estilos;
+package edu.fiuba.algo3.interfaz.estilos.estilosBotonesComunes;
 
-import edu.fiuba.algo3.interfaz.botones.Boton;
+import edu.fiuba.algo3.interfaz.estilos.EstilosBotonComun;
+import javafx.scene.control.Button;
 import javafx.scene.paint.Color;
 
-public class EstilosBotonPreturno extends EstilosBoton {
+public class EstilosBotonPreturno extends EstilosBotonComun {
 
-    public EstilosBotonPreturno(Boton unBoton) {
+    public EstilosBotonPreturno(Button unBoton) {
 
         super(unBoton);
         boton.setText("CONTINUAR >>");

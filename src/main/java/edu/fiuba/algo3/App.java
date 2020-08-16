@@ -16,14 +16,10 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) {
-        /*
+
         layoutInicio = new LayoutInicio(stage);
         scene = new Scene(layoutInicio, 640, 480);
-        */
-        Jugador jugador1= new Jugador("ruso");
-        Jugador jugador2= new Jugador("betz");
-        LayoutPuntajeFinal layout = new LayoutPuntajeFinal(stage,jugador1,jugador2);
-        scene = new Scene(layout, 640,480);
+
         mostrarStage(stage);
     }
 

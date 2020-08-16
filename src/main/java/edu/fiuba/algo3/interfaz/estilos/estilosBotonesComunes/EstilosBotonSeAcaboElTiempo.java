@@ -1,11 +1,12 @@
-package edu.fiuba.algo3.interfaz.estilos;
+package edu.fiuba.algo3.interfaz.estilos.estilosBotonesComunes;
 
-import edu.fiuba.algo3.interfaz.botones.Boton;
+import edu.fiuba.algo3.interfaz.estilos.EstilosBotonComun;
+import javafx.scene.control.Button;
 import javafx.scene.paint.Color;
 
-public class EstilosBotonSeAcaboElTiempo extends EstilosBoton {
+public class EstilosBotonSeAcaboElTiempo extends EstilosBotonComun {
 
-    public EstilosBotonSeAcaboElTiempo(Boton boton) {
+    public EstilosBotonSeAcaboElTiempo(Button boton) {
 
         super(boton);
         boton.setText("Seguir Jugando");

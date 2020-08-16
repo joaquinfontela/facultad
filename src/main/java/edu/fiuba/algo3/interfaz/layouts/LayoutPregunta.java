@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.interfaz.layouts;
 
 import edu.fiuba.algo3.controladores.BotonEnviarRespuestaHandler;
-import edu.fiuba.algo3.interfaz.botones.BotonEnviarRespuesta;
+import edu.fiuba.algo3.interfaz.botones.botonesComunes.BotonEnviarRespuesta;
 import edu.fiuba.algo3.interfaz.layouts.preguntaSubLayouts.LayoutBonificaciones;
 import edu.fiuba.algo3.interfaz.layouts.preguntaSubLayouts.LayoutEnunciadoPregunta;
 import edu.fiuba.algo3.interfaz.layouts.preguntaSubLayouts.LayoutIzquierdoPregunta;
@@ -19,7 +19,6 @@ public abstract class LayoutPregunta extends BorderPane {
 
     public LayoutPregunta(Stage stage, GestorDeJuego gestor) {
 
-        GeneradorLayoutOpciones generadorLayoutOpciones = new GeneradorLayoutOpciones();
         LayoutBonificaciones layoutBonificaciones = new LayoutBonificaciones(gestor);
         layoutIzquierdo = new LayoutIzquierdoPregunta(stage, gestor);
         LayoutEnunciadoPregunta layoutEnunciado = new LayoutEnunciadoPregunta(gestor.obtenerEnunciadoPreguntaActual());

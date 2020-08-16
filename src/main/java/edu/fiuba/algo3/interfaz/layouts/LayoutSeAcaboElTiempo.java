@@ -1,8 +1,7 @@
 package edu.fiuba.algo3.interfaz.layouts;
 
 import edu.fiuba.algo3.controladores.BotonSeAcaboElTiempoHandler;
-import edu.fiuba.algo3.interfaz.botones.BotonJugar;
-import edu.fiuba.algo3.interfaz.botones.BotonSeAcaboElTiempo;
+import edu.fiuba.algo3.interfaz.botones.botonesComunes.BotonSeAcaboElTiempo;
 import edu.fiuba.algo3.modelo.GestorDeJuego;
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;

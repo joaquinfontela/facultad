@@ -1,11 +1,12 @@
-package edu.fiuba.algo3.interfaz.estilos;
+package edu.fiuba.algo3.interfaz.estilos.estilosBotonesComunes;
 
-import edu.fiuba.algo3.interfaz.botones.Boton;
+import edu.fiuba.algo3.interfaz.estilos.EstilosBotonComun;
+import javafx.scene.control.Button;
 import javafx.scene.paint.Color;
 
-public class EstilosBotonPuntajesParciales extends EstilosBoton {
+public class EstilosBotonPuntajesParciales extends EstilosBotonComun {
 
-    public EstilosBotonPuntajesParciales(Boton unBoton) {
+    public EstilosBotonPuntajesParciales(Button unBoton) {
 
         super(unBoton);
         boton.setText("CONTINUAR");
