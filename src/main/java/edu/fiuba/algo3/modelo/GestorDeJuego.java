@@ -112,6 +112,10 @@ public class GestorDeJuego {
         return jugadoresRegistrados.get(turnoActual).tieneAlgunaExclusividad();
     }
 
+    public boolean sePuedeUsarExclusividad() {
+        return preguntaActual.sePuedeUsarExclusividad();
+    }
+
     public String obtenerNombreJugadorActual() {
         return jugadoresRegistrados.get(turnoActual).obtenerNombre();
     }
