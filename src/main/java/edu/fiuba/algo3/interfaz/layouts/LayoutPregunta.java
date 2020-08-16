@@ -19,7 +19,7 @@ public class LayoutPregunta extends BorderPane {
     public LayoutPregunta(Stage stage, GestorDeJuego gestor) {
 
         GeneradorLayoutOpciones generadorLayoutOpciones = new GeneradorLayoutOpciones();
-        LayoutBonificaciones layoutBonificaciones = new LayoutBonificaciones();
+        LayoutBonificaciones layoutBonificaciones = new LayoutBonificaciones(gestor);
         layoutIzquierdo = new LayoutIzquierdoPregunta(stage, gestor);
         LayoutEnunciadoPregunta layoutEnunciado = new LayoutEnunciadoPregunta(gestor.obtenerEnunciadoPreguntaActual());
         this.setBackground(new Background(new BackgroundFill(Color.DIMGRAY, CornerRadii.EMPTY, Insets.EMPTY)));

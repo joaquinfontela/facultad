@@ -82,12 +82,21 @@ public class GestorDeJuego {
         jugadorActual.eliminarMultiplicadorX2();
     }
 
+    public boolean jugadorActualTieneAlgunMultiplicadorX2() {
+
+        return jugadoresRegistrados.get(turnoActual).tieneAlgunMultiplicadorX2();
+    }
+
     public void aplicarMultiplicadorX3DelJugadorActual() throws Exception {
 
         if (!juegoEnProgreso) throw new Exception("El juego ha finalizado");
         Jugador jugadorActual = jugadoresRegistrados.get(turnoActual);
         preguntaActual.recibirBonificacion(jugadorActual.obtenerMultiplicadorX3());
         jugadorActual.eliminarMultiplicadorX3();
+    }
+    public boolean jugadorActualTieneAlgunMultiplicadorX3() {
+
+        return jugadoresRegistrados.get(turnoActual).tieneAlgunMultiplicadorX3();
     }
 
     public void aplicarExclusividadDelJugadorActual() throws Exception {
@@ -96,6 +105,11 @@ public class GestorDeJuego {
         Jugador jugadorActual = jugadoresRegistrados.get(turnoActual);
         preguntaActual.recibirBonificacion(jugadorActual.obtenerExclusividad());
         jugadorActual.eliminarExclusividad();
+    }
+
+    public boolean jugadorActualTieneAlgunaExclusividad() {
+
+        return jugadoresRegistrados.get(turnoActual).tieneAlgunaExclusividad();
     }
 
     public String obtenerNombreJugadorActual() {
