@@ -32,7 +32,7 @@ public abstract class BotonTerminarTurnoHandler implements EventHandler<ActionEv
             Jugador posibleJugadorPerdedor = gestor.obtenerPosibleJugadorPerdedor();
             layout = new LayoutPuntajeFinal(posibleJugadorGanador, posibleJugadorPerdedor);
         } else if (gestor.comienzaNuevaRonda()) {
-            layout = new LayoutPuntajesParciales(gestor.obtenerJugadoresRegistrados());
+            layout = new LayoutPuntajesParciales(stage, gestor);
         } else {
             layout = new LayoutPreturno(stage, gestor);
         }
