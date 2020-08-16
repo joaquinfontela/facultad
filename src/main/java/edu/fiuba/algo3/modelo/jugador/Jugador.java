@@ -53,7 +53,7 @@ public class Jugador {
     }
 
     public boolean tieneAlgunMultiplicadorX2() {
-        return multiplicadoresX2.isEmpty();
+        return !multiplicadoresX2.isEmpty();
     }
 
     public Multiplicador obtenerMultiplicadorX3() throws Exception {
@@ -67,7 +67,7 @@ public class Jugador {
     }
 
     public boolean tieneAlgunMultiplicadorX3() {
-        return multiplicadoresX3.isEmpty();
+        return !multiplicadoresX3.isEmpty();
     }
 
     public ExclusividadDePuntaje obtenerExclusividad() throws Exception {
@@ -81,6 +81,6 @@ public class Jugador {
     }
 
     public boolean tieneAlgunaExclusividad() {
-        return exclusividades.isEmpty();
+        return !exclusividades.isEmpty();
     }
 }
