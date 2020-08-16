@@ -1,20 +1,24 @@
 package edu.fiuba.algo3.interfaz.botones;
 
+import edu.fiuba.algo3.interfaz.botones.tipoBoton.TipoBoton;
 import javafx.scene.control.Button;
 
 public abstract class Boton extends Button {
 
-    private Boolean seleccionado;
+    private TipoBoton tipo;
 
-    public Boton() {
-        seleccionado = false;
+    protected Boton(TipoBoton tipo) {
+
+        this.tipo = tipo;
     }
 
-    public void switchSeleccionado() {
-        seleccionado = !seleccionado;
+    public Boolean fueSeleccionado() throws Exception {
+
+        return tipo.fueSeleccionado();
     }
 
-    public Boolean fueSeleccionado() {
-        return seleccionado;
+    public TipoBoton getTipo() {
+
+        return tipo;
     }
 }

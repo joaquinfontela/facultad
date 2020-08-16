@@ -4,7 +4,7 @@ import edu.fiuba.algo3.interfaz.botones.Boton;
 import edu.fiuba.algo3.interfaz.estilos.estilosBotonesComunes.EstilosBotonEnviarRespuesta;
 import javafx.scene.control.Button;
 
-public class BotonEnviarRespuesta extends Button {
+public class BotonEnviarRespuesta extends BotonComun {
 
     public BotonEnviarRespuesta() {
 

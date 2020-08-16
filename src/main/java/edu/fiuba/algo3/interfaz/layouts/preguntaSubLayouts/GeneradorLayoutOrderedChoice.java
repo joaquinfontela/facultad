@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.interfaz.layouts.preguntaSubLayouts;
 
+import edu.fiuba.algo3.interfaz.botones.tipoBoton.Ordenable;
 import edu.fiuba.algo3.interfaz.layouts.preguntaSubLayouts.distribuidoresDeOpciones.*;
 import javafx.scene.layout.StackPane;
 
@@ -12,16 +13,18 @@ public class GeneradorLayoutOrderedChoice implements GeneradorLayoutOpciones {
     @Override
     public StackPane generarLayout(ArrayList<String> opciones) {
 
+        Ordenable tipoOrdenable = new Ordenable();
+
         if (opciones.size() == 2){
-            layout = new DistribuidorDeDosOpciones(opciones);
+            layout = new DistribuidorDeDosOpciones(opciones, tipoOrdenable);
         } else if (opciones.size() == 3) {
-            layout = new DistribuidorDeTresOpciones(opciones);
+            layout = new DistribuidorDeTresOpciones(opciones,tipoOrdenable);
         } else if (opciones.size() == 4) {
-            layout = new DistribuidorDeCuatroOpciones(opciones);
+            layout = new DistribuidorDeCuatroOpciones(opciones, tipoOrdenable);
         } else if (opciones.size() == 5) {
-            layout = new DistribuidorDeCincoOpciones(opciones);
+            layout = new DistribuidorDeCincoOpciones(opciones, tipoOrdenable);
         } else {
-            layout = new DistribuidorDeSeisOpciones(opciones);
+            layout = new DistribuidorDeSeisOpciones(opciones, tipoOrdenable);
         }
         return layout;
     }

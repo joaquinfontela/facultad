@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.interfaz.estilos.estilosBotonBonificacion;
 
 import edu.fiuba.algo3.interfaz.botones.Boton;
-import edu.fiuba.algo3.interfaz.estilos.EstilosBotonSeleccionable;
+import edu.fiuba.algo3.interfaz.estilos.estilosBotonPorTipo.EstilosBotonSeleccionable;
 
 public class EstilosBotonBonificacion extends EstilosBotonSeleccionable {
 

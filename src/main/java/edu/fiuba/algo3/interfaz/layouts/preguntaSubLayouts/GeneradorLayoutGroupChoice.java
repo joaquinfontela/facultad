@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.interfaz.layouts.preguntaSubLayouts;
 
+import edu.fiuba.algo3.interfaz.botones.tipoBoton.Agrupable;
 import edu.fiuba.algo3.interfaz.layouts.preguntaSubLayouts.distribuidoresDeOpciones.*;
 import javafx.scene.layout.StackPane;
 
@@ -12,16 +13,18 @@ public class GeneradorLayoutGroupChoice implements GeneradorLayoutOpciones {
     @Override
     public StackPane generarLayout(ArrayList<String> opciones) {
 
+        Agrupable tipoAgrupable = new Agrupable();
+
         if (opciones.size() == 2){
-            layout = new DistribuidorDeDosOpciones(opciones);
+            layout = new DistribuidorDeDosOpciones(opciones, tipoAgrupable);
         } else if (opciones.size() == 3) {
-            layout = new DistribuidorDeTresOpciones(opciones);
+            layout = new DistribuidorDeTresOpciones(opciones, tipoAgrupable);
         } else if (opciones.size() == 4) {
-            layout = new DistribuidorDeCuatroOpciones(opciones);
+            layout = new DistribuidorDeCuatroOpciones(opciones, tipoAgrupable);
         } else if (opciones.size() == 5) {
-            layout = new DistribuidorDeCincoOpciones(opciones);
+            layout = new DistribuidorDeCincoOpciones(opciones, tipoAgrupable);
         } else {
-            layout = new DistribuidorDeSeisOpciones(opciones);
+            layout = new DistribuidorDeSeisOpciones(opciones, tipoAgrupable);
         }
         return layout;
     }

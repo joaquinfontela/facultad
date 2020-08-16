@@ -2,6 +2,7 @@ package edu.fiuba.algo3.interfaz.layouts.preguntaSubLayouts.distribuidoresDeOpci
 
 import edu.fiuba.algo3.interfaz.botones.botonesOpcion.BotonOpcion;
 import edu.fiuba.algo3.interfaz.botones.botonesOpcion.BotonOpcionChico;
+import edu.fiuba.algo3.interfaz.botones.tipoBoton.TipoBoton;
 import edu.fiuba.algo3.modelo.pregunta.respuesta.RespuestaGroupChoice;
 import edu.fiuba.algo3.modelo.pregunta.respuesta.RespuestaOrderedChoice;
 import javafx.scene.layout.StackPane;
@@ -11,9 +12,9 @@ import java.util.Stack;
 
 public abstract class DistribuidorDeOpcionesChicas extends StackPane {
 
-    protected void agregarOpcion(String enunciado, Integer desplazamientoEnX, Integer desplazamientoEnY, Color color) {
+    protected void agregarOpcion(String enunciado, Integer desplazamientoEnX, Integer desplazamientoEnY, Color color, TipoBoton tipoBoton) {
 
-        BotonOpcion opcion = new BotonOpcionChico(enunciado, desplazamientoEnX, desplazamientoEnY, color);
+        BotonOpcion opcion = new BotonOpcionChico(enunciado, desplazamientoEnX, desplazamientoEnY, color, tipoBoton);
         this.getChildren().add(opcion);
     }
 }
