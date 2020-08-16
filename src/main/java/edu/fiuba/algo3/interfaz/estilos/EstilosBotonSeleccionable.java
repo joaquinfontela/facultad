@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.interfaz.estilos;
 
-import edu.fiuba.algo3.interfaz.botones.BotonSeleccionable;
+import edu.fiuba.algo3.interfaz.botones.Boton;
 import javafx.animation.FadeTransition;
 import javafx.scene.control.skin.ButtonSkin;
 import javafx.scene.input.MouseEvent;
@@ -8,9 +8,9 @@ import javafx.util.Duration;
 
 public class EstilosBotonSeleccionable extends ButtonSkin {
 
-    protected BotonSeleccionable boton;
+    protected Boton boton;
 
-    public EstilosBotonSeleccionable(BotonSeleccionable unBoton) {
+    public EstilosBotonSeleccionable(Boton unBoton) {
 
         super(unBoton);
 

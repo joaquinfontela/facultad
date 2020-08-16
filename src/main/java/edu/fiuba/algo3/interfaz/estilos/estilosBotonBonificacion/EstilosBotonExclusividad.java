@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.interfaz.estilos.estilosBotonBonificacion;
 
-import edu.fiuba.algo3.interfaz.botones.BotonSeleccionable;
+import edu.fiuba.algo3.interfaz.botones.Boton;
 import edu.fiuba.algo3.interfaz.botones.botonesBonificacion.PolygonEditor;
 import javafx.geometry.Insets;
 import javafx.scene.layout.Background;
@@ -12,7 +12,7 @@ import javafx.scene.text.Font;
 
 public class EstilosBotonExclusividad extends EstilosBotonBonificacion {
 
-    public EstilosBotonExclusividad(BotonSeleccionable unBoton) {
+    public EstilosBotonExclusividad(Boton unBoton) {
         super(unBoton);
 
         Polygon forma = new Polygon();

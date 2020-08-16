@@ -1,12 +1,12 @@
 package edu.fiuba.algo3.interfaz.estilos.estilosBotonOpcion;
 
-import edu.fiuba.algo3.interfaz.botones.BotonSeleccionable;
+import edu.fiuba.algo3.interfaz.botones.Boton;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 
 public class EstilosBotonOpcionChicoLargo extends EstilosBotonOpcion {
 
-    public EstilosBotonOpcionChicoLargo(BotonSeleccionable unBoton, Color color) {
+    public EstilosBotonOpcionChicoLargo(Boton unBoton, Color color) {
 
         super(unBoton, color);
 

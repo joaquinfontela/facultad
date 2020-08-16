@@ -1,8 +1,8 @@
 package edu.fiuba.algo3.interfaz.botones.botonesBonificacion;
 
-import edu.fiuba.algo3.interfaz.botones.BotonSeleccionable;
+import edu.fiuba.algo3.interfaz.botones.Boton;
 
-public abstract class BotonBonificacion extends BotonSeleccionable {
+public abstract class BotonBonificacion extends Boton {
 
     public BotonBonificacion(double posX, double posY) {
 

@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.interfaz.layouts;
 
 import edu.fiuba.algo3.controladores.BotonVolverAlMenuHandler;
-import edu.fiuba.algo3.interfaz.botones.BotonSeleccionable;
+import edu.fiuba.algo3.interfaz.botones.Boton;
 import edu.fiuba.algo3.interfaz.botones.botonesComunes.BotonVolverAlMenu;
 import edu.fiuba.algo3.interfaz.layouts.puntajesSubLayouts.LayoutPuntajeJugador;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
@@ -23,7 +23,7 @@ public class LayoutPuntajeFinal extends StackPane {
         this.crearLayoutParteJugadorArriba(jugadorArriba, jugadorAbajo);
         this.crearLayoutParteJugadorAbajo(jugadorArriba,jugadorAbajo);
 
-        BotonSeleccionable botonContinuar = new BotonVolverAlMenu();
+        BotonVolverAlMenu botonContinuar = new BotonVolverAlMenu();
         botonContinuar.setTranslateY(250);
         botonContinuar.setOnAction(new BotonVolverAlMenuHandler(stage));
         this.getChildren().add(botonContinuar);

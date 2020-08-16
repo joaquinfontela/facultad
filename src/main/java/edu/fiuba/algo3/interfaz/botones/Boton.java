@@ -2,11 +2,11 @@ package edu.fiuba.algo3.interfaz.botones;
 
 import javafx.scene.control.Button;
 
-public abstract class BotonSeleccionable extends Button {
+public abstract class Boton extends Button {
 
     private Boolean seleccionado;
 
-    public BotonSeleccionable() {
+    public Boton() {
         seleccionado = false;
     }
 
