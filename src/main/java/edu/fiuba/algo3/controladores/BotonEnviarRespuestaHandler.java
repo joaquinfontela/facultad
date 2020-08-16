@@ -1,45 +1,24 @@
 package edu.fiuba.algo3.controladores;
 
-import edu.fiuba.algo3.interfaz.layouts.LayoutPreturno;
-import edu.fiuba.algo3.interfaz.layouts.LayoutPuntajeFinal;
-import edu.fiuba.algo3.interfaz.layouts.LayoutPuntajesParciales;
+import edu.fiuba.algo3.interfaz.layouts.LayoutPregunta;
 import edu.fiuba.algo3.modelo.GestorDeJuego;
-import edu.fiuba.algo3.modelo.jugador.Jugador;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.scene.Scene;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
-public class BotonEnviarRespuestaHandler implements EventHandler<ActionEvent> {
+public class BotonEnviarRespuestaHandler extends BotonTerminarTurnoHandler {
 
-    private Stage stage;
-    private GestorDeJuego gestor;
+    private LayoutPregunta layoutActual;
 
-    public BotonEnviarRespuestaHandler(Stage unStage, GestorDeJuego unGestor) {
+    public BotonEnviarRespuestaHandler(Stage unStage, GestorDeJuego unGestor, LayoutPregunta layout) {
 
-        stage = unStage;
-        gestor = unGestor;
+        super(unStage, unGestor);
+        layoutActual = layout;
     }
 
     @Override
     public void handle(ActionEvent event) {
 
+        layoutActual.detenerTemporizador();
         this.cambiarEscena();
-    }
-
-    private void cambiarEscena() {
-
-        StackPane layout;
-        //if (gestor.juegoFinalizado()) {
-            Jugador posibleJugadorGanador = gestor.obtenerPosibleJugadorGanador();
-            Jugador posibleJugadorPerdedor = gestor.obtenerPosibleJugadorPerdedor();
-            layout = new LayoutPuntajeFinal(posibleJugadorGanador, posibleJugadorPerdedor);
-        /*} else if (gestor.comienzaNuevaRonda()) {
-            layout = new LayoutPuntajesParciales(gestor.obtenerJugadoresRegistrados());
-        } else {
-            layout = new LayoutPreturno(stage, gestor);
-        }*/
-        stage.setScene(new Scene(layout, 640, 480));
     }
 }

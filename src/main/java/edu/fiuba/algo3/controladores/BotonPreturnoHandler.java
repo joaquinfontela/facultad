@@ -17,12 +17,12 @@ import java.util.Collections;
 import java.util.Random;
 import java.util.Stack;
 
-public class BotonComenzarHandler implements EventHandler<ActionEvent> {
+public class BotonPreturnoHandler implements EventHandler<ActionEvent> {
 
     private Stage stage;
     private LayoutRegistro layoutActual;
 
-    public BotonComenzarHandler(Stage unStage, LayoutRegistro layout) {
+    public BotonPreturnoHandler(Stage unStage, LayoutRegistro layout) {
 
         stage = unStage;
         layoutActual = layout;

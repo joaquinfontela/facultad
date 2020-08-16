@@ -44,6 +44,10 @@ public class Pregunta {
         modalidad.recibirBonificacion(bonificacion);
     }
 
+    public boolean sePuedeUsarExclusividad() {
+        return modalidad.sePuedeUsarExclusividad();
+    }
+
     public String obtenerEnunciado() {
         return enunciado;
     }

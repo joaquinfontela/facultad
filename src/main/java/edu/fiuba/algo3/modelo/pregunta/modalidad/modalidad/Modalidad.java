@@ -55,4 +55,6 @@ public abstract class Modalidad {
     public abstract int calcularPuntos(EstadisticasRespuesta estadisticas);
 
     protected abstract void verificarCorrectaBonificacion(Bonificacion bonificacion) throws Exception;
+
+    public abstract boolean sePuedeUsarExclusividad();
 }

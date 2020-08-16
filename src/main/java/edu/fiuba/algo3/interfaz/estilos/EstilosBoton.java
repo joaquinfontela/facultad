@@ -20,7 +20,7 @@ public class EstilosBoton extends ButtonSkin {
         eventoBotonClickeado();
     }
 
-    private void eventoMousePasaPorArriba() {
+    protected void eventoMousePasaPorArriba() {
 
         final FadeTransition fadeIn = new FadeTransition(Duration.millis(100));
         fadeIn.setNode(boton);
