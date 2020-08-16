@@ -19,7 +19,6 @@ public class LayoutBonificaciones extends StackPane {
         this.getChildren().add(botonMultiplicadorX2);
         BotonMultiplicadorX3 botonMultiplicadorX3 = new BotonMultiplicadorX3(-50, -170);
         if (!gestor.jugadorActualTieneAlgunMultiplicadorX3()) botonExclusividad.setDisable(true);
-
         this.getChildren().add(botonMultiplicadorX3);
     }
 }
