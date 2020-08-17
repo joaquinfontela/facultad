@@ -50,13 +50,20 @@ public class EstilosBotonOrdenable implements EstilosBotonPorTipo {
             if (e.getEventType().equals(MouseEvent.MOUSE_CLICKED)){
                 if (ordenable.getPosicionOrden() == null) {
                     ordenable.asignarOrden();
-                    System.out.println(ordenable.getPosicionOrden());
                 } else {
                     ordenable.desasignarOrden();
-                    System.out.println(ordenable.getPosicionOrden());
                 }
             }
         });
+    }
+
+    public void actualizarOrden() {
+
+        if (ordenable.getPosicionOrden() == null) {
+            boton.setText(boton.getText().substring(0, boton.getText().length() - 4));
+        } else {
+            boton.setText(boton.getText() + " (" + ordenable.getPosicionOrden().toString() + ")");
+        }
     }
 
 }

@@ -2,6 +2,7 @@ package edu.fiuba.algo3.interfaz.botones.tipoBoton;
 
 import edu.fiuba.algo3.interfaz.botones.Boton;
 import edu.fiuba.algo3.interfaz.botones.botonesOpcion.BotonOpcion;
+import edu.fiuba.algo3.interfaz.estilos.estilosBotonPorTipo.EstilosBotonAgrupable;
 import edu.fiuba.algo3.interfaz.estilos.estilosBotonPorTipo.EstilosBotonOrdenable;
 import edu.fiuba.algo3.interfaz.estilos.estilosBotonPorTipo.EstilosBotonPorTipo;
 import edu.fiuba.algo3.interfaz.estilos.estilosBotonPorTipo.EstilosBotonSeleccionable;
@@ -13,12 +14,12 @@ public class Ordenable extends TipoBoton {
     public Ordenable() {
 
         posicionOrden = null;
-        estilosBotonPorTipo = new EstilosBotonOrdenable();
     }
 
     public void asignarOrden() {
 
         this.posicionOrden = obtenerProximaPosicionAAsignar();
+        actualizarOrdenEnEstilos();
     }
 
     private Integer obtenerProximaPosicionAAsignar() {
@@ -34,6 +35,13 @@ public class Ordenable extends TipoBoton {
         return (mayorPosicion + 1);
     }
 
+    private void actualizarOrdenEnEstilos() {
+
+        EstilosBotonOrdenable estilosBotonAgrupable = (EstilosBotonOrdenable) estilosBotonPorTipo;
+        estilosBotonAgrupable.actualizarOrden();
+        estilosBotonPorTipo = estilosBotonAgrupable;
+    }
+
     public void desasignarOrden() {
 
         BotonOpcion botonEnLaSiguientePosicion = obtenerBotonEnLaSiguientePosicion();
@@ -41,6 +49,7 @@ public class Ordenable extends TipoBoton {
             botonEnLaSiguientePosicion.desasignarOrden();
         }
         posicionOrden = null;
+        actualizarOrdenEnEstilos();
     }
 
     private BotonOpcion obtenerBotonEnLaSiguientePosicion() {
@@ -63,6 +72,7 @@ public class Ordenable extends TipoBoton {
     @Override
     public void aplicarEstilos(Boton unBoton) {
 
-        new EstilosBotonOrdenable().aplicarEstilos(unBoton);
+        estilosBotonPorTipo = new EstilosBotonOrdenable();
+        estilosBotonPorTipo.aplicarEstilos(unBoton);
     }
 }

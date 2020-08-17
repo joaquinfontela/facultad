@@ -24,7 +24,7 @@ public class BotonEmpezarTurnoHandler implements EventHandler<ActionEvent> {
     @Override
     public void handle(ActionEvent event) {
 
-        LayoutPregunta layoutPregunta = new LayoutGroupChoice(stage, gestor);
+        LayoutPregunta layoutPregunta = new LayoutOrderedChoice(stage, gestor);
         stage.setScene(new Scene(layoutPregunta, 640, 480));
     }
 }
