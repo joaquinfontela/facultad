@@ -4,8 +4,6 @@ import edu.fiuba.algo3.interfaz.layouts.registroSublayouts.CantidadRondasCheckbo
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
-import java.util.Stack;
-
 public class CheckboxRondaHandler implements EventHandler<ActionEvent> {
 
     private CantidadRondasCheckbox checkbox;

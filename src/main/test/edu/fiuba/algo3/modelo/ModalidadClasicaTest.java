@@ -4,17 +4,16 @@ import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.pregunta.modalidad.bonificacion.ExclusividadDePuntaje;
 import edu.fiuba.algo3.modelo.pregunta.modalidad.modalidad.ModalidadClasica;
 import edu.fiuba.algo3.modelo.pregunta.respuesta.EstadisticasRespuesta;
-
 import edu.fiuba.algo3.modelo.pregunta.respuesta.RespuestaDeJugador;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import static org.mockito.Mockito.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 public class ModalidadClasicaTest {
 

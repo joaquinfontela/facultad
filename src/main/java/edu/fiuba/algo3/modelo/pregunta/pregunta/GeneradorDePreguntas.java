@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.modelo.pregunta.pregunta;
 
 import edu.fiuba.algo3.modelo.pregunta.modalidad.modalidad.Modalidad;
-import edu.fiuba.algo3.modelo.pregunta.respuesta.*;
+import edu.fiuba.algo3.modelo.pregunta.respuesta.Respuesta;
 
 import java.util.ArrayList;
 import java.util.Random;

@@ -15,7 +15,6 @@ import javafx.stage.Stage;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
-import java.util.Stack;
 
 public class BotonPreturnoHandler implements EventHandler<ActionEvent> {
 

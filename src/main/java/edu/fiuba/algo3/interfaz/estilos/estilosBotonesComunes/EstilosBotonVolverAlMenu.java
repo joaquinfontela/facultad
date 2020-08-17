@@ -1,11 +1,8 @@
 package edu.fiuba.algo3.interfaz.estilos.estilosBotonesComunes;
 
-import edu.fiuba.algo3.interfaz.botones.Boton;
 import edu.fiuba.algo3.interfaz.estilos.EstilosBotonComun;
-import javafx.animation.FadeTransition;
 import javafx.scene.control.Button;
 import javafx.scene.paint.Color;
-import javafx.util.Duration;
 
 public class EstilosBotonVolverAlMenu extends EstilosBotonComun {
 

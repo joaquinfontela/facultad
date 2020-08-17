@@ -2,10 +2,8 @@ package edu.fiuba.algo3.interfaz.estilos.estilosBotonPorTipo;
 
 import edu.fiuba.algo3.interfaz.botones.Boton;
 import edu.fiuba.algo3.interfaz.botones.tipoBoton.Agrupable;
-import edu.fiuba.algo3.interfaz.botones.tipoBoton.TipoBoton;
 import javafx.animation.FadeTransition;
 import javafx.geometry.Insets;
-import javafx.scene.control.skin.ButtonSkin;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;

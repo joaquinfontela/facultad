@@ -2,8 +2,6 @@ package edu.fiuba.algo3.interfaz.botones.tipoBoton;
 
 import edu.fiuba.algo3.interfaz.botones.Boton;
 import edu.fiuba.algo3.interfaz.estilos.estilosBotonPorTipo.EstilosBotonAgrupable;
-import edu.fiuba.algo3.interfaz.estilos.estilosBotonPorTipo.EstilosBotonPorTipo;
-import edu.fiuba.algo3.interfaz.estilos.estilosBotonPorTipo.EstilosBotonSeleccionable;
 
 public class Agrupable extends TipoBoton {
 

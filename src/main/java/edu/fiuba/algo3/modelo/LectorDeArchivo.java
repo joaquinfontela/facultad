@@ -1,12 +1,12 @@
 package edu.fiuba.algo3.modelo;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.util.ArrayList;
-
 import com.google.gson.*;
 import edu.fiuba.algo3.modelo.pregunta.pregunta.EnunciadosOpciones;
 import edu.fiuba.algo3.modelo.pregunta.pregunta.InformacionPregunta;
+
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.util.ArrayList;
 
 public class LectorDeArchivo {
 

@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.interfaz.layouts.preguntaSubLayouts.distribuidoresDeOpciones;
 
-import edu.fiuba.algo3.interfaz.botones.tipoBoton.TipoBoton;
 import javafx.scene.paint.Color;
+
 import java.util.ArrayList;
 
 public class DistribuidorDeSeisOpciones extends DistribuidorDeOpcionesChicas {

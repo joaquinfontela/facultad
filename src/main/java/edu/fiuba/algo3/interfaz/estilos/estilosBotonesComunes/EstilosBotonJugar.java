@@ -1,6 +1,5 @@
 package edu.fiuba.algo3.interfaz.estilos.estilosBotonesComunes;
 
-import edu.fiuba.algo3.interfaz.botones.Boton;
 import edu.fiuba.algo3.interfaz.estilos.EstilosBotonComun;
 import javafx.scene.control.Button;
 import javafx.scene.paint.Color;

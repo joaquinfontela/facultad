@@ -2,7 +2,6 @@ package edu.fiuba.algo3.interfaz.layouts.preguntaSubLayouts.layoutOpcionesPorTip
 
 import edu.fiuba.algo3.interfaz.layouts.LayoutPregunta;
 import edu.fiuba.algo3.interfaz.layouts.preguntaSubLayouts.generadoresDeLayouts.GeneradorLayoutGroupChoice;
-import edu.fiuba.algo3.interfaz.layouts.preguntaSubLayouts.generadoresDeLayouts.GeneradorLayoutMultipleChoice;
 import edu.fiuba.algo3.modelo.GestorDeJuego;
 import javafx.stage.Stage;
 

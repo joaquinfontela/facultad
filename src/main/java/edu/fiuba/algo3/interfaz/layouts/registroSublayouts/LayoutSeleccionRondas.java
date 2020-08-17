@@ -5,9 +5,6 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Font;
-import javafx.stage.Stage;
-
-import java.util.Stack;
 
 public class LayoutSeleccionRondas extends StackPane {
 

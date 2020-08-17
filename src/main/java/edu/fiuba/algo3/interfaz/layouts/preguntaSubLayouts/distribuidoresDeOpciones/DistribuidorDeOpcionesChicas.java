@@ -2,15 +2,7 @@ package edu.fiuba.algo3.interfaz.layouts.preguntaSubLayouts.distribuidoresDeOpci
 
 import edu.fiuba.algo3.interfaz.botones.botonesOpcion.BotonOpcion;
 import edu.fiuba.algo3.interfaz.botones.botonesOpcion.BotonOpcionChico;
-import edu.fiuba.algo3.interfaz.botones.botonesOpcion.BotonOpcionChicoLargo;
-import edu.fiuba.algo3.interfaz.botones.tipoBoton.TipoBoton;
-import edu.fiuba.algo3.modelo.pregunta.respuesta.RespuestaGroupChoice;
-import edu.fiuba.algo3.modelo.pregunta.respuesta.RespuestaOrderedChoice;
-import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
-
-import java.util.Stack;
 
 public abstract class DistribuidorDeOpcionesChicas extends DistribuidorDeOpciones {
 

@@ -1,8 +1,6 @@
 package edu.fiuba.algo3.controladores;
 
 import edu.fiuba.algo3.interfaz.layouts.LayoutPregunta;
-import edu.fiuba.algo3.interfaz.layouts.preguntaSubLayouts.layoutOpcionesPorTipoDePregunta.LayoutGroupChoice;
-import edu.fiuba.algo3.interfaz.layouts.preguntaSubLayouts.layoutOpcionesPorTipoDePregunta.LayoutMultipleChoice;
 import edu.fiuba.algo3.interfaz.layouts.preguntaSubLayouts.layoutOpcionesPorTipoDePregunta.LayoutOrderedChoice;
 import edu.fiuba.algo3.modelo.GestorDeJuego;
 import javafx.event.ActionEvent;

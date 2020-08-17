@@ -2,10 +2,11 @@ package edu.fiuba.algo3.interfaz.estilos.estilosBotonOpcion;
 
 import edu.fiuba.algo3.interfaz.botones.Boton;
 import edu.fiuba.algo3.interfaz.botones.tipoBoton.TipoBoton;
-import edu.fiuba.algo3.interfaz.estilos.estilosBotonPorTipo.EstilosBotonPorTipo;
 import javafx.geometry.Insets;
 import javafx.scene.control.skin.ButtonSkin;
-import javafx.scene.layout.*;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
 import javafx.scene.paint.Color;
 
 public abstract class EstilosBotonOpcion extends ButtonSkin {

@@ -2,13 +2,8 @@ package edu.fiuba.algo3.interfaz.layouts.preguntaSubLayouts.distribuidoresDeOpci
 
 import edu.fiuba.algo3.interfaz.botones.botonesOpcion.BotonOpcion;
 import edu.fiuba.algo3.interfaz.botones.botonesOpcion.BotonOpcionChicoLargo;
-import edu.fiuba.algo3.interfaz.botones.tipoBoton.Seleccionable;
-import edu.fiuba.algo3.interfaz.botones.tipoBoton.TipoBoton;
-import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 
 public class DistribuidorDeCuatroOpciones extends DistribuidorDeOpciones {
