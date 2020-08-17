@@ -62,8 +62,10 @@ public class EstilosBotonAgrupable implements EstilosBotonPorTipo {
 
         if (agrupable.fueAgrupadaEnElGrupoA()) {
             boton.setBackground(new Background(new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY)));
+            boton.setTextFill(Color.BLACK);
         } else {
             boton.setBackground(new Background(new BackgroundFill(Color.BLACK, CornerRadii.EMPTY, Insets.EMPTY)));
+            boton.setTextFill(Color.WHITE);
         }
     }
 }

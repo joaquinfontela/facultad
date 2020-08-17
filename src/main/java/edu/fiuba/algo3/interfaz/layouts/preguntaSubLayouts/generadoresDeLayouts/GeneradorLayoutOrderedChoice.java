@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.interfaz.layouts.preguntaSubLayouts;
+package edu.fiuba.algo3.interfaz.layouts.preguntaSubLayouts.generadoresDeLayouts;
 
 import edu.fiuba.algo3.interfaz.botones.tipoBoton.Ordenable;
 import edu.fiuba.algo3.interfaz.layouts.preguntaSubLayouts.distribuidoresDeOpciones.*;

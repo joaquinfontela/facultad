@@ -1,7 +1,5 @@
-package edu.fiuba.algo3.interfaz.layouts.preguntaSubLayouts;
+package edu.fiuba.algo3.interfaz.layouts.preguntaSubLayouts.generadoresDeLayouts;
 
-import edu.fiuba.algo3.interfaz.botones.botonesOpcion.BotonOpcion;
-import edu.fiuba.algo3.interfaz.botones.tipoBoton.Agrupable;
 import edu.fiuba.algo3.interfaz.botones.tipoBoton.Seleccionable;
 import edu.fiuba.algo3.interfaz.layouts.preguntaSubLayouts.distribuidoresDeOpciones.*;
 import javafx.scene.layout.StackPane;
