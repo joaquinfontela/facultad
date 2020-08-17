@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.interfaz.estilos.estilosBotonPorTipo;
 
 import edu.fiuba.algo3.interfaz.botones.Boton;
+import edu.fiuba.algo3.interfaz.botones.tipoBoton.Seleccionable;
 import edu.fiuba.algo3.interfaz.botones.tipoBoton.TipoBoton;
 import javafx.animation.FadeTransition;
 import javafx.scene.control.skin.ButtonSkin;
@@ -10,12 +11,12 @@ import javafx.util.Duration;
 public class EstilosBotonSeleccionable implements EstilosBotonPorTipo {
 
     protected Boton boton;
-    protected TipoBoton seleccionable;
+    protected Seleccionable seleccionable;
 
     public void aplicarEstilos(Boton unBoton) {
 
         boton = unBoton;
-        seleccionable = boton.getTipo();
+        seleccionable = (Seleccionable) boton.getTipo();
 
         eventoMousePasaPorArriba();
         eventoBotonClickeado();

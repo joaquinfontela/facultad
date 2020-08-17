@@ -1,6 +1,8 @@
 package edu.fiuba.algo3.interfaz.estilos.estilosBotonPorTipo;
 
 import edu.fiuba.algo3.interfaz.botones.Boton;
+import edu.fiuba.algo3.interfaz.botones.tipoBoton.Ordenable;
+import edu.fiuba.algo3.interfaz.botones.tipoBoton.Seleccionable;
 import edu.fiuba.algo3.interfaz.botones.tipoBoton.TipoBoton;
 import javafx.animation.FadeTransition;
 import javafx.scene.control.skin.ButtonSkin;
@@ -10,12 +12,12 @@ import javafx.util.Duration;
 public class EstilosBotonOrdenable implements EstilosBotonPorTipo {
 
     protected Boton boton;
-    protected TipoBoton seleccionable;
+    protected Ordenable ordenable;
 
     public void aplicarEstilos(Boton unBoton) {
 
         boton = unBoton;
-        seleccionable = boton.getTipo();
+        ordenable = (Ordenable) boton.getTipo();
 
         eventoMousePasaPorArriba();
         eventoBotonClickeado();
@@ -27,22 +29,15 @@ public class EstilosBotonOrdenable implements EstilosBotonPorTipo {
         fadeIn.setNode(boton);
         fadeIn.setToValue(0.8);
         boton.setOnMouseEntered(e -> {
-            try {
-                if (!seleccionable.fueSeleccionado()) {
-                    fadeIn.playFromStart();
-                }
-            } catch (Exception exception) { }
+            fadeIn.playFromStart();
+
         });
 
         final FadeTransition fadeOut = new FadeTransition(Duration.millis(100));
         fadeOut.setNode(boton);
         fadeOut.setToValue(0.6);
         boton.setOnMouseExited(e -> {
-            try {
-                if (!seleccionable.fueSeleccionado()) {
-                    fadeOut.playFromStart();
-                }
-            } catch (Exception exception) { }
+            fadeOut.playFromStart();
         });
 
         boton.setOpacity(0.6);
@@ -53,20 +48,15 @@ public class EstilosBotonOrdenable implements EstilosBotonPorTipo {
         boton.setOnMouseClicked(e -> {
 
             if (e.getEventType().equals(MouseEvent.MOUSE_CLICKED)){
-                try {
-                    seleccionable.switchSeleccionado();
-                    actualizarOpacidad();
-                } catch (Exception exception) { }
+                if (ordenable.getPosicionOrden() == null) {
+                    ordenable.asignarOrden();
+                    System.out.println(ordenable.getPosicionOrden());
+                } else {
+                    ordenable.desasignarOrden();
+                    System.out.println(ordenable.getPosicionOrden());
+                }
             }
         });
     }
 
-    private void actualizarOpacidad() throws Exception {
-
-        if (seleccionable.fueSeleccionado()) {
-            boton.setOpacity(1.0);
-        } else {
-            boton.setOpacity(0.6);
-        }
-    }
 }

@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.interfaz.botones.tipoBoton;
 
 import edu.fiuba.algo3.interfaz.botones.Boton;
+import edu.fiuba.algo3.interfaz.botones.botonesOpcion.BotonOpcion;
 import edu.fiuba.algo3.interfaz.estilos.estilosBotonPorTipo.EstilosBotonOrdenable;
 import edu.fiuba.algo3.interfaz.estilos.estilosBotonPorTipo.EstilosBotonPorTipo;
 import edu.fiuba.algo3.interfaz.estilos.estilosBotonPorTipo.EstilosBotonSeleccionable;
@@ -15,19 +16,45 @@ public class Ordenable extends TipoBoton {
         estilosBotonPorTipo = new EstilosBotonOrdenable();
     }
 
-    @Override
-    public void asignarOrden(Integer posicionOrden) {
+    public void asignarOrden() {
 
-        this.posicionOrden = posicionOrden;
+        this.posicionOrden = obtenerProximaPosicionAAsignar();
     }
 
-    @Override
+    private Integer obtenerProximaPosicionAAsignar() {
+
+        Integer mayorPosicion = 0;
+        for (BotonOpcion boton : botonesDeLaMismaPregunta) {
+            Integer posBotonActual = boton.obtenerPosicionOrden();
+            if ((posBotonActual != null) && (posBotonActual >= mayorPosicion)) {
+                mayorPosicion = posBotonActual;
+            }
+        }
+
+        return (mayorPosicion + 1);
+    }
+
     public void desasignarOrden() {
 
-        this.posicionOrden = null;
+        BotonOpcion botonEnLaSiguientePosicion = obtenerBotonEnLaSiguientePosicion();
+        if (botonEnLaSiguientePosicion != null) {
+            botonEnLaSiguientePosicion.desasignarOrden();
+        }
+        posicionOrden = null;
     }
 
-    @Override
+    private BotonOpcion obtenerBotonEnLaSiguientePosicion() {
+
+        for (BotonOpcion boton : botonesDeLaMismaPregunta) {
+            Integer posOrdenBoton = boton.obtenerPosicionOrden();
+            if ((posOrdenBoton != null) && (posOrdenBoton == this.posicionOrden + 1)) {
+                return boton;
+            }
+        }
+
+        return null;
+    }
+
     public Integer getPosicionOrden() {
 
         return posicionOrden;

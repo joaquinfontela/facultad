@@ -1,7 +1,10 @@
 package edu.fiuba.algo3.interfaz.botones;
 
+import edu.fiuba.algo3.interfaz.botones.botonesOpcion.BotonOpcion;
 import edu.fiuba.algo3.interfaz.botones.tipoBoton.TipoBoton;
 import javafx.scene.control.Button;
+
+import java.util.ArrayList;
 
 public abstract class Boton extends Button {
 
@@ -12,9 +15,10 @@ public abstract class Boton extends Button {
         this.tipo = tipo;
     }
 
-    public Boolean fueSeleccionado() throws Exception {
+    protected Boton(TipoBoton tipo, ArrayList<BotonOpcion> botones) {
 
-        return tipo.fueSeleccionado();
+        this.tipo = tipo;
+        this.tipo.agregarBotones(botones);
     }
 
     public TipoBoton getTipo() {

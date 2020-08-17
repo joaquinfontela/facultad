@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.interfaz.estilos.estilosBotonPorTipo;
 
 import edu.fiuba.algo3.interfaz.botones.Boton;
+import edu.fiuba.algo3.interfaz.botones.tipoBoton.Agrupable;
 import edu.fiuba.algo3.interfaz.botones.tipoBoton.TipoBoton;
 import javafx.animation.FadeTransition;
 import javafx.geometry.Insets;
@@ -15,12 +16,12 @@ import javafx.util.Duration;
 public class EstilosBotonAgrupable implements EstilosBotonPorTipo {
 
     private Boton boton;
-    private TipoBoton agrupable;
+    private Agrupable agrupable;
 
     public void aplicarEstilos(Boton unBoton) {
 
         boton = unBoton;
-        agrupable = boton.getTipo();
+        agrupable = (Agrupable) boton.getTipo();
 
         eventoMousePasaPorArriba();
         eventoBotonClickeado();

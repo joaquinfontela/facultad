@@ -11,7 +11,7 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 
-public class DistribuidorDeCuatroOpciones extends StackPane {
+public class DistribuidorDeCuatroOpciones extends DistribuidorDeOpciones {
 
     public DistribuidorDeCuatroOpciones(ArrayList<String> opciones, Class claseTipoBoton) {
 
@@ -25,8 +25,9 @@ public class DistribuidorDeCuatroOpciones extends StackPane {
 
         BotonOpcion opcion = null;
         try {
-            opcion = new BotonOpcionChicoLargo(enunciado, desplazamientoEnX, desplazamientoEnY, color, claseTipoBoton);
+            opcion = new BotonOpcionChicoLargo(enunciado, desplazamientoEnX, desplazamientoEnY, color, claseTipoBoton, botones);
         } catch (Exception e) {}
         this.getChildren().add(opcion);
+        botones.add(opcion);
     }
 }

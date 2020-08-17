@@ -12,14 +12,20 @@ import javafx.scene.text.Font;
 
 import java.util.Stack;
 
-public abstract class DistribuidorDeOpcionesChicas extends StackPane {
+public abstract class DistribuidorDeOpcionesChicas extends DistribuidorDeOpciones {
+
+    public DistribuidorDeOpcionesChicas() {
+
+        super();
+    }
 
     protected void agregarOpcion(String enunciado, Integer desplazamientoEnX, Integer desplazamientoEnY, Color color, Class claseTipoBoton) {
 
         BotonOpcion opcion = null;
         try {
-            opcion = new BotonOpcionChico(enunciado, desplazamientoEnX, desplazamientoEnY, color, claseTipoBoton);
-        } catch (Exception e) {}
+            opcion = new BotonOpcionChico(enunciado, desplazamientoEnX, desplazamientoEnY, color, claseTipoBoton, botones);
+        } catch (Exception e) { }
         this.getChildren().add(opcion);
+        botones.add(opcion);
     }
 }

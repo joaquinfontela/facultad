@@ -15,7 +15,6 @@ public class Agrupable extends TipoBoton {
         estilosBotonPorTipo = new EstilosBotonAgrupable();
     }
 
-    @Override
     public void switchGrupo() {
 
         if (grupo == 'A') {
@@ -25,7 +24,6 @@ public class Agrupable extends TipoBoton {
         }
     }
 
-    @Override
     public Boolean fueAgrupadaEnElGrupoA() {
 
         return (grupo == 'A');

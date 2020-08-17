@@ -13,12 +13,10 @@ public class Seleccionable extends TipoBoton {
         seleccionado = false;
     }
 
-    @Override
     public void switchSeleccionado() {
         seleccionado = !seleccionado;
     }
 
-    @Override
     public Boolean fueSeleccionado() {
         return seleccionado;
     }
