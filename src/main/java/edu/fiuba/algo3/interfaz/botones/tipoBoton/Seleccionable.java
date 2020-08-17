@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.interfaz.botones.tipoBoton;
 
+import edu.fiuba.algo3.interfaz.botones.Boton;
 import edu.fiuba.algo3.interfaz.estilos.estilosBotonPorTipo.EstilosBotonPorTipo;
 import edu.fiuba.algo3.interfaz.estilos.estilosBotonPorTipo.EstilosBotonSeleccionable;
 
@@ -8,6 +9,7 @@ public class Seleccionable extends TipoBoton {
     private Boolean seleccionado;
 
     public Seleccionable() {
+
         seleccionado = false;
     }
 
@@ -22,7 +24,8 @@ public class Seleccionable extends TipoBoton {
     }
 
     @Override
-    public EstilosBotonPorTipo obtenerEstiloBotonSegunTipo() {
-        return new EstilosBotonSeleccionable();
+    public void aplicarEstilos(Boton unBoton) {
+
+        new EstilosBotonSeleccionable().aplicarEstilos(unBoton);
     }
 }

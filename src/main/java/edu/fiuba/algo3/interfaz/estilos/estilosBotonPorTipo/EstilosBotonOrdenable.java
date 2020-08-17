@@ -3,24 +3,19 @@ package edu.fiuba.algo3.interfaz.estilos.estilosBotonPorTipo;
 import edu.fiuba.algo3.interfaz.botones.Boton;
 import edu.fiuba.algo3.interfaz.botones.tipoBoton.TipoBoton;
 import javafx.animation.FadeTransition;
-import javafx.geometry.Insets;
 import javafx.scene.control.skin.ButtonSkin;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
-import javafx.scene.layout.CornerRadii;
-import javafx.scene.paint.Color;
 import javafx.util.Duration;
 
-public class EstilosBotonAgrupable implements EstilosBotonPorTipo {
+public class EstilosBotonOrdenable implements EstilosBotonPorTipo {
 
-    private Boton boton;
-    private TipoBoton agrupable;
+    protected Boton boton;
+    protected TipoBoton seleccionable;
 
     public void aplicarEstilos(Boton unBoton) {
 
         boton = unBoton;
-        agrupable = boton.getTipo();
+        seleccionable = boton.getTipo();
 
         eventoMousePasaPorArriba();
         eventoBotonClickeado();
@@ -30,19 +25,27 @@ public class EstilosBotonAgrupable implements EstilosBotonPorTipo {
 
         final FadeTransition fadeIn = new FadeTransition(Duration.millis(100));
         fadeIn.setNode(boton);
-        fadeIn.setToValue(1.0);
+        fadeIn.setToValue(0.8);
         boton.setOnMouseEntered(e -> {
-            fadeIn.playFromStart();
+            try {
+                if (!seleccionable.fueSeleccionado()) {
+                    fadeIn.playFromStart();
+                }
+            } catch (Exception exception) { }
         });
 
         final FadeTransition fadeOut = new FadeTransition(Duration.millis(100));
         fadeOut.setNode(boton);
-        fadeOut.setToValue(0.8);
+        fadeOut.setToValue(0.6);
         boton.setOnMouseExited(e -> {
-            fadeOut.playFromStart();
+            try {
+                if (!seleccionable.fueSeleccionado()) {
+                    fadeOut.playFromStart();
+                }
+            } catch (Exception exception) { }
         });
 
-        boton.setOpacity(0.8);
+        boton.setOpacity(0.6);
     }
 
     public void eventoBotonClickeado() {
@@ -51,19 +54,19 @@ public class EstilosBotonAgrupable implements EstilosBotonPorTipo {
 
             if (e.getEventType().equals(MouseEvent.MOUSE_CLICKED)){
                 try {
-                    agrupable.switchGrupo();
-                    actualizarGrupo();
+                    seleccionable.switchSeleccionado();
+                    actualizarOpacidad();
                 } catch (Exception exception) { }
             }
         });
     }
 
-    private void actualizarGrupo() throws Exception {
+    private void actualizarOpacidad() throws Exception {
 
-        if (agrupable.fueAgrupadaEnElGrupoA()) {
-            boton.setBackground(new Background(new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY)));
+        if (seleccionable.fueSeleccionado()) {
+            boton.setOpacity(1.0);
         } else {
-            boton.setBackground(new Background(new BackgroundFill(Color.BLACK, CornerRadii.EMPTY, Insets.EMPTY)));
+            boton.setOpacity(0.6);
         }
     }
 }

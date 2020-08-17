@@ -7,6 +7,6 @@ public class BotonExclusividad extends BotonBonificacion {
     public BotonExclusividad(double posX, double posY) {
 
         super(posX, posY);
-        this.setSkin(new EstilosBotonExclusividad(this));
+        new EstilosBotonExclusividad(this).aplicarEstilos(this);
     }
 }

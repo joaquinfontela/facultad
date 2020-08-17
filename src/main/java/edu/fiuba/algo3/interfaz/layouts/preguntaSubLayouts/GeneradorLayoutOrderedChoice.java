@@ -13,7 +13,7 @@ public class GeneradorLayoutOrderedChoice implements GeneradorLayoutOpciones {
     @Override
     public StackPane generarLayout(ArrayList<String> opciones) {
 
-        Ordenable tipoOrdenable = new Ordenable();
+        Class tipoOrdenable = Ordenable.class;
 
         if (opciones.size() == 2){
             layout = new DistribuidorDeDosOpciones(opciones, tipoOrdenable);

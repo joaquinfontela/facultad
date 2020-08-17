@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.interfaz.layouts.preguntaSubLayouts;
 
 import edu.fiuba.algo3.interfaz.botones.botonesOpcion.BotonOpcion;
+import edu.fiuba.algo3.interfaz.botones.tipoBoton.Agrupable;
 import edu.fiuba.algo3.interfaz.botones.tipoBoton.Seleccionable;
 import edu.fiuba.algo3.interfaz.layouts.preguntaSubLayouts.distribuidoresDeOpciones.*;
 import javafx.scene.layout.StackPane;
@@ -14,7 +15,7 @@ public class GeneradorLayoutMultipleChoice implements GeneradorLayoutOpciones {
     @Override
     public StackPane generarLayout(ArrayList<String> opciones) {
 
-        Seleccionable tipoSeleccionable = new Seleccionable();
+        Class tipoSeleccionable = Seleccionable.class;
 
         if (opciones.size() == 2){
             layout = new DistribuidorDeDosOpciones(opciones, tipoSeleccionable);

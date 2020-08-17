@@ -5,7 +5,7 @@ import javafx.scene.control.Button;
 
 public abstract class Boton extends Button {
 
-    private TipoBoton tipo;
+    protected TipoBoton tipo;
 
     protected Boton(TipoBoton tipo) {
 

@@ -1,6 +1,9 @@
 package edu.fiuba.algo3.interfaz.botones.tipoBoton;
 
+import edu.fiuba.algo3.interfaz.botones.Boton;
+import edu.fiuba.algo3.interfaz.estilos.estilosBotonPorTipo.EstilosBotonOrdenable;
 import edu.fiuba.algo3.interfaz.estilos.estilosBotonPorTipo.EstilosBotonPorTipo;
+import edu.fiuba.algo3.interfaz.estilos.estilosBotonPorTipo.EstilosBotonSeleccionable;
 
 public class Ordenable extends TipoBoton {
 
@@ -9,6 +12,7 @@ public class Ordenable extends TipoBoton {
     public Ordenable() {
 
         posicionOrden = null;
+        estilosBotonPorTipo = new EstilosBotonOrdenable();
     }
 
     @Override
@@ -30,7 +34,8 @@ public class Ordenable extends TipoBoton {
     }
 
     @Override
-    public EstilosBotonPorTipo obtenerEstiloBotonSegunTipo() {
-        return null;
+    public void aplicarEstilos(Boton unBoton) {
+
+        new EstilosBotonOrdenable().aplicarEstilos(unBoton);
     }
 }

@@ -13,7 +13,7 @@ public class GeneradorLayoutGroupChoice implements GeneradorLayoutOpciones {
     @Override
     public StackPane generarLayout(ArrayList<String> opciones) {
 
-        Agrupable tipoAgrupable = new Agrupable();
+        Class tipoAgrupable = Agrupable.class;
 
         if (opciones.size() == 2){
             layout = new DistribuidorDeDosOpciones(opciones, tipoAgrupable);

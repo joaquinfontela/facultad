@@ -2,24 +2,31 @@ package edu.fiuba.algo3.interfaz.layouts.preguntaSubLayouts.distribuidoresDeOpci
 
 import edu.fiuba.algo3.interfaz.botones.botonesOpcion.BotonOpcion;
 import edu.fiuba.algo3.interfaz.botones.botonesOpcion.BotonOpcionChicoLargo;
+import edu.fiuba.algo3.interfaz.botones.tipoBoton.Seleccionable;
 import edu.fiuba.algo3.interfaz.botones.tipoBoton.TipoBoton;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
+
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 
 public class DistribuidorDeCuatroOpciones extends StackPane {
 
-    public DistribuidorDeCuatroOpciones(ArrayList<String> opciones, TipoBoton tipoBoton) {
+    public DistribuidorDeCuatroOpciones(ArrayList<String> opciones, Class claseTipoBoton) {
 
-        this.agregarOpcion(opciones.get(0), -300, -50, Color.RED, tipoBoton);
-        this.agregarOpcion(opciones.get(1), 300, -50, Color.BLUE, tipoBoton);
-        this.agregarOpcion(opciones.get(2), -300, 60, Color.GOLD, tipoBoton);
-        this.agregarOpcion(opciones.get(3), 300, 60, Color.GREEN, tipoBoton);
+        this.agregarOpcion(opciones.get(0), -300, -50, Color.RED, claseTipoBoton);
+        this.agregarOpcion(opciones.get(1), 300, -50, Color.BLUE, claseTipoBoton);
+        this.agregarOpcion(opciones.get(2), -300, 60, Color.GOLD, claseTipoBoton);
+        this.agregarOpcion(opciones.get(3), 300, 60, Color.GREEN, claseTipoBoton);
     }
 
-    private void agregarOpcion(String enunciado, Integer desplazamientoEnX, Integer desplazamientoEnY, Color color, TipoBoton tipoBoton) {
+    private void agregarOpcion(String enunciado, Integer desplazamientoEnX, Integer desplazamientoEnY, Color color, Class claseTipoBoton) {
 
-        BotonOpcion opcion = new BotonOpcionChicoLargo(enunciado, desplazamientoEnX, desplazamientoEnY, color, tipoBoton);
+        BotonOpcion opcion = null;
+        try {
+            opcion = new BotonOpcionChicoLargo(enunciado, desplazamientoEnX, desplazamientoEnY, color, claseTipoBoton);
+        } catch (Exception e) {}
         this.getChildren().add(opcion);
     }
 }

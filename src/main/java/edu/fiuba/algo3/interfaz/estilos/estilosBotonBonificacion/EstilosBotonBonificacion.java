@@ -7,7 +7,7 @@ public class EstilosBotonBonificacion extends EstilosBotonSeleccionable {
 
     public EstilosBotonBonificacion(Boton unBoton) {
 
-        super(unBoton);
+        aplicarEstilos(unBoton);
         boton.setStyle("-fx-border-color: black; -fx-border-width: 4px");
     }
 }

@@ -1,10 +1,11 @@
 package edu.fiuba.algo3.interfaz.botones.tipoBoton;
 
+import edu.fiuba.algo3.interfaz.botones.Boton;
 import edu.fiuba.algo3.interfaz.estilos.estilosBotonPorTipo.EstilosBotonPorTipo;
 
 public abstract class TipoBoton {
 
-    Boolean seleccionado = false;
+    protected EstilosBotonPorTipo estilosBotonPorTipo;
 
     public void switchSeleccionado() throws Exception {
 
@@ -41,5 +42,5 @@ public abstract class TipoBoton {
         throw new Exception("Atributo 'posicionOrden' invalido.");
     }
 
-    public abstract EstilosBotonPorTipo obtenerEstiloBotonSegunTipo();
+    public abstract void aplicarEstilos(Boton unBoton);
 }

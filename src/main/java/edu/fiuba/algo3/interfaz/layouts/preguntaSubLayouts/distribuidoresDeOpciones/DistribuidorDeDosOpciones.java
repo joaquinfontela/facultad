@@ -6,9 +6,9 @@ import java.util.ArrayList;
 
 public class DistribuidorDeDosOpciones extends DistribuidorDeOpcionesGrandes {
 
-    public DistribuidorDeDosOpciones(ArrayList<String> opciones, TipoBoton tipoBoton) {
+    public DistribuidorDeDosOpciones(ArrayList<String> opciones, Class claseTipoBoton) {
 
-        this.agregarOpcion(opciones.get(0), -245, 5, Color.RED, tipoBoton);
-        this.agregarOpcion(opciones.get(1), 245, 5, Color.BLUE, tipoBoton);
+        this.agregarOpcion(opciones.get(0), -245, 5, Color.RED, claseTipoBoton);
+        this.agregarOpcion(opciones.get(1), 245, 5, Color.BLUE, claseTipoBoton);
     }
 }
