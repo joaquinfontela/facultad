@@ -23,7 +23,7 @@ public class BotonEnviarRespuestaHandler extends BotonTerminarTurnoHandler {
 
         try {
             Respuesta respuesta = gestor.crearRespuestaComparable();
-            respuesta.rellenar(new EnunciadosOpciones());
+            respuesta.rellenar(layoutActual.obtenerEnunciadosRespuestaUsuario());
             if (layoutActual.multiplicadorX2Seleccionado()) {
                 gestor.aplicarMultiplicadorX2DelJugadorActual();
             } else if (layoutActual.multiplicadorX3Seleccionado()) {

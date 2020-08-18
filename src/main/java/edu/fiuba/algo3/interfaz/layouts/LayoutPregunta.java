@@ -2,6 +2,7 @@ package edu.fiuba.algo3.interfaz.layouts;
 
 import edu.fiuba.algo3.controladores.BotonEnviarRespuestaHandler;
 import edu.fiuba.algo3.interfaz.botones.botonesComunes.BotonEnviarRespuesta;
+import edu.fiuba.algo3.interfaz.botones.botonesOpcion.BotonOpcion;
 import edu.fiuba.algo3.interfaz.layouts.preguntaSubLayouts.LayoutBonificaciones;
 import edu.fiuba.algo3.interfaz.layouts.preguntaSubLayouts.LayoutEnunciadoPregunta;
 import edu.fiuba.algo3.interfaz.layouts.preguntaSubLayouts.LayoutIzquierdoPregunta;
@@ -16,10 +17,12 @@ import javafx.scene.layout.CornerRadii;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
+import java.util.ArrayList;
+
 public abstract class LayoutPregunta extends BorderPane {
 
     protected GeneradorLayoutOpciones generadorLayoutOpciones;
-    protected EnunciadosOpciones enunciadosRespuestaJugador;
+    protected EnunciadosOpciones enunciadosRespuestaUsuario;
     private LayoutIzquierdoPregunta layoutIzquierdo;
     private LayoutBonificaciones layoutBonificaciones;
 
@@ -38,6 +41,13 @@ public abstract class LayoutPregunta extends BorderPane {
         botonEnviarRespuesta.setTranslateX(525.0);
         botonEnviarRespuesta.setOnAction(new BotonEnviarRespuestaHandler(stage, gestor, this));
         this.setBottom(botonEnviarRespuesta);
+    }
+
+    public abstract EnunciadosOpciones obtenerEnunciadosRespuestaUsuario();
+
+    protected ArrayList<BotonOpcion> obtenerBotones() {
+
+        return generadorLayoutOpciones.obtenerBotones();
     }
 
     public void detenerTemporizador() {

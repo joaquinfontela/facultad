@@ -26,6 +26,12 @@ public class Agrupable extends TipoBoton {
         return (grupo == "A");
     }
 
+    public Boolean fueAgrupadaEnElGrupoB() {
+
+        return (grupo == "B");
+    }
+
+
     @Override
     public void aplicarEstilos(Boton unBoton) {
 

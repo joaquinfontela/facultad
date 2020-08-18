@@ -3,7 +3,6 @@ package edu.fiuba.algo3.interfaz.estilos.estilosBotonPorTipo;
 import edu.fiuba.algo3.interfaz.botones.Boton;
 import edu.fiuba.algo3.interfaz.botones.tipoBoton.Seleccionable;
 import javafx.animation.FadeTransition;
-import javafx.scene.input.MouseEvent;
 import javafx.util.Duration;
 
 public class EstilosBotonSeleccionable implements EstilosBotonPorTipo {
