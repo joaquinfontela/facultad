@@ -1,16 +1,17 @@
 package edu.fiuba.algo3.controladores.controladoresBotonesOpcion;
 
+import edu.fiuba.algo3.interfaz.botones.Boton;
 import edu.fiuba.algo3.interfaz.botones.botonesOpcion.BotonOpcion;
 import edu.fiuba.algo3.interfaz.botones.tipoBoton.Seleccionable;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
-public class BotonOpcionSeleccionableHandler implements EventHandler<ActionEvent> {
+public class BotonSeleccionableHandler implements EventHandler<ActionEvent> {
 
-    private BotonOpcion boton;
+    private Boton boton;
     private Seleccionable tipoBoton;
 
-    public BotonOpcionSeleccionableHandler(BotonOpcion botonSeleccionable) {
+    public BotonSeleccionableHandler(Boton botonSeleccionable) {
 
         boton = botonSeleccionable;
         tipoBoton = (Seleccionable) boton.getTipo();

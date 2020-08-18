@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.interfaz.layouts.preguntaSubLayouts.distribuidoresDeOpciones;
 
 import edu.fiuba.algo3.controladores.controladoresBotonesOpcion.BotonAgrupableHandler;
-import edu.fiuba.algo3.controladores.controladoresBotonesOpcion.BotonOpcionSeleccionableHandler;
+import edu.fiuba.algo3.controladores.controladoresBotonesOpcion.BotonSeleccionableHandler;
 import edu.fiuba.algo3.controladores.controladoresBotonesOpcion.BotonOrdenableHandler;
 import edu.fiuba.algo3.interfaz.botones.botonesOpcion.BotonOpcion;
 import edu.fiuba.algo3.interfaz.botones.botonesOpcion.BotonOpcionChico;
@@ -27,7 +27,7 @@ public abstract class DistribuidorDeOpcionesChicas extends DistribuidorDeOpcione
             } else if (claseTipoBoton == Ordenable.class) {
                 opcion.setOnAction(new BotonOrdenableHandler(opcion));
             } else if (claseTipoBoton == Seleccionable.class) {
-                opcion.setOnAction(new BotonOpcionSeleccionableHandler(opcion));
+                opcion.setOnAction(new BotonSeleccionableHandler(opcion));
             }
         } catch (Exception e) { }
         this.getChildren().add(opcion);
