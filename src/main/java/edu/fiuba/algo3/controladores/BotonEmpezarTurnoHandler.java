@@ -1,6 +1,8 @@
 package edu.fiuba.algo3.controladores;
 
 import edu.fiuba.algo3.interfaz.layouts.LayoutPregunta;
+import edu.fiuba.algo3.interfaz.layouts.preguntaSubLayouts.layoutOpcionesPorTipoDePregunta.LayoutGroupChoice;
+import edu.fiuba.algo3.interfaz.layouts.preguntaSubLayouts.layoutOpcionesPorTipoDePregunta.LayoutMultipleChoice;
 import edu.fiuba.algo3.interfaz.layouts.preguntaSubLayouts.layoutOpcionesPorTipoDePregunta.LayoutOrderedChoice;
 import edu.fiuba.algo3.modelo.GestorDeJuego;
 import javafx.event.ActionEvent;
@@ -22,7 +24,7 @@ public class BotonEmpezarTurnoHandler implements EventHandler<ActionEvent> {
     @Override
     public void handle(ActionEvent event) {
 
-        LayoutPregunta layoutPregunta = new LayoutOrderedChoice(stage, gestor);
+        LayoutPregunta layoutPregunta = new LayoutMultipleChoice(stage, gestor);
         stage.setScene(new Scene(layoutPregunta, 640, 480));
     }
 }

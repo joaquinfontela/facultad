@@ -7,6 +7,4 @@ public interface EstilosBotonPorTipo {
     void aplicarEstilos(Boton unBoton);
 
     void eventoMousePasaPorArriba();
-
-    void eventoBotonClickeado();
 }

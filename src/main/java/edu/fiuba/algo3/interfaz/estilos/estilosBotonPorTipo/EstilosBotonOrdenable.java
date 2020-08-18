@@ -3,7 +3,6 @@ package edu.fiuba.algo3.interfaz.estilos.estilosBotonPorTipo;
 import edu.fiuba.algo3.interfaz.botones.Boton;
 import edu.fiuba.algo3.interfaz.botones.tipoBoton.Ordenable;
 import javafx.animation.FadeTransition;
-import javafx.scene.input.MouseEvent;
 import javafx.util.Duration;
 
 public class EstilosBotonOrdenable implements EstilosBotonPorTipo {
@@ -17,7 +16,6 @@ public class EstilosBotonOrdenable implements EstilosBotonPorTipo {
         ordenable = (Ordenable) boton.getTipo();
 
         eventoMousePasaPorArriba();
-        eventoBotonClickeado();
     }
 
     public void eventoMousePasaPorArriba() {
@@ -38,29 +36,6 @@ public class EstilosBotonOrdenable implements EstilosBotonPorTipo {
         });
 
         boton.setOpacity(0.6);
-    }
-
-    public void eventoBotonClickeado() {
-
-        boton.setOnMouseClicked(e -> {
-
-            if (e.getEventType().equals(MouseEvent.MOUSE_CLICKED)){
-                if (ordenable.getPosicionOrden() == null) {
-                    ordenable.asignarOrden();
-                } else {
-                    ordenable.desasignarOrden();
-                }
-            }
-        });
-    }
-
-    public void actualizarOrden() {
-
-        if (ordenable.getPosicionOrden() == null) {
-            boton.setText(boton.getText().substring(0, boton.getText().length() - 4));
-        } else {
-            boton.setText(boton.getText() + " (" + ordenable.getPosicionOrden().toString() + ")");
-        }
     }
 
 }

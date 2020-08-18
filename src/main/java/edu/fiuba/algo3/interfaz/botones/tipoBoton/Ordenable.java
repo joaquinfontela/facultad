@@ -16,7 +16,6 @@ public class Ordenable extends TipoBoton {
     public void asignarOrden() {
 
         this.posicionOrden = obtenerProximaPosicionAAsignar();
-        actualizarOrdenEnEstilos();
     }
 
     private Integer obtenerProximaPosicionAAsignar() {
@@ -32,21 +31,14 @@ public class Ordenable extends TipoBoton {
         return (mayorPosicion + 1);
     }
 
-    private void actualizarOrdenEnEstilos() {
-
-        EstilosBotonOrdenable estilosBotonAgrupable = (EstilosBotonOrdenable) estilosBotonPorTipo;
-        estilosBotonAgrupable.actualizarOrden();
-        estilosBotonPorTipo = estilosBotonAgrupable;
-    }
-
     public void desasignarOrden() {
 
         BotonOpcion botonEnLaSiguientePosicion = obtenerBotonEnLaSiguientePosicion();
         if (botonEnLaSiguientePosicion != null) {
             botonEnLaSiguientePosicion.desasignarOrden();
+            botonEnLaSiguientePosicion.setText(botonEnLaSiguientePosicion.getText().substring(0, botonEnLaSiguientePosicion.getText().length() - 4));
         }
         posicionOrden = null;
-        actualizarOrdenEnEstilos();
     }
 
     private BotonOpcion obtenerBotonEnLaSiguientePosicion() {

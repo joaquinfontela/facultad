@@ -59,7 +59,7 @@ public class Pregunta {
         return enunciadosOpciones;
     }
 
-    public Respuesta obtenerNuevaRespuestaComparable() {
+    public Respuesta crearRespuestaComparable() {
         return respuestaCorrecta.crearRespuestaComparable();
     }
 

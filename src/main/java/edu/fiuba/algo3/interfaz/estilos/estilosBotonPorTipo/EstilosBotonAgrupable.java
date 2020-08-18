@@ -22,7 +22,6 @@ public class EstilosBotonAgrupable implements EstilosBotonPorTipo {
         agrupable = (Agrupable) boton.getTipo();
 
         eventoMousePasaPorArriba();
-        eventoBotonClickeado();
     }
 
     public void eventoMousePasaPorArriba() {
@@ -42,29 +41,5 @@ public class EstilosBotonAgrupable implements EstilosBotonPorTipo {
         });
 
         boton.setOpacity(0.8);
-    }
-
-    public void eventoBotonClickeado() {
-
-        boton.setOnMouseClicked(e -> {
-
-            if (e.getEventType().equals(MouseEvent.MOUSE_CLICKED)){
-                try {
-                    agrupable.switchGrupo();
-                    actualizarGrupo();
-                } catch (Exception exception) { }
-            }
-        });
-    }
-
-    private void actualizarGrupo() throws Exception {
-
-        if (agrupable.fueAgrupadaEnElGrupoA()) {
-            boton.setBackground(new Background(new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY)));
-            boton.setTextFill(Color.BLACK);
-        } else {
-            boton.setBackground(new Background(new BackgroundFill(Color.BLACK, CornerRadii.EMPTY, Insets.EMPTY)));
-            boton.setTextFill(Color.WHITE);
-        }
     }
 }

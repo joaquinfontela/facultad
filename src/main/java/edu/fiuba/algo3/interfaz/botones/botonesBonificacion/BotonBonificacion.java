@@ -12,4 +12,10 @@ public abstract class BotonBonificacion extends Boton {
         this.setTranslateX(posX);
         this.setTranslateY(posY);
     }
+
+    public boolean fueSeleccionado() {
+
+        Seleccionable tipoSeleccionable = (Seleccionable) this.tipo;
+        return tipoSeleccionable.fueSeleccionado();
+    }
 }

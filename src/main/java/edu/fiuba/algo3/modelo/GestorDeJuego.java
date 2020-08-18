@@ -175,4 +175,8 @@ public class GestorDeJuego {
 
         return preguntaActual.esTipoDeRespuestaComparable(clase);
     }
+
+    public Respuesta crearRespuestaComparable() {
+        return preguntaActual.crearRespuestaComparable();
+    }
 }

@@ -7,6 +7,7 @@ import edu.fiuba.algo3.interfaz.layouts.preguntaSubLayouts.LayoutEnunciadoPregun
 import edu.fiuba.algo3.interfaz.layouts.preguntaSubLayouts.LayoutIzquierdoPregunta;
 import edu.fiuba.algo3.interfaz.layouts.preguntaSubLayouts.generadoresDeLayouts.GeneradorLayoutOpciones;
 import edu.fiuba.algo3.modelo.GestorDeJuego;
+import edu.fiuba.algo3.modelo.pregunta.pregunta.EnunciadosOpciones;
 import javafx.geometry.Insets;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
@@ -18,11 +19,13 @@ import javafx.stage.Stage;
 public abstract class LayoutPregunta extends BorderPane {
 
     protected GeneradorLayoutOpciones generadorLayoutOpciones;
+    protected EnunciadosOpciones enunciadosRespuestaJugador;
     private LayoutIzquierdoPregunta layoutIzquierdo;
+    private LayoutBonificaciones layoutBonificaciones;
 
     public LayoutPregunta(Stage stage, GestorDeJuego gestor) {
 
-        LayoutBonificaciones layoutBonificaciones = new LayoutBonificaciones(gestor);
+        layoutBonificaciones = new LayoutBonificaciones(gestor);
         layoutIzquierdo = new LayoutIzquierdoPregunta(stage, gestor);
         LayoutEnunciadoPregunta layoutEnunciado = new LayoutEnunciadoPregunta(gestor.obtenerEnunciadoPreguntaActual());
         this.setBackground(new Background(new BackgroundFill(Color.DIMGRAY, CornerRadii.EMPTY, Insets.EMPTY)));
@@ -39,5 +42,17 @@ public abstract class LayoutPregunta extends BorderPane {
 
     public void detenerTemporizador() {
         layoutIzquierdo.detenerTemporizador();
+    }
+
+    public boolean multiplicadorX2Seleccionado() {
+        return layoutBonificaciones.multiplicadorX2Seleccionado();
+    }
+
+    public boolean multiplicadorX3Seleccionado() {
+        return layoutBonificaciones.multiplicadorX3Seleccionado();
+    }
+
+    public boolean exclusividadSeleccionada() {
+        return layoutBonificaciones.exclusividadSeleccionada();
     }
 }

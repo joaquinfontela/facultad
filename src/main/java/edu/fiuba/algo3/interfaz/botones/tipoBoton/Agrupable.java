@@ -5,26 +5,25 @@ import edu.fiuba.algo3.interfaz.estilos.estilosBotonPorTipo.EstilosBotonAgrupabl
 
 public class Agrupable extends TipoBoton {
 
-    private char grupo;
+    private String grupo;
 
     public Agrupable() {
 
-        grupo = 'A';
-        estilosBotonPorTipo = new EstilosBotonAgrupable();
+        grupo = null;
     }
 
     public void switchGrupo() {
 
-        if (grupo == 'A') {
-            grupo = 'B';
+        if (grupo == "B" || grupo == null) {
+            grupo = "A";
         } else {
-            grupo = 'A';
+            grupo = "B";
         }
     }
 
     public Boolean fueAgrupadaEnElGrupoA() {
 
-        return (grupo == 'A');
+        return (grupo == "A");
     }
 
     @Override

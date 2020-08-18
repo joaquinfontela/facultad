@@ -13,4 +13,9 @@ public abstract class DistribuidorDeOpciones extends StackPane {
 
         botones = new ArrayList<>();
     }
+
+    public ArrayList<BotonOpcion> obtenerBotones() {
+
+        return botones;
+    }
 }

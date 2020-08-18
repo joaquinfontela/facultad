@@ -8,8 +8,8 @@ import java.util.ArrayList;
 
 public abstract class TipoBoton {
 
-    protected EstilosBotonPorTipo estilosBotonPorTipo;
     protected ArrayList<BotonOpcion> botonesDeLaMismaPregunta;
+    protected EstilosBotonPorTipo estilosBotonPorTipo;
 
     public TipoBoton() {
 

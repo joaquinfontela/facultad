@@ -17,7 +17,6 @@ public class EstilosBotonSeleccionable implements EstilosBotonPorTipo {
         seleccionable = (Seleccionable) boton.getTipo();
 
         eventoMousePasaPorArriba();
-        eventoBotonClickeado();
     }
 
     public void eventoMousePasaPorArriba() {
@@ -53,30 +52,5 @@ public class EstilosBotonSeleccionable implements EstilosBotonPorTipo {
         });
 
         boton.setOpacity(0.6);
-    }
-
-    public void eventoBotonClickeado() {
-
-        boton.setOnMouseClicked(e -> {
-
-            if (e.getEventType().equals(MouseEvent.MOUSE_CLICKED)){
-                try {
-                    System.out.println("MOUSE CLICKEADO");
-                    seleccionable.switchSeleccionado();
-                    actualizarOpacidad();
-                } catch (Exception exception) {
-                    System.out.println("EXC 3");
-                }
-            }
-        });
-    }
-
-    private void actualizarOpacidad() throws Exception {
-
-        if (seleccionable.fueSeleccionado()) {
-            boton.setOpacity(1.0);
-        } else {
-            boton.setOpacity(0.6);
-        }
     }
 }
