@@ -13,11 +13,11 @@ public class ContadorPregunta extends StackPane {
 
     ContadorPregunta(Integer numPreguntaActual, Integer numPreguntasTotales) {
 
-        this.setMaxSize(100, 80);
-        this.setMinSize(100, 80);
+        this.setMaxSize(120, 80);
+        this.setMinSize(120, 80);
         this.setTranslateY(175.0);
         this.setStyle("-fx-border-color: gold; -fx-border-width: 2px");
-        this.setBackground(new Background(new BackgroundFill(Color.BLACK, CornerRadii.EMPTY, Insets.EMPTY)));
+        this.setBackground(new Background(new BackgroundFill(Color.PURPLE, CornerRadii.EMPTY, Insets.EMPTY)));
 
         int preguntaActual = numPreguntaActual;
         int preguntasTotales = numPreguntasTotales;

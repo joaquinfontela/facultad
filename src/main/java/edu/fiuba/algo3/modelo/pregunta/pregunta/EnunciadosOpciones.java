@@ -11,19 +11,15 @@ public class EnunciadosOpciones {
     public EnunciadosOpciones(){
 
         opciones = new HashMap<>();
+        for (int i = 0; i < 5; i ++) {
+            opciones.put(i, new ArrayList<>());
+        }
         orden = 0;
     }
 
     public void agregarEnunciadoEidentificador(int identificador, String enunciado) {
 
-        ArrayList<String> enunciadosActuales;
-        if (opciones.get(identificador) == null) {
-            enunciadosActuales = new ArrayList<>();
-        } else {
-            enunciadosActuales = opciones.get(identificador);
-        }
-        enunciadosActuales.add(enunciado);
-        opciones.put(identificador, enunciadosActuales);
+        opciones.get(identificador).add(enunciado);
     }
 
     public void agregarEnunciadoElegido(String enunciado) {
