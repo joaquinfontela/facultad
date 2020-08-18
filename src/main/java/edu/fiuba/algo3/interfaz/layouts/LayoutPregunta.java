@@ -22,7 +22,6 @@ import java.util.ArrayList;
 public abstract class LayoutPregunta extends BorderPane {
 
     protected GeneradorLayoutOpciones generadorLayoutOpciones;
-    protected EnunciadosOpciones enunciadosRespuestaUsuario;
     private LayoutIzquierdoPregunta layoutIzquierdo;
     private LayoutBonificaciones layoutBonificaciones;
 

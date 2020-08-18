@@ -24,7 +24,7 @@ public class LayoutOrderedChoice extends LayoutPregunta {
 
         for (BotonOpcion botonOpcion : this.obtenerBotones()) {
 
-            if (botonOpcion.obtenerPosicionOrden() != null) {
+            if (botonOpcion.obtenerPosicionOrden() == null) {
                 cantidadDeOpcionesSinOrdenar++;
             } else {
                 enunciadosRespuestaUsuario.agregarEnunciadoEidentificador(botonOpcion.obtenerPosicionOrden() - 1,
@@ -34,7 +34,7 @@ public class LayoutOrderedChoice extends LayoutPregunta {
         }
 
         for (int i = 0; i < cantidadDeOpcionesSinOrdenar; i++) {
-            enunciadosRespuestaUsuario.agregarEnunciadoEidentificador(cantidadDeOpcionesOrdenadas + i, null);
+            enunciadosRespuestaUsuario.agregarEnunciadoEidentificador(cantidadDeOpcionesOrdenadas + i, "");
         }
 
         return enunciadosRespuestaUsuario;

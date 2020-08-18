@@ -32,12 +32,12 @@ public class BotonEnviarRespuestaHandler extends BotonTerminarTurnoHandler {
                 gestor.aplicarExclusividadDelJugadorActual();
             }
             gestor.terminarTurno(respuesta);
+            layoutActual.detenerTemporizador();
+            this.cambiarEscena();
         } catch (Exception e) {
             Alert alerta = new Alert(Alert.AlertType.ERROR);
             alerta.setContentText(e.getMessage());
             alerta.show();
         }
-        layoutActual.detenerTemporizador();
-        this.cambiarEscena();
     }
 }
