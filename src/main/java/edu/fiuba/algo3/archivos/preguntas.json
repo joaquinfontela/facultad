@@ -3,7 +3,25 @@
     {
       "modalidad id": 1,
       "tipo pregunta id": 1,
+      "enunciado": "River tiene mas copas libertadores que Estudiantes",
+      "opciones": {
+        "0": ["Verdadero"],
+        "1": ["Falso"]
+      }
+    },
+    {
+      "modalidad id": 1,
+      "tipo pregunta id": 1,
       "enunciado": "La seleccion de futbol de Brasil ha ganado cinco mundiales a lo largo de su historia.",
+      "opciones": {
+        "0": ["Falso"],
+        "1": ["Verdadero"]
+      }
+    },
+    {
+      "modalidad id": 2,
+      "tipo pregunta id": 1,
+      "enunciado": "Los Pumas nunca llegaron a la final del mundial de rugby",
       "opciones": {
         "0": ["Falso"],
         "1": ["Verdadero"]
@@ -21,6 +39,15 @@
     {
       "modalidad id": 1,
       "tipo pregunta id": 2,
+      "enunciado": "¿Cuales de los siguientes ajedrecistas disputaron el titulo mundial en 2018?",
+      "opciones": {
+        "0": ["Hikaru Nakamura", "Ding Liren", "Peter Svidler"],
+        "1": ["Magnus Carlsen", "Fabiano Caruana"]
+      }
+    },
+    {
+      "modalidad id": 1,
+      "tipo pregunta id": 2,
       "enunciado": "Cuales de los siguientes equipos fueron finalistas de la Copa del Mundo de 1998?",
       "opciones": {
         "0": ["Italia", "Alemania", "Argentina"],
@@ -30,10 +57,28 @@
     {
       "modalidad id": 2,
       "tipo pregunta id": 2,
+      "enunciado": "¿Cuales de los siguientes tenistas lograron defender el año siguiente su titulo en el US Open?",
+      "opciones": {
+        "0": ["Rafael Nadal", "Andy Roddick", "Novak Djokovic"],
+        "1": ["Roger Federer", "Patrick Rafter"]
+      }
+    },
+    {
+      "modalidad id": 2,
+      "tipo pregunta id": 2,
       "enunciado": "Cuales de los siguientes futbolistas han marcado en la final de una copa mundial?",
       "opciones": {
         "0": ["Miroslav Klose (Alemania)", "Diego Maradona (Argentina)"],
         "1": ["Pele (Brasil)", "Zinedine Zidane (Francia)", "Mario Kempes (Argentina)"]
+      }
+    },
+    {
+      "modalidad id": 3,
+      "tipo pregunta id": 2,
+      "enunciado": "¿Cuales de los siguientes futbolistas ganaron la champions y la libertadores?",
+      "opciones": {
+        "0": ["Messi"],
+        "1": ["Neymar", "Tevez", "Ronaldinho"]
       }
     },
     {
@@ -56,6 +101,24 @@
     },
     {
       "modalidad id": 1,
+      "tipo pregunta id": 3,
+      "enunciado": "Agrupar los siguientes torneos segun si son de la categoria ATP 500 o no.",
+      "opciones": {
+        "0": ["Buenos Aires", "Estocolmo", "Indian Wells"],
+        "1": ["Basilea", "Halle", "Washington"]
+      }
+    },
+    {
+      "modalidad id": 1,
+      "tipo pregunta id": 3,
+      "enunciado": "Agrupar los siguientes sedes de los juegos olimpicos segun si fueron en el siglo XXI o no.",
+      "opciones": {
+        "0": ["Atlanta", "Barcelona"],
+        "1": ["Londres", "Rio de Janeiro", "Atenas"]
+      }
+    },
+    {
+      "modalidad id": 1,
       "tipo pregunta id": 4,
       "enunciado": "Ordenar los siguientes paises segun la fecha de obtencion de su primer Copa Mundial (de mas antigua a mas reciente).",
       "opciones": {
@@ -64,6 +127,16 @@
         "2": ["Brasil"],
         "3": ["Argentina"],
         "4": ["Francia"]
+      }
+    },
+    {
+      "modalidad id": 1,
+      "tipo pregunta id": 4,
+      "enunciado": "Ordenar los siguientes tenistas segun la fecha de obtencion de su primer grand slam (de mas antigua a mas reciente).",
+      "opciones": {
+        "0": ["Connors"],
+        "1": ["Edberg"],
+        "2": ["Becker"]
       }
     }
   ]

@@ -1,8 +1,8 @@
 package edu.fiuba.algo3.interfaz.layouts.preguntaSubLayouts.distribuidoresDeOpciones;
 
 import edu.fiuba.algo3.controladores.controladoresBotonesOpcion.BotonAgrupableHandler;
-import edu.fiuba.algo3.controladores.controladoresBotonesOpcion.BotonSeleccionableHandler;
 import edu.fiuba.algo3.controladores.controladoresBotonesOpcion.BotonOrdenableHandler;
+import edu.fiuba.algo3.controladores.controladoresBotonesOpcion.BotonSeleccionableHandler;
 import edu.fiuba.algo3.interfaz.botones.botonesOpcion.BotonOpcion;
 import edu.fiuba.algo3.interfaz.botones.botonesOpcion.BotonOpcionChico;
 import edu.fiuba.algo3.interfaz.botones.tipoBoton.Agrupable;

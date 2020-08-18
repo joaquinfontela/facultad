@@ -2,7 +2,6 @@ package edu.fiuba.algo3.controladores;
 
 import edu.fiuba.algo3.interfaz.layouts.LayoutPregunta;
 import edu.fiuba.algo3.modelo.GestorDeJuego;
-import edu.fiuba.algo3.modelo.pregunta.pregunta.EnunciadosOpciones;
 import edu.fiuba.algo3.modelo.pregunta.respuesta.Respuesta;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;

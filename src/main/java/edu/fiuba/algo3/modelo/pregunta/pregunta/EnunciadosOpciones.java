@@ -84,7 +84,9 @@ public class EnunciadosOpciones {
 
         ArrayList<String> enunciadosOrdenados = new ArrayList<>();
         for (int i = 0; i < opciones.size(); i++) {
-            enunciadosOrdenados.add(opciones.get(i).get(0));
+            if (opciones.get(i).size() > 0) {
+                enunciadosOrdenados.add(opciones.get(i).get(0));
+            }
         }
         return enunciadosOrdenados;
     }
