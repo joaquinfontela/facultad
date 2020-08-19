@@ -42,6 +42,7 @@ public class LayoutOrderedChoice extends LayoutPregunta {
 
     @Override
     public boolean sePuedeEnviarRespuesta() {
+
         for (BotonOpcion botonOpcion : this.obtenerBotones()) {
             if (botonOpcion.obtenerPosicionOrden() == null) {
                 return false;

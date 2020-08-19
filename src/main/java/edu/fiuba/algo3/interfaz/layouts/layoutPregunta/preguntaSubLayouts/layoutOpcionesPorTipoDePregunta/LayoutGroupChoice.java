@@ -35,6 +35,7 @@ public class LayoutGroupChoice extends LayoutPregunta {
 
     @Override
     public boolean sePuedeEnviarRespuesta() {
+
         for (BotonOpcion botonOpcion : this.obtenerBotones()) {
             Agrupable tipoBoton = (Agrupable) botonOpcion.getTipo();
             if (!(tipoBoton.fueAgrupadaEnElGrupoA()) && !(tipoBoton.fueAgrupadaEnElGrupoB())) {

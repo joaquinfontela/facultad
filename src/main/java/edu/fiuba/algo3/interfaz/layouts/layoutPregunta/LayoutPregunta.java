@@ -75,13 +75,16 @@ public abstract class LayoutPregunta extends BorderPane {
 
     protected abstract boolean sePuedeEnviarRespuesta();
 
-    private void actualizarEnviarRespuesta(){
-        if(sePuedeEnviarRespuesta()){
+    private void actualizarEnviarRespuesta() {
+
+        if(this.sePuedeEnviarRespuesta()){
             botonEnviarRespuesta.setDisable(false);
-            botonEnviarRespuesta.setBackground(new Background(new BackgroundFill(Color.DARKGREEN, CornerRadii.EMPTY, Insets.EMPTY)));
+            botonEnviarRespuesta.setBackground(new Background(new BackgroundFill(Color.DARKGREEN,
+                    CornerRadii.EMPTY, Insets.EMPTY)));
         }
     }
-    private void agregarAnimacionEnviarRespuesta(){
+    private void agregarAnimacionEnviarRespuesta() {
+
         Timer timer = new Timer();
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override

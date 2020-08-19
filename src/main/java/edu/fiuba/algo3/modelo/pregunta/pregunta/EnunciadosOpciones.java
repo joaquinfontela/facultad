@@ -41,6 +41,7 @@ public class EnunciadosOpciones {
     }
 
     public ArrayList<String> enunciadosCorrectos(){
+
         return opciones.get(1);
     }
 
