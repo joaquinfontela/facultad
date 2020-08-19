@@ -17,14 +17,8 @@ public abstract class DistribuidorDeOpcionesGrandes extends DistribuidorDeOpcion
         BotonOpcion opcion = null;
         try {
             opcion = new BotonOpcionGrande(enunciado, desplazamientoEnX, desplazamientoEnY, color, claseTipoBoton, botones);
-            if (claseTipoBoton == Agrupable.class) {
-                opcion.setOnAction((new BotonAgrupableHandler(opcion)));
-            } else if (claseTipoBoton == Ordenable.class) {
-                opcion.setOnAction(new BotonOrdenableHandler(opcion));
-            } else if (claseTipoBoton == Seleccionable.class) {
-                opcion.setOnAction(new BotonSeleccionableHandler(opcion));
-            }
         } catch (Exception e) {}
+        agregarHandler(claseTipoBoton, opcion);
         this.getChildren().add(opcion);
         botones.add(opcion);
     }
