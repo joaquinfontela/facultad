@@ -79,9 +79,12 @@ public abstract class LayoutPregunta extends BorderPane {
 
         if(this.sePuedeEnviarRespuesta()){
             botonEnviarRespuesta.setDisable(false);
-            botonEnviarRespuesta.setBackground(new Background(new BackgroundFill(Color.DARKGREEN,
-                    CornerRadii.EMPTY, Insets.EMPTY)));
+            botonEnviarRespuesta.setBackground(new Background(new BackgroundFill(Color.DARKGREEN, CornerRadii.EMPTY, Insets.EMPTY)));
+        }else{
+            botonEnviarRespuesta.setDisable(true);
+            botonEnviarRespuesta.setBackground(new Background(new BackgroundFill(Color.GRAY, CornerRadii.EMPTY, Insets.EMPTY)));
         }
+
     }
     private void agregarAnimacionEnviarRespuesta() {
 

@@ -10,7 +10,6 @@ public class EstilosBotonOpcionChicoLargo extends EstilosBotonOpcion {
     public EstilosBotonOpcionChicoLargo(Boton unBoton, Color color, TipoBoton tipoBoton) {
 
         super(unBoton, color, tipoBoton);
-
         boton.setFont(new Font("FreeSans", 25));
         boton.setPrefSize(490, 90);
     }
