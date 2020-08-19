@@ -49,4 +49,6 @@ public class LayoutMultipleChoice extends LayoutPregunta {
 
         return enunciadosRespuestaUsuario;
     }
+    @Override
+    public boolean sePuedeEnviarRespuesta(){return true;}
 }

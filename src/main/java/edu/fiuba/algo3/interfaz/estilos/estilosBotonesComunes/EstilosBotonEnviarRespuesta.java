@@ -15,7 +15,7 @@ public class EstilosBotonEnviarRespuesta extends EstilosBotonComun {
 
         super(unBoton);
 
-        boton.setBackground(new Background(new BackgroundFill(Color.DARKGREEN, CornerRadii.EMPTY, Insets.EMPTY)));
+        boton.setBackground(new Background(new BackgroundFill(Color.GRAY, CornerRadii.EMPTY, Insets.EMPTY)));
         boton.setPrefSize(150, 75);
 
         Tic formaBoton = new Tic();

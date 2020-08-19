@@ -3,13 +3,16 @@ package edu.fiuba.algo3.interfaz.layouts.layoutPregunta;
 import edu.fiuba.algo3.controladores.BotonEnviarRespuestaHandler;
 import edu.fiuba.algo3.interfaz.botones.botonesComunes.BotonEnviarRespuesta;
 import edu.fiuba.algo3.interfaz.botones.botonesOpcion.BotonOpcion;
+import edu.fiuba.algo3.interfaz.layouts.LayoutSeAcaboElTiempo;
 import edu.fiuba.algo3.interfaz.layouts.layoutPregunta.preguntaSubLayouts.LayoutBonificaciones;
 import edu.fiuba.algo3.interfaz.layouts.layoutPregunta.preguntaSubLayouts.LayoutEnunciadoPregunta;
 import edu.fiuba.algo3.interfaz.layouts.layoutPregunta.preguntaSubLayouts.LayoutIzquierdoPregunta;
 import edu.fiuba.algo3.interfaz.layouts.layoutPregunta.preguntaSubLayouts.generadoresDeLayouts.GeneradorLayoutOpciones;
 import edu.fiuba.algo3.modelo.GestorDeJuego;
 import edu.fiuba.algo3.modelo.pregunta.pregunta.EnunciadosOpciones;
+import javafx.application.Platform;
 import javafx.geometry.Insets;
+import javafx.scene.Scene;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.BorderPane;
@@ -18,12 +21,15 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public abstract class LayoutPregunta extends BorderPane {
 
     protected GeneradorLayoutOpciones generadorLayoutOpciones;
     private LayoutIzquierdoPregunta layoutIzquierdo;
     private LayoutBonificaciones layoutBonificaciones;
+    private BotonEnviarRespuesta  botonEnviarRespuesta;
 
     public LayoutPregunta(Stage stage, GestorDeJuego gestor) {
 
@@ -35,11 +41,13 @@ public abstract class LayoutPregunta extends BorderPane {
         this.setRight(layoutBonificaciones);
         this.setLeft(layoutIzquierdo);
 
-        BotonEnviarRespuesta botonEnviarRespuesta = new BotonEnviarRespuesta();
+        botonEnviarRespuesta = new BotonEnviarRespuesta();
         botonEnviarRespuesta.setTranslateY(-10.0);
         botonEnviarRespuesta.setTranslateX(525.0);
         botonEnviarRespuesta.setOnAction(new BotonEnviarRespuestaHandler(stage, gestor, this));
+        botonEnviarRespuesta.setDisable(true);
         this.setBottom(botonEnviarRespuesta);
+        agregarAnimacionEnviarRespuesta();
     }
 
     public abstract EnunciadosOpciones obtenerEnunciadosRespuestaUsuario();
@@ -63,5 +71,28 @@ public abstract class LayoutPregunta extends BorderPane {
 
     public boolean exclusividadSeleccionada() {
         return layoutBonificaciones.exclusividadSeleccionada();
+    }
+
+    protected abstract boolean sePuedeEnviarRespuesta();
+
+    private void actualizarEnviarRespuesta(){
+        if(sePuedeEnviarRespuesta()){
+            botonEnviarRespuesta.setDisable(false);
+            botonEnviarRespuesta.setBackground(new Background(new BackgroundFill(Color.DARKGREEN, CornerRadii.EMPTY, Insets.EMPTY)));
+        }
+    }
+    private void agregarAnimacionEnviarRespuesta(){
+        Timer timer = new Timer();
+        timer.scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+                Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        actualizarEnviarRespuesta();
+                    }
+                });
+            }
+        }, 10, 10);
     }
 }

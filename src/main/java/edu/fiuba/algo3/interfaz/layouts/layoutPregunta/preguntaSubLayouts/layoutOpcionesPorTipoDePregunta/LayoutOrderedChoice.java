@@ -28,7 +28,7 @@ public class LayoutOrderedChoice extends LayoutPregunta {
                 cantidadDeOpcionesSinOrdenar++;
             } else {
                 enunciadosRespuestaUsuario.agregarEnunciadoEidentificador(botonOpcion.obtenerPosicionOrden() - 1,
-                                                        botonOpcion.getText().substring(0, botonOpcion.getText().length() - 4));
+                        botonOpcion.getText().substring(0, botonOpcion.getText().length() - 4));
                 cantidadDeOpcionesOrdenadas++;
             }
         }
@@ -38,5 +38,15 @@ public class LayoutOrderedChoice extends LayoutPregunta {
         }
 
         return enunciadosRespuestaUsuario;
+    }
+
+    @Override
+    public boolean sePuedeEnviarRespuesta() {
+        for (BotonOpcion botonOpcion : this.obtenerBotones()) {
+            if (botonOpcion.obtenerPosicionOrden() == null) {
+                return false;
+            }
+        }
+        return true;
     }
 }
