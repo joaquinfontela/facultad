@@ -11,7 +11,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
-public abstract class BotonTerminarTurnoHandler implements EventHandler<ActionEvent> {
+public abstract class BotonTerminarTurnoHandler extends AlertHandler {
 
     protected Stage stage;
     protected GestorDeJuego gestor;

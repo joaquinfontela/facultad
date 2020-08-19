@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
 
-public class BotonRegistroHandler implements EventHandler<ActionEvent> {
+public class BotonRegistroHandler extends AlertHandler {
 
     private Stage stage;
     private LayoutRegistro layoutActual;
@@ -35,9 +35,7 @@ public class BotonRegistroHandler implements EventHandler<ActionEvent> {
             LayoutPreturno layoutPreturno = new LayoutPreturno(stage, gestor);
             stage.setScene(new Scene(layoutPreturno, 640, 480));
         } catch (Exception exception) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setContentText(exception.getMessage());
-            alert.show();
+            this.mostrarAlerta(exception);
         }
     }
 
