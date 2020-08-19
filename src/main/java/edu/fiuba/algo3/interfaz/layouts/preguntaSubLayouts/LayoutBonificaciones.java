@@ -15,16 +15,19 @@ public class LayoutBonificaciones extends StackPane {
     public LayoutBonificaciones(GestorDeJuego gestor) {
 
         botonExclusividad = new BotonExclusividad(-50,-420);
+        ListaDeBotonesMultiplicador listaDeBotonesMultiplicador = new ListaDeBotonesMultiplicador();
         if (!gestor.jugadorActualTieneAlgunaExclusividad() || !gestor.sePuedeUsarExclusividad()){
             botonExclusividad.setDisable(true);
         }
         this.getChildren().add(botonExclusividad);
         botonMultiplicadorX2 = new BotonMultiplicadorX2(-50, -285);
+        listaDeBotonesMultiplicador.add(botonMultiplicadorX2);
         if (!gestor.jugadorActualTieneAlgunMultiplicadorX2() || gestor.sePuedeUsarExclusividad()) {
             botonMultiplicadorX2.setDisable(true);
         }
         this.getChildren().add(botonMultiplicadorX2);
         botonMultiplicadorX3 = new BotonMultiplicadorX3(-50, -170);
+        listaDeBotonesMultiplicador.add(botonMultiplicadorX3);
         if (!gestor.jugadorActualTieneAlgunMultiplicadorX3() || gestor.sePuedeUsarExclusividad()) {
             botonMultiplicadorX3.setDisable(true);
         }
