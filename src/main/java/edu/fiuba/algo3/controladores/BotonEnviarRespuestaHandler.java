@@ -23,17 +23,23 @@ public class BotonEnviarRespuestaHandler extends BotonTerminarTurnoHandler {
         try {
             Respuesta respuesta = gestor.crearRespuestaComparable();
             respuesta.rellenar(layoutActual.obtenerEnunciadosRespuestaUsuario());
-            if (layoutActual.multiplicadorX2Seleccionado()) {
-                gestor.aplicarMultiplicadorX2DelJugadorActual();
-            } else if (layoutActual.multiplicadorX3Seleccionado()) {
-                gestor.aplicarMultiplicadorX3DelJugadorActual();
-            } else if (layoutActual.exclusividadSeleccionada()) {
-                gestor.aplicarExclusividadDelJugadorActual();
-            }
+            this.verificarBonificaciones();
             gestor.terminarTurno(respuesta);
             layoutActual.detenerTemporizador();
+            this.cambiarEscena();
         } catch (Exception exception) {
             this.mostrarAlerta(exception);
+        }
+    }
+
+    private void verificarBonificaciones() throws Exception {
+
+        if (layoutActual.multiplicadorX2Seleccionado()) {
+            gestor.aplicarMultiplicadorX2DelJugadorActual();
+        } else if (layoutActual.multiplicadorX3Seleccionado()) {
+            gestor.aplicarMultiplicadorX3DelJugadorActual();
+        } else if (layoutActual.exclusividadSeleccionada()) {
+            gestor.aplicarExclusividadDelJugadorActual();
         }
     }
 }
