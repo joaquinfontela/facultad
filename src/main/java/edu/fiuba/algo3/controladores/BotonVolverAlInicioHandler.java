@@ -6,11 +6,11 @@ import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class BotonVolverAlMenuHandler implements EventHandler<ActionEvent> {
+public class BotonVolverAlInicioHandler implements EventHandler<ActionEvent> {
 
     private Stage stage;
 
-    public BotonVolverAlMenuHandler(Stage unStage) {
+    public BotonVolverAlInicioHandler(Stage unStage) {
         stage = unStage;
     }
 

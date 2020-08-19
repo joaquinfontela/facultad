@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.interfaz.layouts;
 
-import edu.fiuba.algo3.controladores.BotonJugarHandler;
-import edu.fiuba.algo3.interfaz.botones.botonesComunes.BotonJugar;
+import edu.fiuba.algo3.controladores.BotonInicioHandler;
+import edu.fiuba.algo3.interfaz.botones.botonesComunes.BotonInicio;
 import javafx.geometry.Insets;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -26,9 +26,9 @@ public class LayoutInicio extends StackPane {
         this.setBackground(new Background(new BackgroundFill(Color.web("f17316"), CornerRadii.EMPTY, Insets.EMPTY)));
         this.getChildren().add(imageView);
 
-        BotonJugar boton = new BotonJugar();
+        BotonInicio boton = new BotonInicio();
         boton.setTranslateY(200);
-        boton.setOnAction(new BotonJugarHandler(stage));
+        boton.setOnAction(new BotonInicioHandler(stage));
 
         this.getChildren().add(boton);
     }

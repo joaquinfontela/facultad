@@ -24,9 +24,9 @@ public class LayoutGroupChoice extends LayoutPregunta {
         for (BotonOpcion botonOpcion : this.obtenerBotones()) {
             Agrupable tipoBoton = (Agrupable) botonOpcion.getTipo();
             if (tipoBoton.fueAgrupadaEnElGrupoA()) {
-                enunciadosRespuestaUsuario.agregarEnunciadoEidentificador(0, botonOpcion.getText());
-            } if (tipoBoton.fueAgrupadaEnElGrupoB()) {
-                enunciadosRespuestaUsuario.agregarEnunciadoEidentificador(1, botonOpcion.getText());
+                enunciadosRespuestaUsuario.agregarEnunciadoGrupoA(botonOpcion.getText());
+            } else if (tipoBoton.fueAgrupadaEnElGrupoB()) {
+                enunciadosRespuestaUsuario.agregarEnunciadoGrupoB(botonOpcion.getText());
             }
         }
 

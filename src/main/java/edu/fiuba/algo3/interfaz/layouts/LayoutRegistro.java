@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.interfaz.layouts;
 
-import edu.fiuba.algo3.controladores.BotonPreturnoHandler;
-import edu.fiuba.algo3.interfaz.botones.botonesComunes.BotonPreturno;
+import edu.fiuba.algo3.controladores.BotonRegistroHandler;
+import edu.fiuba.algo3.interfaz.botones.botonesComunes.BotonRegistro;
 import edu.fiuba.algo3.interfaz.layouts.registroSublayouts.LayoutRegistroJugadores;
 import edu.fiuba.algo3.interfaz.layouts.registroSublayouts.LayoutSeleccionRondas;
 import javafx.scene.layout.BorderPane;
@@ -13,7 +13,7 @@ public class LayoutRegistro extends BorderPane{
 
     private LayoutRegistroJugadores layoutRegistroJugadores;
     private LayoutSeleccionRondas layoutSeleccionRondas;
-    private BotonPreturno botonComenzar;
+    private BotonRegistro botonRegistro;
 
     public LayoutRegistro(Stage stage) {
 
@@ -25,11 +25,11 @@ public class LayoutRegistro extends BorderPane{
         layoutRegistroJugadores = new LayoutRegistroJugadores();
         this.setTop(layoutRegistroJugadores);
 
-        botonComenzar = new BotonPreturno();
-        botonComenzar.setTranslateX(360.0);
-        botonComenzar.setTranslateY(-30.0);
-        botonComenzar.setOnAction(new BotonPreturnoHandler(stage,this));
-        this.setBottom(botonComenzar);
+        botonRegistro = new BotonRegistro();
+        botonRegistro.setTranslateX(360.0);
+        botonRegistro.setTranslateY(-30.0);
+        botonRegistro.setOnAction(new BotonRegistroHandler(stage,this));
+        this.setBottom(botonRegistro);
     }
 
     public ArrayList<String> obtenerNombresJugadores() throws Exception {

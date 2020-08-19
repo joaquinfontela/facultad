@@ -24,44 +24,22 @@ public class EnunciadosOpciones {
 
     public void agregarEnunciadoElegido(String enunciado) {
 
-        this.agregarEnunciado(enunciado, 1, 0);
+        this.agregarEnunciadoEidentificador(1, enunciado);
     }
 
     public void agregarEnunciadoNoElegido(String enunciado) {
 
-        this.agregarEnunciado(enunciado, 0, 1);
+        this.agregarEnunciadoEidentificador(0, enunciado);
     }
 
     public void agregarEnunciadoGrupoA(String enunciado) {
 
-        this.agregarEnunciado(enunciado, 0, 1);
+        this.agregarEnunciadoEidentificador(0, enunciado);
     }
 
     public void agregarEnunciadoGrupoB(String enunciado) {
 
-        this.agregarEnunciado(enunciado, 1, 0);
-    }
-
-    private void agregarEnunciado(String enunciado, int identificadorDondeAgregar, int identificadorDondeEliminar) {
-
-        opciones.get(identificadorDondeEliminar).remove(enunciado);
-        this.agregarEnunciadoEidentificador(identificadorDondeAgregar,enunciado);
-    }
-
-    public void agregarEnunciadoEnOrden(String enunciado) {
-
-        this.agregarEnunciadoEidentificador(orden, enunciado);
-        orden = orden + 1;
-    }
-
-    public void eliminarEnunciadoEnOrden(String enunciado) {
-
-        int contador = 0;
-        while (!opciones.get(contador).contains(enunciado) && contador < opciones.size()) contador++;
-        orden = contador;
-        for (int i = contador; i < opciones.size(); i++) {
-            opciones.remove(i);
-        }
+        this.agregarEnunciadoEidentificador(1, enunciado);
     }
 
     public ArrayList<String> enunciadosCorrectos(){

@@ -42,9 +42,9 @@ public class LayoutMultipleChoice extends LayoutPregunta {
         for (BotonOpcion botonOpcion : this.obtenerBotones()) {
             Seleccionable tipoBoton = (Seleccionable) botonOpcion.getTipo();
             if (tipoBoton.fueSeleccionado()) {
-                enunciadosRespuestaUsuario.agregarEnunciadoEidentificador(1, botonOpcion.getText());
+                enunciadosRespuestaUsuario.agregarEnunciadoElegido(botonOpcion.getText());
             } else {
-                enunciadosRespuestaUsuario.agregarEnunciadoEidentificador(0, botonOpcion.getText());
+                enunciadosRespuestaUsuario.agregarEnunciadoNoElegido(botonOpcion.getText());
             }
         }
 

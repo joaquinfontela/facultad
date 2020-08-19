@@ -4,9 +4,9 @@ import edu.fiuba.algo3.interfaz.estilos.EstilosBotonComun;
 import javafx.scene.control.Button;
 import javafx.scene.paint.Color;
 
-public class EstilosBotonJugar extends EstilosBotonComun {
+public class EstilosBotonInicio extends EstilosBotonComun {
 
-    public EstilosBotonJugar(Button unBoton){
+    public EstilosBotonInicio(Button unBoton){
 
         super(unBoton);
         boton.setText("JUGAR");

@@ -6,11 +6,11 @@ import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class BotonJugarHandler implements EventHandler<ActionEvent> {
+public class BotonInicioHandler implements EventHandler<ActionEvent> {
 
     private Stage stage;
 
-    public BotonJugarHandler(Stage unStage) {
+    public BotonInicioHandler(Stage unStage) {
 
         stage = unStage;
     }
