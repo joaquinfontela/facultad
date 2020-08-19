@@ -76,7 +76,7 @@ public class GestorDeJuego {
 
     public void aplicarMultiplicadorX2DelJugadorActual() throws Exception {
 
-        if (!juegoEnProgreso) throw new Exception("El juego ha finalizgestorado");
+        if (!juegoEnProgreso) throw new Exception("El juego ha finalizado");
         Jugador jugadorActual = jugadoresRegistrados.get(turnoActual);
         preguntaActual.recibirBonificacion(jugadorActual.obtenerMultiplicadorX2());
         jugadorActual.eliminarMultiplicadorX2();
