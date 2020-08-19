@@ -14,7 +14,7 @@ public class Agrupable extends TipoBoton {
 
     public void switchGrupo() {
 
-        if (grupo == "B" || grupo == null) {
+        if (grupo == "B") {
             grupo = "A";
         } else {
             grupo = "B";

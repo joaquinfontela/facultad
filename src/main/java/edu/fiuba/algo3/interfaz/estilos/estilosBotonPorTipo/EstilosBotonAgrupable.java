@@ -2,6 +2,8 @@ package edu.fiuba.algo3.interfaz.estilos.estilosBotonPorTipo;
 
 import edu.fiuba.algo3.interfaz.botones.Boton;
 import edu.fiuba.algo3.interfaz.botones.tipoBoton.Agrupable;
+import edu.fiuba.algo3.interfaz.estilos.FadeInBoton;
+import edu.fiuba.algo3.interfaz.estilos.FadeOutBoton;
 import javafx.animation.FadeTransition;
 import javafx.geometry.Insets;
 import javafx.scene.layout.Background;
@@ -27,19 +29,8 @@ public class EstilosBotonAgrupable implements EstilosBotonPorTipo {
 
     public void eventoMousePasaPorArriba() {
 
-        final FadeTransition fadeIn = new FadeTransition(Duration.millis(100));
-        fadeIn.setNode(boton);
-        fadeIn.setToValue(1.0);
-        boton.setOnMouseEntered(e -> {
-            fadeIn.playFromStart();
-        });
-
-        final FadeTransition fadeOut = new FadeTransition(Duration.millis(100));
-        fadeOut.setNode(boton);
-        fadeOut.setToValue(0.8);
-        boton.setOnMouseExited(e -> {
-            fadeOut.playFromStart();
-        });
+        new FadeInBoton(boton, 1.0);
+        new FadeOutBoton(boton, 0.8);
 
         boton.setOpacity(0.8);
     }
