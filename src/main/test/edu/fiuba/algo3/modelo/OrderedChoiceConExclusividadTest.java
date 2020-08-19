@@ -1,13 +1,13 @@
-//package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.modelo;
 
 import edu.fiuba.algo3.modelo.jugador.Jugador;
+import edu.fiuba.algo3.modelo.jugador.RespuestaDeJugador;
 import edu.fiuba.algo3.modelo.pregunta.modalidad.bonificacion.ExclusividadDePuntaje;
 import edu.fiuba.algo3.modelo.pregunta.modalidad.modalidad.Modalidad;
 import edu.fiuba.algo3.modelo.pregunta.modalidad.modalidad.ModalidadClasica;
 import edu.fiuba.algo3.modelo.pregunta.pregunta.EnunciadosOpciones;
 import edu.fiuba.algo3.modelo.pregunta.pregunta.Pregunta;
 import edu.fiuba.algo3.modelo.pregunta.respuesta.Respuesta;
-import edu.fiuba.algo3.modelo.pregunta.respuesta.RespuestaDeJugador;
 import edu.fiuba.algo3.modelo.pregunta.respuesta.RespuestaOrderedChoice;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

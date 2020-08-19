@@ -6,7 +6,6 @@ import java.util.HashMap;
 public class EnunciadosOpciones {
 
     private HashMap<Integer, ArrayList<String>> opciones;
-    private int orden;
 
     public EnunciadosOpciones(){
 
@@ -14,7 +13,6 @@ public class EnunciadosOpciones {
         for (int i = 0; i < 5; i ++) {
             opciones.put(i, new ArrayList<>());
         }
-        orden = 0;
     }
 
     public void agregarEnunciadoEidentificador(int identificador, String enunciado) {

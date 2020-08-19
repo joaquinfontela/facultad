@@ -1,6 +1,7 @@
-package edu.fiuba.algo3.modelo.pregunta.respuesta;
+package edu.fiuba.algo3.modelo.jugador;
 
-import edu.fiuba.algo3.modelo.jugador.Jugador;
+import edu.fiuba.algo3.modelo.pregunta.respuesta.EstadisticasRespuesta;
+import edu.fiuba.algo3.modelo.pregunta.respuesta.Respuesta;
 
 public class RespuestaDeJugador {
 

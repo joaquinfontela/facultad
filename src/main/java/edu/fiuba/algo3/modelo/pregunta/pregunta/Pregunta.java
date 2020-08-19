@@ -1,9 +1,9 @@
 package edu.fiuba.algo3.modelo.pregunta.pregunta;
 
+import edu.fiuba.algo3.modelo.jugador.RespuestaDeJugador;
 import edu.fiuba.algo3.modelo.pregunta.modalidad.bonificacion.Bonificacion;
 import edu.fiuba.algo3.modelo.pregunta.modalidad.modalidad.Modalidad;
 import edu.fiuba.algo3.modelo.pregunta.respuesta.Respuesta;
-import edu.fiuba.algo3.modelo.pregunta.respuesta.RespuestaDeJugador;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -21,10 +21,6 @@ public class Pregunta {
         enunciado = enunciadoIngresado;
         respuestaCorrecta = respuestaIngresada;
     }
-
-    public void mostrarEnunciado() { }
-
-    public void mostrarOpciones() { }
 
     public Respuesta obtenerRespuestaCorrecta() {
 

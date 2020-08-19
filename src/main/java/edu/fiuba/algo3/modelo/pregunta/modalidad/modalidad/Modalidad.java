@@ -1,8 +1,8 @@
 package edu.fiuba.algo3.modelo.pregunta.modalidad.modalidad;
 
+import edu.fiuba.algo3.modelo.jugador.RespuestaDeJugador;
 import edu.fiuba.algo3.modelo.pregunta.modalidad.bonificacion.Bonificacion;
 import edu.fiuba.algo3.modelo.pregunta.respuesta.EstadisticasRespuesta;
-import edu.fiuba.algo3.modelo.pregunta.respuesta.RespuestaDeJugador;
 
 import java.util.ArrayList;
 

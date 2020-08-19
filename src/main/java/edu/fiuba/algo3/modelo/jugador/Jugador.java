@@ -44,7 +44,7 @@ public class Jugador {
 
     public Multiplicador obtenerMultiplicadorX2() throws Exception {
 
-        if (multiplicadoresX2.empty()) throw new Exception();
+        if (multiplicadoresX2.empty()) throw new Exception("No le quedan más multiplicadoresX2");
         return multiplicadoresX2.peek();
     }
 
@@ -58,7 +58,7 @@ public class Jugador {
 
     public Multiplicador obtenerMultiplicadorX3() throws Exception {
 
-        if (multiplicadoresX3.empty()) throw new Exception();
+        if (multiplicadoresX3.empty()) throw new Exception("No le quedan más multiplicadoresX3");
         return multiplicadoresX3.peek();
     }
 
@@ -72,7 +72,7 @@ public class Jugador {
 
     public ExclusividadDePuntaje obtenerExclusividad() throws Exception {
 
-        if (exclusividades.empty()) throw new Exception();
+        if (exclusividades.empty()) throw new Exception("No le quedan más exclusividades");
         return exclusividades.peek();
     }
 

@@ -1,11 +1,11 @@
 package edu.fiuba.algo3.modelo;
 
 import edu.fiuba.algo3.modelo.jugador.Jugador;
+import edu.fiuba.algo3.modelo.jugador.RespuestaDeJugador;
 import edu.fiuba.algo3.modelo.pregunta.pregunta.GeneradorDePreguntas;
 import edu.fiuba.algo3.modelo.pregunta.pregunta.InformacionPregunta;
 import edu.fiuba.algo3.modelo.pregunta.pregunta.Pregunta;
 import edu.fiuba.algo3.modelo.pregunta.respuesta.Respuesta;
-import edu.fiuba.algo3.modelo.pregunta.respuesta.RespuestaDeJugador;
 
 import java.util.ArrayList;
 

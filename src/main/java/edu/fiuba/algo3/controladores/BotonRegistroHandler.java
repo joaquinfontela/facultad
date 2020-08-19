@@ -7,9 +7,7 @@ import edu.fiuba.algo3.modelo.LectorDeArchivo;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.pregunta.pregunta.InformacionPregunta;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
