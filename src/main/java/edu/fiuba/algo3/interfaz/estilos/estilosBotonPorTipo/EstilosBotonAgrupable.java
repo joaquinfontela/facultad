@@ -4,13 +4,11 @@ import edu.fiuba.algo3.interfaz.botones.Boton;
 import edu.fiuba.algo3.interfaz.botones.tipoBoton.Agrupable;
 import edu.fiuba.algo3.interfaz.estilos.FadeInBoton;
 import edu.fiuba.algo3.interfaz.estilos.FadeOutBoton;
-import javafx.animation.FadeTransition;
 import javafx.geometry.Insets;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.paint.Color;
-import javafx.util.Duration;
 
 public class EstilosBotonAgrupable implements EstilosBotonPorTipo {
 

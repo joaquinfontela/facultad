@@ -4,8 +4,6 @@ import edu.fiuba.algo3.interfaz.botones.Boton;
 import edu.fiuba.algo3.interfaz.botones.tipoBoton.Ordenable;
 import edu.fiuba.algo3.interfaz.estilos.FadeInBoton;
 import edu.fiuba.algo3.interfaz.estilos.FadeOutBoton;
-import javafx.animation.FadeTransition;
-import javafx.util.Duration;
 
 public class EstilosBotonOrdenable implements EstilosBotonPorTipo {
 
