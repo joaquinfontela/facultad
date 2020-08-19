@@ -179,4 +179,9 @@ public class GestorDeJuego {
     public Respuesta crearRespuestaComparable() {
         return preguntaActual.crearRespuestaComparable();
     }
+
+    public boolean tieneLaMismaModalidadDeLaPregunta(Class clase) {
+
+        return preguntaActual.tieneLaMismaModalidad(clase);
+    }
 }

@@ -52,6 +52,10 @@ public abstract class Modalidad {
         for (Puntaje puntaje : puntajes) puntaje.guardar();
     }
 
+    public boolean esDelMismoTipo(Class clase) {
+        return clase == this.getClass();
+    }
+
     public abstract int calcularPuntos(EstadisticasRespuesta estadisticas);
 
     protected abstract void verificarCorrectaBonificacion(Bonificacion bonificacion) throws Exception;
