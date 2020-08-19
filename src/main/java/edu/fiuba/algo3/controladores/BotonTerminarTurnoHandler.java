@@ -1,8 +1,8 @@
 package edu.fiuba.algo3.controladores;
 
 import edu.fiuba.algo3.interfaz.layouts.LayoutPreturno;
-import edu.fiuba.algo3.interfaz.layouts.LayoutPuntajeFinal;
-import edu.fiuba.algo3.interfaz.layouts.LayoutPuntajesParciales;
+import edu.fiuba.algo3.interfaz.layouts.layoutsPuntajes.LayoutPuntajeFinal;
+import edu.fiuba.algo3.interfaz.layouts.layoutsPuntajes.LayoutPuntajesParciales;
 import edu.fiuba.algo3.modelo.GestorDeJuego;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import javafx.event.ActionEvent;

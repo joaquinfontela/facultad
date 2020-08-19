@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.controladores;
 
 import edu.fiuba.algo3.interfaz.layouts.LayoutPreturno;
-import edu.fiuba.algo3.interfaz.layouts.LayoutRegistro;
+import edu.fiuba.algo3.interfaz.layouts.layoutRegistro.LayoutRegistro;
 import edu.fiuba.algo3.modelo.GestorDeJuego;
 import edu.fiuba.algo3.modelo.LectorDeArchivo;
 import edu.fiuba.algo3.modelo.jugador.Jugador;

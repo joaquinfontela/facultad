@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.controladores;
 
-import edu.fiuba.algo3.interfaz.layouts.LayoutRegistro;
+import edu.fiuba.algo3.interfaz.layouts.layoutRegistro.LayoutRegistro;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;

@@ -1,14 +1,12 @@
 package edu.fiuba.algo3.controladores;
 
-import edu.fiuba.algo3.interfaz.layouts.LayoutPregunta;
-import edu.fiuba.algo3.interfaz.layouts.preguntaSubLayouts.layoutOpcionesPorTipoDePregunta.LayoutGroupChoice;
-import edu.fiuba.algo3.interfaz.layouts.preguntaSubLayouts.layoutOpcionesPorTipoDePregunta.LayoutMultipleChoice;
-import edu.fiuba.algo3.interfaz.layouts.preguntaSubLayouts.layoutOpcionesPorTipoDePregunta.LayoutOrderedChoice;
+import edu.fiuba.algo3.interfaz.layouts.layoutPregunta.LayoutPregunta;
+import edu.fiuba.algo3.interfaz.layouts.layoutPregunta.preguntaSubLayouts.layoutOpcionesPorTipoDePregunta.LayoutGroupChoice;
+import edu.fiuba.algo3.interfaz.layouts.layoutPregunta.preguntaSubLayouts.layoutOpcionesPorTipoDePregunta.LayoutMultipleChoice;
+import edu.fiuba.algo3.interfaz.layouts.layoutPregunta.preguntaSubLayouts.layoutOpcionesPorTipoDePregunta.LayoutOrderedChoice;
 import edu.fiuba.algo3.modelo.GestorDeJuego;
 import edu.fiuba.algo3.modelo.pregunta.respuesta.RespuestaGroupChoice;
-import edu.fiuba.algo3.modelo.pregunta.respuesta.RespuestaMultipleChoice;
 import edu.fiuba.algo3.modelo.pregunta.respuesta.RespuestaOrderedChoice;
-import edu.fiuba.algo3.modelo.pregunta.respuesta.RespuestaVerdaderoFalso;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
