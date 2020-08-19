@@ -8,7 +8,7 @@ import javafx.event.EventHandler;
 public class BotonSeleccionableHandler implements EventHandler<ActionEvent> {
 
     private Boton boton;
-    private Seleccionable tipoBoton;
+    protected Seleccionable tipoBoton;
 
     public BotonSeleccionableHandler(Boton botonSeleccionable) {
 
