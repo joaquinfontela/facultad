@@ -49,7 +49,7 @@ public class BotonRegistroHandler implements EventHandler<ActionEvent> {
         Collections.shuffle(jugadores, new Random());
         int cantidadRondas = layoutActual.obtenerCantidadRondas();
         LectorDeArchivo lector = new LectorDeArchivo();
-        ArrayList<InformacionPregunta> infoLector = lector.obtenerListaDeInformacionDePreguntas();
+        ArrayList<InformacionPregunta> infoLector = lector.obtenerListaDeInformacionDePreguntas(cantidadRondas);
         return new GestorDeJuego(infoLector, jugadores, cantidadRondas);
     }
 }

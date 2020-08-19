@@ -36,13 +36,15 @@ public class LectorDeArchivo {
         preguntasEnFormatoJson = datosArchivoJson.getAsJsonArray("preguntas");
     }
 
-    public ArrayList<InformacionPregunta> obtenerListaDeInformacionDePreguntas() {
+    public ArrayList<InformacionPregunta> obtenerListaDeInformacionDePreguntas(int cantidadRondas) throws Exception {
 
         informacionPreguntas = new ArrayList<>();
         for (JsonElement preguntaEnFormatoJson : preguntasEnFormatoJson){
 
-            agregarInformacionDePreguntaALaLista(preguntaEnFormatoJson);
+            this.agregarInformacionDePreguntaALaLista(preguntaEnFormatoJson);
         }
+
+        if (cantidadRondas > informacionPreguntas.size()) throw new Exception("Hubo un problema al cargar las preguntas");
 
         return informacionPreguntas;
     }
