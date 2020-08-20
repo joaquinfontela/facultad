@@ -192,7 +192,7 @@
     {
       "modalidad id": 3,
       "tipo pregunta id": 2,
-      "enunciado": "¿Cuáles de las siguientes selecciones nacionales ha ganado una Copa del Mundo celebrada en su pais?",
+      "enunciado": "¿Cuáles de las siguientes selecciones nacionales ha ganado una Copa del Mundo celebrada en su país?",
       "opciones": {
         "0": ["Brasil", "España"],
         "1": ["Uruguay", "Inglaterra", "Argentina"]
