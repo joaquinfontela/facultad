@@ -93,7 +93,7 @@
     {
       "modalidad id": 1,
       "tipo pregunta id": 2,
-      "enunciado": "¿Cuáles de los siguientes ajedrecistas disputaron el titulo mundial en 2018?",
+      "enunciado": "¿Cuáles de los siguientes ajedrecistas disputaron el título mundial en 2018?",
       "opciones": {
         "0": ["Hikaru Nakamura", "Ding Liren", "Peter Svidler"],
         "1": ["Magnus Carlsen", "Fabiano Caruana"]
@@ -102,7 +102,7 @@
     {
       "modalidad id": 1,
       "tipo pregunta id": 2,
-      "enunciado": "¿Cuáles de los siguientes equipos fueron finalistas de la Copa del Mundo de 1998?",
+      "enunciado": "¿Cuáles de los siguientes seleccionados de fútbol fueron finalistas de la copa del Mundo de 1998?",
       "opciones": {
         "0": ["Italia", "Alemania", "Argentina"],
         "1": ["Brasil", "Francia"]
@@ -165,7 +165,7 @@
     {
       "modalidad id": 2,
       "tipo pregunta id": 2,
-      "enunciado": "¿Hace cuanto se calcula, aproximadamente, que se inicio el ultimo periodo glacial?",
+      "enunciado": "¿Hace cuánto se calcula, aproximadamente, que se inició el último periodo glacial?",
       "opciones": {
         "0": ["Hace un millon de años.", "Hace veinte mil años.", "Hace quinientos mil años."],
         "1": ["Hace cien mil años."]
@@ -192,7 +192,7 @@
     {
       "modalidad id": 3,
       "tipo pregunta id": 2,
-      "enunciado": "¿Cuáles de las siguientes selecciones nacionales ha ganado una Copa del Mundo celebrada en su país?",
+      "enunciado": "¿Cuáles de las siguientes selecciones nacionales de fútbol ha ganado una copa del mundo celebrada en su país?",
       "opciones": {
         "0": ["Brasil", "España"],
         "1": ["Uruguay", "Inglaterra", "Argentina"]
