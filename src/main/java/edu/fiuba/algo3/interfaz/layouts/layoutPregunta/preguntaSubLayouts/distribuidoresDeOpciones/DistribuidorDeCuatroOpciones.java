@@ -12,7 +12,7 @@ public class DistribuidorDeCuatroOpciones extends DistribuidorDeOpciones {
 
         this.agregarOpcion(opciones.get(0), -300, -50, Color.RED, claseTipoBoton);
         this.agregarOpcion(opciones.get(1), 300, -50, Color.BLUE, claseTipoBoton);
-        this.agregarOpcion(opciones.get(2), -300, 60, Color.GOLD, claseTipoBoton);
+        this.agregarOpcion(opciones.get(2), -300, 60, Color.web("dad40c"), claseTipoBoton);
         this.agregarOpcion(opciones.get(3), 300, 60, Color.GREEN, claseTipoBoton);
     }
 

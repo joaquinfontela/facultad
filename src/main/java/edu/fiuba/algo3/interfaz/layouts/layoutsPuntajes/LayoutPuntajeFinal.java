@@ -4,10 +4,13 @@ import edu.fiuba.algo3.controladores.BotonVolverAlInicioHandler;
 import edu.fiuba.algo3.interfaz.botones.botonesComunes.BotonVolverAlMenu;
 import edu.fiuba.algo3.interfaz.layouts.layoutsPuntajes.puntajesSubLayouts.LayoutPuntajeJugador;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 
 public class LayoutPuntajeFinal extends StackPane {
@@ -21,6 +24,13 @@ public class LayoutPuntajeFinal extends StackPane {
         this.getChildren().add(imageView);
         this.crearLayoutParteJugadorArriba(jugadorArriba, jugadorAbajo);
         this.crearLayoutParteJugadorAbajo(jugadorArriba,jugadorAbajo);
+
+        Label labelResultados = new Label("Resultados");
+        labelResultados.setFont(new Font("KacstPoster", 50));
+        labelResultados.setTextFill(Color.WHITE);
+        labelResultados.setTranslateX(-450);
+        labelResultados.setTranslateY(-300);
+        this.getChildren().add(labelResultados);
 
         BotonVolverAlMenu botonContinuar = new BotonVolverAlMenu();
         botonContinuar.setTranslateY(250);

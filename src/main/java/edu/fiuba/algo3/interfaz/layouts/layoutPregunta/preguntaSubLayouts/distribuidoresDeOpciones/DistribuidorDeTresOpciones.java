@@ -9,7 +9,7 @@ public class DistribuidorDeTresOpciones extends DistribuidorDeOpcionesGrandes {
     public DistribuidorDeTresOpciones(ArrayList<String> opciones, Class claseTipoBoton) {
 
         this.agregarOpcion(opciones.get(0), -395, 5, Color.RED, claseTipoBoton);
-        this.agregarOpcion(opciones.get(1), 395, 5, Color.GOLD, claseTipoBoton);
+        this.agregarOpcion(opciones.get(1), 395, 5, Color.web("dad40c"), claseTipoBoton);
         this.agregarOpcion(opciones.get(2), 0, 5, Color.BLUE, claseTipoBoton);
     }
 }
