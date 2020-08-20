@@ -64,7 +64,7 @@ public class Pregunta {
         return respuestaCorrecta.esTipoDeRespuestaComparable(clase);
     }
 
-    public boolean tieneLaMismaModalidad(Class clase) {
-        return modalidad.esDelMismoTipo(clase);
+    public String obtenerNombreModo() {
+        return modalidad.obtenerNombre();
     }
 }

@@ -12,4 +12,9 @@ public class ModalidadClasica extends ModalidadConExclusividad {
         }
         return 1;
     }
+
+    @Override
+    public String obtenerNombre() {
+        return "Clásico";
+    }
 }

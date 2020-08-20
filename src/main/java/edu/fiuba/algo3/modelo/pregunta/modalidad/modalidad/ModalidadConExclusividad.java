@@ -17,4 +17,6 @@ public abstract class ModalidadConExclusividad extends Modalidad {
     }
 
     public abstract int calcularPuntos(EstadisticasRespuesta estadisticas);
+
+    public abstract String obtenerNombre();
 }

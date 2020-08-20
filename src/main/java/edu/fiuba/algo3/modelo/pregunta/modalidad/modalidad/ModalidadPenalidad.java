@@ -22,4 +22,9 @@ public class ModalidadPenalidad extends Modalidad {
         if (bonificacion.esExclusividad()) throw new Exception("No se puede aplicar una exclusividad de puntaje en " +
                 "esta pregunta");
     }
+
+    @Override
+    public String obtenerNombre() {
+        return "Penalidad";
+    }
 }

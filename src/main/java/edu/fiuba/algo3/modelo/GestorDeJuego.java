@@ -180,8 +180,7 @@ public class GestorDeJuego {
         return preguntaActual.crearRespuestaComparable();
     }
 
-    public boolean tieneLaMismaModalidadDeLaPregunta(Class clase) {
-
-        return preguntaActual.tieneLaMismaModalidad(clase);
+    public String obtenerNombreModo() {
+        return preguntaActual.obtenerNombreModo();
     }
 }

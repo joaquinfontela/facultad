@@ -12,4 +12,9 @@ public class ModalidadPuntajeParcial extends ModalidadConExclusividad {
         }
         return estadisticas.obtenerOpcionesCorrectasElegidas();
     }
+
+    @Override
+    public String obtenerNombre() {
+        return "Puntaje Parcial";
+    }
 }
