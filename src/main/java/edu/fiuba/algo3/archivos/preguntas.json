@@ -19,6 +19,24 @@
       }
     },
     {
+      "modalidad id": 1,
+      "tipo pregunta id": 1,
+      "enunciado": "Bill Gates es, en 2020, la persona mas rica del mundo.",
+      "opciones": {
+        "0": ["Verdadero"],
+        "1": ["Falso"]
+      }
+    },
+    {
+      "modalidad id": 1,
+      "tipo pregunta id": 1,
+      "enunciado": "La bombardeo atomico estadounidense sobre Nagasaki fue previo al realizado sobre Hiroshima.",
+      "opciones": {
+        "0": ["Verdadero"],
+        "1": ["Falso"]
+      }
+    },
+    {
       "modalidad id": 2,
       "tipo pregunta id": 1,
       "enunciado": "Los Pumas nunca llegaron a la final del mundial de rugby",
@@ -30,7 +48,25 @@
     {
       "modalidad id": 2,
       "tipo pregunta id": 1,
+      "enunciado": "Turquia es un pais transcontinental.",
+      "opciones": {
+        "0": ["Falso"],
+        "1": ["Verdadero"]
+      }
+    },
+    {
+      "modalidad id": 2,
+      "tipo pregunta id": 1,
       "enunciado": "La seleccion de futbol de Argentina ha ganado tres mundiales a lo largo de su historia.",
+      "opciones": {
+        "0": ["Verdadero"],
+        "1": ["Falso"]
+      }
+    },
+    {
+      "modalidad id": 2,
+      "tipo pregunta id": 1,
+      "enunciado": "El estado de Nueva York es el mas poblado de Estados Unidos.",
       "opciones": {
         "0": ["Verdadero"],
         "1": ["Falso"]
@@ -55,6 +91,24 @@
       }
     },
     {
+      "modalidad id": 1,
+      "tipo pregunta id": 2,
+      "enunciado": "Cuales de los siguientes ex-presidentes estadounidenses murieron asesinados durante su mandato?",
+      "opciones": {
+        "0": ["Franklin D. Roosevelt", "Warren Harding", "Ronald Reagan"],
+        "1": ["John F. Kennedy", "Abraham Lincoln"]
+      }
+    },
+    {
+      "modalidad id": 1,
+      "tipo pregunta id": 2,
+      "enunciado": "Cuales de las siguientes obras son de pintores españoles?",
+      "opciones": {
+        "0": ["La noche estrellada", "La ultima cena"],
+        "1": ["Guernica", "La persistencia de la memoria", "Miro's Chicago"]
+      }
+    },
+    {
       "modalidad id": 2,
       "tipo pregunta id": 2,
       "enunciado": "¿Cuales de los siguientes tenistas lograron defender el año siguiente su titulo en el US Open?",
@@ -73,6 +127,24 @@
       }
     },
     {
+      "modalidad id": 2,
+      "tipo pregunta id": 2,
+      "enunciado": "¿Hace cuanto se calcula, aproximadamente, que se inicio el ultimo periodo glacial?",
+      "opciones": {
+        "0": ["Hace un millon de años.", "Hace veinte mil años.", "Hace quinientos mil años."],
+        "1": ["Hace cien mil años."]
+      }
+    },
+    {
+      "modalidad id": 2,
+      "tipo pregunta id": 2,
+      "enunciado": "Cuales de las siguientes empresas tienen como fundador/a a una persona nacida en territorio estadounidense?",
+      "opciones": {
+        "0": ["SpaceX", "Audi", "Adidas"],
+        "1": ["Apple", "Netflix"]
+      }
+    },
+    {
       "modalidad id": 3,
       "tipo pregunta id": 2,
       "enunciado": "¿Cuales de los siguientes futbolistas ganaron la champions y la libertadores?",
@@ -88,6 +160,24 @@
       "opciones": {
         "0": ["Brasil", "España"],
         "1": ["Uruguay", "Inglaterra", "Argentina"]
+      }
+    },
+    {
+      "modalidad id": 3,
+      "tipo pregunta id": 2,
+      "enunciado": "Cuales de las trazas de las siguientes avenidas porteñas atraviesan el barrio de Palermo?",
+      "opciones": {
+        "0": ["Avenida Pueyrredon", "Avenida Corrientes", "Avenida Callao"],
+        "1": ["Avenida Cabildo", "Avenida General Las Heras"]
+      }
+    },
+    {
+      "modalidad id": 3,
+      "tipo pregunta id": 2,
+      "enunciado": "Como finaliza la primera estrofa de la cancion 'De musica ligera' de Soda Stereo (Ella durmio...)",
+      "opciones": {
+        "0": ["... al calor de las brasas", "... al amor de la casa", "... al clamor de las razas"],
+        "1": ["... al calor de las masas"]
       }
     },
     {
@@ -119,6 +209,51 @@
     },
     {
       "modalidad id": 1,
+      "tipo pregunta id": 3,
+      "enunciado": "Agrupar los siguientes ex-presidentes estadounidenses segun si fueron electos como Democratas o como Republicanos.",
+      "opciones": {
+        "0": ["Abraham Lincoln", "Theodore Roosevelt", "George H. W. Bush"],
+        "1": ["Franklin D. Roosevelt", "Barack Obama", "Jimmy Carter"]
+      }
+    },
+    {
+      "modalidad id": 1,
+      "tipo pregunta id": 3,
+      "enunciado": "Agrupar los siguientes paises segun si su PBI per capita es mayor o menor al de Argentina.",
+      "opciones": {
+        "0": ["Brasil", "Sudafrica", "Bosnia", "Ucrania"],
+        "1": ["Rumania", "Chipre"]
+      }
+    },
+    {
+      "modalidad id": 1,
+      "tipo pregunta id": 3,
+      "enunciado": "Agrupar las siguientes peliculas segun si Leonardo Di Caprio estuvo incluido en el reparto o no.",
+      "opciones": {
+        "0": ["Una Noche en el Museo", "High School Musical 2", "Guerra Mundial Z"],
+        "1": ["Titanic", "El Lobo de Wall Street", "El Origen"]
+      }
+    },
+    {
+      "modalidad id": 1,
+      "tipo pregunta id": 3,
+      "enunciado": "Agrupar los siguientes barrios porteños segun si la traza de la Avenida Rivadavia pasa por ellos o no.",
+      "opciones": {
+        "0": ["San Telmo", "Retiro"],
+        "1": ["Flores", "Liniers", "Monserrat", "Almagro"]
+      }
+    },
+    {
+      "modalidad id": 1,
+      "tipo pregunta id": 3,
+      "enunciado": "Agrupar los siguientes paises/imperios segun su bando en la Primera Guerra Mundial.",
+      "opciones": {
+        "0": ["Imperio otomano", "Imperio aleman"],
+        "1": ["Imperio del Japon", "Imperio ruso", "Francia", "Estados Unidos"]
+      }
+    },
+    {
+      "modalidad id": 1,
       "tipo pregunta id": 4,
       "enunciado": "Ordenar los siguientes paises segun la fecha de obtencion de su primer Copa Mundial (de mas antigua a mas reciente).",
       "opciones": {
@@ -138,6 +273,66 @@
         "1": ["Edberg"],
         "2": ["Becker"]
       }
-    }
+    },
+    {
+      "modalidad id": 1,
+      "tipo pregunta id": 4,
+      "enunciado": "Ordenar los siguientes ex-presidentes de Estados Unidos segun su periodo de gobierno (de mas antigua a mas reciente).",
+      "opciones": {
+        "0": ["Abraham Lincoln"],
+        "1": ["Theodore Roosevelt"],
+        "2": ["Franklin D. Roosevelt"],
+        "3": ["John F. Kennedy"],
+        "4": ["Ronald Reagan"]
+      }
+    },
+    {
+      "modalidad id": 1,
+      "tipo pregunta id": 4,
+      "enunciado": "Ordenar los siguientes elementos quimicos segun su numero atomico (de menor a mayor).",
+      "opciones": {
+        "0": ["Hidrogeno"],
+        "1": ["Nitrogeno"],
+        "2": ["Oxigeno"],
+        "3": ["Aluminio"],
+        "4": ["Cloro"]
+      }
+    },
+    {
+      "modalidad id": 1,
+      "tipo pregunta id": 4,
+      "enunciado": "Ordenar los siguientes paises segun su poblacion (de menor a mayor).",
+      "opciones": {
+        "0": ["Corea del Sur"],
+        "1": ["Reino Unido"],
+        "2": ["Rusia"],
+        "3": ["EE.UU"],
+        "4": ["India"]
+      }
+    },
+    {
+      "modalidad id": 1,
+      "tipo pregunta id": 4,
+      "enunciado": "Ordenar los siguientes paises segun su Producto Bruto Interno (PBI) (de menor a mayor).",
+      "opciones": {
+        "0": ["Paises Bajos"],
+        "1": ["Australia"],
+        "2": ["India"],
+        "3": ["Alemania"],
+        "4": ["Japon"]
+      }
+    },
+    {
+      "modalidad id": 1,
+      "tipo pregunta id": 4,
+      "enunciado": "Ordenar los siguientes titulos de la saga Harry Potter segun su año de publicacion (de mas antiguo a mas reciente).",
+      "opciones": {
+        "0": ["La Piedra Filosofal"],
+        "1": ["El Prisionero de Azkaban"],
+        "2": ["La Orden Del Fenix"],
+        "3": ["El Misterio del Principe"],
+        "4": ["Las Reliquias de la Muerte"]
+      }
+    }         
   ]
 }
