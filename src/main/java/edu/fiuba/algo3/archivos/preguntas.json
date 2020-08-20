@@ -57,7 +57,7 @@
     {
       "modalidad id": 2,
       "tipo pregunta id": 1,
-      "enunciado": "Turquia es un país transcontinental.",
+      "enunciado": "Turquía es un país transcontinental.",
       "opciones": {
         "0": ["Falso"],
         "1": ["Verdadero"]
@@ -75,7 +75,7 @@
     {
       "modalidad id": 2,
       "tipo pregunta id": 1,
-      "enunciado": "La seleccion de futbol de Argentina ha ganado tres mundiales a lo largo de su historia.",
+      "enunciado": "La seleccion Argentina de fútbol ha ganado tres mundiales a lo largo de su historia.",
       "opciones": {
         "0": ["Verdadero"],
         "1": ["Falso"]
@@ -129,16 +129,16 @@
     {
       "modalidad id": 1,
       "tipo pregunta id": 2,
-      "enunciado": "¿Cuál fue el historico record de temporada de la NBA (victorias-derrotas) de los Golden State Warriors en el año 2016?",
+      "enunciado": "¿Cuál fue el historico record de temporada NBA (victorias-derrotas) de los Golden State Warriors en el año 2016?",
       "opciones": {
-        "0": ["70-12", "72-10", "75-7", "69-13"],
+        "0": ["70-12", "72-10", "74-8", "71-11"],
         "1": ["73-9"]
       }
     },
     {
       "modalidad id": 2,
       "tipo pregunta id": 2,
-      "enunciado": "¿Cuáles de los siguientes tenistas lograron defender el año siguiente su titulo en el US Open?",
+      "enunciado": "¿Cuáles de los siguientes tenistas lograron defender el año siguiente su título en el US Open?",
       "opciones": {
         "0": ["Rafael Nadal", "Andy Roddick", "Novak Djokovic"],
         "1": ["Roger Federer", "Patrick Rafter"]
