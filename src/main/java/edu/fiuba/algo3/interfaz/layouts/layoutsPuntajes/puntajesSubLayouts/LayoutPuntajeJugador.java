@@ -9,6 +9,7 @@ import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import javafx.scene.text.TextAlignment;
 
 public class LayoutPuntajeJugador extends StackPane {
 
@@ -28,7 +29,7 @@ public class LayoutPuntajeJugador extends StackPane {
         Label contenedorDeNickname = new Label(nickname);
         contenedorDeNickname.setFont(new Font("FreeSans", 100));
         contenedorDeNickname.setTextFill(Color.WHITE);
-        contenedorDeNickname.setTranslateX(-300.0);
+        contenedorDeNickname.setTranslateX(-290.0);
         this.getChildren().add(contenedorDeNickname);
     }
 
