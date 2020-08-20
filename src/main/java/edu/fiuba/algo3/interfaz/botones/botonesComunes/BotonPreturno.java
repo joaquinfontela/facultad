@@ -7,6 +7,5 @@ public class BotonPreturno extends BotonComun {
     public BotonPreturno() {
 
         this.setSkin(new EstilosBotonPreturno(this));
-
     }
 }
