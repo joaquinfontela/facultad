@@ -28,7 +28,7 @@ public class LayoutPuntajeJugador extends StackPane {
         Label contenedorDeNickname = new Label(nickname);
         contenedorDeNickname.setFont(new Font("FreeSans", 100));
         contenedorDeNickname.setTextFill(Color.WHITE);
-        contenedorDeNickname.setTranslateX(-400.0);
+        contenedorDeNickname.setTranslateX(-300.0);
         this.getChildren().add(contenedorDeNickname);
     }
 

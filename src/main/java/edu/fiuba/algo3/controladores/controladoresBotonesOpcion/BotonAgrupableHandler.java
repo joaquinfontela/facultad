@@ -28,9 +28,11 @@ public class BotonAgrupableHandler implements EventHandler<ActionEvent> {
         if (tipoBoton.fueAgrupadaEnElGrupoA()) {
             boton.setBackground(new Background(new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY)));
             boton.setTextFill(Color.BLACK);
+            boton.setStyle("-fx-border-color: black; -fx-border-width: 2px");
         } else {
             boton.setBackground(new Background(new BackgroundFill(Color.BLACK, CornerRadii.EMPTY, Insets.EMPTY)));
             boton.setTextFill(Color.WHITE);
+            boton.setStyle("-fx-border-color: white; -fx-border-width: 2px");
         }
     }
 }

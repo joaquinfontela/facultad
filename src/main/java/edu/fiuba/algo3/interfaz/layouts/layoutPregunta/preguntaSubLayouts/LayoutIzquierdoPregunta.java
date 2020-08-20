@@ -29,7 +29,7 @@ public class LayoutIzquierdoPregunta extends StackPane {
     private void agregarModo(GestorDeJuego gestor) {
 
         Label label = new Label("Modo:\n" + gestor.obtenerNombreModo());
-        label.setFont(new Font("KacstPoster", 20));
+        label.setFont(new Font("KacstPoster", 16));
         label.setTextAlignment(TextAlignment.CENTER);
         label.setTextFill(Color.GOLD);
         label.setTranslateY(85);
