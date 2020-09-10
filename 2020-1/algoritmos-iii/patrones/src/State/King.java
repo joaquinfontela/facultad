@@ -9,6 +9,7 @@ public class King extends PieceState {
                 && (horizontalMovement(yOrigin, yDestination)
                     || verticalMovement(xOrigin, xDestination)
                     || diagonalMovement(xOrigin, yOrigin, xDestination, yDestination))
-                && (movementLengthEqualsOne(xOrigin, yOrigin, xDestination, yDestination)));
+                && (movementLengthEqualsOne(xOrigin, yOrigin, xDestination, yDestination))
+        );
     }
 }
