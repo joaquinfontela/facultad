@@ -1,0 +1,31 @@
+Consigna 1
+
+Comenzare analizando el proyecto en base a los principios SOLID.
+
+
+SRP (Principio de unica responsabilidad):
+	Este principio se cumple en el proyecto entregado, ya que ambas clases poseen una unica responsabilidad (la casa devuelve el gasto total, y cada componente electrico devuelve su consumo total particular).
+
+OCP (Principio de abierto-cerrado):
+	Este principio no se cumple en el proyecto entregado, ya que indica que las clases deberian estar abiertas para extension, pero no para modificacion. Sin embargo, hay muchos casos posibles donde ante un cambio, se deberian modificar metodos ya existentes. 
+	El mas evidente es el atributo "miTIPO" del ComponenteElectrico: en caso de querer agregar un tipo nuevo, habria que modificar tanto el constructor como el metodo "getConsumo", agregando una nueva sentencia "else if".
+	Algo parecido ocurre en la clase Casa, ya que por cada nuevo tipo de componente creado, habria que crear un nuevo ciclo while. Sin embargo, ese es un problema que se podria solucionar por otro lado (por ejemplo, extrayendo un metodo privado), ya que la logica para calcular el consumo total de todos los componentes electricos de un tipo es igual para todos los tipos.
+	Es importante hacer cumplir este principio en nuestros proyectos, ya que no conviene ir modificando codigo existente, porque podriamos romper otras partes del proyecto que ya funcionan.
+
+LSP (Principio de Sustitucion de Liskov):
+	Este principio indica que en el lugar donde usamos una Clase X, deberiamos poder usar cualquiera de sus clases derivadas. Este principio se cumple ya que en el modelo entregado no hay clases que extiendan/implementen otras.
+
+ISP (Principio de segregacion de la interfaz):
+	Este principio no se rompe tal cual, ya que indica que clases derivadas no deberian depender de metodos que no utilicen. Sin embargo, ocurre algo similar con los atributos de la clase ComponenteElectrico: segun el valor del atributo "miTIPO", se utilizaran algunos de esos atributos, y otros no, pero nunca todos (algo que deberia ocurrir en todos los casos).
+
+DIP (Principio de inversion de la dependencia):
+	Este principio indica que las dependencias deberian realizarse sobre interfaces o clases abstractas. Podemos observar que esto no se cumple, ya que Casa depende (al llamar a "getConsumo") de ComponenteElectrico, que es una clase concreta.
+	Es importante hacer cumplir este principio para evitar que cambios en una clase afecten a otra. Por ejemplo, en vez de hacer que Casa dependa de una clase concreta ComponenteElectrico, esta ultima fuera abstracta o una interfaz, un cambio de implementacion en alguna de las clases derivadas de ComponenteElectrico no afectaria a Casa.
+
+Por fuera de los principios SOLID:
+
+- Ante todo, el error mas grave y basico que encuentro es el hecho de que todos los atributos son publicos (y para peor, CasaTest accede y modifica a los atributos de ComponenteElectrico). Esto no deberia ser asi, ya que uno de los principios basicos de POO indica que una clase no deberia conocer ni depender de la implementacion interna de otra (Que pasa si algun dia decidimos cambiar la implementacion interna de ComponenteElectrico?).
+
+- Por otro lado, como ya mencione, en la clase Casa el metodo "getConsumoTotal" realiza la misma logica varias veces en el llamado al ciclo while. Seria mas simple refactorizar extrayendo un metodo privado. Una mejor solucion seria crear una sola lista de componentes electricos, ya que si la misma logica es realizada sobre todos, deberia bastar con aplicarle el mismo metodo a todos. Esto nos permitira, en caso de querer modificar alguna implementacion, realizar los cambios en la menor cantidad de lugares posibles.
+
+- En el constructor de ComponenteElectrico, en caso de no ingresar una String correspondiente a alguno de los tipos no se hace absolutamente nada. Lo correcto seria lanzar una Excepcion, ya que no se esta cumpliendo una precondicion. Ademas, el hecho mismo de definir el tipo con una String no es lo mas conveniente: mucho mejor crear clases derivadas.
