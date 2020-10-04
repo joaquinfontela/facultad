@@ -64,4 +64,21 @@ b) (screenshot 6)
 
 En este caso, podemos observar que el error se produce en un modulo llamado "paso3_main.o", es decir, contiene codigo objeto. Esto quiere decir que la compilacion se realizo correctamente (ya que justamente tiene como objetivo transformar el codigo en lenguaje de alto nivel a codigo objeto). Sin embargo, fallo la linkedicion, debido a que hay una referencia a "wordscounter__destroy", funcion que si buscamos en el archivo ".c", nunca esta definida (si esta declarada en el archivo ".h").
 
+## PASO 4
+
+a) La unica diferencia con la version anterior es la definicion de "wordscounter__destroy".
+
+b) (screenshots 7 y 8)
+
+* El primer error visible es que en "paso4_main.c" se realiza la apertura de un archivo en la linea 14 con *fopen*, pero nunca se realiza el cierre de ese archivo.
+* Luego, tambien relacionado con la apertura del archivo, en la linea 10 se declara una variable *input* de tipo **FILE*** a la que luego se le asigna el valor devuelto por *fopen*, esa memoria nunca es liberada.
+* Finalmente, en "paso4wordscounter.c", en la linea 35 se realiza un malloc, cuyo puntero es *delim_words*, esa memoria tampoco es liberada en ninguna parte.
+
+c) (screenshot 9)
+
+* En el caso de "nombre_largo", el error es un *buffer overflow*, que ocurre porque la funcion *memcpy* recibe en uno de los parametros la cantidad de bytes a copiar. En este caso, el destino de la copia es un array con 30 bytes reservados de memoria: si la cantidad de bytes a copiar es mayor, se produce un *overflow*.
+
+d) Si, se puede solucionar, ya que *strncpy* nos permite definir un limite de bytes (el tamano del destino usualmente) a ser utilizados. En caso de usar *strncpy*, la prueba hubiera pasado, ya que si le enviamos mas bytes de lo estipulado a la funcion, simplemente ignora los sobrantes.
+
+e) Un *segmentation fault* se produce cuando intentamos acceder a una zona de memoria sin los permisos necesarios (ya sea para lectura, escritura o ejecucion, segun corresponda). Por otro lado, un *buffer overflow* ocurre cuando teniamos reservada una zona de memoria (un buffer, justamente) y cargamos a esta datos de mayor tamano al tamano reservado, sobreescribiendo zonas de memoria por fuera del buffer.
 	
