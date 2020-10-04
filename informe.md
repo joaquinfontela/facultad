@@ -13,20 +13,20 @@ e) STDIN, STDOUT y STDERR son variables de tipo FILE* (punteros a archivos). Tie
 
 a) Los problemas de estilo detectados son aquellos indicados abajo del titulo "Verificando el codigo...". Abajo explicare cada uno de ellos:
 
-	* La primera linea nos indica que en la linea 27 del archivo "paso1_wordscounter.c" falta un espacio entre *while* y la apertura de parentesis con la condicion para ese *while*.
-	* La segunda y tercera linea nos indican que en la linea 41 del archivo "paso1_wordscounter.c", la cantidad de espacios entre la apertura de parentesis y el inicio de la sentencia de condicion es distinta a la cantidad de espacios entre el fin de la sentencia de condicion y el parentesis de cierre, y por otro lado, que esta cantidad de espacios solo puede ser cero o uno.
-	* La cuarta y la quinta linea nos indican que en la linea 47 del archivo "paso1_wordscounter.c", la proxima sentencia *else* o *else if* deberia aparecer en la misma linea que la llave que cierra el codigo de la anterior sentencia *if* o *else if*, asi como tambien que, si un *else* tiene una llave de un lado de la sentencia, debe tenerlo en ambos.
-	* La sexta linea nos indica que en la linea 48 del archivo "paso1_wordscounter.c" ocurre lo mismo que en el error de la linea 27 pero con una sentencia *if*: falta un espacio entre *if* y la apertura de parentesis con la condicion para ese *if*.
-	* La septima linea nos indica que en la linea 53 del archivo "paso1_wordscounter.c" hay un espacio entre el fin de la sentencia de la linea y el punto y coma que determina ese fin de linea.
-	* La octava linea nos indica que la linea 5 del archivo "paso1_wordscounter.h" tiene mas de 80 caracteres de largo.
-	* La novena linea nos indica que en la linea 12 del archivo "paso1_main.c" es mejor utilizar la funcion *snprintf* antes que *strcpy*.
-	* La novena linea nos indica que en la linea 12 del archivo "paso1_main.c"
-	* La decima y undecima linea nos indican que en la linea 15 de archivo "paso1_main.c" ocurre lo mismo que mencionamos en los errores de la cuarta y quinta linea.
+* La primera linea nos indica que en la linea 27 del archivo "paso1_wordscounter.c" falta un espacio entre *while* y la apertura de parentesis con la condicion para ese *while*.
+* La segunda y tercera linea nos indican que en la linea 41 del archivo "paso1_wordscounter.c", la cantidad de espacios entre la apertura de parentesis y el inicio de la sentencia de condicion es distinta a la cantidad de espacios entre el fin de la sentencia de condicion y el parentesis de cierre, y por otro lado, que esta cantidad de espacios solo puede ser cero o uno.
+* La cuarta y la quinta linea nos indican que en la linea 47 del archivo "paso1_wordscounter.c", la proxima sentencia *else* o *else if* deberia aparecer en la misma linea que la llave que cierra el codigo de la anterior sentencia *if* o *else if*, asi como tambien que, si un *else* tiene una llave de un lado de la sentencia, debe tenerlo en ambos.
+* La sexta linea nos indica que en la linea 48 del archivo "paso1_wordscounter.c" ocurre lo mismo que en el error de la linea 27 pero con una sentencia *if*: falta un espacio entre *if* y la apertura de parentesis con la condicion para ese *if*.
+* La septima linea nos indica que en la linea 53 del archivo "paso1_wordscounter.c" hay un espacio entre el fin de la sentencia de la linea y el punto y coma que determina ese fin de linea.
+* La octava linea nos indica que la linea 5 del archivo "paso1_wordscounter.h" tiene mas de 80 caracteres de largo.
+* La novena linea nos indica que en la linea 12 del archivo "paso1_main.c" es mejor utilizar la funcion *snprintf* antes que *strcpy*.
+* La novena linea nos indica que en la linea 12 del archivo "paso1_main.c"
+* La decima y undecima linea nos indican que en la linea 15 de archivo "paso1_main.c" ocurre lo mismo que mencionamos en los errores de la cuarta y quinta linea.
 
 b) Los errores de generacion del ejecutable son los indicados abajo del titulo "Desempaquetando y compilando el codigo...". Abajo explicare cada uno de ellos:
 
-	* La primera linea nos indica que en la linea 22 del archivo "paso1main.c" se intenta declarar una variable *counter* de tipo desconocido (*wordscounter_t*).
-	* De la segunda a la quinta linea nos indican que en las lineas 23, 24, 25 y 27 del archivo "paso1main.c" se utilizan funciones que no estan declaradas ni definidas en ningun lado (probablemente por falta de un *include*).
+* La primera linea nos indica que en la linea 22 del archivo "paso1main.c" se intenta declarar una variable *counter* de tipo desconocido (*wordscounter_t*).
+* De la segunda a la quinta linea nos indican que en las lineas 23, 24, 25 y 27 del archivo "paso1main.c" se utilizan funciones que no estan declaradas ni definidas en ningun lado (probablemente por falta de un *include*).
 
    Los errores parecen estar asociados al compilador, no al linker, ya que el proceso de compilacion ocurre antes del de linkedicion. Al producirse errores en la compilacion, la linkedicion nunca llega a realizarse.
 
