@@ -46,7 +46,7 @@ b) (screenshot 3)
 
 c) (screenshot 4)
 
-	Los errores de generacion del ejecutable mostrados arriba tienen su explicacion a continuacion:
+Los errores de generacion del ejecutable mostrados arriba tienen su explicacion a continuacion:
 
 * El primer y el segundo error nos indican que en "paso2wordscounter.h", se utiliza un tipo **size_t** que no esta definido.
 * El tercer error nos indica la solucion al problema anterior: se nos olvido incluir el modulo "stddef.h" (el *ifndef* evita que se vuelva a incluir en caso de ya estar definido en alguno de los modulos incluidos).
@@ -56,6 +56,12 @@ c) (screenshot 4)
 
    	Los errores nuevamente parecen estar asociados al compilador, no al linker, ya que el proceso de compilacion ocurre antes del de linkedicion. Al producirse errores en la compilacion, la linkedicion nunca llega a realizarse.
 
+## PASO 3
 
-	
+a) La diferencia con el paso anterior es la inclusion de las librerias que generaban los problemas antes mencionados.
+
+b) (screenshot 6)
+
+En este caso, podemos observar que el error se produce en un modulo llamado "paso3_main.o", es decir, contiene codigo objeto. Esto quiere decir que la compilacion se realizo correctamente (ya que justamente tiene como objetivo transformar el codigo en lenguaje de alto nivel a codigo objeto). Sin embargo, fallo la linkedicion, debido a que hay una referencia a "wordscounter__destroy", funcion que si buscamos en el archivo ".c", nunca esta definida (si esta declarada en el archivo ".h").
+
 	
