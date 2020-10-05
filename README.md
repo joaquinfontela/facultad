@@ -8,7 +8,7 @@
 
 ## PASO 0
 
-a) ![](https://github.com/joaquinfontela/recursos-taller/blob/master/sreenshot0.png)
+a) ![](https://github.com/joaquinfontela/recursos-taller/blob/master/tp0/sreenshot0.png)
 
 b)  	Valgrind es una herramienta que nos permite identificar problemas al momento de utilizar memoria dinamica. Por ejemplo, memoria no liberada, el uso de memoria no inicializada, etc.
     	Es importante aclarar que la compilacion realizada con Valgrind es mucho mas lenta, con lo cual solo se realiza cuando se intenta algun error del tipo mencionado en el parrafo anterior, o relacionados.
@@ -23,7 +23,7 @@ e) 	STDIN, STDOUT y STDERR son variables de tipo FILE* (punteros a archivos). Ti
 
 a) 	Los problemas de estilo detectados son aquellos indicados abajo del titulo "Verificando el codigo...". Abajo explicare cada uno de ellos:
 
-![](https://github.com/joaquinfontela/recursos-taller/blob/master/sreenshot1.png)
+![](https://github.com/joaquinfontela/recursos-taller/blob/master/tp0/sreenshot1.png)
 
 * La primera linea nos indica que en la linea 27 del archivo "paso1_wordscounter.c" falta un espacio entre *while* y la apertura de parentesis con la condicion para ese *while*.
 * La segunda y tercera linea nos indican que en la linea 41 del archivo "paso1_wordscounter.c", la cantidad de espacios entre la apertura de parentesis y el inicio de la sentencia de condicion es distinta a la cantidad de espacios entre el fin de la sentencia de condicion y el parentesis de cierre, y por otro lado, que esta cantidad de espacios solo puede ser cero o uno.
@@ -37,7 +37,7 @@ a) 	Los problemas de estilo detectados son aquellos indicados abajo del titulo "
 
 b) 	Los errores de generacion del ejecutable son los indicados abajo del titulo "Desempaquetando y compilando el codigo...". Abajo explicare cada uno de ellos:
 
-![](https://github.com/joaquinfontela/recursos-taller/blob/master/sreenshot2.png)
+![](https://github.com/joaquinfontela/recursos-taller/blob/master/tp0/sreenshot2.png)
 
 * La primera linea nos indica que en la linea 22 del archivo "paso1main.c" se intenta declarar una variable *counter* de tipo desconocido (*wordscounter_t*).
 * De la segunda a la quinta linea nos indican que en las lineas 23, 24, 25 y 27 del archivo "paso1main.c" se utilizan funciones que no estan declaradas ni definidas en ningun lado (probablemente por falta de un *include*).
@@ -50,9 +50,9 @@ c) 	No parecen haberse reportado *warnings*.
 
 a) 	Las correcciones realizadas son, por un lado, las de problemas de estilo, ya que como podemos ver en el *screenshot* del ejercicio b), no se encontro ninguno. Por otro lado, se resolvieron los errores de generacion del ejecutable anteriores (aunque aparecieron nuevos) gracias a la linea 4, que incluye al archivo "paso2_wordscounter.h".
 
-b) ![](https://github.com/joaquinfontela/recursos-taller/blob/master/sreenshot3.png)
+b) ![](https://github.com/joaquinfontela/recursos-taller/blob/master/tp0/sreenshot3.png)
 
-c) ![](https://github.com/joaquinfontela/recursos-taller/blob/master/sreenshot4.png)
+c) ![](https://github.com/joaquinfontela/recursos-taller/blob/master/tp0/sreenshot4.png)
 
 Los errores de generacion del ejecutable mostrados arriba tienen su explicacion a continuacion:
 
@@ -68,7 +68,7 @@ Los errores de generacion del ejecutable mostrados arriba tienen su explicacion 
 
 a) La diferencia con el paso anterior es la inclusion de las librerias que generaban los problemas antes mencionados.
 
-b) ![](https://github.com/joaquinfontela/recursos-taller/blob/master/sreenshot6.png)
+b) ![](https://github.com/joaquinfontela/recursos-taller/blob/master/tp0/sreenshot6.png)
 
 En este caso, podemos observar que el error se produce en un modulo llamado "paso3_main.o", es decir, contiene codigo objeto. Esto quiere decir que la compilacion se realizo correctamente (ya que justamente tiene como objetivo transformar el codigo en lenguaje de alto nivel a codigo objeto). Sin embargo, fallo la linkedicion, debido a que hay una referencia a "wordscounter__destroy", funcion que si buscamos en el archivo ".c", nunca esta definida (si esta declarada en el archivo ".h").
 
@@ -76,15 +76,15 @@ En este caso, podemos observar que el error se produce en un modulo llamado "pas
 
 a) La unica diferencia con la version anterior es la definicion de "wordscounter__destroy".
 
-b) ![](https://github.com/joaquinfontela/recursos-taller/blob/master/sreenshot7.png)
+b) ![](https://github.com/joaquinfontela/recursos-taller/blob/master/tp0/sreenshot7.png)
 
-![](https://github.com/joaquinfontela/recursos-taller/blob/master/sreenshot8.png)
+![](https://github.com/joaquinfontela/recursos-taller/blob/master/tp0/sreenshot8.png)
 
 * El primer error visible es que en "paso4_main.c" se realiza la apertura de un archivo en la linea 14 con *fopen*, pero nunca se realiza el cierre de ese archivo.
 * Luego, tambien relacionado con la apertura del archivo, en la linea 10 se declara una variable *input* de tipo **FILE*** a la que luego se le asigna el valor devuelto por *fopen*, esa memoria nunca es liberada.
 * Finalmente, en "paso4wordscounter.c", en la linea 35 se realiza un malloc, cuyo puntero es *delim_words*, esa memoria tampoco es liberada en ninguna parte.
 
-c) ![](https://github.com/joaquinfontela/recursos-taller/blob/master/sreenshot9.png)
+c) ![](https://github.com/joaquinfontela/recursos-taller/blob/master/tp0/sreenshot9.png)
 
 * En el caso de "nombre_largo", el error es un *buffer overflow*, que ocurre porque la funcion *memcpy* recibe en uno de los parametros la cantidad de bytes a copiar. En este caso, el destino de la copia es un array con 30 bytes reservados de memoria: si la cantidad de bytes a copiar es mayor, se produce un *overflow*.
 
@@ -107,9 +107,9 @@ b) Los motivos por los que fallan las pruebas seran detallados a continuacion:
 
 SERcOM nos aporta aquel valor de retorno del test, junto con el esperado por la prueba.
 
-c) ![](https://github.com/joaquinfontela/recursos-taller/blob/master/sreenshot10.png)
+c) ![](https://github.com/joaquinfontela/recursos-taller/blob/master/tp0/sreenshot10.png)
 
-d) ![](https://github.com/joaquinfontela/recursos-taller/blob/master/sreenshot11.png)
+d) ![](https://github.com/joaquinfontela/recursos-taller/blob/master/tp0/sreenshot11.png)
 
 * *info functions* nos muestra las firmas de todas las funciones.
 * *list wordscounter_next_state* imprime las lineas cercanas a la definicion de la funcion *wordscounter_next_state*.
@@ -127,11 +127,8 @@ a) Las correcciones con respecto al paso anterior son las siguientes:
 * Se define el array de caracteres delimitadores como una variable de preprocesador con *#define*.
 * Se agrega la condicion de que, en caso de que se llegue al final del archivo, y el estado sea *IN_WORD*, se define el estado como finalizado y se suma uno al contador.
 
-b) ![](https://github.com/joaquinfontela/recursos-taller/blob/master/sreenshot12.png)
+b) ![](https://github.com/joaquinfontela/recursos-taller/blob/master/tp0/sreenshot12.png)
 
-c) ![](https://github.com/joaquinfontela/recursos-taller/blob/master/sreenshot13.png)
-
-## PASO 7
-
+c) ![](https://github.com/joaquinfontela/recursos-taller/blob/master/tp0/sreenshot13.png)
 
 	
