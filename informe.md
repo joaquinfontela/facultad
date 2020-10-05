@@ -108,4 +108,16 @@ d) (screenshot 11)
 * *run input_single_word.txt* corre el programa siendo el archivo *input_single_word.txt* el parametro.
 
 El programa no se detiene en la linea 45 tal como habiamos pedido porque nunca se ejecuta esa instruccion, ya que alli se suma una palabra al contador, pero la cantidad de palabras contadas es 0.
+
+## PASO 6
+
+a) Las correcciones con respecto al paso anterior son las siguientes:
+
+* Se define el valor de retorno de error en 1, en vez de -1.
+* Se define el array de caracteres delimitadores como una variable de preprocesador con *#define*.
+* Se agrega la condicion de que, en caso de que se llegue al final del archivo, y el estado sea *IN_WORD*, se define el estado como finalizado y se suma uno al contador.
+
+b) (screenshot 12)
+
+c) (screenshot 13)
 	
