@@ -81,4 +81,31 @@ c) (screenshot 9)
 d) Si, se puede solucionar, ya que *strncpy* nos permite definir un limite de bytes (el tamano del destino usualmente) a ser utilizados. En caso de usar *strncpy*, la prueba hubiera pasado, ya que si le enviamos mas bytes de lo estipulado a la funcion, simplemente ignora los sobrantes.
 
 e) Un *segmentation fault* se produce cuando intentamos acceder a una zona de memoria sin los permisos necesarios (ya sea para lectura, escritura o ejecucion, segun corresponda). Por otro lado, un *buffer overflow* ocurre cuando teniamos reservada una zona de memoria (un buffer, justamente) y cargamos a esta datos de mayor tamano al tamano reservado, sobreescribiendo zonas de memoria por fuera del buffer.
+
+## PASO 5
+
+a) Las correcciones realizadas son las siguientes:
+
+* Por un lado, en "paso5wordscounter.c", se reemplaza el malloc y la definicion caracter a caracter de la variable *delim_words* por una unica linea donde se hace lo mismo, pero sin reservar memoria mediante malloc.
+* Por otro lado, se agrega el *fclose* en el "paso5_main.c", de manera de cerrar el archivo luego de finalizar su uso.
+* Finalmente, se reemplaza la copia de *argv[1]* a *filepath* mediante *memcpy*, y directamente se le pasa como parametro a *fopen* el primer argumento pasado por la linea de comando.
+
+b) Los motivos por los que fallan las pruebas seran detallados a continuacion:
+
+* *Invalid File* no falla porque el manejo en caso de un archivo invalido este mal. El fallo se da porque en el programa, el error esta definido como valor de retorno -1, mientras que el test espera el valor 1.
+* Por otro lado, *Single word* falla debido a que en *"paso5_wordscounter.c"* la funcion *wordscounter_next_state_* suma una palabra al contador cuando el estado actual es *IN_WORD* y el proximo caracter esta entre los definidos como delimitantes. Sin embargo, esto genera que no se tenga en cuenta la ultima palabra cuando el ultimo caracter del archivo de texto no es uno de los delimitantes. Podemos ver que en el caso del archivo de texto de dos palabras, este finaliza con un salto de linea (que si esta entre los caracteres delimitantes), mientras que en *Single Word* el ultimo caracter es una letra "d".
+
+SERcOM nos aporta aquel valor de retorno del test, junto con el esperado por la prueba.
+
+c) (screenshot 10)
+
+d) (screenshot 11)
+
+* *info functions* nos muestra las firmas de todas las funciones.
+* *list wordscounter_next_state* imprime las lineas cercanas a la definicion de la funcion *wordscounter_next_state*.
+* *list* imprime las siguientes lineas a las impresas con el ultimo comando *list* utilizado.
+* *break 45* coloca un breakpoint en la linea 45.
+* *run input_single_word.txt* corre el programa siendo el archivo *input_single_word.txt* el parametro.
+
+El programa no se detiene en la linea 45 tal como habiamos pedido porque nunca se ejecuta esa instruccion, ya que alli se suma una palabra al contador, pero la cantidad de palabras contadas es 0.
 	
