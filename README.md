@@ -1,3 +1,11 @@
+# TRABAJO PRACTICO 0
+# JOAQUIN FACUNDO FONTELA
+# PADRON: 103924
+# [Repositorio](https://github.com/joaquinfontela/tp0)
+
+
+# INFORME
+
 ## PASO 0
 
 a) ![](https://github.com/joaquinfontela/recursos-taller/blob/master/sreenshot0.png)
@@ -99,6 +107,8 @@ b) Los motivos por los que fallan las pruebas seran detallados a continuacion:
 
 SERcOM nos aporta aquel valor de retorno del test, junto con el esperado por la prueba.
 
+c) ![](https://github.com/joaquinfontela/recursos-taller/blob/master/sreenshot10.png)
+
 d) ![](https://github.com/joaquinfontela/recursos-taller/blob/master/sreenshot11.png)
 
 * *info functions* nos muestra las firmas de todas las funciones.
@@ -120,4 +130,8 @@ a) Las correcciones con respecto al paso anterior son las siguientes:
 b) ![](https://github.com/joaquinfontela/recursos-taller/blob/master/sreenshot12.png)
 
 c) ![](https://github.com/joaquinfontela/recursos-taller/blob/master/sreenshot13.png)
+
+## PASO 7
+
+
 	
