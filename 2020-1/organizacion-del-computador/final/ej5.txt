@@ -1,0 +1,21 @@
+5) 
+El linking es el proceso a traves del cual un conjunto de modulos con codigo objeto son transformados a codigo ejecutable.
+Sin embargo, existen distintos tipos de linking (mas alla de que el objetivo final es el mismo, por eso tienen el mismo nombre):
+
+	- Linking estatico.
+	- Linking dinamico (hay dos: en tiempo de carga y en tiempo de ejecucion).
+
+En cuanto al primero, cada modulo objeto es creado con una referencia (relativa) al inicio del Load Module (el modulo que se crea como resultado del Linking).
+Esto quiere decir que para cada modulo original, tenemos una referencia que indica el "offset" con respecto al comienzo de la ejecucion.
+El proceso, mas detalladamente, consiste en tomar cada modulo y calcular su longitud, asignando una direccion relativa a cada uno con respecto al comienzo.
+Luego, por cada instruccion, se le suma una constante a la direccion de memoria para ubicarla relativamente respecto a las otras instrucciones.
+
+En cuanto al Linking Dinamico en tiempo de ejecucion, este se caracteriza por realizarse con el programa ya "corriendo": se mantienen las referencias a modulos externos,
+y cuando realmente deberemos utilizarlos, alli el SO busca y linkea la referencia externa a una nueva referencia relativa.
+Las dos grandes ventajas del linkeo dinamico son:
+
+	- Por un lado, nos permiten compartir modulos externos entre procesos en el mismo SO.
+	- Por otro lado, evita que tengamos que estar reensamblando cada vez que un modulo externo es actualizado.
+
+Ademas, el linkeo dinamico en tiempo de ejecucion particularmente tiene otra gran ventaja, y es que nos permite ocupar la memoria solo cuando sabemos que la vamos a utilizar.
+

@@ -1,0 +1,29 @@
+4) Existen multiples metodos de direccionamiento en la arquitectura Intel x86.
+En este momento puedo recordar siete:
+	1- Inmediato.
+	2- Registro Directo.
+	3- Registro Indirecto.
+	4- Memoria Directo.
+	5- Memoria Indirecto.
+	6- Stack.
+	7- Desplazamiento (Offset).
+
+Describire tres de elllos y dare un ejemplo de uso en una instruccion tal como fue pedido.
+
+	1- Inmediato: en este caso el operando esta en la instruccion. Una instruccion de ejemplo seria:
+	
+		mov	rdi, 1
+
+	En este caso lo que hicimos fue mover al registro 'rdi' el valor 1.
+
+	2- Registro Directo: en este caso el operando esta almacenado en el registro. Un ejemplo de esto seria:
+
+		mov	rdi, rsi
+
+	En este caso lo que hicimos fue mover al registro 'rdi' el valor almacenado en el registro 'rsi'.
+
+	4- Memoria Directo: en este caso el operando esta almacenado en una variable en memoria. Un ejemplo de esto seria:
+
+		mov	rdi, [unaVariable]
+
+	En este caso lo que hicimos fue mover al registro 'rdi' el valor almacenado en la variable de memoria 'unaVariable'.

@@ -1,0 +1,13 @@
+1) 
+Los numeros desnormalizados aparecen cuando una operacion da como resultado un numero menor al minimo representable en el formato.
+El menor numero representable en el formato sin numeros desnormalizados es 2 ^ (-127) debido a que el exponente esta representado por 7 digitos binarios y 2^7 = 128.
+El rango de numeros representables en el formato con numeros normalizados va desde 2 ^ (-127) a 2 ^ (-150), ya que el bit implicito a la izquierda del numero pasa a ser un 0 
+(para poder reconocer el numero desnormalizado), el exponente esta formado por todos ceros, y la fraccion esta formada por 23 valores binarios.
+
+2 ^ (-127) en formato punto flotante IEEE 754 seria:
+
+	0 00000000 00000000000000000000001
+
+Y 2 ^ (-150) seria:
+
+	0 00000000 11111111111111111111111

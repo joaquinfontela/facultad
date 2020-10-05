@@ -1,0 +1,15 @@
+7) 
+El medio de almacenamiento en cinta esta la parte inferior de la piramide de jerarquias de memoria. En esta piramide, a medida que uno desciende puede encontrar medios con:
+	
+	- Mayor capacidad de almacenamiento (Ventaja).
+	- Menor costo por bit (Ventaja).
+	- Mayor tiempo de procesamiento (Desventaja).
+	- Menor frecuencia de acceso por parte de la CPU a estos medios.
+
+Es un medio de almacenamiento de tipo "Offline Storage", y guarda la informacion en memoria aunque se corte el suministro de energia (no ocurre con los Inboard Storage, como son los registros,
+la memoria Cache o la RAM, aunque si con los Outboard Storage)
+Otra desventaja que tiene es que el acceso a la informacion es secuencial: por ejemplo, si estoy situado en el bit 1, y quiero acceder al bit N, debo pasar por los N-1 bits de en medio. 
+De la misma manera, si quiero acceder a una posicion anterior, debo rebobinar la cinta y volver a buscar la direccion.
+
+Hoy en dia estas cintas se siguen utlizando, pese a ser uno de los primeros modos de almacenamiento secundario que hayan existido. Hoy en dia el modelo mas actual es LTO8. Los usos
+actuales incluyen principalmente backups y archivamiento, ya que son medios de almacenamiento muy duraderos, de gran capacidad, y de bajo costo por bit.

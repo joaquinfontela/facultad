@@ -1,0 +1,6 @@
+2)
+El modo de direccionamiento de registro indirecto con offset en una arquitectura ARM de 32 bits se basa en acceder a un registro, cuyo valor almacenado es una direccion de memoria,
+y sumarle un valor constante llamada 'offset' o desplazamiento, para acceder a otra direccion de memoria (en la mayoria de los casos, cercana).
+Se adjunta el archivo 'ej2.s' con el ejemplo y la explicacion instruccion a instruccion.
+
+	

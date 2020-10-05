@@ -1,0 +1,33 @@
+6)
+El procesamiento paralelo de datos, o paralelismo, es la tecnica que nos permite procesar multiples conjuntos de datos al mismo tiempo.
+Existen dos tipos de paralelismo:
+	
+	- Paralelismo a nivel instruccion.
+	- Paralelismo a nivel de procesador.
+
+Ambos tienen distintas variantes.
+Con respecto al primero de ellos, existen tres:
+	
+	- Pipelining: basicamente, en este caso lo que ocurre es que se ejecuta una instruccion por ciclo reloj. Lo que tiene de particular es que se hace la analogia con una tuberia.
+	Como el procesamiento de una instruccion consta de cinco pasos (buscar instruccion, decodificar, buscar operandos, ejecutar, y cargar a memoria), en cada "momento", cinco instrucciones
+	son ejecutadas al mismo tiempo, cada una de ellas realizando un paso distinto. Es decir, mientras la instruccion 1 puede estar siendo ejecutada, la instruccion 2 esta siendo
+	decodificada.
+
+	- Dual Pipelining: este proceso es muy similar al anterior, pero se diferencia en el hecho de que, a partir del segundo paso del procesamiento de la instruccion ('decode'),
+	hay dos tuberias disponibles, lo cual permite el procesamiento de dos instrucciones por ciclo reloj.
+
+	- Superscalar: este proceso tambien consta de una "tuberia", pero se asemeja del resto ya que en el cuarto paso del procesamiento ('execute'), la tuberia se divide segun el tipo
+	de instruccion a ejecutar (hay una rama para 'LOAD', otra para 'STORE', etc). Esto se basa en que la parte mas lenta de procesamiento de una instruccion es, por bastante, 
+	la ejecucion, lo cual en los otros modelos generaba un cuello de botella.
+
+En cuanto al paralelismo a nivel de procesador, hay tambien tres opciones:
+
+	- Procesadores paralelos de datos: en este caso existe una unica UC (Unidad de Control), y multiples procesadores controlados por ella. Siguen el metodo SIMD (Single Instruction
+	Multiple Data), que se basa en realizar las mismas instrucciones sobre distintos conjuntos de datos.
+
+	- Multiprocesadores: son multiples CPU, que comparten una memoria en comun a la que acceden a partir de un 'bus' (tambien comun). Sin embargo, en este caso hay dos tipos de 
+	multiprocesadores (hay un grupo de ellos, que son tal cual se menciono recien, por ejemplo el Intel Core i7; sin embargo, hay un segundo grupo al cual se les da acceso, a cada
+	CPU, hay una memoria local propia, como por ejemplo es el caso del Intel Itanium 2).
+
+	- Multicomputadores: son muchas computadoras, ligeramente acopladas entre si, que unicamente intercambian mensajes entre si, ya que cada una posee su propia memoria individual y 
+	no comparten memoria en comun. Este es el caso de casi todas las conocidas como supercomputadoras.
