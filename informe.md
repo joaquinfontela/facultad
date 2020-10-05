@@ -1,6 +1,6 @@
 ## PASO 0
 
-a) (screenshot 0)
+a) ![](https://github.com/joaquinfontela/recursos-taller/blob/master/sreenshot0.png)
 
 b)  	Valgrind es una herramienta que nos permite identificar problemas al momento de utilizar memoria dinamica. Por ejemplo, memoria no liberada, el uso de memoria no inicializada, etc.
     	Es importante aclarar que la compilacion realizada con Valgrind es mucho mas lenta, con lo cual solo se realiza cuando se intenta algun error del tipo mencionado en el parrafo anterior, o relacionados.
