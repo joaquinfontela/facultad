@@ -53,6 +53,7 @@ bool socket_t_connect(socket_t *self, char *host, char *port) {
                 connectionsCopy->ai_protocol);
     if (fd == -1) {
       connectionsCopy = connectionsCopy->ai_next;
+      // fprintf(stderr, "%s\n", strerror(errno));
       continue;
     } else if (connect(fd, connectionsCopy->ai_addr,
                        connectionsCopy->ai_addrlen) == -1) {
@@ -88,6 +89,7 @@ static bool socket_t_bind(socket_t *self, char *port, bool reusablePort) {
                 connectionsCopy->ai_protocol);
     if (fd == -1) {
       connectionsCopy = connectionsCopy->ai_next;
+      // fprintf(stderr, "%s\n", strerror(errno));
       continue;
     } else if (bind(fd, connectionsCopy->ai_addr,
                     connectionsCopy->ai_addrlen) == -1) {
@@ -131,7 +133,7 @@ bool socket_t_bindListen(socket_t *self, char *port, bool reusablePort,
 
 int socket_t_accept(socket_t *self) { return accept(self->fd, NULL, NULL); }
 
-int socket_t_send(socket_t *self, unsigned char *message, size_t len) {
+int socket_t_send(socket_t *self, const char *message, size_t len) {
   size_t remainingBytes = len;
   size_t bytesSent = 0;
 
@@ -166,7 +168,6 @@ int socket_t_recieve(socket_t *self, unsigned char *buffer, size_t len) {
 
     if (bytesRecievedInLastCall == SEND_ERROR) {
       printf("Recieving error.\n");
-      // printf("%d\n", self->fd);
       fprintf(stderr, "%s\n", strerror(errno));
       return SEND_ERROR;
     } else if (bytesRecievedInLastCall == 0) {

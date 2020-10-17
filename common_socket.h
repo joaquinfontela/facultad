@@ -23,7 +23,7 @@ bool socket_t_bindListen(socket_t *self, char *port, bool reusablePort,
 
 int socket_t_accept(socket_t *self);
 
-int socket_t_send(socket_t *self, unsigned char *message, size_t len);
+int socket_t_send(socket_t *self, const char *message, size_t len);
 
 int socket_t_recieve(socket_t *self, unsigned char *buffer, size_t len);
 

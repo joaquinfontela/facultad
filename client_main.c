@@ -20,8 +20,7 @@ int main() {
   if (client_socket_t_init(&skt)) puts("Error en el init");
   if (!client_socket_t_connect(&skt, HOST, PORT)) puts("Error en el connect");
 
-  unsigned char message[10] = "Hola mundo";
-  printf("%d\n", skt.socket->fd);
+  const char message[10] = "Hola mundo";
   client_socket_t_send(&skt, message, 10);
 
   return 0;

@@ -21,10 +21,9 @@ int main() {
   server_socket_t_bindListen(&skt, PORT, true, 10);
   server_socket_t_accept(&skt);
 
-  unsigned char buf;
-  printf("%d\n", (&skt)->clientSocket->fd);
-  server_socket_t_recieve(&skt, &buf, 10);
+  unsigned char buf[10];
+  server_socket_t_recieve(&skt, buf, 10);
 
-  // printf("%s\n", &buf);
+  printf("%s\n", buf);
   return 0;
 }
