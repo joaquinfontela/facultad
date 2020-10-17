@@ -138,7 +138,6 @@ int socket_t_send(socket_t *self, const char *message, size_t len) {
   size_t bytesSent = 0;
 
   while (bytesSent < remainingBytes) {
-    puts("Sending...");
     ssize_t bytesSentInLastCall =
         send(self->fd, &message[bytesSent], remainingBytes, MSG_NOSIGNAL);
 
@@ -162,7 +161,6 @@ int socket_t_recieve(socket_t *self, unsigned char *buffer, size_t len) {
   size_t bytesRecieved = 0;
 
   while (bytesRecieved < remainingBytes) {
-    puts("Recieving...");
     ssize_t bytesRecievedInLastCall =
         recv(self->fd, &buffer[bytesRecieved], remainingBytes, 0);
 
@@ -177,6 +175,9 @@ int socket_t_recieve(socket_t *self, unsigned char *buffer, size_t len) {
     remainingBytes -= bytesRecievedInLastCall;
     bytesRecieved += bytesRecievedInLastCall;
   }
+
+  unsigned char endOfString = '\0';
+  buffer[bytesRecieved] = endOfString;
 
   return 0;
 }
