@@ -83,13 +83,3 @@ bool serverCommandValidator_t_commandIsValid(serverCommandValidator_t* self) {
   return ((serverCommandValidator_t_argumentCountIsValid(self)) &&
           (serverCommandValidator_t_argumentValuesAreValid(self)));
 }
-
-/*
-int main(int argc, char* argv[]) {
-  serverCommandValidator_t commandValidator;
-  serverCommandValidator_initialize(&commandValidator, argc, argv);
-  if (!serverCommandValidator_t_commandIsValid(&commandValidator)) return -1;
-  puts("OK");
-  return 0;
-}
-*/

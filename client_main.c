@@ -1,5 +1,6 @@
 #include "client_commandParser.h"
 #include "client_socket.h"
+#include "client_stdinReader.h"
 #include "common_encoder.h"
 
 #define HOST "127.0.0.1"
@@ -13,7 +14,11 @@ int main(int argc, char* argv[]) {
   clientCommandParser_t commandParser;
   clientCommandParser_t_initialize(&commandParser, argv);
 
-  char message[] = "hello world";
+  stdinReader_t stdinReader;
+  char message[300];
+  stdinReader_t_init(&stdinReader);
+  stdinReader_t_read(&stdinReader, message);
+
   encoder_t encoder;
   encoder_t_init(&encoder, (unsigned char*)commandParser.method,
                  (unsigned char*)commandParser.key);
@@ -24,6 +29,9 @@ int main(int argc, char* argv[]) {
   client_socket_t_connect(&skt, HOST, PORT);
 
   client_socket_t_send(&skt, message, strlen(message));
+
+  client_socket_t_disconnect(&skt);
+  client_socket_t_destroy(&skt);
 
   return 0;
 }

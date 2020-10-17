@@ -54,7 +54,3 @@ int server_socket_t_disconnect(server_socket_t *self) {
   return (socket_t_disconnect(&(self->socket)) ||
           (socket_t_disconnect(&(self->clientSocket))));
 }
-
-/*
-int main() { return 0; }
-*/

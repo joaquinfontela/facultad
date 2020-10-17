@@ -27,5 +27,9 @@ int main(int argc, char* argv[]) {
   encoder_t_decode(&encoder, buf);
 
   printf("%s\n", buf);
+
+  server_socket_t_disconnect(&skt);
+  server_socket_t_destroy(&skt);
+
   return 0;
 }

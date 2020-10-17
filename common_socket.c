@@ -46,11 +46,10 @@ bool socket_t_connect(socket_t *self, char *host, char *port) {
     return socket_t_connectionFailure(self);
   }
 
-  int fd;
   struct addrinfo *connectionsCopy = connections;
   while (connectionsCopy != NULL) {
-    fd = socket(connectionsCopy->ai_family, connectionsCopy->ai_socktype,
-                connectionsCopy->ai_protocol);
+    int fd = socket(connectionsCopy->ai_family, connectionsCopy->ai_socktype,
+                    connectionsCopy->ai_protocol);
     if (fd == -1) {
       connectionsCopy = connectionsCopy->ai_next;
       // fprintf(stderr, "%s\n", strerror(errno));
@@ -82,11 +81,10 @@ static bool socket_t_bind(socket_t *self, char *port, bool reusablePort) {
     return socket_t_connectionFailure(self);
   }
 
-  int fd;
   struct addrinfo *connectionsCopy = connections;
   while (connectionsCopy != NULL) {
-    fd = socket(connectionsCopy->ai_family, connectionsCopy->ai_socktype,
-                connectionsCopy->ai_protocol);
+    int fd = socket(connectionsCopy->ai_family, connectionsCopy->ai_socktype,
+                    connectionsCopy->ai_protocol);
     if (fd == -1) {
       connectionsCopy = connectionsCopy->ai_next;
       // fprintf(stderr, "%s\n", strerror(errno));

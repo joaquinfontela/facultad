@@ -83,13 +83,3 @@ bool clientCommandValidator_t_commandIsValid(clientCommandValidator_t* self) {
   return ((clientCommandValidator_t_argumentCountIsValid(self)) &&
           (clientCommandValidator_t_argumentValuesAreValid(self)));
 }
-
-/*
-int main(int argc, char* argv[]) {
-  clientCommandValidator_t commandValidator;
-  clientCommandValidator_initialize(&commandValidator, argc, argv);
-  if (!clientCommandValidator_t_commandIsValid(&commandValidator)) return -1;
-  puts("OK");
-  return 0;
-}
-*/

@@ -36,10 +36,3 @@ int client_socket_t_disconnect(client_socket_t *self) {
   if (self == NULL) return NULL_VALUE_ERROR;
   return socket_t_disconnect(&(self->socket));
 }
-
-/*
-int main() {
-  printf("%s\n", "Holi");
-  return 0;
-}
-*/
