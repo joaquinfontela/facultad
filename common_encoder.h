@@ -14,4 +14,5 @@ int encoder_t_init(encoder_t* self, unsigned char* method, unsigned char* key);
 
 int encoder_t_encode(encoder_t* self, unsigned char string[]);
 
-int encoder_t_decode(encoder_t* self, unsigned char string[]);
+int encoder_t_decode(encoder_t* self, unsigned char string[],
+                     unsigned int bytesToDecode);

@@ -57,8 +57,18 @@ void rc4Encoder_t_encode(rc4Encoder_t *self, unsigned char string[]) {
   }
 }
 
-void rc4Encoder_t_decode(rc4Encoder_t *self, unsigned char string[]) {
-  rc4Encoder_t_encode(self, string);
+void rc4Encoder_t_decode(rc4Encoder_t *self, unsigned char string[],
+                         unsigned int bytesToDecode) {
+  rc4Encoder_t_KSA(self);
+
+  self->i = 0;
+  self->j = 0;
+  int n;
+  unsigned int stringLength = bytesToDecode;
+
+  for (n = 0; n < stringLength; n++) {
+    string[n] = string[n] ^ rc4Encoder_t_PRGA(self);
+  }
 }
 
 /*

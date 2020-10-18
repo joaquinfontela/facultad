@@ -24,11 +24,12 @@ void vigenereEncoder_t_encode(vigenereEncoder_t* self, unsigned char string[]) {
   }
 }
 
-void vigenereEncoder_t_decode(vigenereEncoder_t* self, unsigned char string[]) {
+void vigenereEncoder_t_decode(vigenereEncoder_t* self, unsigned char string[],
+                              unsigned int bytesToDecode) {
   unsigned int currentStringPosition = 0;
   unsigned int currentKeyPosition = 0;
   unsigned char currentChar = string[currentStringPosition];
-  while (currentChar != '\0') {
+  while ((currentChar != '\0') && (currentStringPosition < bytesToDecode)) {
     if (self->key[currentKeyPosition] == '\0') {
       currentKeyPosition = 0;
     }

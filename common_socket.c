@@ -132,35 +132,30 @@ bool socket_t_bindListen(socket_t *self, char *port, bool reusablePort,
 int socket_t_accept(socket_t *self) { return accept(self->fd, NULL, NULL); }
 
 int socket_t_send(socket_t *self, const char *message, size_t len) {
-  size_t remainingBytes = len;
   size_t bytesSent = 0;
 
-  while (bytesSent < remainingBytes) {
+  while (bytesSent < len) {
     ssize_t bytesSentInLastCall =
-        send(self->fd, &message[bytesSent], remainingBytes, MSG_NOSIGNAL);
+        send(self->fd, &message[bytesSent], len - bytesSent, MSG_NOSIGNAL);
 
     if (bytesSentInLastCall == SEND_ERROR) {
       printf("Sending error.\n");
       fprintf(stderr, "%s\n", strerror(errno));
       return SEND_ERROR;
-    } else if (bytesSentInLastCall == 0) {
-      break;
     }
 
-    remainingBytes -= bytesSentInLastCall;
     bytesSent += bytesSentInLastCall;
   }
 
   return 0;
 }
 
-int socket_t_recieve(socket_t *self, unsigned char *buffer, size_t len) {
-  size_t remainingBytes = len;
+ssize_t socket_t_recieve(socket_t *self, unsigned char *buffer, size_t len) {
   size_t bytesRecieved = 0;
 
-  while (bytesRecieved < remainingBytes) {
+  while (bytesRecieved < len) {
     ssize_t bytesRecievedInLastCall =
-        recv(self->fd, &buffer[bytesRecieved], remainingBytes, 0);
+        recv(self->fd, &buffer[bytesRecieved], len - bytesRecieved, 0);
 
     if (bytesRecievedInLastCall == SEND_ERROR) {
       printf("Recieving error.\n");
@@ -170,14 +165,13 @@ int socket_t_recieve(socket_t *self, unsigned char *buffer, size_t len) {
       break;
     }
 
-    remainingBytes -= bytesRecievedInLastCall;
     bytesRecieved += bytesRecievedInLastCall;
   }
 
   unsigned char endOfString = '\0';
   buffer[bytesRecieved] = endOfString;
 
-  return 0;
+  return bytesRecieved;
 }
 
 int socket_t_disconnect(socket_t *self) {

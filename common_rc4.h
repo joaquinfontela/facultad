@@ -9,4 +9,5 @@ int rc4Encoder_t_initialize(rc4Encoder_t *self, unsigned char key[]);
 
 void rc4Encoder_t_encode(rc4Encoder_t *self, unsigned char string[]);
 
-void rc4Encoder_t_decode(rc4Encoder_t *self, unsigned char string[]);
+void rc4Encoder_t_decode(rc4Encoder_t *self, unsigned char string[],
+                         unsigned int bytesToDecode);

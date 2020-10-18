@@ -18,5 +18,8 @@ int stdinReader_t_read(stdinReader_t* self, char* buffer) {
   while (stdinReader_t_readChunk(self, &buffer[bufferPosition])) {
     bufferPosition += (self->chunkSize);
   }
+
+  buffer[strcspn(buffer, "\r\n")] = 0;
+
   return 0;
 }

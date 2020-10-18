@@ -26,11 +26,13 @@ int client_socket_t_send(client_socket_t *self, const char *message,
   return socket_t_send(&(self->socket), message, len);
 }
 
-int client_socket_t_recieve(client_socket_t *self, unsigned char *buffer,
+/*
+ssize_t client_socket_t_recieve(client_socket_t *self, unsigned char *buffer,
                             size_t len) {
   if ((self == NULL) || (buffer == NULL) || (!len)) return 0;
   return socket_t_recieve(&(self->socket), buffer, len);
 }
+*/
 
 int client_socket_t_disconnect(client_socket_t *self) {
   if (self == NULL) return NULL_VALUE_ERROR;

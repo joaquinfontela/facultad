@@ -18,7 +18,7 @@ int server_socket_t_accept(server_socket_t *self);
 int server_socket_t_send(server_socket_t *self, const char *message,
                          size_t len);
 
-int server_socket_t_recieve(server_socket_t *self, unsigned char *buffer,
-                            size_t len);
+ssize_t server_socket_t_recieve(server_socket_t *self, unsigned char *buffer,
+                                size_t len);
 
 int server_socket_t_disconnect(server_socket_t *self);

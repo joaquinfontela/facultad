@@ -38,7 +38,8 @@ int encoder_t_encode(encoder_t* self, unsigned char string[]) {
   return 0;
 }
 
-int encoder_t_decode(encoder_t* self, unsigned char string[]) {
+int encoder_t_decode(encoder_t* self, unsigned char string[],
+                     unsigned int bytesToDecode) {
   if (self == NULL) return NULL_VALUE_ERROR;
 
   const char cesar[] = "cesar";
@@ -49,17 +50,17 @@ int encoder_t_decode(encoder_t* self, unsigned char string[]) {
     cesarEncoder_t e = {0};
     cesarEncoder_t* encoder = &e;
     cesarEncoder_t_initialize(encoder, self->key);
-    cesarEncoder_t_decode(encoder, string);
+    cesarEncoder_t_decode(encoder, string, bytesToDecode);
   } else if (!strcmp((char*)self->method, rc4)) {
     rc4Encoder_t e = {{0}, 0, 0, 0};
     rc4Encoder_t* encoder = &e;
     rc4Encoder_t_initialize(encoder, self->key);
-    rc4Encoder_t_decode(encoder, string);
+    rc4Encoder_t_decode(encoder, string, bytesToDecode);
   } else if (!strcmp((char*)self->method, vigenere)) {
     vigenereEncoder_t e = {0};
     vigenereEncoder_t* encoder = &e;
     vigenereEncoder_t_initialize(encoder, self->key);
-    vigenereEncoder_t_decode(encoder, string);
+    vigenereEncoder_t_decode(encoder, string, bytesToDecode);
   } else {
     return METHOD_ERROR;
   }

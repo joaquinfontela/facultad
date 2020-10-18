@@ -3,9 +3,6 @@
 #include "client_stdinReader.h"
 #include "common_encoder.h"
 
-#define HOST "127.0.0.1"
-#define PORT "8080"
-
 int main(int argc, char* argv[]) {
   clientCommandValidator_t commandValidator;
   clientCommandValidator_initialize(&commandValidator, argc, argv);
@@ -15,9 +12,10 @@ int main(int argc, char* argv[]) {
   clientCommandParser_t_initialize(&commandParser, argv);
 
   stdinReader_t stdinReader;
-  char message[300];
+  char message[1000];
   stdinReader_t_init(&stdinReader);
   stdinReader_t_read(&stdinReader, message);
+  size_t messageLen = strlen(message);
 
   encoder_t encoder;
   encoder_t_init(&encoder, (unsigned char*)commandParser.method,
@@ -26,9 +24,9 @@ int main(int argc, char* argv[]) {
 
   client_socket_t skt;
   client_socket_t_init(&skt);
-  client_socket_t_connect(&skt, HOST, PORT);
+  client_socket_t_connect(&skt, commandParser.host, commandParser.port);
 
-  client_socket_t_send(&skt, message, strlen(message));
+  client_socket_t_send(&skt, message, messageLen);
 
   client_socket_t_disconnect(&skt);
   client_socket_t_destroy(&skt);
