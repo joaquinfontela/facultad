@@ -47,7 +47,7 @@ int server_socket_t_send(server_socket_t *self, const char *message,
 
 ssize_t server_socket_t_recieve(server_socket_t *self, unsigned char *buffer,
                                 size_t len) {
-  if ((self == NULL) || (buffer == NULL)) return 0;
+  if ((self == NULL) || (buffer == NULL)) return -1;
   return socket_t_recieve(&(self->clientSocket), buffer, len);
 }
 
