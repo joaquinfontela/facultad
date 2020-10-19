@@ -31,3 +31,18 @@ En esta ultima etapa, toco desarrollar ambas funciones *main* (tanto la del *cli
 #### DEBUGGING CONTINUO
 
 Durante todo el proyecto hizo falta *debuggear* ya que las fallas de compilacion (principalmente debido a que tratamos todos los *warnings* como errores) eran frecuentes. El *debugging* mas intenso se dio en dos momentos: por un lado, durante la implementacion de TDA Socket; por el otro, al realizar la entrega en el SERCOM, ya que tuve errores simples como tener *hardcodeados* el *host* y *port*, como otros mas complejos de identificar.
+
+
+## HERRAMIENTAS UTILIZADAS
+
+##### VISUAL STUDIO CODE
+Fue el IDE utilizado por mi durante todo el proyecto.
+
+##### GDB 
+Intente utilizar este *debugger* para identificar un *bug* que no estaba pudiendo encontrar pero no me fue de utilidad (tal vez, por mi poca experiencia con esta herramienta). Creo que para el proximo TP deberia investigarla mas a fondo, ya que mas temprano que tarde seguramente la terminare necesitando.
+
+##### VALGRIND
+Para identificar *leaks* de memoria. No lo corri muchas veces, ya que no me hizo falta (solo una vez encontre fallas, y las solucione *debuggeando* otra cosa).
+
+##### LINEA DE COMANDOS
+No fue un proyecto en el que haya crecido de gran manera mi conocimiento acerca de la terminal. Pero si me permitio familiarizarme un poco mas con ella, como cada vez que toca utilizarla.
