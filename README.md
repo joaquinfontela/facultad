@@ -47,7 +47,11 @@ Para identificar *leaks* de memoria. No se corrio muchas veces, ya que no hizo f
 
 ## DIAGRAMA DE CLASES
 
-A continuacion, un diagrama de clases representativo de los TDAs implementados para este proyecto.
+A continuacion, dos diagramas de clases representativos de los TDAs implementados para este proyecto.
+
+![](https://github.com/joaquinfontela/tp1-taller/blob/master/diagrama-client.jpeg)
+
+![](https://github.com/joaquinfontela/tp1-taller/blob/master/diagrama-server.jpeg)
 
 
 ## CONCLUSIONES
