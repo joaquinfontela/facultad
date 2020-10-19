@@ -21,49 +21,33 @@ bool processCommand(int argc, char* argv[],
   return true;
 }
 
-ssize_t readMessage(char* message) {
-  stdinReader_t stdinReader;
-  if (stdinReader_t_init(&stdinReader)) return -1;
-  stdinReader_t_read(&stdinReader, message);
-  return strlen(message);
-}
-
-bool encode(clientCommandParser_t* commandParser, char* message) {
-  encoder_t encoder;
-  if (encoder_t_init(&encoder, (unsigned char*)commandParser->method,
-                     (unsigned char*)commandParser->key) == 1)
-    return false;
-  if (encoder_t_encode(&encoder, (unsigned char*)message) != 0) return false;
-  return true;
-}
-
-bool sendMessage(client_socket_t* skt, clientCommandParser_t* commandParser,
-                 char* message, size_t messageLen) {
-  client_socket_t_init(skt);
-  if (!client_socket_t_connect(skt, commandParser->host, commandParser->port))
-    return false;
-
-  if (client_socket_t_send(skt, message, messageLen) != 0) return false;
-
-  client_socket_t_disconnect(skt);
-  client_socket_t_destroy(skt);
-  return true;
-}
-
 int main(int argc, char* argv[]) {
   clientCommandParser_t commandParser;
   if (!processCommand(argc, argv, &commandParser))
     return COMMAND_PROCESSING_ERROR;
 
-  char message[1000];
-  ssize_t messageLen = readMessage(message);
-  if (messageLen == -1) return FILE_READING_ERROR;
-
-  if (!encode(&commandParser, message)) return ENCODING_ERROR;
-
+  char message[70];
+  size_t bytesRead;
+  stdinReader_t stdinReader;
   client_socket_t skt;
-  if (!sendMessage(&skt, &commandParser, message, messageLen))
-    return MESSAGE_SENDING_ERROR;
+
+  stdinReader_t_init(&stdinReader);
+
+  encoder_t encoder;
+  encoder_t_init(&encoder, (unsigned char*)commandParser.method,
+                 (unsigned char*)commandParser.key);
+
+  client_socket_t_init(&skt);
+  client_socket_t_connect(&skt, commandParser.host, commandParser.port);
+
+  do {
+    bytesRead = stdinReader_t_readChunk(&stdinReader, message);
+    encoder_t_encode(&encoder, (unsigned char*)message);
+    client_socket_t_send(&skt, message, bytesRead);
+  } while (bytesRead == 64);
+
+  client_socket_t_disconnect(&skt);
+  client_socket_t_destroy(&skt);
 
   return SUCCESS;
 }

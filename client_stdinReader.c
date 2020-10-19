@@ -8,18 +8,8 @@ int stdinReader_t_init(stdinReader_t* self) {
   return 0;
 }
 
-static char* stdinReader_t_readChunk(stdinReader_t* self, char* buffer) {
-  return fgets(buffer, (self->chunkSize) + 1, stdin);
-}
-
-int stdinReader_t_read(stdinReader_t* self, char* buffer) {
-  int bufferPosition = 0;
-
-  while (stdinReader_t_readChunk(self, &buffer[bufferPosition])) {
-    bufferPosition += (self->chunkSize);
-  }
-
+size_t stdinReader_t_readChunk(stdinReader_t* self, char* buffer) {
+  fgets(buffer, (self->chunkSize) + 1, stdin);
   buffer[strcspn(buffer, "\r\n")] = 0;
-
-  return 0;
+  return strlen(buffer);
 }

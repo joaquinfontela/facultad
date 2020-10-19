@@ -1,5 +1,6 @@
 typedef struct vigenereEncoder {
   unsigned char* key;
+  unsigned int currentKeyPosition;
 } vigenereEncoder_t;
 
 int vigenereEncoder_t_initialize(vigenereEncoder_t* self, unsigned char key[]);

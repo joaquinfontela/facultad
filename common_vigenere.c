@@ -6,12 +6,13 @@
 int vigenereEncoder_t_initialize(vigenereEncoder_t* self, unsigned char key[]) {
   if ((self == NULL) || (key == NULL)) return -1;
   self->key = key;
+  self->currentKeyPosition = 0;
   return 0;
 }
 
 void vigenereEncoder_t_encode(vigenereEncoder_t* self, unsigned char string[]) {
   unsigned int currentStringPosition = 0;
-  unsigned int currentKeyPosition = 0;
+  unsigned int currentKeyPosition = self->currentKeyPosition;
   unsigned char currentChar = string[currentStringPosition];
   while (currentChar != '\0') {
     if (self->key[currentKeyPosition] == '\0') {
@@ -22,12 +23,13 @@ void vigenereEncoder_t_encode(vigenereEncoder_t* self, unsigned char string[]) {
     currentKeyPosition++;
     currentChar = string[currentStringPosition];
   }
+  self->currentKeyPosition = currentKeyPosition;
 }
 
 void vigenereEncoder_t_decode(vigenereEncoder_t* self, unsigned char string[],
                               unsigned int bytesToDecode) {
   unsigned int currentStringPosition = 0;
-  unsigned int currentKeyPosition = 0;
+  unsigned int currentKeyPosition = self->currentKeyPosition;
   unsigned char currentChar = string[currentStringPosition];
   while ((currentChar != '\0') && (currentStringPosition < bytesToDecode)) {
     if (self->key[currentKeyPosition] == '\0') {
@@ -38,6 +40,7 @@ void vigenereEncoder_t_decode(vigenereEncoder_t* self, unsigned char string[],
     currentKeyPosition++;
     currentChar = string[currentStringPosition];
   }
+  self->currentKeyPosition = currentKeyPosition;
 }
 
 /*

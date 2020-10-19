@@ -7,6 +7,19 @@ int encoder_t_init(encoder_t* self, unsigned char* method, unsigned char* key) {
   if (self == NULL) return NULL_VALUE_ERROR;
   self->key = key;
   self->method = method;
+
+  cesarEncoder_t cesarEncoder;
+  cesarEncoder_t_initialize(&cesarEncoder, key);
+  self->cesarEncoder = cesarEncoder;
+
+  vigenereEncoder_t vigenereEncoder;
+  vigenereEncoder_t_initialize(&vigenereEncoder, key);
+  self->vigenereEncoder = vigenereEncoder;
+
+  rc4Encoder_t rc4Encoder;
+  rc4Encoder_t_initialize(&rc4Encoder, key);
+  self->rc4Encoder = rc4Encoder;
+
   return 0;
 }
 
@@ -18,23 +31,18 @@ int encoder_t_encode(encoder_t* self, unsigned char string[]) {
   const char vigenere[] = "vigenere";
 
   if (!strcmp((char*)self->method, cesar)) {
-    cesarEncoder_t e = {0};
-    cesarEncoder_t* encoder = &e;
-    cesarEncoder_t_initialize(encoder, self->key);
-    cesarEncoder_t_encode(encoder, string);
+    cesarEncoder_t_encode(&(self->cesarEncoder), string);
+
   } else if (!strcmp((char*)self->method, rc4)) {
-    rc4Encoder_t e = {{0}, 0, 0, 0};
-    rc4Encoder_t* encoder = &e;
-    rc4Encoder_t_initialize(encoder, self->key);
-    rc4Encoder_t_encode(encoder, string);
+    rc4Encoder_t_encode(&(self->rc4Encoder), string);
+
   } else if (!strcmp((char*)self->method, vigenere)) {
-    vigenereEncoder_t e = {0};
-    vigenereEncoder_t* encoder = &e;
-    vigenereEncoder_t_initialize(encoder, self->key);
-    vigenereEncoder_t_encode(encoder, string);
+    vigenereEncoder_t_encode(&(self->vigenereEncoder), string);
+
   } else {
     return METHOD_ERROR;
   }
+
   return 0;
 }
 
@@ -47,22 +55,17 @@ int encoder_t_decode(encoder_t* self, unsigned char string[],
   const char vigenere[] = "vigenere";
 
   if (!strcmp((char*)self->method, cesar)) {
-    cesarEncoder_t e = {0};
-    cesarEncoder_t* encoder = &e;
-    cesarEncoder_t_initialize(encoder, self->key);
-    cesarEncoder_t_decode(encoder, string, bytesToDecode);
+    cesarEncoder_t_decode(&(self->cesarEncoder), string, bytesToDecode);
+
   } else if (!strcmp((char*)self->method, rc4)) {
-    rc4Encoder_t e = {{0}, 0, 0, 0};
-    rc4Encoder_t* encoder = &e;
-    rc4Encoder_t_initialize(encoder, self->key);
-    rc4Encoder_t_decode(encoder, string, bytesToDecode);
+    rc4Encoder_t_decode(&(self->rc4Encoder), string, bytesToDecode);
+
   } else if (!strcmp((char*)self->method, vigenere)) {
-    vigenereEncoder_t e = {0};
-    vigenereEncoder_t* encoder = &e;
-    vigenereEncoder_t_initialize(encoder, self->key);
-    vigenereEncoder_t_decode(encoder, string, bytesToDecode);
+    vigenereEncoder_t_decode(&(self->vigenereEncoder), string, bytesToDecode);
+
   } else {
     return METHOD_ERROR;
   }
+
   return 0;
 }

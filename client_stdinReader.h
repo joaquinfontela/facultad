@@ -8,4 +8,4 @@ typedef struct stdinReader {
 
 int stdinReader_t_init(stdinReader_t* self);
 
-int stdinReader_t_read(stdinReader_t* self, char* buffer);
+size_t stdinReader_t_readChunk(stdinReader_t* self, char* buffer);

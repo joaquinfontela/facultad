@@ -8,6 +8,9 @@
 typedef struct encoder {
   unsigned char* method;
   unsigned char* key;
+  cesarEncoder_t cesarEncoder;
+  vigenereEncoder_t vigenereEncoder;
+  rc4Encoder_t rc4Encoder;
 } encoder_t;
 
 int encoder_t_init(encoder_t* self, unsigned char* method, unsigned char* key);

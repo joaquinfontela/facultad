@@ -4,12 +4,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-int rc4Encoder_t_initialize(rc4Encoder_t *self, unsigned char key[]) {
-  if ((self == NULL) || (key == NULL)) return -1;
-  self->key = key;
-  return 0;
-}
-
 static void rc4Encoder_t_swap(rc4Encoder_t *self, unsigned int i,
                               unsigned int j) {
   unsigned char aux = self->S[i];
@@ -29,6 +23,16 @@ static void rc4Encoder_t_KSA(rc4Encoder_t *self) {
   }
 }
 
+int rc4Encoder_t_initialize(rc4Encoder_t *self, unsigned char key[]) {
+  if ((self == NULL) || (key == NULL)) return -1;
+  self->key = key;
+  rc4Encoder_t_KSA(self);
+
+  self->i = 0;
+  self->j = 0;
+  return 0;
+}
+
 static unsigned char rc4Encoder_t_PRGA(rc4Encoder_t *self) {
   unsigned int i = self->i;
   unsigned int j = self->j;
@@ -45,10 +49,6 @@ static unsigned char rc4Encoder_t_PRGA(rc4Encoder_t *self) {
 }
 
 void rc4Encoder_t_encode(rc4Encoder_t *self, unsigned char string[]) {
-  rc4Encoder_t_KSA(self);
-
-  self->i = 0;
-  self->j = 0;
   int n;
   size_t stringLength = strlen((char *)string);
 
@@ -59,10 +59,6 @@ void rc4Encoder_t_encode(rc4Encoder_t *self, unsigned char string[]) {
 
 void rc4Encoder_t_decode(rc4Encoder_t *self, unsigned char string[],
                          unsigned int bytesToDecode) {
-  rc4Encoder_t_KSA(self);
-
-  self->i = 0;
-  self->j = 0;
   int n;
   unsigned int stringLength = bytesToDecode;
 
