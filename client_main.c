@@ -30,10 +30,10 @@ int main(int argc, char* argv[]) {
   size_t bytesRead;
   stdinReader_t stdinReader;
   client_socket_t skt;
+  encoder_t encoder;
 
   stdinReader_t_init(&stdinReader);
 
-  encoder_t encoder;
   encoder_t_init(&encoder, (unsigned char*)commandParser.method,
                  (unsigned char*)commandParser.key);
 
