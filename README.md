@@ -49,7 +49,11 @@ Para identificar *leaks* de memoria. No se corrio muchas veces, ya que no hizo f
 
 A continuacion, dos diagramas de clases representativos de los TDAs implementados para este proyecto.
 
+#### CLIENT
+
 ![](https://github.com/joaquinfontela/tp1-taller/blob/master/diagrama-client.jpeg)
+
+#### SERVER
 
 ![](https://github.com/joaquinfontela/tp1-taller/blob/master/diagrama-server.jpeg)
 
