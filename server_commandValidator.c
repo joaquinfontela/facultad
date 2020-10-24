@@ -1,5 +1,8 @@
 #include "server_commandValidator.h"
 
+#define VALID_METHOD_FORMAT "--method="
+#define VALID_KEY_FORMAT "--key="
+
 int serverCommandValidator_initialize(serverCommandValidator_t* self, int argc,
                                       char** argv) {
   if ((self == NULL) || (!argc) || (argv == NULL)) return -1;
@@ -15,16 +18,14 @@ static bool serverCommandValidator_t_argumentCountIsValid(
 
 static bool serverCommandValidator_t_MethodAndKeyFormatsAreValid(
     serverCommandValidator_t* self) {
-  char validMethodFormat[9] = "--method=";
-  char validKeyFormat[6] = "--key=";
   int i;
 
   for (i = 0; i < 9; i++) {
-    if (self->argv[2][i] != validMethodFormat[i]) return false;
+    if (self->argv[2][i] != VALID_METHOD_FORMAT[i]) return false;
   }
 
   for (i = 0; i < 6; i++) {
-    if (self->argv[3][i] != validKeyFormat[i]) return false;
+    if (self->argv[3][i] != VALID_KEY_FORMAT[i]) return false;
   }
 
   return true;

@@ -2,6 +2,9 @@
 
 #define NULL_VALUE_ERROR 1
 #define METHOD_ERROR 2
+#define CESAR "cesar"
+#define RC4 "rc4"
+#define VIGENERE "vigenere"
 
 int encoder_t_init(encoder_t* self, unsigned char* method, unsigned char* key) {
   if (self == NULL) return NULL_VALUE_ERROR;
@@ -26,17 +29,13 @@ int encoder_t_init(encoder_t* self, unsigned char* method, unsigned char* key) {
 int encoder_t_encode(encoder_t* self, unsigned char string[]) {
   if (self == NULL) return NULL_VALUE_ERROR;
 
-  const char cesar[] = "cesar";
-  const char rc4[] = "rc4";
-  const char vigenere[] = "vigenere";
-
-  if (!strcmp((char*)self->method, cesar)) {
+  if (!strcmp((char*)self->method, CESAR)) {
     cesarEncoder_t_encode(&(self->cesarEncoder), string);
 
-  } else if (!strcmp((char*)self->method, rc4)) {
+  } else if (!strcmp((char*)self->method, RC4)) {
     rc4Encoder_t_encode(&(self->rc4Encoder), string);
 
-  } else if (!strcmp((char*)self->method, vigenere)) {
+  } else if (!strcmp((char*)self->method, VIGENERE)) {
     vigenereEncoder_t_encode(&(self->vigenereEncoder), string);
 
   } else {
@@ -50,17 +49,13 @@ int encoder_t_decode(encoder_t* self, unsigned char string[],
                      unsigned int bytesToDecode) {
   if (self == NULL) return NULL_VALUE_ERROR;
 
-  const char cesar[] = "cesar";
-  const char rc4[] = "rc4";
-  const char vigenere[] = "vigenere";
-
-  if (!strcmp((char*)self->method, cesar)) {
+  if (!strcmp((char*)self->method, CESAR)) {
     cesarEncoder_t_decode(&(self->cesarEncoder), string, bytesToDecode);
 
-  } else if (!strcmp((char*)self->method, rc4)) {
+  } else if (!strcmp((char*)self->method, RC4)) {
     rc4Encoder_t_decode(&(self->rc4Encoder), string, bytesToDecode);
 
-  } else if (!strcmp((char*)self->method, vigenere)) {
+  } else if (!strcmp((char*)self->method, VIGENERE)) {
     vigenereEncoder_t_decode(&(self->vigenereEncoder), string, bytesToDecode);
 
   } else {

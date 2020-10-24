@@ -1,5 +1,6 @@
 #include "common_cesar.h"
 
+#include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -10,7 +11,7 @@ int cesarEncoder_t_initialize(cesarEncoder_t* self, unsigned char offset[]) {
 }
 
 void cesarEncoder_t_encode(cesarEncoder_t* self, unsigned char string[]) {
-  unsigned int currentPosition = 0;
+  uint32_t currentPosition = 0;
   unsigned char currentChar = string[currentPosition];
   while (currentChar != '\0') {
     string[currentPosition] = string[currentPosition] + self->offset;
@@ -21,7 +22,7 @@ void cesarEncoder_t_encode(cesarEncoder_t* self, unsigned char string[]) {
 
 void cesarEncoder_t_decode(cesarEncoder_t* self, unsigned char string[],
                            unsigned int bytesToDecode) {
-  unsigned int currentPosition = 0;
+  uint32_t currentPosition = 0;
   unsigned char currentChar = string[currentPosition];
   while ((currentChar != '\0') && (currentPosition < bytesToDecode)) {
     string[currentPosition] = string[currentPosition] - self->offset;
@@ -29,20 +30,3 @@ void cesarEncoder_t_decode(cesarEncoder_t* self, unsigned char string[],
     currentChar = string[currentPosition];
   }
 }
-
-/*
-int main() {
-  unsigned char testMessage[] = "Hello world";
-  unsigned char testOffset[] = "3";
-  cesarEncoder_t encoder;
-
-  cesarEncoder_t_initialize(&encoder, testOffset);
-  cesarEncoder_t_encode(&encoder, testMessage);
-  printf("%s\n", testMessage);
-
-  cesarEncoder_t_decode(&encoder, testMessage);
-  printf("%s\n", testMessage);
-
-  return 0;
-}
-*/

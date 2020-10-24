@@ -37,14 +37,6 @@ int server_socket_t_accept(server_socket_t *self) {
   return 0;
 }
 
-/*
-int server_socket_t_send(server_socket_t *self, const char *message,
-                         size_t len) {
-  if ((self == NULL) || (message == NULL)) return 0;
-  return socket_t_send(&(self->clientSocket), message, len);
-}
-*/
-
 ssize_t server_socket_t_recieve(server_socket_t *self, unsigned char *buffer,
                                 size_t len) {
   if ((self == NULL) || (buffer == NULL)) return -1;

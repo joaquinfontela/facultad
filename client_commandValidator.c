@@ -1,5 +1,8 @@
 #include "client_commandValidator.h"
 
+#define VALID_METHOD_FORMAT "--method="
+#define VALID_KEY_FORMAT "--key="
+
 int clientCommandValidator_initialize(clientCommandValidator_t* self, int argc,
                                       char** argv) {
   if ((self == NULL) || (!argc) || (argv == NULL)) return -1;
@@ -15,16 +18,14 @@ static bool clientCommandValidator_t_argumentCountIsValid(
 
 static bool clientCommandValidator_t_MethodAndKeyFormatsAreValid(
     clientCommandValidator_t* self) {
-  char validMethodFormat[9] = "--method=";
-  char validKeyFormat[6] = "--key=";
   int i;
 
   for (i = 0; i < 9; i++) {
-    if (self->argv[3][i] != validMethodFormat[i]) return false;
+    if (self->argv[3][i] != VALID_METHOD_FORMAT[i]) return false;
   }
 
   for (i = 0; i < 6; i++) {
-    if (self->argv[4][i] != validKeyFormat[i]) return false;
+    if (self->argv[4][i] != VALID_KEY_FORMAT[i]) return false;
   }
 
   return true;

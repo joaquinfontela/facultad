@@ -1,7 +1,9 @@
+#include <stdint.h>
+
 typedef struct rc4Encoder {
   unsigned char S[256];
-  unsigned int i;
-  unsigned int j;
+  uint32_t i;
+  uint32_t j;
   unsigned char *key;
 } rc4Encoder_t;
 

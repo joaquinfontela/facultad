@@ -4,8 +4,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-static void rc4Encoder_t_swap(rc4Encoder_t *self, unsigned int i,
-                              unsigned int j) {
+static void rc4Encoder_t_swap(rc4Encoder_t *self, uint32_t i, uint32_t j) {
   unsigned char aux = self->S[i];
   self->S[i] = self->S[j];
   self->S[j] = aux;
@@ -13,7 +12,7 @@ static void rc4Encoder_t_swap(rc4Encoder_t *self, unsigned int i,
 
 static void rc4Encoder_t_KSA(rc4Encoder_t *self) {
   unsigned int keyLength = strlen((char *)self->key);
-  unsigned int i, j;
+  uint32_t i, j;
 
   for (i = 0; i < 256; i++) self->S[i] = i;
 
@@ -34,8 +33,8 @@ int rc4Encoder_t_initialize(rc4Encoder_t *self, unsigned char key[]) {
 }
 
 static unsigned char rc4Encoder_t_PRGA(rc4Encoder_t *self) {
-  unsigned int i = self->i;
-  unsigned int j = self->j;
+  uint32_t i = self->i;
+  uint32_t j = self->j;
 
   i = ((i) + 1) & 255;
   j = ((j) + self->S[i]) & 255;
@@ -66,25 +65,3 @@ void rc4Encoder_t_decode(rc4Encoder_t *self, unsigned char string[],
     string[n] = string[n] ^ rc4Encoder_t_PRGA(self);
   }
 }
-
-/*
-static void rc4Encoder_t_printMessageHexaValues(unsigned char string[]) {
-  for (int i = 0; i < strlen(string); i++) printf("%02X |", string[i]);
-  puts("\n");
-}
-
-int main() {
-  unsigned char testString[25] = "En un lugar de la mancha";
-  unsigned char testKey[10] = "Cervantes";
-
-  rc4Encoder_t encoder;
-  rc4Encoder_t_initialize(&encoder, testKey);
-  rc4Encoder_t_encode(&encoder, testString);
-  rc4Encoder_t_printMessageHexaValues(testString);
-
-  rc4Encoder_t_decode(&encoder, testString);
-  printf("%s\n", testString);
-
-  return 0;
-}
-*/
