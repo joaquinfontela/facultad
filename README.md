@@ -51,11 +51,11 @@ A continuacion, dos diagramas de clases representativos de los TDAs implementado
 
 #### CLIENT
 
-![](https://github.com/joaquinfontela/tp1-taller/blob/master/diagrama-client.jpeg)
+![](https://github.com/joaquinfontela/tp1-taller/blob/master/utils/diagrama-client.jpeg)
 
 #### SERVER
 
-![](https://github.com/joaquinfontela/tp1-taller/blob/master/diagrama-server.jpeg)
+![](https://github.com/joaquinfontela/tp1-taller/blob/master/utils/diagrama-server.jpeg)
 
 
 ## CONCLUSIONES
