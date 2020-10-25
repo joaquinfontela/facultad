@@ -14,7 +14,7 @@ int vigenereEncoder_t_initialize(vigenereEncoder_t* self, unsigned char key[]) {
 void vigenereEncoder_t_encode(vigenereEncoder_t* self, unsigned char string[]) {
   uint32_t currentStringPosition = 0;
   uint32_t currentKeyPosition = self->currentKeyPosition;
-  unsigned char currentChar = string[currentStringPosition];
+  uint8_t currentChar = string[currentStringPosition];
   while (currentChar != '\0') {
     if (self->key[currentKeyPosition] == '\0') {
       currentKeyPosition = 0;
@@ -31,7 +31,7 @@ void vigenereEncoder_t_decode(vigenereEncoder_t* self, unsigned char string[],
                               unsigned int bytesToDecode) {
   uint32_t currentStringPosition = 0;
   uint32_t currentKeyPosition = self->currentKeyPosition;
-  unsigned char currentChar = string[currentStringPosition];
+  uint8_t currentChar = string[currentStringPosition];
   while ((currentChar != '\0') && (currentStringPosition < bytesToDecode)) {
     if (self->key[currentKeyPosition] == '\0') {
       currentKeyPosition = 0;

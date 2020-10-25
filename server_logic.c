@@ -59,7 +59,7 @@ int server_logic_execute(server_t* self, int argc, char* argv[]) {
 
   server_logic_init(self, argc, argv);
 
-  unsigned char buf[BUFFER_SIZE];
+  uint8_t buf[BUFFER_SIZE];
   ssize_t bytesRecieved = server_logic_recieveMessage(self, buf);
 
   if (!server_logic_decode(self, buf, bytesRecieved)) return DECODING_ERROR;

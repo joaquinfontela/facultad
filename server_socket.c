@@ -5,12 +5,17 @@
 
 int server_socket_t_init(server_socket_t *self) {
   if (self == NULL) return NULL_VALUE_ERROR;
-  socket_t newSocket = {-1};
-  socket_t newClientSocket = {-1};
+
+  socket_t newSocket;
+  if (socket_t_init(&newSocket) == NULL_VALUE_ERROR) return NULL_VALUE_ERROR;
+  socket_t newClientSocket;
+  if (socket_t_init(&newClientSocket) == NULL_VALUE_ERROR)
+    return NULL_VALUE_ERROR;
+
   self->socket = newSocket;
   self->clientSocket = newClientSocket;
-  socket_t_init(&(self->clientSocket));
-  return socket_t_init(&(self->socket));
+
+  return 0;
 }
 
 int server_socket_t_destroy(server_socket_t *self) {

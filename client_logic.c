@@ -1,5 +1,5 @@
 #include "client_logic.h"
-#define BUFFER_LEN 70
+#define BUFFER_LEN 64
 
 static bool client_logic_commandIsValid(client_t* self, int argc, char** argv) {
   clientCommandValidator_t commandValidator;

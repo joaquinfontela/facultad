@@ -5,13 +5,13 @@
 #include <string.h>
 
 static void rc4Encoder_t_swap(rc4Encoder_t *self, uint32_t i, uint32_t j) {
-  unsigned char aux = self->S[i];
+  uint8_t aux = self->S[i];
   self->S[i] = self->S[j];
   self->S[j] = aux;
 }
 
 static void rc4Encoder_t_KSA(rc4Encoder_t *self) {
-  unsigned int keyLength = strlen((char *)self->key);
+  uint32_t keyLength = strlen((char *)self->key);
   uint32_t i, j;
 
   for (i = 0; i < 256; i++) self->S[i] = i;
@@ -59,7 +59,7 @@ void rc4Encoder_t_encode(rc4Encoder_t *self, unsigned char string[]) {
 void rc4Encoder_t_decode(rc4Encoder_t *self, unsigned char string[],
                          unsigned int bytesToDecode) {
   int n;
-  unsigned int stringLength = bytesToDecode;
+  uint32_t stringLength = bytesToDecode;
 
   for (n = 0; n < stringLength; n++) {
     string[n] = string[n] ^ rc4Encoder_t_PRGA(self);

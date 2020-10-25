@@ -168,7 +168,7 @@ ssize_t socket_t_recieve(socket_t *self, unsigned char *buffer, size_t len) {
     bytesRecieved += bytesRecievedInLastCall;
   }
 
-  unsigned char endOfString = '\0';
+  uint8_t endOfString = '\0';
   buffer[bytesRecieved] = endOfString;
 
   return bytesRecieved;

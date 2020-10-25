@@ -4,9 +4,10 @@
 
 int client_socket_t_init(client_socket_t *self) {
   if (self == NULL) return NULL_VALUE_ERROR;
-  socket_t newSocket = {-1};
+  socket_t newSocket;
+  if (socket_t_init(&newSocket) == NULL_VALUE_ERROR) return NULL_VALUE_ERROR;
   self->socket = newSocket;
-  return socket_t_init(&(self->socket));
+  return 0;
 }
 
 int client_socket_t_destroy(client_socket_t *self) {
