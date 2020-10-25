@@ -1,7 +1,7 @@
 #include <stdint.h>
 
 typedef struct cesarEncoder {
-  unsigned int offset;
+  uint32_t offset;
 } cesarEncoder_t;
 
 /*  Pre:          offset = el offset con el cual cifrar el mensaje.

@@ -1,10 +1,10 @@
 #include <stdint.h>
 
 typedef struct rc4Encoder {
-  unsigned char S[256];
+  uint8_t S[256];
   uint32_t i;
   uint32_t j;
-  unsigned char *key;
+  uint8_t *key;
 } rc4Encoder_t;
 
 /*  Pre:          key = la llave con la cual cifrar el mensaje.

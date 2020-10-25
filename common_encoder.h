@@ -6,8 +6,8 @@
 #include "common_vigenere.h"
 
 typedef struct encoder {
-  unsigned char* method;
-  unsigned char* key;
+  uint8_t* method;
+  uint8_t* key;
   cesarEncoder_t cesarEncoder;
   vigenereEncoder_t vigenereEncoder;
   rc4Encoder_t rc4Encoder;

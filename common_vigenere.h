@@ -1,8 +1,8 @@
 #include <stdint.h>
 
 typedef struct vigenereEncoder {
-  unsigned char* key;
-  unsigned int currentKeyPosition;
+  uint8_t* key;
+  uint32_t currentKeyPosition;
 } vigenereEncoder_t;
 
 /*  Pre:          key = la llave con la cual cifrar/descifrar el mensaje.

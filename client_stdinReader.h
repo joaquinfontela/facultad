@@ -1,9 +1,10 @@
 #include <stdbool.h>
+#include <stdint.h>
 #include <stdio.h>
 #include <string.h>
 
 typedef struct stdinReader {
-  int chunkSize;
+  uint32_t chunkSize;
 } stdinReader_t;
 
 /*  Pre:          self = un puntero a stdinReader_t no inicializado. *
