@@ -42,7 +42,7 @@ bool socket_t_connect(socket_t *self, char *host, char *port);
  *
  */
 bool socket_t_bindListen(socket_t *self, char *port, bool reusablePort,
-                         unsigned int maxAcceptQueueLength);
+                         uint32_t maxAcceptQueueLength);
 
 /*  RETURN VALUE: Devuelve el file descriptor que representa la conexion, o -1
  *                en caso de error.
@@ -69,7 +69,7 @@ int socket_t_send(socket_t *self, const char *message, size_t len);
  *  RETURN VALUE: -1 en caso de error, o la cantidad de bytes recibidos en caso
  *                de exito.
  */
-ssize_t socket_t_recieve(socket_t *self, unsigned char *buffer, size_t len);
+ssize_t socket_t_recieve(socket_t *self, uint8_t *buffer, size_t len);
 
 /*  Pos:          Deja el socket desconectado con 'shutdown' y 'close'.
  *

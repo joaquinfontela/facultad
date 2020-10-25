@@ -22,7 +22,7 @@ static void rc4Encoder_t_KSA(rc4Encoder_t *self) {
   }
 }
 
-int rc4Encoder_t_initialize(rc4Encoder_t *self, unsigned char key[]) {
+int rc4Encoder_t_initialize(rc4Encoder_t *self, uint8_t key[]) {
   if ((self == NULL) || (key == NULL)) return -1;
   self->key = key;
   rc4Encoder_t_KSA(self);
@@ -32,7 +32,7 @@ int rc4Encoder_t_initialize(rc4Encoder_t *self, unsigned char key[]) {
   return 0;
 }
 
-static unsigned char rc4Encoder_t_PRGA(rc4Encoder_t *self) {
+static uint8_t rc4Encoder_t_PRGA(rc4Encoder_t *self) {
   uint32_t i = self->i;
   uint32_t j = self->j;
 
@@ -47,7 +47,7 @@ static unsigned char rc4Encoder_t_PRGA(rc4Encoder_t *self) {
   return self->S[(self->S[i] + self->S[j]) & 255];
 }
 
-void rc4Encoder_t_encode(rc4Encoder_t *self, unsigned char string[]) {
+void rc4Encoder_t_encode(rc4Encoder_t *self, uint8_t string[]) {
   int n;
   size_t stringLength = strlen((char *)string);
 
@@ -56,8 +56,8 @@ void rc4Encoder_t_encode(rc4Encoder_t *self, unsigned char string[]) {
   }
 }
 
-void rc4Encoder_t_decode(rc4Encoder_t *self, unsigned char string[],
-                         unsigned int bytesToDecode) {
+void rc4Encoder_t_decode(rc4Encoder_t *self, uint8_t string[],
+                         uint32_t bytesToDecode) {
   int n;
   uint32_t stringLength = bytesToDecode;
 

@@ -21,8 +21,8 @@ static bool client_logic_init(client_t* self, int argc, char** argv) {
   self->skt = skt;
 
   encoder_t encoder;
-  encoder_t_init(&encoder, (unsigned char*)(self->commandParser.method),
-                 (unsigned char*)(self->commandParser.key));
+  encoder_t_init(&encoder, (uint8_t*)(self->commandParser.method),
+                 (uint8_t*)(self->commandParser.key));
   self->encoder = encoder;
   return true;
 }
@@ -36,7 +36,7 @@ static bool client_logic_send(client_t* self) {
 
   do {
     bytesRead = stdinReader_t_readChunk(&(self->stdinReader), message);
-    encoder_t_encode(&(self->encoder), (unsigned char*)message);
+    encoder_t_encode(&(self->encoder), (uint8_t*)message);
     client_socket_t_send(&(self->skt), message, bytesRead);
   } while (bytesRead == 64);
 

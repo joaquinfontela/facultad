@@ -6,7 +6,7 @@
 #define RC4 "rc4"
 #define VIGENERE "vigenere"
 
-int encoder_t_init(encoder_t* self, unsigned char* method, unsigned char* key) {
+int encoder_t_init(encoder_t* self, uint8_t* method, uint8_t* key) {
   if (self == NULL) return NULL_VALUE_ERROR;
   self->key = key;
   self->method = method;
@@ -26,7 +26,7 @@ int encoder_t_init(encoder_t* self, unsigned char* method, unsigned char* key) {
   return 0;
 }
 
-int encoder_t_encode(encoder_t* self, unsigned char string[]) {
+int encoder_t_encode(encoder_t* self, uint8_t string[]) {
   if (self == NULL) return NULL_VALUE_ERROR;
 
   if (!strcmp((char*)self->method, CESAR)) {
@@ -45,8 +45,8 @@ int encoder_t_encode(encoder_t* self, unsigned char string[]) {
   return 0;
 }
 
-int encoder_t_decode(encoder_t* self, unsigned char string[],
-                     unsigned int bytesToDecode) {
+int encoder_t_decode(encoder_t* self, uint8_t string[],
+                     uint32_t bytesToDecode) {
   if (self == NULL) return NULL_VALUE_ERROR;
 
   if (!strcmp((char*)self->method, CESAR)) {

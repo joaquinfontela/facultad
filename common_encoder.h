@@ -23,7 +23,7 @@ typedef struct encoder {
  *  RETURN VALUE: 1 en caso de error, 0 en caso de exito.
  *
  */
-int encoder_t_init(encoder_t* self, unsigned char* method, unsigned char* key);
+int encoder_t_init(encoder_t* self, uint8_t* method, uint8_t* key);
 
 /*  Pre:          string = el mensaje a ser cifrado.
  *
@@ -34,7 +34,7 @@ int encoder_t_init(encoder_t* self, unsigned char* method, unsigned char* key);
  *                metodo de cifrado no valido, 0 en caso de exito.
  *
  */
-int encoder_t_encode(encoder_t* self, unsigned char string[]);
+int encoder_t_encode(encoder_t* self, uint8_t string[]);
 
 /*  Pre:          string = el mensaje a ser descifrado.
  *                bytesToDecode = la cantidad de bytes a ser descifrados (el
@@ -46,5 +46,4 @@ int encoder_t_encode(encoder_t* self, unsigned char string[]);
  *                metodo de cifrado no valido, 0 en caso de exito.
  *
  */
-int encoder_t_decode(encoder_t* self, unsigned char string[],
-                     unsigned int bytesToDecode);
+int encoder_t_decode(encoder_t* self, uint8_t string[], uint32_t bytesToDecode);

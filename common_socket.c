@@ -114,7 +114,7 @@ static bool socket_t_bind(socket_t *self, char *port, bool reusablePort) {
   return true;
 }
 
-static bool socket_t_listen(socket_t *self, unsigned int maxAcceptQueueLength) {
+static bool socket_t_listen(socket_t *self, uint32_t maxAcceptQueueLength) {
   int status = listen(self->fd, maxAcceptQueueLength);
   if (status < 0) {
     socket_t_connectionFailure(self);
@@ -124,7 +124,7 @@ static bool socket_t_listen(socket_t *self, unsigned int maxAcceptQueueLength) {
 }
 
 bool socket_t_bindListen(socket_t *self, char *port, bool reusablePort,
-                         unsigned int maxAcceptQueueLength) {
+                         uint32_t maxAcceptQueueLength) {
   return ((socket_t_bind(self, port, reusablePort)) &&
           (socket_t_listen(self, maxAcceptQueueLength)));
 }
@@ -150,7 +150,7 @@ int socket_t_send(socket_t *self, const char *message, size_t len) {
   return 0;
 }
 
-ssize_t socket_t_recieve(socket_t *self, unsigned char *buffer, size_t len) {
+ssize_t socket_t_recieve(socket_t *self, uint8_t *buffer, size_t len) {
   size_t bytesRecieved = 0;
 
   while (bytesRecieved < len) {

@@ -26,7 +26,7 @@ int server_socket_t_destroy(server_socket_t *self) {
 
 bool server_socket_t_bindListen(server_socket_t *self, char *port,
                                 bool reusablePort,
-                                unsigned int maxAcceptQueueLength) {
+                                uint32_t maxAcceptQueueLength) {
   if (self == NULL) return NULL_VALUE_ERROR;
   return socket_t_bindListen(&(self->socket), port, reusablePort,
                              maxAcceptQueueLength);
@@ -42,7 +42,7 @@ int server_socket_t_accept(server_socket_t *self) {
   return 0;
 }
 
-ssize_t server_socket_t_recieve(server_socket_t *self, unsigned char *buffer,
+ssize_t server_socket_t_recieve(server_socket_t *self, uint8_t *buffer,
                                 size_t len) {
   if ((self == NULL) || (buffer == NULL)) return -1;
   return socket_t_recieve(&(self->clientSocket), buffer, len);

@@ -24,7 +24,7 @@ int server_socket_t_destroy(server_socket_t *self);
  */
 bool server_socket_t_bindListen(server_socket_t *self, char *port,
                                 bool reusablePort,
-                                unsigned int maxAcceptQueueLength);
+                                uint32_t maxAcceptQueueLength);
 
 /*  RETURN VALUE: Devuelve el file descriptor que representa la conexion, o -1
  *                en caso de error.
@@ -52,7 +52,7 @@ int server_socket_t_send(server_socket_t *self, const char *message,
  *  RETURN VALUE: -1 en caso de error, o la cantidad de bytes recibidos en caso
  *                de exito.
  */
-ssize_t server_socket_t_recieve(server_socket_t *self, unsigned char *buffer,
+ssize_t server_socket_t_recieve(server_socket_t *self, uint8_t *buffer,
                                 size_t len);
 
 int server_socket_t_disconnect(server_socket_t *self);

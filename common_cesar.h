@@ -1,3 +1,5 @@
+#include <stdint.h>
+
 typedef struct cesarEncoder {
   unsigned int offset;
 } cesarEncoder_t;
@@ -10,14 +12,14 @@ typedef struct cesarEncoder {
  *  RETURN VALUE: -1 en caso de error, 0 en caso de exito.
  *
  */
-int cesarEncoder_t_initialize(cesarEncoder_t* self, unsigned char offset[]);
+int cesarEncoder_t_initialize(cesarEncoder_t* self, uint8_t offset[]);
 
 /*  Pre:          string = el mensaje a ser cifrado en Cesar.
  *
  *  Pos:          Deja en 'string' el mensaje recibido pero ya cifrado.
  *
  */
-void cesarEncoder_t_encode(cesarEncoder_t* self, unsigned char string[]);
+void cesarEncoder_t_encode(cesarEncoder_t* self, uint8_t string[]);
 
 /*  Pre:          string = el mensaje a ser descifrado en Cesar.
  *                bytesToDecode = la cantidad de bytes a ser descifrados (el
@@ -26,5 +28,5 @@ void cesarEncoder_t_encode(cesarEncoder_t* self, unsigned char string[]);
  *  Pos:          Deja en 'string' el mensaje recibido pero ya descifrado.
  *
  */
-void cesarEncoder_t_decode(cesarEncoder_t* self, unsigned char string[],
-                           unsigned int bytesToDecode);
+void cesarEncoder_t_decode(cesarEncoder_t* self, uint8_t string[],
+                           uint32_t bytesToDecode);
