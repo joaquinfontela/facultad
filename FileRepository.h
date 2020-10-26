@@ -11,4 +11,6 @@ class FileRepository {
  public:
   FileRepository(std::list<std::string>& fileNames);
   FileRepository(const FileRepository& copy) = delete;
+
+  std::string getNextFileName();
 };
