@@ -14,6 +14,7 @@ class CommandParser {
 
  public:
   CommandParser(const int argc, char** argv);
+  CommandParser(const CommandParser& copy) = delete;
 
   std::list<std::string>& getFileNames();
 };

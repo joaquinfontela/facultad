@@ -11,6 +11,7 @@ class CommandValidator {
 
  public:
   CommandValidator(const int argc, char** argv);
+  CommandValidator(const CommandValidator& copy) = delete;
 
   bool commandIsValid() const;
 };

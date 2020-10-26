@@ -18,11 +18,13 @@ int main(int argc, char** argv) {
   myGraph.addVertex(&nodeD);
 
   myGraph.addEdge(&nodeA, &nodeB);
-  myGraph.addEdge(&nodeA, &nodeC);
   myGraph.addEdge(&nodeB, &nodeC);
-  myGraph.addEdge(&nodeD, &nodeA);
+  myGraph.addEdge(&nodeA, &nodeC);
+  myGraph.addEdge(&nodeC, &nodeD);
 
   myGraph.printGraphAdjacencies();
+  std::cout << myGraph.hasUnreachableInstructions() << "\n";
+  std::cout << myGraph.hasLoops() << "\n";
 
   return 0;
 }

@@ -1,7 +1,5 @@
 #include "Graph.h"
 
-Graph::Graph() {}
-
 void Graph::addVertex(Node* newNode) {
   nodes.insert({newNode->getLine(), newNode});
 }
@@ -21,6 +19,24 @@ void Graph::addVertexIfNotInGraph(Node* newNode) {
 }
 
 int Graph::size() const { return nodes.size(); }
+
+std::set<Node*> Graph::runDFS() {
+  Node* firstNode = nodes.begin()->second;
+  std::set<Node*> visitedNodes;
+  std::set<Node*> parentNodes;
+  this->dfs.DFSexecute(firstNode, &visitedNodes, &parentNodes);
+  return visitedNodes;
+}
+
+bool Graph::hasUnreachableInstructions() {
+  std::set<Node*> visitedNodes = this->runDFS();
+  return (visitedNodes.size() != this->size());
+}
+
+bool Graph::hasLoops() {
+  this->runDFS();
+  return this->dfs.originalGraphHasCycles();
+}
 
 void Graph::printGraphAdjacencies() {
   nodeIterator it;

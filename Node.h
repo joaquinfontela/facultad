@@ -9,6 +9,7 @@ class Node {
 
  public:
   Node(int newLineNumber) : lineNumber(newLineNumber) {}
+  Node(const Node& copy) = delete;
 
   std::list<Node*> getNext() const;
   int addNext(Node* newNode);
