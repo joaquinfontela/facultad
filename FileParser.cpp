@@ -15,7 +15,7 @@ int FileParser::parseNextFile(Graph& graph) {
   if (!fileHandler.getNextFileOpened(file)) return -1;
   while (getline(file, line)) {
     LineParser lineParser(currentLineNumber);
-    lineParser.parseLine(line, &graphConnections, &labelsLineCallDict);
+    lineParser.parseLine(line, graphConnections, labelsLineCallDict);
     currentLineNumber++;
   }
   fileHandler.closeCurrentFile(file);
@@ -44,9 +44,7 @@ void FileParser::convertGraphConnectionsDictIntoGraph() {
     std::vector<int> possibleNextLines = dictIt->second;
     int i;
     for (i = 0; i < possibleNextLines.size(); i++) {
-      std::cout << possibleNextLines.size() << "\n";
       currentNode->addNext(getNodeOfLine(possibleNextLines.at(i)));
-      std::cout << possibleNextLines.size() << "\n";
     }
   }
 }
