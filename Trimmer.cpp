@@ -1,5 +1,7 @@
 #include "Trimmer.h"
 
+Trimmer::Trimmer() {}
+
 std::string Trimmer::leftTrim(const std::string& str,
                               const std::string& chars) {
   std::string newStr = str;

@@ -6,11 +6,16 @@ class FileParser {
  private:
   Graph fileGraph;
   FileHandler fileHandler;
-  bool getNextFileOpened(std::ifstream& nextFile);
-  void closeCurrentFile(std::ifstream& file);
-  void parseLine(std::string& line);
+  int currentLineNumber;
+  graphConnectionsDictionary graphConnections;
+  labelsLineCallDictionary labelsLineCallDict;
+
+  Node* getNodeOfLine(int line);
 
  public:
   FileParser(FileRepository* fileRepository);
+  FileParser(const FileParser& copy) = delete;
+
   int parseNextFile(Graph& graph);
+  void convertGraphConnectionsDictIntoGraph();
 };

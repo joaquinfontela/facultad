@@ -15,9 +15,9 @@ bool DFS::adjacentNodeIsAParentNode(Node* adjacentNode,
   return setContainsNode(adjacentNode, parentNodes);
 }
 
-bool DFS::hasABackEdge(std::list<Node*>* currentNodeAdjacentNodes,
+bool DFS::hasABackEdge(std::vector<Node*>* currentNodeAdjacentNodes,
                        std::set<Node*>* currentNodeParentNodes) {
-  std::list<Node*>::iterator it;
+  std::vector<Node*>::iterator it;
   for (it = currentNodeAdjacentNodes->begin();
        it != currentNodeAdjacentNodes->end(); ++it) {
     Node* currentAdjacentNode = (*it);
@@ -32,10 +32,10 @@ void DFS::DFSexecute(Node* currentNode, std::set<Node*>* visitedNodes,
   if (!hasBeenVisited(currentNode, visitedNodes)) {
     visitedNodes->insert(currentNode);
     parentNodes->insert(currentNode);
-    std::list<Node*> adjacentNodes = currentNode->getNext();
+    std::vector<Node*> adjacentNodes = currentNode->getNext();
     if (hasABackEdge(&adjacentNodes, parentNodes))
       this->_originalGraphHasCycles = true;
-    std::list<Node*>::iterator it;
+    std::vector<Node*>::iterator it;
     for (it = adjacentNodes.begin(); it != adjacentNodes.end(); ++it) {
       DFSexecute((*it), visitedNodes, parentNodes);
     }

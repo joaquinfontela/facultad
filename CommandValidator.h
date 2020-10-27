@@ -1,6 +1,8 @@
 #include <ctype.h>
 #include <stdio.h>
 
+#include <vector>
+
 class CommandValidator {
  private:
   int argc;

@@ -20,6 +20,6 @@ void CommandParser::parseArguments(const int argc, char** argv) {
   }
 }
 
-std::list<std::string>& CommandParser::getFileNames() {
+std::vector<std::string>& CommandParser::getFileNames() {
   return this->fileNames;
 }

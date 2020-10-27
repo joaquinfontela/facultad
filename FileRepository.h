@@ -1,15 +1,15 @@
 #include <iostream>
-#include <list>
 #include <string>
+#include <vector>
 
 class FileRepository {
  private:
-  std::list<std::string> fileNames;
+  std::vector<std::string> fileNames;
 
   void printFileNames();  // for debug
 
  public:
-  FileRepository(std::list<std::string>& fileNames);
+  FileRepository(std::vector<std::string>& fileNames);
   FileRepository(const FileRepository& copy) = delete;
 
   std::string getNextFileName();

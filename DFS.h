@@ -9,7 +9,7 @@ class DFS {
   bool hasBeenVisited(Node* currentNode, std::set<Node*>* visitedNodes);
   bool adjacentNodeIsAParentNode(Node* adjacentNode,
                                  std::set<Node*>* parentNodes);
-  bool hasABackEdge(std::list<Node*>* currentNodeAdjacentNodes,
+  bool hasABackEdge(std::vector<Node*>* currentNodeAdjacentNodes,
                     std::set<Node*>* currentNodeParentNodes);
 
  public:

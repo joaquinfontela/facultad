@@ -4,18 +4,8 @@
 #include <string.h>
 
 FileParser::FileParser(FileRepository* fileRepository)
-    : fileHandler(fileRepository) {}
-
-void FileParser::parseLine(std::string& line) {
-  if (line.empty()) return;
-  LineParser lineParser;
-  ssize_t labelLength = -1;
-  std::string label = "";
-  if (lineParser.hasLabel(line)) {
-    labelLength = lineParser.getLabel(line, label);
-  }
-  std::string instruction = lineParser.getInstruction(line, labelLength);
-  lineParser.isJumpInstruction(instruction);
+    : fileHandler(fileRepository) {
+  currentLineNumber = 1;
 }
 
 int FileParser::parseNextFile(Graph& graph) {
@@ -24,7 +14,39 @@ int FileParser::parseNextFile(Graph& graph) {
   this->fileGraph = graph;
   if (!fileHandler.getNextFileOpened(file)) return -1;
   while (getline(file, line)) {
-    parseLine(line);
+    LineParser lineParser(currentLineNumber);
+    lineParser.parseLine(line, &graphConnections, &labelsLineCallDict);
+    currentLineNumber++;
   }
   fileHandler.closeCurrentFile(file);
+
+  convertGraphConnectionsDictIntoGraph();
+  return 0;
+}
+
+Node* FileParser::getNodeOfLine(int line) {
+  graphConnectionsDictionary::iterator it;
+  for (it = graphConnections.begin(); it != graphConnections.end(); ++it) {
+    Node* currentNode = it->first;
+    if (currentNode->getLine() == line) {
+      return currentNode;
+    }
+  }
+  return NULL;
+}
+
+void FileParser::convertGraphConnectionsDictIntoGraph() {
+  graphConnectionsDictionary::iterator dictIt;
+  for (dictIt = graphConnections.begin(); dictIt != graphConnections.end();
+       ++dictIt) {
+    Node* currentNode = dictIt->first;
+    this->fileGraph.addVertex(currentNode);
+    std::vector<int> possibleNextLines = dictIt->second;
+    int i;
+    for (i = 0; i < possibleNextLines.size(); i++) {
+      std::cout << possibleNextLines.size() << "\n";
+      currentNode->addNext(getNodeOfLine(possibleNextLines.at(i)));
+      std::cout << possibleNextLines.size() << "\n";
+    }
+  }
 }

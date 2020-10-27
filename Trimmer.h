@@ -2,6 +2,9 @@
 
 class Trimmer {
  public:
+  Trimmer();
+  Trimmer(const Trimmer& copy) = delete;
+
   std::string leftTrim(const std::string& str,
                        const std::string& chars = "\t\n\v\f\r ");
 

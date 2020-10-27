@@ -9,5 +9,7 @@ int main(int argc, char** argv) {
 
   parser.parseNextFile(fileGraph);
 
+  fileGraph.printGraphAdjacencies();
+
   return 0;
 }
