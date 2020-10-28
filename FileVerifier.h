@@ -2,5 +2,6 @@
 
 class FileVerifier {
  public:
-  void verify(Graph& fileGraph, const std::string nameOfFile) const;
+  void verify(Graph& fileGraph, const std::string nameOfFile,
+              std::string& result) const;
 };

@@ -1,16 +1,19 @@
 #include "FileVerifier.h"
 
-void FileVerifier::verify(Graph& fileGraph,
-                          const std::string nameOfFile) const {
-  if (nameOfFile.empty()) return;
-  std::cout << nameOfFile << " ";
+void FileVerifier::verify(Graph& fileGraph, const std::string nameOfFile,
+                          std::string& result) const {
+  if (nameOfFile.empty()) {
+    result = "";
+    return;
+  }
+  result = (nameOfFile + " ");
 
   if (fileGraph.hasLoops()) {
-    std::cout << "FAIL: cycle detected";
+    result += "FAIL: cycle detected";
   } else if (fileGraph.hasUnreachableInstructions()) {
-    std::cout << "FAIL: unused instructions detected";
+    result += "FAIL: unused instructions detected";
   } else {
-    std::cout << "GOOD";
+    result += "GOOD";
   }
-  std::cout << "\n";
+  result += "\n";
 }

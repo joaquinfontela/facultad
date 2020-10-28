@@ -1,5 +1,6 @@
 #include "CommandParser.h"
 #include "FileParser.h"
+#include "FileResults.h"
 #include "FileVerifier.h"
 
 int main(int argc, char** argv) {
@@ -8,13 +9,18 @@ int main(int argc, char** argv) {
   FileParser parser(&fileRepository);
   std::string nameOfFileParsed;
   FileVerifier fileVerifier;
+  FileResults fileResults;
 
   while (parser.thereAreFilesPending()) {
     Graph fileGraph;
     parser.reinit();
     nameOfFileParsed = parser.parseNextFile(fileGraph);
-    fileVerifier.verify(fileGraph, nameOfFileParsed);
+    std::string fileResult;
+    fileVerifier.verify(fileGraph, nameOfFileParsed, fileResult);
+    fileResults.addResult(fileResult);
   }
+
+  fileResults.printResults();
 
   return 0;
 }
