@@ -41,7 +41,7 @@ void FileParser::convertGraphConnectionsDictIntoGraph(Graph& graph) {
        ++dictIt) {
     int currentNodeLine = dictIt->first;
     std::vector<int> possibleNextLines = dictIt->second;
-    for (int i = 0; i < possibleNextLines.size(); ++i) {
+    for (unsigned int i = 0; i < possibleNextLines.size(); ++i) {
       graph.addEdge(currentNodeLine, possibleNextLines.at(i));
     }
   }

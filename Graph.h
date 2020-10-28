@@ -23,7 +23,7 @@ class Graph {
   void addEdge(const int fromNode, const int toNode);
   bool hasNode(const int node) const;
   void addVertexIfNotInGraph(const int newNode);
-  int size() const;
+  size_t size() const;
   bool hasUnreachableInstructions();
   bool hasLoops();
 

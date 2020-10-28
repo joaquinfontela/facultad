@@ -22,7 +22,7 @@ void Graph::addVertexIfNotInGraph(const int newNode) {
   if (!hasNode(newNode)) addVertex(newNode);
 }
 
-int Graph::size() const { return nodes.size(); }
+size_t Graph::size() const { return nodes.size(); }
 
 std::set<int> Graph::runDFS(DFS& dfs) {
   std::set<int> visitedNodes;
