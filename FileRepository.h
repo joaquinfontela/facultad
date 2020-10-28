@@ -1,10 +1,11 @@
+#include <algorithm>
 #include <iostream>
 #include <queue>
 #include <string>
 
 class FileRepository {
  private:
-  std::queue<std::string> fileNames;
+  std::vector<std::string> fileNames;
 
  public:
   FileRepository(std::vector<std::string>& fileNames);
