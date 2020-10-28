@@ -14,16 +14,38 @@ int FileParser::parseNextFile(Graph& graph) {
   this->fileGraph = graph;
   if (!fileHandler.getNextFileOpened(file)) return -1;
   while (getline(file, line)) {
+    if (line.empty()) continue;
+
     LineParser lineParser(currentLineNumber);
-    lineParser.parseLine(line, graphConnections, labelsLineCallDict);
+    Node newNode(currentLineNumber);
+    std::set<int> possibleNextLines;
+    graphConnections.insert({newNode.getLine(), possibleNextLines});
+
+    lineParser.parseLine(line, newNode, graphConnections, labelsLineCallDict,
+                         lineLabelDict);
     currentLineNumber++;
   }
+  print(graphConnections);
   fileHandler.closeCurrentFile(file);
 
-  convertGraphConnectionsDictIntoGraph();
   return 0;
 }
 
+void FileParser::print(graphConnectionsDictionary& graphConnections) {
+  graphConnectionsDictionary::iterator it;
+  for (it = graphConnections.begin(); it != graphConnections.end(); ++it) {
+    int currentNode = it->first;
+    std::cout << currentNode << " | ";
+    std::set<int> nextLines = it->second;
+    std::set<int>::iterator it;
+    for (it = nextLines.begin(); it != nextLines.end(); ++it) {
+      std::cout << (*it) << " ";
+    }
+    std::cout << "\n";
+  }
+}
+
+/*
 Node* FileParser::getNodeOfLine(int line) {
   graphConnectionsDictionary::iterator it;
   for (it = graphConnections.begin(); it != graphConnections.end(); ++it) {
@@ -48,3 +70,4 @@ void FileParser::convertGraphConnectionsDictIntoGraph() {
     }
   }
 }
+*/

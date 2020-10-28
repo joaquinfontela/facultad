@@ -16,6 +16,19 @@ size_t LineParser::getLabel(std::string& line, std::string& label) {
   return labelLength;
 }
 
+void LineParser::checkLabelsLineCallDict(
+    graphConnectionsDictionary& graphConnectionsDict,
+    labelsLineCallDictionary& labelsLineCallDict, std::string& label) {
+  if (labelsLineCallDict.find(label) == labelsLineCallDict.end()) return;
+  std::set<int> linesWhereLabelWasCalled = labelsLineCallDict.at(label);
+  std::set<int>::iterator it;
+  for (it = linesWhereLabelWasCalled.begin();
+       it != linesWhereLabelWasCalled.end(); ++it) {
+    int lineOfCall = (*it);
+    graphConnectionsDict.at(lineOfCall).insert(lineNumber);
+  }
+}
+
 std::string LineParser::getInstruction(std::string& line, size_t labelLength) {
   return Trimmer().trim(line.substr(labelLength + 1, line.size()));
 }
@@ -43,35 +56,42 @@ bool LineParser::isRetCommand(std::string& command) {
   return (!command.compare("ret"));
 }
 
-void LineParser::parseLine(std::string& line,
+void LineParser::makeNextInstructionNextLine(
+    graphConnectionsDictionary& graphConnections, Node& node) {
+  graphConnections.at(node.getLine()).insert(lineNumber + 1);
+}
+
+void LineParser::parseLine(std::string& line, Node& node,
                            graphConnectionsDictionary& graphConnections,
-                           labelsLineCallDictionary& labelsLineCallDict) {
-  Node newNode(lineNumber);
-  std::vector<int> nextLinesList;
-  if (line.empty()) {
-    return;
-  }
+                           labelsLineCallDictionary& labelsLineCallDict,
+                           lineLabelDictionary& lineLabelDict) {
   ssize_t labelLength = -1;
   std::string label = "";
   if (hasLabel(line)) {
     labelLength = getLabel(line, label);
-    newNode.updateLabel(label);
+    node.updateLabel(label);
+    lineLabelDict.insert({lineNumber, label});
+    checkLabelsLineCallDict(graphConnections, labelsLineCallDict, label);
   }
   std::string instruction = getInstruction(line, labelLength);
   std::string command = getCommand(instruction);
   std::vector<std::string> argumentList = getArgumentList(instruction);
   if (isJumpCommand(command)) {
-  } else if (isRetCommand(command)) {
-  } else {
+    JumpCommandProcessor jumpCommandProcessor(lineNumber, argumentList);
+    jumpCommandProcessor.processJump(graphConnections, node, labelsLineCallDict,
+                                     lineLabelDict);
+  } else if (!isRetCommand(command)) {
+    makeNextInstructionNextLine(graphConnections, node);
   }
-  print(&graphConnections);
+  // print(graphConnections);
 }
 
-void LineParser::print(graphConnectionsDictionary* graphConnections) {
+/*
+void LineParser::print(graphConnectionsDictionary& graphConnections) {
   graphConnectionsDictionary::iterator it;
-  for (it = graphConnections->begin(); it != graphConnections->end(); ++it) {
-    Node* currentNode = it->first;
-    std::cout << currentNode->getLine() << " | ";
+  for (it = graphConnections.begin(); it != graphConnections.end(); ++it) {
+    int currentNode = it->first;
+    std::cout << currentNode << " | ";
     std::vector<int> nextLines = it->second;
     int i;
     for (i = 0; i < nextLines.size(); i++) {
@@ -80,3 +100,4 @@ void LineParser::print(graphConnectionsDictionary* graphConnections) {
     std::cout << "\n";
   }
 }
+*/
