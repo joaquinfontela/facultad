@@ -9,7 +9,8 @@ int main(int argc, char** argv) {
 
   parser.parseNextFile(fileGraph);
 
-  fileGraph.printGraphAdjacencies();
+  std::cout << fileGraph.hasLoops() << "\n";
+  std::cout << fileGraph.hasUnreachableInstructions() << "\n";
 
   return 0;
 }

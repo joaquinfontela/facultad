@@ -9,22 +9,22 @@ JumpCommandProcessor::JumpCommandProcessor(
 }
 
 void JumpCommandProcessor::processJump(
-    graphConnectionsDictionary& graphConnections, Node& newNode,
+    graphConnectionsDictionary& graphConnections,
     labelsLineCallDictionary& labelsLineCallDict,
     lineLabelDictionary& lineLabelDict) {
   switch (argumentList.size()) {
     case 1:
-      processOneArgumentJump(graphConnections, newNode, labelsLineCallDict,
+      processOneArgumentJump(graphConnections, labelsLineCallDict,
                              lineLabelDict);
       break;
 
     case 2:
-      processTwoArgumentsJump(graphConnections, newNode, labelsLineCallDict,
+      processTwoArgumentsJump(graphConnections, labelsLineCallDict,
                               lineLabelDict);
       break;
 
     case 3:
-      processThreeArgumentsJump(graphConnections, newNode, labelsLineCallDict,
+      processThreeArgumentsJump(graphConnections, labelsLineCallDict,
                                 lineLabelDict);
       break;
 
@@ -47,43 +47,41 @@ void JumpCommandProcessor::insertNewLineOfLabelCall(
 void JumpCommandProcessor::processLabel(
     std::string& label, graphConnectionsDictionary& graphConnections,
     labelsLineCallDictionary& labelsLineCallDict,
-    lineLabelDictionary& lineLabelDict, Node& newNode) {
+    lineLabelDictionary& lineLabelDict) {
   insertNewLineOfLabelCall(label, labelsLineCallDict);
-
-  printLLCD(labelsLineCallDict);
 
   graphConnectionsDictionary::iterator it;
   for (it = graphConnections.begin(); it != graphConnections.end(); ++it) {
     int currentNodeLine = it->first;
     if (lineLabelDict.find(currentNodeLine) == lineLabelDict.end()) continue;
     if (lineLabelDict.at(currentNodeLine) == label)
-      graphConnections.at(lineNumber).insert(currentNodeLine);
+      graphConnections.at(lineNumber).push_back(currentNodeLine);
   }
 }
 
 void JumpCommandProcessor::processOneArgumentJump(
-    graphConnectionsDictionary& graphConnections, Node& newNode,
+    graphConnectionsDictionary& graphConnections,
     labelsLineCallDictionary& labelsLineCallDict,
     lineLabelDictionary& lineLabelDict) {
   processLabel(argumentList.at(0), graphConnections, labelsLineCallDict,
-               lineLabelDict, newNode);
+               lineLabelDict);
 }
 
 void JumpCommandProcessor::processTwoArgumentsJump(
-    graphConnectionsDictionary& graphConnections, Node& newNode,
+    graphConnectionsDictionary& graphConnections,
     labelsLineCallDictionary& labelsLineCallDict,
     lineLabelDictionary& lineLabelDict) {
   processLabel(argumentList.at(1), graphConnections, labelsLineCallDict,
-               lineLabelDict, newNode);
-  graphConnections.at(newNode.getLine()).insert(lineNumber + 1);
+               lineLabelDict);
+  graphConnections.at(lineNumber).push_back(lineNumber + 1);
 }
 
 void JumpCommandProcessor::processThreeArgumentsJump(
-    graphConnectionsDictionary& graphConnections, Node& newNode,
+    graphConnectionsDictionary& graphConnections,
     labelsLineCallDictionary& labelsLineCallDict,
     lineLabelDictionary& lineLabelDict) {
   for (int i = 1; i <= 2; i++) {
     processLabel(argumentList.at(i), graphConnections, labelsLineCallDict,
-                 lineLabelDict, newNode);
+                 lineLabelDict);
   }
 }

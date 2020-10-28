@@ -4,22 +4,22 @@
 
 #include "DFS.h"
 
-typedef std::map<int, Node*>::iterator nodeIterator;
+typedef std::set<int>::iterator nodeIterator;
 
 class Graph {
  private:
-  std::map<int, Node*> nodes;
-  DFS dfs;
-  std::set<Node*> runDFS();
+  std::set<int> nodes;
+  adjacencyMap adjacencies;
+  std::set<int> runDFS(DFS& dfs);
 
  public:
-  Graph() : dfs() {}
+  Graph();
   Graph(const Graph& copy) = delete;
 
-  void addVertex(Node* newNode);
-  void addEdge(Node* fromNode, Node* toNode);
-  bool hasNode(Node* node) const;
-  void addVertexIfNotInGraph(Node* newNode);
+  void addVertex(int newNode);
+  void addEdge(int fromNode, int toNode);
+  bool hasNode(int node) const;
+  void addVertexIfNotInGraph(int newNode);
   int size() const;
   bool hasUnreachableInstructions();
   bool hasLoops();

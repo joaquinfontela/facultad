@@ -11,63 +11,48 @@ FileParser::FileParser(FileRepository* fileRepository)
 int FileParser::parseNextFile(Graph& graph) {
   std::ifstream file;
   std::string line;
-  this->fileGraph = graph;
   if (!fileHandler.getNextFileOpened(file)) return -1;
   while (getline(file, line)) {
     if (line.empty()) continue;
 
     LineParser lineParser(currentLineNumber);
-    Node newNode(currentLineNumber);
-    std::set<int> possibleNextLines;
-    graphConnections.insert({newNode.getLine(), possibleNextLines});
+    graph.addVertex(currentLineNumber);
+    std::vector<int> possibleNextLines;
+    graphConnections.insert({currentLineNumber, std::move(possibleNextLines)});
 
-    lineParser.parseLine(line, newNode, graphConnections, labelsLineCallDict,
+    lineParser.parseLine(line, graphConnections, labelsLineCallDict,
                          lineLabelDict);
     currentLineNumber++;
   }
-  print(graphConnections);
   fileHandler.closeCurrentFile(file);
+  convertGraphConnectionsDictIntoGraph(graph);
 
   return 0;
 }
 
-void FileParser::print(graphConnectionsDictionary& graphConnections) {
+void FileParser::convertGraphConnectionsDictIntoGraph(Graph& graph) {
+  graphConnectionsDictionary::iterator dictIt;
+  for (dictIt = graphConnections.begin(); dictIt != graphConnections.end();
+       ++dictIt) {
+    // std::cout << "\n" << dictIt->first << " ";
+    int currentNodeLine = dictIt->first;
+    std::vector<int> possibleNextLines = dictIt->second;
+    for (int i = 0; i < possibleNextLines.size(); ++i) {
+      // std::cout << possibleNextLines.at(i);
+      graph.addEdge(currentNodeLine, possibleNextLines.at(i));
+    }
+  }
+}
+
+void FileParser::print() {
   graphConnectionsDictionary::iterator it;
   for (it = graphConnections.begin(); it != graphConnections.end(); ++it) {
     int currentNode = it->first;
     std::cout << currentNode << " | ";
-    std::set<int> nextLines = it->second;
-    std::set<int>::iterator it;
-    for (it = nextLines.begin(); it != nextLines.end(); ++it) {
-      std::cout << (*it) << " ";
+    std::vector<int> nextLines = it->second;
+    for (int i = 0; i < nextLines.size(); ++i) {
+      std::cout << nextLines.at(i) << " ";
     }
     std::cout << "\n";
   }
 }
-
-/*
-Node* FileParser::getNodeOfLine(int line) {
-  graphConnectionsDictionary::iterator it;
-  for (it = graphConnections.begin(); it != graphConnections.end(); ++it) {
-    Node* currentNode = it->first;
-    if (currentNode->getLine() == line) {
-      return currentNode;
-    }
-  }
-  return NULL;
-}
-
-void FileParser::convertGraphConnectionsDictIntoGraph() {
-  graphConnectionsDictionary::iterator dictIt;
-  for (dictIt = graphConnections.begin(); dictIt != graphConnections.end();
-       ++dictIt) {
-    Node* currentNode = dictIt->first;
-    this->fileGraph.addVertex(currentNode);
-    std::vector<int> possibleNextLines = dictIt->second;
-    int i;
-    for (i = 0; i < possibleNextLines.size(); i++) {
-      currentNode->addNext(getNodeOfLine(possibleNextLines.at(i)));
-    }
-  }
-}
-*/

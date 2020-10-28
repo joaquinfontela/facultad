@@ -1,22 +1,29 @@
-#include <set>
+#ifndef DFS_H
+#define DFS_H
 
-#include "Node.h"
+#include <map>
+#include <set>
+#include <vector>
+
+typedef std::map<int, std::vector<int>> adjacencyMap;
 
 class DFS {
  private:
+  adjacencyMap adjMap;
   bool _originalGraphHasCycles;
-  bool setContainsNode(Node* node, std::set<Node*>* nodeSet);
-  bool hasBeenVisited(Node* currentNode, std::set<Node*>* visitedNodes);
-  bool adjacentNodeIsAParentNode(Node* adjacentNode,
-                                 std::set<Node*>* parentNodes);
-  bool hasABackEdge(std::vector<Node*>* currentNodeAdjacentNodes,
-                    std::set<Node*>* currentNodeParentNodes);
+  bool setContainsNode(int node, std::set<int>* nodeSet);
+  bool hasBeenVisited(int currentNode, std::set<int>* visitedNodes);
+  bool adjacentNodeIsAParentNode(int adjacentNode, std::set<int>* parentNodes);
+  bool hasABackEdge(std::vector<int>* currentNodeAdjacentNodes,
+                    std::set<int>* currentNodeParentNodes);
 
  public:
-  DFS();
+  DFS(adjacencyMap& adjMap);
   DFS(const DFS& copy) = delete;
 
-  void DFSexecute(Node* currentNode, std::set<Node*>* visitedNodes,
-                  std::set<Node*>* parentNodes);
+  void DFSexecute(int currentNode, std::set<int>* visitedNodes,
+                  std::set<int>* parentNodes);
   bool originalGraphHasCycles();
 };
+
+#endif

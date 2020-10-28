@@ -25,7 +25,7 @@ void LineParser::checkLabelsLineCallDict(
   for (it = linesWhereLabelWasCalled.begin();
        it != linesWhereLabelWasCalled.end(); ++it) {
     int lineOfCall = (*it);
-    graphConnectionsDict.at(lineOfCall).insert(lineNumber);
+    graphConnectionsDict.at(lineOfCall).push_back(lineNumber);
   }
 }
 
@@ -57,11 +57,11 @@ bool LineParser::isRetCommand(std::string& command) {
 }
 
 void LineParser::makeNextInstructionNextLine(
-    graphConnectionsDictionary& graphConnections, Node& node) {
-  graphConnections.at(node.getLine()).insert(lineNumber + 1);
+    graphConnectionsDictionary& graphConnections) {
+  graphConnections.at(lineNumber).push_back(lineNumber + 1);
 }
 
-void LineParser::parseLine(std::string& line, Node& node,
+void LineParser::parseLine(std::string& line,
                            graphConnectionsDictionary& graphConnections,
                            labelsLineCallDictionary& labelsLineCallDict,
                            lineLabelDictionary& lineLabelDict) {
@@ -69,7 +69,6 @@ void LineParser::parseLine(std::string& line, Node& node,
   std::string label = "";
   if (hasLabel(line)) {
     labelLength = getLabel(line, label);
-    node.updateLabel(label);
     lineLabelDict.insert({lineNumber, label});
     checkLabelsLineCallDict(graphConnections, labelsLineCallDict, label);
   }
@@ -78,26 +77,9 @@ void LineParser::parseLine(std::string& line, Node& node,
   std::vector<std::string> argumentList = getArgumentList(instruction);
   if (isJumpCommand(command)) {
     JumpCommandProcessor jumpCommandProcessor(lineNumber, argumentList);
-    jumpCommandProcessor.processJump(graphConnections, node, labelsLineCallDict,
+    jumpCommandProcessor.processJump(graphConnections, labelsLineCallDict,
                                      lineLabelDict);
   } else if (!isRetCommand(command)) {
-    makeNextInstructionNextLine(graphConnections, node);
-  }
-  // print(graphConnections);
-}
-
-/*
-void LineParser::print(graphConnectionsDictionary& graphConnections) {
-  graphConnectionsDictionary::iterator it;
-  for (it = graphConnections.begin(); it != graphConnections.end(); ++it) {
-    int currentNode = it->first;
-    std::cout << currentNode << " | ";
-    std::vector<int> nextLines = it->second;
-    int i;
-    for (i = 0; i < nextLines.size(); i++) {
-      std::cout << nextLines.at(i) << " ";
-    }
-    std::cout << "\n";
+    makeNextInstructionNextLine(graphConnections);
   }
 }
-*/

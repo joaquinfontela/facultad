@@ -7,7 +7,6 @@
 #include <vector>
 
 #include "JumpCommandProcessor.h"
-#include "Node.h"
 #include "StringSplitter.h"
 #include "Trimmer.h"
 
@@ -27,17 +26,15 @@ class LineParser {
   std::vector<std::string> getArgumentList(std::string& instruction);
   bool isJumpCommand(std::string& command);
   bool isRetCommand(std::string& command);
-  void processRetInstruction(graphConnectionsDictionary& graphConnections,
-                             Node& node);
-  void makeNextInstructionNextLine(graphConnectionsDictionary& graphConnections,
-                                   Node& node);
+  void makeNextInstructionNextLine(
+      graphConnectionsDictionary& graphConnections);
   void print(graphConnectionsDictionary& graphConnections);
 
  public:
   LineParser(int lineNumber);
   LineParser(const LineParser& copy) = delete;
 
-  void parseLine(std::string& line, Node& node,
+  void parseLine(std::string& line,
                  graphConnectionsDictionary& graphConnections,
                  labelsLineCallDictionary& labelsLineCallDict,
                  lineLabelDictionary& lineLabelDict);
