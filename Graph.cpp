@@ -42,16 +42,3 @@ bool Graph::hasLoops() {
   runDFS(dfs);
   return dfs.originalGraphHasCycles();
 }
-
-void Graph::printGraphAdjacencies() {
-  nodeIterator it;
-  for (it = nodes.begin(); it != nodes.end(); ++it) {
-    printf("%d: ", (*it));
-    int currentNode = *it;
-    std::vector<int> adjacentNodes = adjacencies.at(currentNode);
-    for (int i = 0; i < adjacentNodes.size(); ++it) {
-      printf("%d | ", adjacentNodes.at(i));
-    }
-    printf("\n");
-  }
-}

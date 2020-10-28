@@ -1,4 +1,5 @@
 #include <iterator>
+#include <queue>
 #include <stdexcept>
 #include <string>
 
@@ -7,7 +8,7 @@
 class CommandParser {
  private:
   int numberOfThreads;
-  std::vector<std::string> fileNames;
+  std::queue<std::string> fileNames;
 
   void parseArguments(const int argc, char** argv);
 
@@ -15,5 +16,5 @@ class CommandParser {
   CommandParser(const int argc, char** argv);
   CommandParser(const CommandParser& copy) = delete;
 
-  std::vector<std::string>& getFileNames();
+  std::queue<std::string>& getFileNames();
 };

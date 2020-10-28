@@ -1,15 +1,13 @@
 #include <iostream>
+#include <queue>
 #include <string>
-#include <vector>
 
 class FileRepository {
  private:
-  std::vector<std::string> fileNames;
-
-  void printFileNames();  // for debug
+  std::queue<std::string> fileNames;
 
  public:
-  FileRepository(std::vector<std::string>& fileNames);
+  FileRepository(std::queue<std::string>& fileNames);
   FileRepository(const FileRepository& copy) = delete;
 
   std::string getNextFileName();

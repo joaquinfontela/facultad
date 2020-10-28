@@ -24,7 +24,5 @@ class Graph {
   bool hasUnreachableInstructions();
   bool hasLoops();
 
-  void printGraphAdjacencies();
-
   //~Graph();
 };

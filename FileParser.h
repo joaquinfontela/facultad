@@ -16,6 +16,4 @@ class FileParser {
 
   int parseNextFile(Graph& graph);
   void convertGraphConnectionsDictIntoGraph(Graph& graph);
-
-  void print();
 };
