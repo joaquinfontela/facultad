@@ -5,8 +5,8 @@ FileRepository::FileRepository(std::queue<std::string>& fileNames) {
 }
 
 std::string FileRepository::getNextFileName() {
-  if (this->fileNames.empty()) return NULL;
-  std::string fileName = this->fileNames.back();
-  this->fileNames.pop();
+  if (fileNames.empty()) return NULL;
+  std::string fileName = fileNames.back();
+  fileNames.pop();
   return fileName;
 }

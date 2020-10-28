@@ -12,30 +12,30 @@ class JumpCommandProcessor {
   int lineNumber;
   std::vector<std::string> argumentList;
 
-  void insertNewLineOfLabelCall(std::string& label,
-                                labelsLineCallDictionary& labelsLineCallDict);
+  void insertNewLineOfLabelCall(
+      std::string& label, labelsLineCallDictionary& labelsLineCallDict) const;
 
-  void processLabel(std::string& label,
+  void processLabel(std::string label,
                     graphConnectionsDictionary& graphConnections,
                     labelsLineCallDictionary& labelsLineCallDict,
-                    lineLabelDictionary& lineLabelDict);
+                    lineLabelDictionary& lineLabelDict) const;
 
   void processOneArgumentJump(graphConnectionsDictionary& graphConnections,
                               labelsLineCallDictionary& labelsLineCallDict,
-                              lineLabelDictionary& lineLabelDict);
+                              lineLabelDictionary& lineLabelDict) const;
 
   void processTwoArgumentsJump(graphConnectionsDictionary& graphConnections,
                                labelsLineCallDictionary& labelsLineCallDict,
-                               lineLabelDictionary& lineLabelDict);
+                               lineLabelDictionary& lineLabelDict) const;
 
   void processThreeArgumentsJump(graphConnectionsDictionary& graphConnections,
                                  labelsLineCallDictionary& labelsLineCallDict,
-                                 lineLabelDictionary& lineLabelDict);
+                                 lineLabelDictionary& lineLabelDict) const;
 
  public:
   JumpCommandProcessor(int lineNumber, std::vector<std::string>& argumentList);
 
   void processJump(graphConnectionsDictionary& graphConnections,
                    labelsLineCallDictionary& labelsLineCallDict,
-                   lineLabelDictionary& lineLabelDict);
+                   lineLabelDictionary& lineLabelDict) const;
 };

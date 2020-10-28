@@ -6,11 +6,11 @@ LineParser::LineParser(int lineNumber) {
                             "jlt", "jle", "jgt", "jge",  "jset"};
 }
 
-bool LineParser::hasLabel(std::string& line) {
+bool LineParser::hasLabel(std::string& line) const {
   return (line.find(":") != std::string::npos);
 }
 
-size_t LineParser::getLabel(std::string& line, std::string& label) {
+size_t LineParser::getLabel(std::string& line, std::string& label) const {
   size_t labelLength = line.find(":");
   label = line.substr(0, labelLength);
   return labelLength;
@@ -18,7 +18,7 @@ size_t LineParser::getLabel(std::string& line, std::string& label) {
 
 void LineParser::checkLabelsLineCallDict(
     graphConnectionsDictionary& graphConnectionsDict,
-    labelsLineCallDictionary& labelsLineCallDict, std::string& label) {
+    labelsLineCallDictionary& labelsLineCallDict, std::string& label) const {
   if (labelsLineCallDict.find(label) == labelsLineCallDict.end()) return;
   std::set<int> linesWhereLabelWasCalled = labelsLineCallDict.at(label);
   std::set<int>::iterator it;
@@ -29,42 +29,44 @@ void LineParser::checkLabelsLineCallDict(
   }
 }
 
-std::string LineParser::getInstruction(std::string& line, size_t labelLength) {
+std::string LineParser::getInstruction(std::string& line,
+                                       size_t labelLength) const {
   return Trimmer().trim(line.substr(labelLength + 1, line.size()));
 }
 
-std::string LineParser::getCommand(std::string& instruction) {
+std::string LineParser::getCommand(std::string& instruction) const {
   size_t commandLength = instruction.find_first_of(" ");
   return instruction.substr(0, commandLength);
 }
 
-std::string LineParser::getArguments(std::string& instruction) {
+std::string LineParser::getArguments(std::string& instruction) const {
   size_t commandLength = instruction.find_first_of(" ");
   return instruction.substr(commandLength + 1, instruction.size());
 }
 
-std::vector<std::string> LineParser::getArgumentList(std::string& instruction) {
+std::vector<std::string> LineParser::getArgumentList(
+    std::string& instruction) const {
   std::string arguments = getArguments(instruction);
   return StringSplitter().split(arguments, ", ");
 }
 
-bool LineParser::isJumpCommand(std::string& command) {
+bool LineParser::isJumpCommand(std::string& command) const {
   return (this->jumpInstructions.find(command) != this->jumpInstructions.end());
 }
 
-bool LineParser::isRetCommand(std::string& command) {
+bool LineParser::isRetCommand(std::string& command) const {
   return (!command.compare("ret"));
 }
 
 void LineParser::makeNextInstructionNextLine(
-    graphConnectionsDictionary& graphConnections) {
+    graphConnectionsDictionary& graphConnections) const {
   graphConnections.at(lineNumber).push_back(lineNumber + 1);
 }
 
 void LineParser::parseLine(std::string& line,
                            graphConnectionsDictionary& graphConnections,
                            labelsLineCallDictionary& labelsLineCallDict,
-                           lineLabelDictionary& lineLabelDict) {
+                           lineLabelDictionary& lineLabelDict) const {
   ssize_t labelLength = -1;
   std::string label = "";
   if (hasLabel(line)) {

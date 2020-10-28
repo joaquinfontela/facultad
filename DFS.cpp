@@ -5,21 +5,21 @@ DFS::DFS(adjacencyMap& adjMap) {
   this->_originalGraphHasCycles = false;
 }
 
-bool DFS::setContainsNode(int node, std::set<int>* nodeSet) {
+bool DFS::setContainsNode(int node, std::set<int>* nodeSet) const {
   return (nodeSet->find(node) != nodeSet->end());
 }
 
-bool DFS::hasBeenVisited(int currentNode, std::set<int>* visitedNodes) {
+bool DFS::hasBeenVisited(int currentNode, std::set<int>* visitedNodes) const {
   return setContainsNode(currentNode, visitedNodes);
 }
 
 bool DFS::adjacentNodeIsAParentNode(int adjacentNode,
-                                    std::set<int>* parentNodes) {
+                                    std::set<int>* parentNodes) const {
   return setContainsNode(adjacentNode, parentNodes);
 }
 
 bool DFS::hasABackEdge(std::vector<int>* currentNodeAdjacentNodes,
-                       std::set<int>* currentNodeParentNodes) {
+                       std::set<int>* currentNodeParentNodes) const {
   std::vector<int>::iterator it;
   for (it = currentNodeAdjacentNodes->begin();
        it != currentNodeAdjacentNodes->end(); ++it) {
@@ -44,4 +44,4 @@ void DFS::DFSexecute(int currentNode, std::set<int>* visitedNodes,
   }
 }
 
-bool DFS::originalGraphHasCycles() { return this->_originalGraphHasCycles; }
+bool DFS::originalGraphHasCycles() const { return _originalGraphHasCycles; }

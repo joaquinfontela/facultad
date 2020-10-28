@@ -11,7 +11,7 @@ JumpCommandProcessor::JumpCommandProcessor(
 void JumpCommandProcessor::processJump(
     graphConnectionsDictionary& graphConnections,
     labelsLineCallDictionary& labelsLineCallDict,
-    lineLabelDictionary& lineLabelDict) {
+    lineLabelDictionary& lineLabelDict) const {
   switch (argumentList.size()) {
     case 1:
       processOneArgumentJump(graphConnections, labelsLineCallDict,
@@ -34,7 +34,7 @@ void JumpCommandProcessor::processJump(
 }
 
 void JumpCommandProcessor::insertNewLineOfLabelCall(
-    std::string& label, labelsLineCallDictionary& labelsLineCallDict) {
+    std::string& label, labelsLineCallDictionary& labelsLineCallDict) const {
   if (labelsLineCallDict.find(label) != labelsLineCallDict.end()) {
     labelsLineCallDict.at(label).insert(lineNumber);
   } else {
@@ -45,9 +45,9 @@ void JumpCommandProcessor::insertNewLineOfLabelCall(
 }
 
 void JumpCommandProcessor::processLabel(
-    std::string& label, graphConnectionsDictionary& graphConnections,
+    std::string label, graphConnectionsDictionary& graphConnections,
     labelsLineCallDictionary& labelsLineCallDict,
-    lineLabelDictionary& lineLabelDict) {
+    lineLabelDictionary& lineLabelDict) const {
   insertNewLineOfLabelCall(label, labelsLineCallDict);
 
   graphConnectionsDictionary::iterator it;
@@ -62,7 +62,7 @@ void JumpCommandProcessor::processLabel(
 void JumpCommandProcessor::processOneArgumentJump(
     graphConnectionsDictionary& graphConnections,
     labelsLineCallDictionary& labelsLineCallDict,
-    lineLabelDictionary& lineLabelDict) {
+    lineLabelDictionary& lineLabelDict) const {
   processLabel(argumentList.at(0), graphConnections, labelsLineCallDict,
                lineLabelDict);
 }
@@ -70,7 +70,7 @@ void JumpCommandProcessor::processOneArgumentJump(
 void JumpCommandProcessor::processTwoArgumentsJump(
     graphConnectionsDictionary& graphConnections,
     labelsLineCallDictionary& labelsLineCallDict,
-    lineLabelDictionary& lineLabelDict) {
+    lineLabelDictionary& lineLabelDict) const {
   processLabel(argumentList.at(1), graphConnections, labelsLineCallDict,
                lineLabelDict);
   graphConnections.at(lineNumber).push_back(lineNumber + 1);
@@ -79,7 +79,7 @@ void JumpCommandProcessor::processTwoArgumentsJump(
 void JumpCommandProcessor::processThreeArgumentsJump(
     graphConnectionsDictionary& graphConnections,
     labelsLineCallDictionary& labelsLineCallDict,
-    lineLabelDictionary& lineLabelDict) {
+    lineLabelDictionary& lineLabelDict) const {
   for (int i = 1; i <= 2; i++) {
     processLabel(argumentList.at(i), graphConnections, labelsLineCallDict,
                  lineLabelDict);

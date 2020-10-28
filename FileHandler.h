@@ -10,7 +10,7 @@ class FileHandler {
   FileHandler(FileRepository* fileRepository);
   FileHandler(const FileHandler& copy) = delete;
 
-  bool getNextFileOpened(std::ifstream& nextFile);
+  bool getNextFileOpened(std::ifstream& nextFile) const;
 
-  void closeCurrentFile(std::ifstream& currentFile);
+  void closeCurrentFile(std::ifstream& currentFile) const;
 };

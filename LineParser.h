@@ -15,20 +15,19 @@ class LineParser {
   std::set<std::string> jumpInstructions;
   int lineNumber;
 
-  bool hasLabel(std::string& line);
-  size_t getLabel(std::string& line, std::string& label);
+  bool hasLabel(std::string& line) const;
+  size_t getLabel(std::string& line, std::string& label) const;
   void checkLabelsLineCallDict(graphConnectionsDictionary& graphConnectionsDict,
                                labelsLineCallDictionary& labelsLineCallDict,
-                               std::string& label);
-  std::string getInstruction(std::string& line, size_t labelLength);
-  std::string getCommand(std::string& instruction);
-  std::string getArguments(std::string& instruction);
-  std::vector<std::string> getArgumentList(std::string& instruction);
-  bool isJumpCommand(std::string& command);
-  bool isRetCommand(std::string& command);
+                               std::string& label) const;
+  std::string getInstruction(std::string& line, size_t labelLength) const;
+  std::string getCommand(std::string& instruction) const;
+  std::string getArguments(std::string& instruction) const;
+  std::vector<std::string> getArgumentList(std::string& instruction) const;
+  bool isJumpCommand(std::string& command) const;
+  bool isRetCommand(std::string& command) const;
   void makeNextInstructionNextLine(
-      graphConnectionsDictionary& graphConnections);
-  void print(graphConnectionsDictionary& graphConnections);
+      graphConnectionsDictionary& graphConnections) const;
 
  public:
   LineParser(int lineNumber);
@@ -37,5 +36,5 @@ class LineParser {
   void parseLine(std::string& line,
                  graphConnectionsDictionary& graphConnections,
                  labelsLineCallDictionary& labelsLineCallDict,
-                 lineLabelDictionary& lineLabelDict);
+                 lineLabelDictionary& lineLabelDict) const;
 };
