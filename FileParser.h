@@ -5,11 +5,8 @@
 class FileParser {
  private:
   FileHandler fileHandler;
+  FileGraphData fileGraphData;
   int currentLineNumber;
-  graphConnectionsDictionary graphConnections;
-  labelsLineCallDictionary labelsLineCallDict;
-  lineLabelDictionary lineLabelDict;
-  void convertGraphConnectionsDictIntoGraph(Graph& graph);
 
  public:
   FileParser(FileRepository* fileRepository);

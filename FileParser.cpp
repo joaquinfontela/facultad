@@ -8,9 +8,7 @@ FileParser::FileParser(FileRepository* fileRepository)
 
 void FileParser::reinit() {
   currentLineNumber = 1;
-  graphConnections.clear();
-  labelsLineCallDict.clear();
-  lineLabelDict.clear();
+  fileGraphData.reinit();
 }
 
 std::string FileParser::parseNextFile(Graph& graph) {
@@ -22,29 +20,15 @@ std::string FileParser::parseNextFile(Graph& graph) {
 
     LineParser lineParser(currentLineNumber);
     graph.addVertex(currentLineNumber);
-    std::vector<int> possibleNextLines;
-    graphConnections.insert({currentLineNumber, std::move(possibleNextLines)});
+    fileGraphData.addNewVertex(currentLineNumber);
 
-    lineParser.parseLine(line, graphConnections, labelsLineCallDict,
-                         lineLabelDict);
+    lineParser.parseLine(line, fileGraphData);
     currentLineNumber++;
   }
   fileHandler.closeCurrentFile(file);
-  convertGraphConnectionsDictIntoGraph(graph);
+  fileGraphData.createGraph(graph);
 
   return fileHandler.getNameOfLastFileOpened();
-}
-
-void FileParser::convertGraphConnectionsDictIntoGraph(Graph& graph) {
-  graphConnectionsDictionary::iterator dictIt;
-  for (dictIt = graphConnections.begin(); dictIt != graphConnections.end();
-       ++dictIt) {
-    int currentNodeLine = dictIt->first;
-    std::vector<int> possibleNextLines = dictIt->second;
-    for (unsigned int i = 0; i < possibleNextLines.size(); ++i) {
-      graph.addEdge(currentNodeLine, possibleNextLines.at(i));
-    }
-  }
 }
 
 bool FileParser::thereAreFilesPending() const {

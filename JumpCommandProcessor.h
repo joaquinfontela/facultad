@@ -1,42 +1,18 @@
-#include <map>
-#include <set>
-#include <string>
-#include <vector>
-
-typedef std::map<std::string, std::set<int>> labelsLineCallDictionary;
-typedef std::map<int, std::string> lineLabelDictionary;
-typedef std::map<int, std::vector<int>> graphConnectionsDictionary;
+#include "FileGraphData.h"
 
 class JumpCommandProcessor {
  private:
   int lineNumber;
   std::vector<std::string> argumentList;
 
-  void insertNewLineOfLabelCall(
-      std::string& label, labelsLineCallDictionary& labelsLineCallDict) const;
+  void processOneArgumentJump(FileGraphData& fileGraphData) const;
 
-  void processLabel(std::string label,
-                    graphConnectionsDictionary& graphConnections,
-                    labelsLineCallDictionary& labelsLineCallDict,
-                    const lineLabelDictionary& lineLabelDict) const;
+  void processTwoArgumentsJump(FileGraphData& fileGraphData) const;
 
-  void processOneArgumentJump(graphConnectionsDictionary& graphConnections,
-                              labelsLineCallDictionary& labelsLineCallDict,
-                              const lineLabelDictionary& lineLabelDict) const;
-
-  void processTwoArgumentsJump(graphConnectionsDictionary& graphConnections,
-                               labelsLineCallDictionary& labelsLineCallDict,
-                               const lineLabelDictionary& lineLabelDict) const;
-
-  void processThreeArgumentsJump(
-      graphConnectionsDictionary& graphConnections,
-      labelsLineCallDictionary& labelsLineCallDict,
-      const lineLabelDictionary& lineLabelDict) const;
+  void processThreeArgumentsJump(FileGraphData& fileGraphData) const;
 
  public:
   JumpCommandProcessor(int lineNumber, std::vector<std::string>& argumentList);
 
-  void processJump(graphConnectionsDictionary& graphConnections,
-                   labelsLineCallDictionary& labelsLineCallDict,
-                   const lineLabelDictionary& lineLabelDict) const;
+  void processJump(FileGraphData& fileGraphData) const;
 };

@@ -16,20 +16,6 @@ size_t LineParser::getLabel(const std::string& line, std::string& label) const {
   return labelLength;
 }
 
-void LineParser::checkLabelsLineCallDict(
-    graphConnectionsDictionary& graphConnectionsDict,
-    const labelsLineCallDictionary& labelsLineCallDict,
-    const std::string& label) const {
-  if (labelsLineCallDict.find(label) == labelsLineCallDict.end()) return;
-  std::set<int> linesWhereLabelWasCalled = labelsLineCallDict.at(label);
-  std::set<int>::iterator it;
-  for (it = linesWhereLabelWasCalled.begin();
-       it != linesWhereLabelWasCalled.end(); ++it) {
-    int lineOfCall = (*it);
-    graphConnectionsDict.at(lineOfCall).push_back(lineNumber);
-  }
-}
-
 std::string LineParser::getInstruction(const std::string& line,
                                        const size_t labelLength) const {
   return Trimmer().trim(line.substr(labelLength + 1, line.size()));
@@ -59,30 +45,22 @@ bool LineParser::isRetCommand(const std::string& command) const {
   return (!command.compare("ret"));
 }
 
-void LineParser::makeNextInstructionNextLine(
-    graphConnectionsDictionary& graphConnections) const {
-  graphConnections.at(lineNumber).push_back(lineNumber + 1);
-}
-
 void LineParser::parseLine(const std::string& line,
-                           graphConnectionsDictionary& graphConnections,
-                           labelsLineCallDictionary& labelsLineCallDict,
-                           lineLabelDictionary& lineLabelDict) const {
+                           FileGraphData& fileGraphData) const {
   ssize_t labelLength = -1;
   std::string label = "";
   if (hasLabel(line)) {
     labelLength = getLabel(line, label);
-    lineLabelDict.insert({lineNumber, label});
-    checkLabelsLineCallDict(graphConnections, labelsLineCallDict, label);
+    fileGraphData.addLabelInLine(label, lineNumber);
+    fileGraphData.checkLabelsLineCallDict(label, lineNumber);
   }
   std::string instruction = getInstruction(line, labelLength);
   std::string command = getCommand(instruction);
   std::vector<std::string> argumentList = getArgumentList(instruction);
   if (isJumpCommand(command)) {
     JumpCommandProcessor jumpCommandProcessor(lineNumber, argumentList);
-    jumpCommandProcessor.processJump(graphConnections, labelsLineCallDict,
-                                     lineLabelDict);
+    jumpCommandProcessor.processJump(fileGraphData);
   } else if (!isRetCommand(command)) {
-    makeNextInstructionNextLine(graphConnections);
+    fileGraphData.makeNextInstructionNextLine(lineNumber);
   }
 }
