@@ -11,18 +11,19 @@ class DFS {
  private:
   adjacencyMap adjMap;
   bool _originalGraphHasCycles;
-  bool setContainsNode(int node, std::set<int>* nodeSet) const;
-  bool hasBeenVisited(int currentNode, std::set<int>* visitedNodes) const;
-  bool adjacentNodeIsAParentNode(int adjacentNode,
-                                 std::set<int>* parentNodes) const;
+  bool setContainsNode(const int node, const std::set<int>* nodeSet) const;
+  bool hasBeenVisited(const int currentNode,
+                      const std::set<int>* visitedNodes) const;
+  bool adjacentNodeIsAParentNode(const int adjacentNode,
+                                 const std::set<int>* parentNodes) const;
   bool hasABackEdge(std::vector<int>* currentNodeAdjacentNodes,
-                    std::set<int>* currentNodeParentNodes) const;
+                    const std::set<int>* currentNodeParentNodes) const;
 
  public:
-  DFS(adjacencyMap& adjMap);
+  DFS(const adjacencyMap& adjMap);
   DFS(const DFS& copy) = delete;
 
-  void DFSexecute(int currentNode, std::set<int>* visitedNodes,
+  void DFSexecute(const int currentNode, std::set<int>* visitedNodes,
                   std::set<int>* parentNodes);
   bool originalGraphHasCycles() const;
 };

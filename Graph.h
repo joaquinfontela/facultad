@@ -19,10 +19,10 @@ class Graph {
   Graph();
   Graph(const Graph& copy) = delete;
 
-  void addVertex(int newNode);
-  void addEdge(int fromNode, int toNode);
-  bool hasNode(int node) const;
-  void addVertexIfNotInGraph(int newNode);
+  void addVertex(const int newNode);
+  void addEdge(const int fromNode, const int toNode);
+  bool hasNode(const int node) const;
+  void addVertexIfNotInGraph(const int newNode);
   int size() const;
   bool hasUnreachableInstructions();
   bool hasLoops();

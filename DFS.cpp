@@ -1,25 +1,26 @@
 #include "DFS.h"
 
-DFS::DFS(adjacencyMap& adjMap) {
+DFS::DFS(const adjacencyMap& adjMap) {
   this->adjMap = adjMap;
   this->_originalGraphHasCycles = false;
 }
 
-bool DFS::setContainsNode(int node, std::set<int>* nodeSet) const {
+bool DFS::setContainsNode(const int node, const std::set<int>* nodeSet) const {
   return (nodeSet->find(node) != nodeSet->end());
 }
 
-bool DFS::hasBeenVisited(int currentNode, std::set<int>* visitedNodes) const {
+bool DFS::hasBeenVisited(const int currentNode,
+                         const std::set<int>* visitedNodes) const {
   return setContainsNode(currentNode, visitedNodes);
 }
 
-bool DFS::adjacentNodeIsAParentNode(int adjacentNode,
-                                    std::set<int>* parentNodes) const {
+bool DFS::adjacentNodeIsAParentNode(const int adjacentNode,
+                                    const std::set<int>* parentNodes) const {
   return setContainsNode(adjacentNode, parentNodes);
 }
 
 bool DFS::hasABackEdge(std::vector<int>* currentNodeAdjacentNodes,
-                       std::set<int>* currentNodeParentNodes) const {
+                       const std::set<int>* currentNodeParentNodes) const {
   std::vector<int>::iterator it;
   for (it = currentNodeAdjacentNodes->begin();
        it != currentNodeAdjacentNodes->end(); ++it) {
@@ -28,7 +29,7 @@ bool DFS::hasABackEdge(std::vector<int>* currentNodeAdjacentNodes,
   return false;
 }
 
-void DFS::DFSexecute(int currentNode, std::set<int>* visitedNodes,
+void DFS::DFSexecute(const int currentNode, std::set<int>* visitedNodes,
                      std::set<int>* parentNodes) {
   if (!hasBeenVisited(currentNode, visitedNodes)) {
     visitedNodes->insert(currentNode);

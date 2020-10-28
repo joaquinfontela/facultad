@@ -1,7 +1,9 @@
 #include "FileRepository.h"
 
-FileRepository::FileRepository(std::queue<std::string>& fileNames) {
-  this->fileNames = fileNames;
+#include "StringSorter.h"
+
+FileRepository::FileRepository(std::vector<std::string>& fileNames) {
+  this->fileNames = StringSorter().sort(fileNames);
 }
 
 std::string FileRepository::getNextFileName() {

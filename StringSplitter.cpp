@@ -1,7 +1,7 @@
 #include "StringSplitter.h"
 
-std::vector<int> StringSplitter::findAll(std::string string,
-                                         std::string searched) const {
+std::vector<int> StringSplitter::findAll(const std::string string,
+                                         const std::string searched) const {
   std::vector<int> searchedLocations;
   size_t searchedSize = searched.size();
   int i;
@@ -13,8 +13,8 @@ std::vector<int> StringSplitter::findAll(std::string string,
   return searchedLocations;
 }
 
-std::vector<std::string> StringSplitter::split(std::string string,
-                                               std::string delim) const {
+std::vector<std::string> StringSplitter::split(const std::string string,
+                                               const std::string delim) const {
   std::vector<std::string> splitedString;
   std::vector<int> delimLocations = findAll(string, delim);
   std::vector<int>::iterator it;

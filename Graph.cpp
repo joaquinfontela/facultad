@@ -2,23 +2,23 @@
 
 Graph::Graph() {}
 
-void Graph::addVertex(int newNode) {
+void Graph::addVertex(const int newNode) {
   nodes.insert(newNode);
   std::vector<int> adj;
   adjacencies.insert({newNode, adj});
 }
 
-void Graph::addEdge(int fromNode, int toNode) {
+void Graph::addEdge(const int fromNode, const int toNode) {
   addVertexIfNotInGraph(fromNode);
   addVertexIfNotInGraph(toNode);
   adjacencies.at(fromNode).push_back(toNode);
 }
 
-bool Graph::hasNode(int node) const {
+bool Graph::hasNode(const int node) const {
   return (nodes.find(node) != nodes.end());
 }
 
-void Graph::addVertexIfNotInGraph(int newNode) {
+void Graph::addVertexIfNotInGraph(const int newNode) {
   if (!hasNode(newNode)) addVertex(newNode);
 }
 

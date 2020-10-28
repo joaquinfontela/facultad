@@ -9,6 +9,7 @@ class FileParser {
   graphConnectionsDictionary graphConnections;
   labelsLineCallDictionary labelsLineCallDict;
   lineLabelDictionary lineLabelDict;
+  void convertGraphConnectionsDictIntoGraph(Graph& graph);
 
  public:
   FileParser(FileRepository* fileRepository);
@@ -16,6 +17,5 @@ class FileParser {
 
   void reinit();
   std::string parseNextFile(Graph& graph);
-  void convertGraphConnectionsDictIntoGraph(Graph& graph);
   bool thereAreFilesPending() const;
 };

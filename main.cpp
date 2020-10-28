@@ -5,9 +5,9 @@
 int main(int argc, char** argv) {
   CommandParser commandParser(argc, argv);
   FileRepository fileRepository(commandParser.getFileNames());
+  FileParser parser(&fileRepository);
   std::string nameOfFileParsed;
   FileVerifier fileVerifier;
-  FileParser parser(&fileRepository);
 
   while (parser.thereAreFilesPending()) {
     Graph fileGraph;

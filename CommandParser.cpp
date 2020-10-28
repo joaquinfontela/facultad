@@ -15,11 +15,11 @@ void CommandParser::parseArguments(const int argc, char** argv) {
   int argNumber = 2;
   while (argNumber < argc) {
     std::string fileName(argv[argNumber]);
-    this->fileNames.push(fileName);
+    this->fileNames.push_back(fileName);
     argNumber++;
   }
 }
 
-std::queue<std::string>& CommandParser::getFileNames() {
+std::vector<std::string>& CommandParser::getFileNames() {
   return this->fileNames;
 }
