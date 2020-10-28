@@ -4,14 +4,19 @@
 #include <string.h>
 
 FileParser::FileParser(FileRepository* fileRepository)
-    : fileHandler(fileRepository) {
+    : fileHandler(fileRepository) {}
+
+void FileParser::reinit() {
   currentLineNumber = 1;
+  graphConnections.clear();
+  labelsLineCallDict.clear();
+  lineLabelDict.clear();
 }
 
-int FileParser::parseNextFile(Graph& graph) {
+std::string FileParser::parseNextFile(Graph& graph) {
   std::ifstream file;
   std::string line;
-  if (!fileHandler.getNextFileOpened(file)) return -1;
+  if (!fileHandler.getNextFileOpened(file)) return "";
   while (getline(file, line)) {
     if (line.empty()) continue;
 
@@ -27,7 +32,7 @@ int FileParser::parseNextFile(Graph& graph) {
   fileHandler.closeCurrentFile(file);
   convertGraphConnectionsDictIntoGraph(graph);
 
-  return 0;
+  return fileHandler.getNameOfLastFileOpened();
 }
 
 void FileParser::convertGraphConnectionsDictIntoGraph(Graph& graph) {
@@ -40,4 +45,8 @@ void FileParser::convertGraphConnectionsDictIntoGraph(Graph& graph) {
       graph.addEdge(currentNodeLine, possibleNextLines.at(i));
     }
   }
+}
+
+bool FileParser::thereAreFilesPending() const {
+  return fileHandler.thereAreFilesPending();
 }

@@ -1,3 +1,6 @@
+#ifndef GRAPH_H
+#define GRAPH_H
+
 #include <iostream>
 #include <map>
 #include <set>
@@ -26,3 +29,5 @@ class Graph {
 
   //~Graph();
 };
+
+#endif

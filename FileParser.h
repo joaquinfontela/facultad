@@ -14,6 +14,8 @@ class FileParser {
   FileParser(FileRepository* fileRepository);
   FileParser(const FileParser& copy) = delete;
 
-  int parseNextFile(Graph& graph);
+  void reinit();
+  std::string parseNextFile(Graph& graph);
   void convertGraphConnectionsDictIntoGraph(Graph& graph);
+  bool thereAreFilesPending() const;
 };

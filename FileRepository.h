@@ -11,4 +11,5 @@ class FileRepository {
   FileRepository(const FileRepository& copy) = delete;
 
   std::string getNextFileName();
+  bool thereAreFilesPending() const;
 };

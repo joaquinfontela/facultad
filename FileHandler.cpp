@@ -4,12 +4,20 @@ FileHandler::FileHandler(FileRepository* fileRepository) {
   this->fileRepository = fileRepository;
 }
 
-bool FileHandler::getNextFileOpened(std::ifstream& nextFile) const {
-  std::string nextFileName = fileRepository->getNextFileName();
-  nextFile.open(nextFileName);
+bool FileHandler::getNextFileOpened(std::ifstream& nextFile) {
+  nameOfLastFileOpened = fileRepository->getNextFileName();
+  nextFile.open(nameOfLastFileOpened);
   return nextFile.is_open();
 }
 
 void FileHandler::closeCurrentFile(std::ifstream& currentFile) const {
   currentFile.close();
+}
+
+std::string FileHandler::getNameOfLastFileOpened() const {
+  return nameOfLastFileOpened;
+}
+
+bool FileHandler::thereAreFilesPending() const {
+  return fileRepository->thereAreFilesPending();
 }
