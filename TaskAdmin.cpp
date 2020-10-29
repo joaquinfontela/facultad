@@ -5,4 +5,16 @@ TaskAdmin::TaskAdmin(FileRepository& fileRepository, FileResults* fileResults)
   this->fileResults = fileResults;
 }
 
-void TaskAdmin::run() {}
+void TaskAdmin::run() {
+  std::string nameOfFileParsed;
+  FileVerifier fileVerifier;
+
+  while (fileParser.thereAreFilesPending()) {
+    Graph fileGraph;
+    fileParser.reinit();
+    nameOfFileParsed = fileParser.parseNextFile(fileGraph);
+    std::string fileResult;
+    fileVerifier.verify(fileGraph, nameOfFileParsed, fileResult);
+    fileResults->addResult(fileResult);
+  }
+}

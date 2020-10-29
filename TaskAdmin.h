@@ -1,5 +1,6 @@
 #include "FileParser.h"
 #include "FileResults.h"
+#include "FileVerifier.h"
 #include "Thread.h"
 
 class TaskAdmin : public Thread {

@@ -9,27 +9,18 @@ int main(int argc, char** argv) {
   FileResults fileResults;
 
   std::vector<TaskAdmin*> threads;
-  int i;
-  for (i = 0; i < argc; ++i) {
+  for (int i = 0; i < argc; ++i) {
     threads.push_back(new TaskAdmin(fileRepository, &fileResults));
   }
-
-  /*
-    FileParser parser(&fileRepository);
-  std::string nameOfFileParsed;
-  FileVerifier fileVerifier;
-
-  while (parser.thereAreFilesPending()) {
-    Graph fileGraph;
-    parser.reinit();
-    nameOfFileParsed = parser.parseNextFile(fileGraph);
-    std::string fileResult;
-    fileVerifier.verify(fileGraph, nameOfFileParsed, fileResult);
-    fileResults.addResult(fileResult);
+  unsigned int i;
+  for (i = 0; i < threads.size(); ++i) {
+    threads[i]->join();
+  }
+  for (i = 0; i < threads.size(); ++i) {
+    threads[i]->~TaskAdmin();
   }
 
   fileResults.printResults();
-  */
 
   return 0;
 }
