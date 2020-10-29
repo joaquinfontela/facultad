@@ -1,15 +1,23 @@
 #include "CommandParser.h"
 #include "FileParser.h"
-#include "FileResults.h"
 #include "FileVerifier.h"
+#include "TaskAdmin.h"
 
 int main(int argc, char** argv) {
   CommandParser commandParser(argc, argv);
   FileRepository fileRepository(commandParser.getFileNames());
-  FileParser parser(&fileRepository);
+  FileResults fileResults;
+
+  std::vector<TaskAdmin*> threads;
+  int i;
+  for (i = 0; i < argc; ++i) {
+    threads.push_back(new TaskAdmin(fileRepository, &fileResults));
+  }
+
+  /*
+    FileParser parser(&fileRepository);
   std::string nameOfFileParsed;
   FileVerifier fileVerifier;
-  FileResults fileResults;
 
   while (parser.thereAreFilesPending()) {
     Graph fileGraph;
@@ -21,6 +29,7 @@ int main(int argc, char** argv) {
   }
 
   fileResults.printResults();
+  */
 
   return 0;
 }
