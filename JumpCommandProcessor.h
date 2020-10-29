@@ -5,14 +5,14 @@ class JumpCommandProcessor {
   int lineNumber;
   std::vector<std::string> argumentList;
 
-  void processOneArgumentJump(FileGraphData& fileGraphData) const;
+  void processOneArgumentJump(FileGraphData& fileGraphData);
 
-  void processTwoArgumentsJump(FileGraphData& fileGraphData) const;
+  void processTwoArgumentsJump(FileGraphData& fileGraphData);
 
-  void processThreeArgumentsJump(FileGraphData& fileGraphData) const;
+  void processThreeArgumentsJump(FileGraphData& fileGraphData);
 
  public:
   JumpCommandProcessor(int lineNumber, std::vector<std::string>& argumentList);
 
-  void processJump(FileGraphData& fileGraphData) const;
+  void processJump(FileGraphData& fileGraphData);
 };

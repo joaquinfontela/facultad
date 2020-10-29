@@ -8,7 +8,7 @@ JumpCommandProcessor::JumpCommandProcessor(
   this->argumentList = argumentList;
 }
 
-void JumpCommandProcessor::processJump(FileGraphData& fileGraphData) const {
+void JumpCommandProcessor::processJump(FileGraphData& fileGraphData) {
   switch (argumentList.size()) {
     case 1:
       processOneArgumentJump(fileGraphData);
@@ -28,18 +28,18 @@ void JumpCommandProcessor::processJump(FileGraphData& fileGraphData) const {
 }
 
 void JumpCommandProcessor::processOneArgumentJump(
-    FileGraphData& fileGraphData) const {
+    FileGraphData& fileGraphData) {
   fileGraphData.processLabel(argumentList.at(0), lineNumber);
 }
 
 void JumpCommandProcessor::processTwoArgumentsJump(
-    FileGraphData& fileGraphData) const {
+    FileGraphData& fileGraphData) {
   fileGraphData.processLabel(argumentList.at(1), lineNumber);
   fileGraphData.makeNextInstructionNextLine(lineNumber);
 }
 
 void JumpCommandProcessor::processThreeArgumentsJump(
-    FileGraphData& fileGraphData) const {
+    FileGraphData& fileGraphData) {
   for (int i = 1; i <= 2; i++) {
     fileGraphData.processLabel(argumentList.at(i), lineNumber);
   }

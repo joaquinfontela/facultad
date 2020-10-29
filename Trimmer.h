@@ -1,3 +1,6 @@
+#ifndef TRIMMER_H
+#define TRIMMER_H
+
 #include <string>
 
 class Trimmer {
@@ -14,3 +17,5 @@ class Trimmer {
   std::string trim(const std::string& str,
                    const std::string& chars = "\t\n\v\f\r ") const;
 };
+
+#endif

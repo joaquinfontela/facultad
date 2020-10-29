@@ -1,6 +1,8 @@
 #include <string>
 #include <vector>
 
+#include "Trimmer.h"
+
 class StringSplitter {
  private:
   std::vector<int> findAll(const std::string string,

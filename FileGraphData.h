@@ -32,7 +32,8 @@ class FileGraphData {
   void checkLabelsLineCallDict(const std::string& label, int currentLineNumber);
   void makeNextInstructionNextLine(int currentLineNumber);
   void addLabelInLine(std::string& label, int lineNumber);
-  void processLabel(const std::string& label, int currentLineNumber);
+  void processLabel(std::string& label, int currentLineNumber);
+  // void printData();
 };
 
 #endif

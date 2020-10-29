@@ -1,5 +1,7 @@
 #include "FileGraphData.h"
 
+#include "Trimmer.h"
+
 FileGraphData::FileGraphData() {}
 
 void FileGraphData::reinit() {
@@ -64,8 +66,8 @@ void FileGraphData::addLabelInLine(std::string& label, int lineNumber) {
   lineLabelDict.insert({lineNumber, label});
 }
 
-void FileGraphData::processLabel(const std::string& label,
-                                 int currentLineNumber) {
+void FileGraphData::processLabel(std::string& label, int currentLineNumber) {
+  label = Trimmer().trim(label);
   insertNewLineOfLabelCall(label, currentLineNumber);
 
   graphConnectionsDictionary::iterator it;
@@ -73,7 +75,41 @@ void FileGraphData::processLabel(const std::string& label,
        ++it) {
     int currentNodeLine = it->first;
     if (!thereIsALabelInLine(currentNodeLine)) continue;
-    if (lineLabelDict.at(currentNodeLine) == label)
+    if (lineLabelDict.at(currentNodeLine) ==
+        label)  // aca busco la linea donde se define el label
       graphConnectionsDict.at(currentLineNumber).push_back(currentNodeLine);
   }
 }
+
+/*
+void FileGraphData::printData() {
+  std::cout << "Graph connections\n";
+  for (auto dictIt : graphConnectionsDict) {
+    int currentNode = dictIt.first;
+    std::cout << currentNode << ": ";
+    std::vector<int> possibleNextLines = dictIt.second;
+    for (auto listIt : possibleNextLines) {
+      std::cout << listIt << "  ";
+    }
+    std::cout << "\n";
+  }
+
+  std::cout << "\nLabelLineCall Dict\n";
+  for (auto dictIt : labelsLineCallDict) {
+    std::string currentLabel = dictIt.first;
+    std::cout << currentLabel << ": ";
+    std::set<int> linesWhereCalled = dictIt.second;
+    for (auto setIt : linesWhereCalled) {
+      std::cout << setIt << "  ";
+    }
+    std::cout << "\n";
+  }
+
+  std::cout << "\nLineLabelDict\n";
+  for (auto dictIt : lineLabelDict) {
+    std::cout << dictIt.first << ": " << dictIt.second << "\n";
+  }
+
+  std::cout << "\n\n\n\n";
+}
+*/
