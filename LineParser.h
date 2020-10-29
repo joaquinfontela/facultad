@@ -27,7 +27,7 @@ class LineParser {
   bool isRetCommand(const std::string& command) const;
 
  public:
-  LineParser(const int lineNumber);
+  explicit LineParser(const int lineNumber);
   LineParser(const LineParser& copy) = delete;
 
   void parseLine(const std::string& line, FileGraphData& fileGraphData) const;

@@ -1,7 +1,8 @@
 #include "FileParser.h"
 
 #include <errno.h>
-#include <string.h>
+
+#include <string>
 
 FileParser::FileParser(FileRepository* fileRepository)
     : fileHandler(fileRepository) {}

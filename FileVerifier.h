@@ -1,3 +1,5 @@
+#include <string>
+
 #include "Graph.h"
 
 class FileVerifier {

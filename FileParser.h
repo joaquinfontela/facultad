@@ -1,3 +1,5 @@
+#include <string>
+
 #include "FileHandler.h"
 #include "Graph.h"
 #include "LineParser.h"
@@ -9,7 +11,7 @@ class FileParser {
   int currentLineNumber;
 
  public:
-  FileParser(FileRepository* fileRepository);
+  explicit FileParser(FileRepository* fileRepository);
   FileParser(const FileParser& copy) = delete;
 
   void reinit();

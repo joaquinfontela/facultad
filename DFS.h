@@ -20,7 +20,7 @@ class DFS {
                     const std::set<int>* currentNodeParentNodes) const;
 
  public:
-  DFS(const adjacencyMap& adjMap);
+  explicit DFS(const adjacencyMap& adjMap);
   DFS(const DFS& copy) = delete;
 
   void DFSexecute(const int currentNode, std::set<int>* visitedNodes,

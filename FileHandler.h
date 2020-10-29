@@ -1,4 +1,5 @@
 #include <fstream>
+#include <string>
 
 #include "FileRepository.h"
 
@@ -8,7 +9,7 @@ class FileHandler {
   std::string nameOfLastFileOpened;
 
  public:
-  FileHandler(FileRepository* fileRepository);
+  explicit FileHandler(FileRepository* fileRepository);
   FileHandler(const FileHandler& copy) = delete;
 
   bool getNextFileOpened(std::ifstream& nextFile);

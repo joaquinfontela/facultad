@@ -1,3 +1,6 @@
+#include <string>
+#include <vector>
+
 #include "FileGraphData.h"
 
 class JumpCommandProcessor {
