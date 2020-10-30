@@ -6,7 +6,7 @@
 int main(int argc, char** argv) {
   CommandParser commandParser(argc, argv);
   FileRepository fileRepository(commandParser.getFileNames());
-  FileParser parser(&fileRepository);
+  FileParser parser(fileRepository);
   std::string nameOfFileParsed;
   FileVerifier fileVerifier;
   FileResults fileResults;

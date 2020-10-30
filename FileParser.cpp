@@ -4,7 +4,7 @@
 
 #include <string>
 
-FileParser::FileParser(FileRepository* fileRepository)
+FileParser::FileParser(FileRepository& fileRepository)
     : fileHandler(fileRepository) {}
 
 void FileParser::reinit() {

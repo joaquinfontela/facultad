@@ -11,7 +11,7 @@ class FileParser {
   int currentLineNumber;
 
  public:
-  explicit FileParser(FileRepository* fileRepository);
+  explicit FileParser(FileRepository& fileRepository);
   FileParser(const FileParser& copy) = delete;
 
   void reinit();

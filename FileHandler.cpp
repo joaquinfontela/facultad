@@ -1,11 +1,9 @@
 #include "FileHandler.h"
 
-FileHandler::FileHandler(FileRepository* fileRepository) {
-  this->fileRepository = fileRepository;
-}
+FileHandler::FileHandler(FileRepository& f) : fileRepository(f) {}
 
 bool FileHandler::getNextFileOpened(std::ifstream& nextFile) {
-  nameOfLastFileOpened = fileRepository->getNextFileName();
+  nameOfLastFileOpened = fileRepository.getNextFileName();
   nextFile.open(nameOfLastFileOpened);
   return nextFile.is_open();
 }
@@ -19,5 +17,5 @@ std::string FileHandler::getNameOfLastFileOpened() const {
 }
 
 bool FileHandler::thereAreFilesPending() const {
-  return fileRepository->thereAreFilesPending();
+  return fileRepository.thereAreFilesPending();
 }
