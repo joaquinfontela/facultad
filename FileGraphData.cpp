@@ -83,7 +83,6 @@ void FileGraphData::processLabel(std::string& label, int currentLineNumber) {
   }
 }
 
-/*
 void FileGraphData::printData() {
   std::cout << "Graph connections\n";
   for (auto dictIt : graphConnectionsDict) {
@@ -114,4 +113,3 @@ void FileGraphData::printData() {
 
   std::cout << "\n\n\n\n";
 }
-*/

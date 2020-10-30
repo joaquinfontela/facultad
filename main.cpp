@@ -9,15 +9,17 @@ int main(int argc, char** argv) {
   FileResults fileResults;
 
   std::vector<TaskAdmin*> threads;
-  for (int i = 0; i < argc; ++i) {
-    threads.push_back(new TaskAdmin(fileRepository, &fileResults));
+  int numberOfThreads = commandParser.getNumberOfThreads();
+  for (int i = 0; i < numberOfThreads; i++) {
+    threads.push_back(new TaskAdmin(fileRepository, fileResults));
   }
   unsigned int i;
-  for (i = 0; i < threads.size(); ++i) {
-    threads[i]->join();
+  for (i = 0; i < threads.size(); i++) {
+    threads[i]->start();
   }
-  for (i = 0; i < threads.size(); ++i) {
-    threads[i]->~TaskAdmin();
+  for (i = 0; i < threads.size(); i++) {
+    threads[i]->join();
+    delete threads[i];
   }
 
   fileResults.printResults();

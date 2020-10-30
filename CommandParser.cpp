@@ -23,3 +23,5 @@ void CommandParser::parseArguments(const int argc, char** argv) {
 std::vector<std::string>& CommandParser::getFileNames() {
   return this->fileNames;
 }
+
+int CommandParser::getNumberOfThreads() { return numberOfThreads; }

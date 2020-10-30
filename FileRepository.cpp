@@ -5,12 +5,9 @@ FileRepository::FileRepository(std::vector<std::string>& fileNames) {
 }
 
 std::string FileRepository::getNextFileName() {
-  if (fileNames.empty()) return NULL;
+  std::unique_lock<std::mutex> lock(m);
+  if (fileNames.empty()) return "";
   std::string fileName = fileNames.back();
   fileNames.pop_back();
   return fileName;
-}
-
-bool FileRepository::thereAreFilesPending() const {
-  return (!fileNames.empty());
 }

@@ -19,4 +19,5 @@ class CommandParser {
   CommandParser(const CommandParser& copy) = delete;
 
   std::vector<std::string>& getFileNames();
+  int getNumberOfThreads();
 };

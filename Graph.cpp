@@ -42,3 +42,8 @@ bool Graph::hasLoops() {
   runDFS(dfs);
   return dfs.originalGraphHasCycles();
 }
+
+void Graph::reinit() {
+  nodes.clear();
+  adjacencies.clear();
+}

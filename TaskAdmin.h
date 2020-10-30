@@ -6,9 +6,9 @@
 class TaskAdmin : public Thread {
  private:
   FileParser fileParser;
-  FileResults* fileResults;
+  FileResults& fileResults;
 
  public:
-  TaskAdmin(FileRepository& fileRepository, FileResults* fileResults);
+  TaskAdmin(FileRepository& fileRepository, FileResults& fileResults);
   void run();
 };

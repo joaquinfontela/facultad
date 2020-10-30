@@ -1,20 +1,18 @@
 #include "TaskAdmin.h"
 
-TaskAdmin::TaskAdmin(FileRepository& fileRepository, FileResults* fileResults)
-    : fileParser(&fileRepository) {
-  this->fileResults = fileResults;
-}
+TaskAdmin::TaskAdmin(FileRepository& fileRepository, FileResults& fr)
+    : fileParser(fileRepository), fileResults(fr) {}
 
 void TaskAdmin::run() {
-  std::string nameOfFileParsed;
   FileVerifier fileVerifier;
 
-  while (fileParser.thereAreFilesPending()) {
-    Graph fileGraph;
-    fileParser.reinit();
-    nameOfFileParsed = fileParser.parseNextFile(fileGraph);
+  std::string nameOfFileParsed = "notNull";
+  Graph fileGraph;
+  while (!(nameOfFileParsed = fileParser.parseNextFile(fileGraph)).empty()) {
     std::string fileResult;
     fileVerifier.verify(fileGraph, nameOfFileParsed, fileResult);
-    fileResults->addResult(fileResult);
+    fileResults.addResult(fileResult);
+    fileParser.reinit();
+    fileGraph.reinit();
   }
 }
