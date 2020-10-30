@@ -33,7 +33,7 @@ class FileGraphData {
   void makeNextInstructionNextLine(int currentLineNumber);
   void addLabelInLine(std::string& label, int lineNumber);
   void processLabel(std::string& label, int currentLineNumber);
-  void printData();
+  // void printData();
 };
 
 #endif
