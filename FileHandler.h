@@ -15,5 +15,4 @@ class FileHandler {
   bool getNextFileOpened(std::ifstream& nextFile);
   void closeCurrentFile(std::ifstream& currentFile) const;
   std::string getNameOfLastFileOpened() const;
-  bool thereAreFilesPending() const;
 };

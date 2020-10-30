@@ -1,6 +1,9 @@
 #include "FileResults.h"
 
-void FileResults::addResult(std::string result) { results.push_back(result); }
+void FileResults::addResult(std::string result) {
+  std::unique_lock<std::mutex> lock(m);
+  results.push_back(result);
+}
 
 void FileResults::printResults() {
   std::sort(results.begin(), results.end(), std::less<std::string>());

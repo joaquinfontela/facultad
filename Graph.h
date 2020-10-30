@@ -27,6 +27,7 @@ class Graph {
   size_t size() const;
   bool hasUnreachableInstructions();
   bool hasLoops();
+  void reinit();
 
   //~Graph();
 };

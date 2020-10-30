@@ -5,7 +5,9 @@
 #include <string>
 
 FileParser::FileParser(FileRepository& fileRepository)
-    : fileHandler(fileRepository) {}
+    : fileHandler(fileRepository) {
+  currentLineNumber = 1;
+}
 
 void FileParser::reinit() {
   currentLineNumber = 1;
@@ -30,8 +32,4 @@ std::string FileParser::parseNextFile(Graph& graph) {
   fileGraphData.createGraph(graph);
 
   return fileHandler.getNameOfLastFileOpened();
-}
-
-bool FileParser::thereAreFilesPending() const {
-  return fileHandler.thereAreFilesPending();
 }

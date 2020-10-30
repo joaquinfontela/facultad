@@ -15,7 +15,3 @@ void FileHandler::closeCurrentFile(std::ifstream& currentFile) const {
 std::string FileHandler::getNameOfLastFileOpened() const {
   return nameOfLastFileOpened;
 }
-
-bool FileHandler::thereAreFilesPending() const {
-  return fileRepository.thereAreFilesPending();
-}

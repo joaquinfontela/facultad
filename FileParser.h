@@ -1,3 +1,6 @@
+#ifndef FILE_PARSER_H
+#define FILE_PARSER_H
+
 #include <string>
 
 #include "FileHandler.h"
@@ -16,5 +19,6 @@ class FileParser {
 
   void reinit();
   std::string parseNextFile(Graph& graph);
-  bool thereAreFilesPending() const;
 };
+
+#endif
