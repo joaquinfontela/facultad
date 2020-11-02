@@ -50,15 +50,15 @@ A continuacion, diagramas de clases representativos de este proyecto.
 
 #### PARSER
 
-![](https://github.com/joaquinfontela/tp2-taller/blob/master/utils/diagrama1.png)
+![](https://github.com/joaquinfontela/tp2-taller/blob/master/utils/pictures/diagrama1.png)
 
 #### GRAFO
 
-![](https://github.com/joaquinfontela/tp2-taller/blob/master/utils/diagrama2.png)
+![](https://github.com/joaquinfontela/tp2-taller/blob/master/utils/pictures/diagrama2.png)
 
 #### GENERAL
 
-![](https://github.com/joaquinfontela/tp2-taller/blob/master/utils/diagrama3.png)
+![](https://github.com/joaquinfontela/tp2-taller/blob/master/utils/pictures/diagrama3.png)
 
 ## CONCLUSIONES
 
