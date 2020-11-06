@@ -12,9 +12,11 @@ void ServerSocket::_bind(std::string& port, bool reusablePort) {
   struct addrinfo* connections = defaultGetAddrInfo(nullStr, port, true);
 
   struct addrinfo* connectionsCopy = connections;
+
   while (connectionsCopy != NULL) {
     int fd = socket(connectionsCopy->ai_family, connectionsCopy->ai_socktype,
                     connectionsCopy->ai_protocol);
+
     if (fd == -1) {
       connectionsCopy = connectionsCopy->ai_next;
       // fprintf(stderr, "%s\n", strerror(errno));

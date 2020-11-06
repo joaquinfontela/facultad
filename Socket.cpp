@@ -1,5 +1,7 @@
 #include "Socket.h"
 
+#include <iostream>
+
 Socket::Socket() : fd(-1) {}
 
 struct addrinfo* Socket::defaultGetAddrInfo(std::string& host,
@@ -18,6 +20,7 @@ struct addrinfo* Socket::defaultGetAddrInfo(std::string& host,
   } else {
     status = getaddrinfo(host.c_str(), port.c_str(), &hints, &addrinfo);
   }
+
   if (status != 0) {
     freeaddrinfo(addrinfo);
     // throw -1;
