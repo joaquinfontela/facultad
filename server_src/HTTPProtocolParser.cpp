@@ -1,7 +1,5 @@
 #include "HTTPProtocolParser.h"
 
-#include "StringSplitter.h"
-
 HTTPProtocolParser::HTTPProtocolParser() {}
 
 void HTTPProtocolParser::parseFirstLine(std::string& line) {

@@ -1,4 +1,5 @@
 #include "ServerSocket.h"
+#define BUFFER_LEN 1000
 
 ServerSocket::ServerSocket() : clientFd(-1) {}
 
@@ -55,7 +56,7 @@ void ServerSocket::_accept() { clientFd = accept(fd, NULL, NULL); }
 
 ssize_t ServerSocket::recieve(std::string& buffer, size_t length) {
   size_t bytesRecieved = 0;
-  char charBuf[length];
+  char charBuf[BUFFER_LEN];
 
   while (bytesRecieved < length) {
     ssize_t bytesRecievedInLastCall =

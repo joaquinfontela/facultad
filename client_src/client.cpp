@@ -7,7 +7,7 @@ int main(int argc, char* argv[]) {
   if (!commandParser.commandIsValid(argc, argv)) return 0;
 
   ClientSocket client;
-  std::string FILE_NAME = "test.txt";
+  std::string FILE_NAME("test.txt");
   HTTPProtocolReader http(FILE_NAME);
   std::string buf(http.getFileContent());
 

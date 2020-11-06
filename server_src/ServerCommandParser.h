@@ -1,4 +1,4 @@
-#include "CommandParser.h"
+#include "../common_src/CommandParser.h"
 
 class ServerCommandParser : public CommandParser {
  private:

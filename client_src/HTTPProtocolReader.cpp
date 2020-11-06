@@ -1,8 +1,11 @@
 #include "HTTPProtocolReader.h"
 
+#include <iostream>
+
 HTTPProtocolReader::HTTPProtocolReader(std::string& filePath) {
   file.open(filePath);
-  if (!file.is_open()) throw -1;
+  if (!file.is_open())
+    throw std::runtime_error("File '" + filePath + "' couldn't be opened.");
   readFileContent();
 }
 

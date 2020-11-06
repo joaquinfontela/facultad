@@ -4,6 +4,8 @@
 #include <string>
 #include <vector>
 
+#include "../common_src/StringSplitter.h"
+
 class HTTPProtocolParser {
  private:
   std::string method;
