@@ -8,14 +8,15 @@ int main(int argc, char* argv[]) {
   ServerCommandParser commandParser;
   if (!commandParser.commandIsValid(argc, argv)) return 1;
   ServerSocket server;
-  std::string buffer;
+  HTTPProtocolParser http;
+  std::string fileContent;
   std::string PORT = commandParser.getPort();
 
   server.bindListen(PORT, true, 5);
   server._accept();
-  server.recieve(buffer, 1000);
+  server.recieve(fileContent, 1000);
 
-  std::cout << buffer << std::endl;
+  http.parseFile(fileContent);
 
   return 0;
 }
