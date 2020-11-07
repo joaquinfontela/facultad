@@ -6,6 +6,6 @@ class ClientCommandParser : public CommandParser {
 
  public:
   ClientCommandParser();
-  bool commandIsValid(int argc, char* argv[]);
-  std::string& getHost();
+  bool commandIsValid(const int argc, char* argv[]);
+  std::string getHost();
 };

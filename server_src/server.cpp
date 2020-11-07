@@ -1,6 +1,7 @@
 #include <iostream>
 
 #include "HTTPProtocolParser.h"
+#include "ServerAnswer.h"
 #include "ServerCommandParser.h"
 #include "ServerSocket.h"
 
@@ -10,7 +11,7 @@ int main(int argc, char* argv[]) {
   ServerSocket server;
   HTTPProtocolParser http;
   std::string fileContent;
-  std::string PORT = commandParser.getPort();
+  const std::string PORT = commandParser.getPort();
 
   server.bindListen(PORT, true, 5);
   server._accept();

@@ -2,18 +2,12 @@
 
 #include <iostream>
 
-HTTPProtocolReader::HTTPProtocolReader(std::string& filePath) {
-  file.open(filePath);
-  if (!file.is_open())
-    throw std::runtime_error("File '" + filePath + "' couldn't be opened.");
-  readFileContent();
-}
+HTTPProtocolReader::HTTPProtocolReader() {}
 
-void HTTPProtocolReader::readFileContent() {
-  std::string line;
-  while (getline(file, line)) {
-    fileContent += (line + "\n");
-  }
-}
+std::istream& HTTPProtocolReader::readLine(std::string& line) const {
+  std::istream& result = getline(std::cin, line);
+  line += "\n";
+  std::cout << line;
 
-std::string& HTTPProtocolReader::getFileContent() { return fileContent; }
+  return result;
+}

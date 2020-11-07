@@ -1,3 +1,5 @@
+#include <iostream>
+
 #include "ClientCommandParser.h"
 #include "ClientSocket.h"
 #include "HTTPProtocolReader.h"
@@ -7,15 +9,15 @@ int main(int argc, char* argv[]) {
   if (!commandParser.commandIsValid(argc, argv)) return 0;
 
   ClientSocket client;
-  std::string FILE_NAME("test.txt");
-  HTTPProtocolReader http(FILE_NAME);
-  std::string buf(http.getFileContent());
+  HTTPProtocolReader http;
 
-  std::string HOST = commandParser.getHost();
-  std::string PORT = commandParser.getPort();
+  const std::string HOST = commandParser.getHost();
+  const std::string PORT = commandParser.getPort();
 
+  std::string line;
   client._connect(HOST, PORT);
-  client._send(buf, buf.size());
+
+  while (http.readLine(line)) client._send(line, line.size());
 
   return 0;
 }

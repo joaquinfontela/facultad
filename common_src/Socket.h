@@ -9,11 +9,16 @@
 class Socket {
  protected:
   int fd;
-  struct addrinfo* defaultGetAddrInfo(std::string& host, std::string& port,
-                                      bool isServer);
+  struct addrinfo* defaultGetAddrInfo(const std::string& host,
+                                      const std::string& port,
+                                      const bool isServer) const;
 
  public:
   Socket();
+  explicit Socket(int fd);
   Socket(const Socket& other) = delete;
   ~Socket();
+  void _accept();
+  void _send(const std::string& message, const size_t length) const;
+  ssize_t recieve(std::string& buffer, const size_t length) const;
 };

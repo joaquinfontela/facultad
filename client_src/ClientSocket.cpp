@@ -1,8 +1,8 @@
 #include "ClientSocket.h"
 
-ClientSocket::ClientSocket() {}
+ClientSocket::ClientSocket() : Socket() {}
 
-void ClientSocket::_connect(std::string& host, std::string& port) {
+void ClientSocket::_connect(const std::string& host, const std::string& port) {
   struct addrinfo* connections = defaultGetAddrInfo(host, port, false);
 
   struct addrinfo* connectionsCopy = connections;
@@ -28,21 +28,5 @@ void ClientSocket::_connect(std::string& host, std::string& port) {
 
   if (this->fd == -1) {
     // throw;
-  }
-}
-
-void ClientSocket::_send(const std::string& message, size_t length) {
-  size_t bytesSent = 0;
-
-  const char* charMsg = message.c_str();
-  while (bytesSent < length) {
-    ssize_t bytesSentInLastCall =
-        send(fd, &charMsg[bytesSent], length - bytesSent, MSG_NOSIGNAL);
-
-    if (bytesSentInLastCall == -1) {
-      printf("Sending error.\n");
-      // throw err;
-    }
-    bytesSent += bytesSentInLastCall;
   }
 }

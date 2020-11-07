@@ -5,6 +5,5 @@ class ClientSocket : public Socket {
   ClientSocket();
   ClientSocket(const ClientSocket& other) = delete;
 
-  void _connect(std::string& host, std::string& port);
-  void _send(const std::string& message, size_t length);
+  void _connect(const std::string& host, const std::string& port);
 };

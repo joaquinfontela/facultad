@@ -1,8 +1,8 @@
 #include "ServerCommandParser.h"
 
-ServerCommandParser::ServerCommandParser() {}
+ServerCommandParser::ServerCommandParser() : CommandParser() {}
 
-bool ServerCommandParser::commandIsValid(int argc, char* argv[]) {
+bool ServerCommandParser::commandIsValid(const int argc, char* argv[]) {
   bool isValid;
   if ((isValid = CommandParser::commandIsValid(argc, argv))) {
     std::string portAux(argv[1]);
@@ -13,4 +13,4 @@ bool ServerCommandParser::commandIsValid(int argc, char* argv[]) {
   return isValid;
 }
 
-std::string& ServerCommandParser::getFilePath() { return filePath; }
+std::string ServerCommandParser::getFilePath() const { return filePath; }

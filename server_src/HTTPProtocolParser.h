@@ -1,3 +1,6 @@
+#ifndef HTTP_PROTOCOL_PARSER_H
+#define HTTP_PROTOCOL_PARSER_H
+
 #include <iostream>
 #include <map>
 #include <string>
@@ -15,9 +18,11 @@ class HTTPProtocolParser {
 
  public:
   HTTPProtocolParser();
-  void parseFile(std::string& fileContent);
-  std::string& getMethod();
-  std::string& getResource();
-  std::string& getProtocol();
-  std::string& getBody();
+  void parseFile(const std::string& fileContent);
+  std::string getMethod() const;
+  std::string getResource() const;
+  std::string getProtocol() const;
+  std::string getBody() const;
 };
+
+#endif

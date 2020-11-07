@@ -6,6 +6,6 @@ class ServerCommandParser : public CommandParser {
 
  public:
   ServerCommandParser();
-  bool commandIsValid(int argc, char* argv[]);
-  std::string& getFilePath();
+  bool commandIsValid(const int argc, char* argv[]);
+  std::string getFilePath() const;
 };

@@ -10,7 +10,7 @@ void HTTPProtocolParser::parseFirstLine(std::string& line) {
   protocol = lineArguments.at(2);
 }
 
-void HTTPProtocolParser::parseFile(std::string& fileContent) {
+void HTTPProtocolParser::parseFile(const std::string& fileContent) {
   std::vector<std::string> fileLines =
       StringSplitter().split(fileContent, "\n");
   parseFirstLine(fileLines.at(0));
@@ -27,10 +27,10 @@ void HTTPProtocolParser::parseFile(std::string& fileContent) {
   }
 }
 
-std::string& HTTPProtocolParser::getMethod() { return method; }
+std::string HTTPProtocolParser::getMethod() const { return method; }
 
-std::string& HTTPProtocolParser::getProtocol() { return protocol; }
+std::string HTTPProtocolParser::getProtocol() const { return protocol; }
 
-std::string& HTTPProtocolParser::getResource() { return resource; }
+std::string HTTPProtocolParser::getResource() const { return resource; }
 
-std::string& HTTPProtocolParser::getBody() { return body; }
+std::string HTTPProtocolParser::getBody() const { return body; }

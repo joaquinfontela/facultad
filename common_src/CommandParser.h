@@ -6,6 +6,6 @@ class CommandParser {
 
  public:
   CommandParser();
-  bool commandIsValid(int argc, char* argv[]);
-  std::string& getPort();
+  bool commandIsValid(const int argc, char* argv[]);
+  std::string getPort() const;
 };

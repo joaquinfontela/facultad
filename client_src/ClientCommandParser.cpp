@@ -1,8 +1,8 @@
 #include "ClientCommandParser.h"
 
-ClientCommandParser::ClientCommandParser() {}
+ClientCommandParser::ClientCommandParser() : CommandParser() {}
 
-bool ClientCommandParser::commandIsValid(int argc, char* argv[]) {
+bool ClientCommandParser::commandIsValid(const int argc, char* argv[]) {
   bool isValid;
   if ((isValid = CommandParser::commandIsValid(argc, argv))) {
     std::string hostAux(argv[1]);
@@ -13,4 +13,4 @@ bool ClientCommandParser::commandIsValid(int argc, char* argv[]) {
   return isValid;
 }
 
-std::string& ClientCommandParser::getHost() { return host; }
+std::string ClientCommandParser::getHost() { return host; }
