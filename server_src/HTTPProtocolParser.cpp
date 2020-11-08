@@ -1,5 +1,7 @@
 #include "HTTPProtocolParser.h"
 
+#include "../client_src/HTTPProtocolReader.h"
+
 HTTPProtocolParser::HTTPProtocolParser() {}
 
 void HTTPProtocolParser::parseFirstLine(std::string& line) {
@@ -13,7 +15,9 @@ void HTTPProtocolParser::parseFirstLine(std::string& line) {
 void HTTPProtocolParser::parseFile(const std::string& fileContent) {
   std::vector<std::string> fileLines =
       StringSplitter().split(fileContent, "\n");
+
   parseFirstLine(fileLines.at(0));
+
   bool addLineToBody = false;
   for (std::string line : fileLines) {
     if (line.empty()) {

@@ -35,9 +35,15 @@ struct addrinfo* Socket::defaultGetAddrInfo(const std::string& host,
 Socket::~Socket() {
   shutdown(fd, SHUT_RDWR);
   close(fd);
+  fd = -1;
 }
 
-void Socket::_accept() { fd = accept(fd, NULL, NULL); }
+void Socket::_accept() {
+  int peerfd = accept(fd, NULL, NULL);
+  shutdown(fd, SHUT_RDWR);
+  close(fd);
+  fd = peerfd;
+}
 
 void Socket::_send(const std::string& message, const size_t length) const {
   size_t bytesSent = 0;
@@ -50,9 +56,10 @@ void Socket::_send(const std::string& message, const size_t length) const {
     if (bytesSentInLastCall == -1) {
       printf("Sending error.\n");
       // throw err;
+    } else if (bytesSentInLastCall == 0) {
+      break;
     }
     bytesSent += bytesSentInLastCall;
-    std::cout << bytesSent << std::endl;
   }
 }
 
@@ -80,3 +87,7 @@ ssize_t Socket::recieve(std::string& buffer, const size_t length) const {
   buffer = aux;
   return bytesRecieved;
 }
+
+void Socket::readShutdown() { shutdown(fd, SHUT_RD); }
+
+void Socket::writeShutdown() { shutdown(fd, SHUT_WR); }

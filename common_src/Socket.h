@@ -21,4 +21,7 @@ class Socket {
   void _accept();
   void _send(const std::string& message, const size_t length) const;
   ssize_t recieve(std::string& buffer, const size_t length) const;
+
+  void readShutdown();
+  void writeShutdown();
 };

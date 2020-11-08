@@ -9,7 +9,7 @@ int main(int argc, char* argv[]) {
   if (!commandParser.commandIsValid(argc, argv)) return 0;
 
   ClientSocket client;
-  HTTPProtocolReader http;
+  HTTPProtocolReader reader;
 
   const std::string HOST = commandParser.getHost();
   const std::string PORT = commandParser.getPort();
@@ -17,7 +17,14 @@ int main(int argc, char* argv[]) {
   std::string line;
   client._connect(HOST, PORT);
 
-  while (http.readLine(line)) client._send(line, line.size());
+  while (reader.readLine(line)) client._send(line, line.size());
+  client.writeShutdown();
+
+  std::string serverAnswer;
+  client.recieve(serverAnswer, 1000);
+  client.readShutdown();
+
+  std::cout << serverAnswer;
 
   return 0;
 }
