@@ -10,26 +10,18 @@ ClientManager::ClientManager(const std::string& port,
 ClientManager::~ClientManager() { this->join(); }
 
 void ClientManager::run() {
-  while (true) {
+  int i = 0;
+  while (i < 5) {
     ServerSocket peerSkt;
     try {
       peerSkt(serverSkt.accept());
     } catch (std::runtime_error e) {
       break;
     }
-    std::string fileContent;
-    peerSkt.recieve(fileContent, 1000);
-
-    HTTPProtocolParser protocolParser;
-    protocolParser.parseFile(fileContent);
-
-    ServerAnswererFactory serverAnswerFactory;
-    ServerAnswerer&& serverAnswerer =
-        serverAnswerFactory.getServerAnswerer(protocolParser);
-
-    std::string answer = serverAnswerer.getAnswer(resourcesManager);
-    peerSkt.send(answer, answer.size());
+    SingleClientHandler s(peerSkt, resourcesManager);
+    s.start();
     // clientCleaner();
+    i++;
   }
 }
 

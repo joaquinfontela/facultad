@@ -7,7 +7,7 @@ class ServerSocket : public Socket {
 
  public:
   ServerSocket();
-  ServerSocket(const ServerSocket& other) = delete;
+  // ServerSocket(const ServerSocket& other) = delete;
 
   void bindListen(const std::string& port, const bool reusablePort,
                   const u_int32_t maxAcceptQueueLength);
