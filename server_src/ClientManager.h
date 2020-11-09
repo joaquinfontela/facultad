@@ -1,17 +1,19 @@
+#include <list>
+
 #include "HTTPProtocolParser.h"
-#include "ResourcesManager.h"
-#include "ServerAnswerer.h"
-#include "ServerAnswererFactory.h"
-#include "ServerSocket.h"
-#include "Thread.h"
+#include "SingleClientHandler.h"
+
+typedef std::list<SingleClientHandler*>::iterator clientHandlersIterator;
 
 class ClientManager : public Thread {
  private:
   ServerSocket serverSkt;
-  HTTPProtocolParser protocolParser;
-  ResourcesManager resourcesManager;
+  std::list<SingleClientHandler*> clientHandlers;
+  ResourcesManager& resourcesManager;
 
  public:
   ClientManager(const std::string& port, ResourcesManager& resourcesManager);
+  ~ClientManager();
   void run();
+  void clientCleaner();
 };

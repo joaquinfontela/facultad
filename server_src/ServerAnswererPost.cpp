@@ -9,7 +9,8 @@ std::string ServerAnswererPost::getAnswer(ResourcesManager& resources) {
     return "HTTP/1.1 403 FORBIDDEN\n\n";
   }
   updateResources(resources);
-  return std::move("HTTP/1.1 200 OK\n\n" + httpProtocolParser.getBody());
+  std::string answer = "HTTP/1.1 200 OK\n\n" + httpProtocolParser.getBody();
+  return answer;
 }
 
 void ServerAnswererPost::updateResources(ResourcesManager& resources) {

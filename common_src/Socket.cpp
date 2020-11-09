@@ -7,6 +7,8 @@ Socket::Socket() : fd(-1) {}
 
 Socket::Socket(int fd) { this->fd = fd; }
 
+void Socket::operator()(int fd) { this->fd = fd; }
+
 struct addrinfo* Socket::defaultGetAddrInfo(const std::string& host,
                                             const std::string& port,
                                             const bool isServer) const {
@@ -40,6 +42,7 @@ Socket::~Socket() {
 
 int Socket::accept() {
   int peerfd = ::accept(fd, nullptr, nullptr);
+  std::cout << peerfd << std::endl;
   if (peerfd == -1) throw std::runtime_error("socket closed.");
   return peerfd;
 }
@@ -53,7 +56,8 @@ void Socket::send(const std::string& message, const size_t length) const {
         ::send(fd, &charMsg[bytesSent], length - bytesSent, MSG_NOSIGNAL);
 
     if (bytesSentInLastCall == -1) {
-      throw std::runtime_error("sending error.");
+      std::string errorDesc(strerror(errno));
+      throw std::runtime_error("sending error: " + errorDesc);
     } else if (bytesSentInLastCall == 0) {
       break;
     }
@@ -70,7 +74,9 @@ ssize_t Socket::recieve(std::string& buffer, const size_t length) const {
         recv(fd, &charBuf[bytesRecieved], length - bytesRecieved, 0);
 
     if (bytesRecievedInLastCall == -1) {
-      throw std::runtime_error("recieving error.");
+      std::cout << fd << std::endl;
+      std::string errorDesc(strerror(errno));
+      throw std::runtime_error("recieving error: " + errorDesc);
     } else if (bytesRecievedInLastCall == 0) {
       break;
     }

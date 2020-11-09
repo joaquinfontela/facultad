@@ -7,6 +7,7 @@ ServerAnswererGet::ServerAnswererGet(const HTTPProtocolParser& parser)
 
 std::string ServerAnswererGet::getAnswer(ResourcesManager& resources) {
   std::string resource = httpProtocolParser.getResource();
+  std::cout << "resource = " << resource << std::endl;
   if (!resources.hasResource(resource)) {
     return "HTTP/1.1 404 NOT FOUND\n\n";
   }
@@ -17,5 +18,5 @@ std::string ServerAnswererGet::getAnswer(ResourcesManager& resources) {
     answer += "HTTP/1.1 200 OK\n\n";
   }
   answer += resources.getResourceBody(resource);
-  return std::move(answer);
+  return answer;
 }

@@ -16,6 +16,7 @@ class Socket {
  public:
   Socket();
   explicit Socket(int fd);
+  void operator()(int fd);
   // Socket(const Socket& other) = delete;
   ~Socket();
   int accept();
