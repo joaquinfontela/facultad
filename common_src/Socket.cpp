@@ -27,7 +27,7 @@ struct addrinfo* Socket::defaultGetAddrInfo(const std::string& host,
 
   if (status != 0) {
     freeaddrinfo(addrinfo);
-    // throw -1;
+    throw std::runtime_error("error getting adress");
   }
   return addrinfo;
 }
@@ -38,7 +38,11 @@ Socket::~Socket() {
   fd = -1;
 }
 
-int Socket::accept() { return ::accept(fd, nullptr, nullptr); }
+int Socket::accept() {
+  int peerfd = ::accept(fd, nullptr, nullptr);
+  if (peerfd == -1) throw std::runtime_error("socket closed.");
+  return peerfd;
+}
 
 void Socket::send(const std::string& message, const size_t length) const {
   size_t bytesSent = 0;
@@ -49,8 +53,7 @@ void Socket::send(const std::string& message, const size_t length) const {
         ::send(fd, &charMsg[bytesSent], length - bytesSent, MSG_NOSIGNAL);
 
     if (bytesSentInLastCall == -1) {
-      printf("Sending error.\n");
-      // throw err;
+      throw std::runtime_error("sending error.");
     } else if (bytesSentInLastCall == 0) {
       break;
     }
@@ -67,9 +70,7 @@ ssize_t Socket::recieve(std::string& buffer, const size_t length) const {
         recv(fd, &charBuf[bytesRecieved], length - bytesRecieved, 0);
 
     if (bytesRecievedInLastCall == -1) {
-      printf("Recieving error.\n");
-      fprintf(stderr, "%s\n", strerror(errno));
-      // throw err;
+      throw std::runtime_error("recieving error.");
     } else if (bytesRecievedInLastCall == 0) {
       break;
     }

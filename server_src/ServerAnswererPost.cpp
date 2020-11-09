@@ -8,6 +8,7 @@ std::string ServerAnswererPost::getAnswer(ResourcesManager& resources) {
   if (httpProtocolParser.getResource() == ROOT_FILE) {
     return "HTTP/1.1 403 FORBIDDEN\n\n";
   }
+  updateResources(resources);
   return std::move("HTTP/1.1 200 OK\n\n" + httpProtocolParser.getBody());
 }
 

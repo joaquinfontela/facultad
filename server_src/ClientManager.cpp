@@ -9,16 +9,20 @@ ClientManager::ClientManager(const std::string& port,
 }
 
 void ClientManager::run() {
-  Socket peer(serverSkt.accept());
-  std::string fileContent;
-  peer.recieve(fileContent, 1000);
+  int i = 0;
+  while (i < 3) {
+    Socket peer(serverSkt.accept());
+    std::string fileContent;
+    peer.recieve(fileContent, 1000);
 
-  protocolParser.parseFile(fileContent);
+    protocolParser.parseFile(fileContent);
 
-  ServerAnswererFactory serverAnswerFactory;
-  ServerAnswerer&& serverAnswerer =
-      serverAnswerFactory.getServerAnswerer(protocolParser);
+    ServerAnswererFactory serverAnswerFactory;
+    ServerAnswerer&& serverAnswerer =
+        serverAnswerFactory.getServerAnswerer(protocolParser);
 
-  std::string answer = serverAnswerer.getAnswer(resourcesManager);
-  peer.send(answer, answer.size());
+    std::string answer = serverAnswerer.getAnswer(resourcesManager);
+    peer.send(answer, answer.size());
+    i++;
+  }
 }

@@ -9,12 +9,12 @@ int main(int argc, char* argv[]) {
   ServerCommandParser commandParser;
   if (!commandParser.commandIsValid(argc, argv)) return 1;
 
-  FileReader fileReader;
-  const std::string PORT = commandParser.getPort();
-
   ResourcesManager resourcesManager;
   std::string rootFilePath = commandParser.getFilePath();
+  FileReader fileReader;
   resourcesManager.addResource("/", fileReader.getFileContent(rootFilePath));
+
+  const std::string PORT = commandParser.getPort();
 
   ClientManager clientManager(PORT, resourcesManager);
   clientManager.start();
