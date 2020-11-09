@@ -7,21 +7,27 @@ ClientManager::ClientManager(const std::string& port,
   serverSkt.bindListen(port, true, QUEUE_LENGTH);
 }
 
-ClientManager::~ClientManager() { this->join(); }
+ClientManager::~ClientManager() {
+  for (SingleClientHandler* s : clientHandlers) {
+    delete s;
+  }
+  serverSkt.~ServerSocket();
+  this->join();
+}
 
 void ClientManager::run() {
-  int i = 0;
-  while (i < 5) {
+  while (true) {
     ServerSocket peerSkt;
     try {
       peerSkt(serverSkt.accept());
-    } catch (std::runtime_error e) {
+    } catch (std::invalid_argument e) {
       break;
     }
-    SingleClientHandler s(peerSkt, resourcesManager);
-    s.start();
-    // clientCleaner();
-    i++;
+    SingleClientHandler* s =
+        new SingleClientHandler(std::move(peerSkt), resourcesManager);
+    clientHandlers.push_back(s);
+    s->start();
+    clientCleaner();
   }
 }
 

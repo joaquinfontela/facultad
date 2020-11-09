@@ -1,9 +1,9 @@
 #include "SingleClientHandler.h"
 
-SingleClientHandler::SingleClientHandler(ServerSocket& peer,
+SingleClientHandler::SingleClientHandler(ServerSocket&& peer,
                                          ResourcesManager& resources)
     : protocolParser(), resourcesManager(resources) {
-  peerSkt = peer;
+  peerSkt = std::move(peer);
 }
 
 SingleClientHandler::~SingleClientHandler() { this->join(); }
@@ -11,6 +11,7 @@ SingleClientHandler::~SingleClientHandler() { this->join(); }
 void SingleClientHandler::run() {
   std::string fileContent;
   peerSkt.recieve(fileContent, 1000);
+  peerSkt.readShutdown();
 
   protocolParser.parseFile(fileContent);
 
@@ -20,6 +21,7 @@ void SingleClientHandler::run() {
 
   std::string answer = serverAnswerer.getAnswer(resourcesManager);
   peerSkt.send(answer, answer.size());
+  peerSkt.writeShutdown();
   dead = true;
 }
 

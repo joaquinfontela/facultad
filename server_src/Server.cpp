@@ -11,5 +11,7 @@ void Server::run() {
   ClientManager clientManager(PORT, resourcesManager);
   clientManager.start();
   std::string input;
-  while (input != "q") std::cin >> input;
+  while (input != "q") {
+    std::cin >> input;
+  }
 }

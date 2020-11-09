@@ -12,7 +12,7 @@ class SingleClientHandler : public Thread {
   ResourcesManager& resourcesManager;
 
  public:
-  SingleClientHandler(ServerSocket& peer, ResourcesManager& resourcesManager);
+  SingleClientHandler(ServerSocket&& peer, ResourcesManager& resourcesManager);
   ~SingleClientHandler();
   void run();
   bool isDead();

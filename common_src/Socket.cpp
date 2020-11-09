@@ -9,6 +9,12 @@ Socket::Socket(int fd) { this->fd = fd; }
 
 void Socket::operator()(int fd) { this->fd = fd; }
 
+Socket& Socket::operator=(Socket&& other) {
+  this->fd = other.fd;
+  other.fd = -1;
+  return *this;
+}
+
 struct addrinfo* Socket::defaultGetAddrInfo(const std::string& host,
                                             const std::string& port,
                                             const bool isServer) const {
@@ -35,15 +41,14 @@ struct addrinfo* Socket::defaultGetAddrInfo(const std::string& host,
 }
 
 Socket::~Socket() {
+  if (fd == -1) return;
   shutdown(fd, SHUT_RDWR);
   close(fd);
-  fd = -1;
 }
 
 int Socket::accept() {
   int peerfd = ::accept(fd, nullptr, nullptr);
-  std::cout << peerfd << std::endl;
-  if (peerfd == -1) throw std::runtime_error("socket closed.");
+  if (peerfd == -1) throw std::invalid_argument("socket closed.");
   return peerfd;
 }
 
@@ -74,7 +79,6 @@ ssize_t Socket::recieve(std::string& buffer, const size_t length) const {
         recv(fd, &charBuf[bytesRecieved], length - bytesRecieved, 0);
 
     if (bytesRecievedInLastCall == -1) {
-      std::cout << fd << std::endl;
       std::string errorDesc(strerror(errno));
       throw std::runtime_error("recieving error: " + errorDesc);
     } else if (bytesRecievedInLastCall == 0) {

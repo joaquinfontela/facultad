@@ -17,7 +17,8 @@ class Socket {
   Socket();
   explicit Socket(int fd);
   void operator()(int fd);
-  // Socket(const Socket& other) = delete;
+  Socket& operator=(Socket&& other);
+  Socket(const Socket& other) = delete;
   ~Socket();
   int accept();
   void send(const std::string& message, const size_t length) const;
