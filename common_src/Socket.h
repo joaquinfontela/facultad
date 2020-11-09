@@ -18,7 +18,7 @@ class Socket {
   explicit Socket(int fd);
   // Socket(const Socket& other) = delete;
   ~Socket();
-  void accept();
+  int accept();
   void send(const std::string& message, const size_t length) const;
   ssize_t recieve(std::string& buffer, const size_t length) const;
 

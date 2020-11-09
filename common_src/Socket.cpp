@@ -38,12 +38,7 @@ Socket::~Socket() {
   fd = -1;
 }
 
-void Socket::accept() {
-  int peerfd = ::accept(fd, NULL, NULL);
-  shutdown(fd, SHUT_RDWR);
-  close(fd);
-  fd = peerfd;
-}
+int Socket::accept() { return ::accept(fd, nullptr, nullptr); }
 
 void Socket::send(const std::string& message, const size_t length) const {
   size_t bytesSent = 0;

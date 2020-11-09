@@ -21,9 +21,9 @@ int main(int argc, char* argv[]) {
   resources.addResource("/", fileReader.getFileContent(rootFilePath));
 
   serverSocket.bindListen(PORT, true, 5);
-  serverSocket.accept();
+  Socket peer(serverSocket.accept());
   std::string fileContent;
-  serverSocket.recieve(fileContent, 1000);
+  peer.recieve(fileContent, 1000);
 
   parser.parseFile(fileContent);
 
@@ -32,7 +32,7 @@ int main(int argc, char* argv[]) {
       serverAnswerFactory.getServerAnswerer(parser);
 
   std::string answer = serverAnswerer.getAnswer(resources);
-  serverSocket.send(answer, answer.size());
+  peer.send(answer, answer.size());
 
   return 0;
 }
