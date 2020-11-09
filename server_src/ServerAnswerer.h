@@ -6,6 +6,7 @@
 #include <string>
 
 #include "HTTPProtocolParser.h"
+#include "ResourcesManager.h"
 
 class ServerAnswerer {
  protected:
@@ -16,8 +17,7 @@ class ServerAnswerer {
 
   ServerAnswerer(ServerAnswerer&& other) noexcept;
 
-  virtual std::string getAnswer(
-      std::map<std::string, std::string>& resources) = 0;
+  virtual std::string getAnswer(ResourcesManager& resources) = 0;
 };
 
 #endif

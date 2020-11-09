@@ -2,8 +2,8 @@
 
 class ServerSocket : public Socket {
  private:
-  void _bind(const std::string& port, const bool reusablePort);
-  void _listen(const u_int32_t maxAcceptQueueLength) const;
+  void bind(const std::string& port, const bool reusablePort);
+  void listen(const u_int32_t maxAcceptQueueLength) const;
 
  public:
   ServerSocket();

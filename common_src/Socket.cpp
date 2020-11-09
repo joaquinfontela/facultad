@@ -38,20 +38,20 @@ Socket::~Socket() {
   fd = -1;
 }
 
-void Socket::_accept() {
-  int peerfd = accept(fd, NULL, NULL);
+void Socket::accept() {
+  int peerfd = ::accept(fd, NULL, NULL);
   shutdown(fd, SHUT_RDWR);
   close(fd);
   fd = peerfd;
 }
 
-void Socket::_send(const std::string& message, const size_t length) const {
+void Socket::send(const std::string& message, const size_t length) const {
   size_t bytesSent = 0;
 
   const char* charMsg = message.c_str();
   while (bytesSent < length) {
     ssize_t bytesSentInLastCall =
-        send(fd, &charMsg[bytesSent], length - bytesSent, MSG_NOSIGNAL);
+        ::send(fd, &charMsg[bytesSent], length - bytesSent, MSG_NOSIGNAL);
 
     if (bytesSentInLastCall == -1) {
       printf("Sending error.\n");

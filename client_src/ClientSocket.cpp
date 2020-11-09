@@ -2,7 +2,7 @@
 
 ClientSocket::ClientSocket() : Socket() {}
 
-void ClientSocket::_connect(const std::string& host, const std::string& port) {
+void ClientSocket::connect(const std::string& host, const std::string& port) {
   struct addrinfo* connections = defaultGetAddrInfo(host, port, false);
 
   struct addrinfo* connectionsCopy = connections;
@@ -13,7 +13,7 @@ void ClientSocket::_connect(const std::string& host, const std::string& port) {
       connectionsCopy = connectionsCopy->ai_next;
       // fprintf(stderr, "%s\n", strerror(errno));
       continue;
-    } else if (connect(fd, connectionsCopy->ai_addr,
+    } else if (::connect(fd, connectionsCopy->ai_addr,
                        connectionsCopy->ai_addrlen) == -1) {
       // fprintf(stderr, "%s\n", strerror(errno));
       connectionsCopy = connectionsCopy->ai_next;

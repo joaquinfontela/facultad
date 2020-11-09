@@ -3,7 +3,7 @@
 
 ServerSocket::ServerSocket() : Socket() {}
 
-void ServerSocket::_bind(const std::string& port, const bool reusablePort) {
+void ServerSocket::bind(const std::string& port, const bool reusablePort) {
   std::string nullStr = "";
   struct addrinfo* connections = defaultGetAddrInfo(nullStr, port, true);
 
@@ -17,7 +17,7 @@ void ServerSocket::_bind(const std::string& port, const bool reusablePort) {
       connectionsCopy = connectionsCopy->ai_next;
       // fprintf(stderr, "%s\n", strerror(errno));
       continue;
-    } else if (bind(fd, connectionsCopy->ai_addr,
+    } else if (::bind(fd, connectionsCopy->ai_addr,
                     connectionsCopy->ai_addrlen) == -1) {
       // fprintf(stderr, "%s\n", strerror(errno));
       connectionsCopy = connectionsCopy->ai_next;
@@ -34,8 +34,8 @@ void ServerSocket::_bind(const std::string& port, const bool reusablePort) {
   }
 }
 
-void ServerSocket::_listen(u_int32_t maxAcceptQueueLength) const {
-  int status = listen(fd, maxAcceptQueueLength);
+void ServerSocket::listen(const u_int32_t maxAcceptQueueLength) const {
+  int status = ::listen(fd, maxAcceptQueueLength);
   if (status < 0) {
     // throw err;
   }
@@ -43,6 +43,6 @@ void ServerSocket::_listen(u_int32_t maxAcceptQueueLength) const {
 
 void ServerSocket::bindListen(const std::string& port, const bool reusablePort,
                               const u_int32_t maxAcceptQueueLength) {
-  _bind(port, reusablePort);
-  _listen(maxAcceptQueueLength);
+    bind(port, reusablePort);
+    listen(maxAcceptQueueLength);
 }

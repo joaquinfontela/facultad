@@ -2,6 +2,7 @@
 
 #include "FileReader.h"
 #include "HTTPProtocolParser.h"
+#include "ResourcesManager.h"
 #include "ServerAnswerer.h"
 #include "ServerAnswererFactory.h"
 #include "ServerCommandParser.h"
@@ -10,20 +11,19 @@
 int main(int argc, char* argv[]) {
   ServerCommandParser commandParser;
   if (!commandParser.commandIsValid(argc, argv)) return 1;
-  ServerSocket server;
+  ServerSocket serverSocket;
   HTTPProtocolParser parser;
   FileReader fileReader;
   const std::string PORT = commandParser.getPort();
 
-  std::map<std::string, std::string> resources;
+  ResourcesManager resources;
   std::string rootFilePath = commandParser.getFilePath();
-  resources.insert({"/", fileReader.getFileContent(rootFilePath)});
-  resources.insert({"/test", "<html>\ntestBody\n<html>\n"});
+  resources.addResource("/", fileReader.getFileContent(rootFilePath));
 
-  server.bindListen(PORT, true, 5);
-  server._accept();
+  serverSocket.bindListen(PORT, true, 5);
+  serverSocket.accept();
   std::string fileContent;
-  server.recieve(fileContent, 1000);
+  serverSocket.recieve(fileContent, 1000);
 
   parser.parseFile(fileContent);
 
@@ -32,7 +32,7 @@ int main(int argc, char* argv[]) {
       serverAnswerFactory.getServerAnswerer(parser);
 
   std::string answer = serverAnswerer.getAnswer(resources);
-  server._send(answer, answer.size());
+  serverSocket.send(answer, answer.size());
 
   return 0;
 }

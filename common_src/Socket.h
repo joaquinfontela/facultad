@@ -16,10 +16,10 @@ class Socket {
  public:
   Socket();
   explicit Socket(int fd);
-  Socket(const Socket& other) = delete;
+  // Socket(const Socket& other) = delete;
   ~Socket();
-  void _accept();
-  void _send(const std::string& message, const size_t length) const;
+  void accept();
+  void send(const std::string& message, const size_t length) const;
   ssize_t recieve(std::string& buffer, const size_t length) const;
 
   void readShutdown();
