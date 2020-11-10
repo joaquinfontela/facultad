@@ -6,5 +6,6 @@ class ServerAnswererPost : public ServerAnswerer {
 
  public:
   ServerAnswererPost(const HTTPProtocolParser& parser);
+  ~ServerAnswererPost();
   std::string getAnswer(ResourcesManager& resources);
 };

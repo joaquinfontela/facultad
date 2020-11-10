@@ -2,7 +2,7 @@
 
 SingleClientHandler::SingleClientHandler(ServerSocket&& peer,
                                          ResourcesManager& resources)
-    : protocolParser(), resourcesManager(resources) {
+    : resourcesManager(resources) {
   peerSkt = std::move(peer);
   dead = false;
 }
@@ -17,10 +17,12 @@ void SingleClientHandler::run() {
   protocolParser.parseFile(fileContent);
 
   ServerAnswererFactory serverAnswerFactory;
-  ServerAnswerer&& serverAnswerer =
+  ServerAnswerer* serverAnswerer =
       serverAnswerFactory.getServerAnswerer(protocolParser);
 
-  std::string answer = serverAnswerer.getAnswer(resourcesManager);
+  std::string answer = serverAnswerer->getAnswer(resourcesManager);
+
+  delete serverAnswerer;
   peerSkt.send(answer, answer.size());
   peerSkt.writeShutdown();
   dead = true;

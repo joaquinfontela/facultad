@@ -4,6 +4,8 @@
 
 HTTPProtocolParser::HTTPProtocolParser() {}
 
+HTTPProtocolParser::~HTTPProtocolParser() {}
+
 void HTTPProtocolParser::parseFirstLine(std::string& line) {
   std::cout << line << std::endl;
   std::vector<std::string> lineArguments = StringSplitter().split(line, " ");

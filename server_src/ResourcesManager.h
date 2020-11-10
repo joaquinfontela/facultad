@@ -1,6 +1,7 @@
 #ifndef RESOURCES_MANAGER_H
 #define RESOURCES_MANAGER_H
 
+#include <iostream>
 #include <map>
 #include <string>
 

@@ -3,5 +3,5 @@
 
 class ServerAnswererFactory {
  public:
-  ServerAnswerer&& getServerAnswerer(const HTTPProtocolParser& parser);
+  ServerAnswerer* getServerAnswerer(const HTTPProtocolParser& parser);
 };

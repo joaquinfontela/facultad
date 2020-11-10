@@ -14,8 +14,9 @@ class ServerAnswerer {
 
  public:
   ServerAnswerer(const HTTPProtocolParser& httpProtocolParser);
-
   ServerAnswerer(ServerAnswerer&& other) noexcept;
+
+  virtual ~ServerAnswerer() = 0;
 
   virtual std::string getAnswer(ResourcesManager& resources) = 0;
 };

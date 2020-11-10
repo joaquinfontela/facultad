@@ -18,6 +18,7 @@ class HTTPProtocolParser {
 
  public:
   HTTPProtocolParser();
+  ~HTTPProtocolParser();
   void parseFile(const std::string& fileContent);
   std::string getMethod() const;
   std::string getResource() const;

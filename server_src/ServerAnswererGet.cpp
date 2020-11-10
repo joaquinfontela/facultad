@@ -5,6 +5,8 @@
 ServerAnswererGet::ServerAnswererGet(const HTTPProtocolParser& parser)
     : ServerAnswerer(parser) {}
 
+ServerAnswererGet::~ServerAnswererGet() {}
+
 std::string ServerAnswererGet::getAnswer(ResourcesManager& resources) {
   std::string resource = httpProtocolParser.getResource();
   if (!resources.hasResource(resource)) {

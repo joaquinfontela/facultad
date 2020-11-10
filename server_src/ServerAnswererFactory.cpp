@@ -6,15 +6,15 @@
 #define GET "GET"
 #define POST "POST"
 
-ServerAnswerer&& ServerAnswererFactory::getServerAnswerer(
+ServerAnswerer* ServerAnswererFactory::getServerAnswerer(
     const HTTPProtocolParser& parser) {
   std::string METHOD = parser.getMethod();
 
   if (METHOD == GET) {
-    return std::move(ServerAnswererGet(parser));
+    return new ServerAnswererGet(parser);
   } else if (METHOD == POST) {
-    return std::move(ServerAnswererPost(parser));
+    return new ServerAnswererPost(parser);
   } else {
-    return std::move(ServerAnswererIncorrectMethod(parser));
+    return new ServerAnswererIncorrectMethod(parser);
   }
 }
