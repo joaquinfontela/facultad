@@ -7,7 +7,7 @@
 #define POST "POST"
 
 ServerAnswerer* ServerAnswererFactory::getServerAnswerer(
-    const HTTPProtocolParser& parser) {
+    const HTTPProtocolParser& parser) const {
   std::string METHOD = parser.getMethod();
 
   if (METHOD == GET) {

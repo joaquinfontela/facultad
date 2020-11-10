@@ -18,7 +18,7 @@ class ServerAnswerer {
 
   virtual ~ServerAnswerer() = 0;
 
-  virtual std::string getAnswer(ResourcesManager& resources) = 0;
+  virtual std::string getAnswer(ResourcesManager& resources) const = 0;
 };
 
 #endif

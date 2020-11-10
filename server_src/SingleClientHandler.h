@@ -18,5 +18,5 @@ class SingleClientHandler : public Thread {
   SingleClientHandler(ServerSocket&& peer, ResourcesManager& resourcesManager);
   ~SingleClientHandler();
   void run() override;
-  bool isDead();
+  bool isDead() const;
 };

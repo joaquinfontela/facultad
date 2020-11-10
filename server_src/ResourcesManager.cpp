@@ -6,7 +6,7 @@ void ResourcesManager::addResource(std::string name, std::string body) {
   resources.insert({name, body});
 }
 
-bool ResourcesManager::hasResource(std::string& resourceName) {
+bool ResourcesManager::hasResource(const std::string& resourceName) {
   return (resources.find(resourceName) != resources.end());
 }
 

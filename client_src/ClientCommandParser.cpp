@@ -13,4 +13,4 @@ bool ClientCommandParser::commandIsValid(const int argc, char* argv[]) {
   return isValid;
 }
 
-std::string ClientCommandParser::getHost() { return host; }
+std::string ClientCommandParser::getHost() const { return host; }

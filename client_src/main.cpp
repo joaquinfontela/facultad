@@ -1,14 +1,12 @@
-#include <iostream>
-
-#include "Server.h"
+#include "Client.h"
 
 int main(int argc, char* argv[]) {
-  ServerCommandParser commandParser;
-  if (!commandParser.commandIsValid(argc, argv)) return 1;
+  ClientCommandParser commandParser;
+  if (!commandParser.commandIsValid(argc, argv)) return 0;
 
   try {
-    Server s(commandParser);
-    s.run();
+    Client c(commandParser);
+    c.run();
   } catch (const std::exception& e) {
     std::cout << e.what() << std::endl;
   } catch (...) {

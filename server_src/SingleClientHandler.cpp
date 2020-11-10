@@ -20,11 +20,11 @@ void SingleClientHandler::run() {
       serverAnswerFactory.getServerAnswerer(protocolParser);
 
   std::string answer = serverAnswerer->getAnswer(resourcesManager);
-
   delete serverAnswerer;
+
   peerSkt.send(answer, answer.size());
   peerSkt.writeShutdown();
   dead = true;
 }
 
-bool SingleClientHandler::isDead() { return dead; }
+bool SingleClientHandler::isDead() const { return dead; }

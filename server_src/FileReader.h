@@ -5,5 +5,5 @@
 class FileReader {
  public:
   FileReader();
-  std::string getFileContent(const std::string& filePath);
+  std::string getFileContent(const std::string& filePath) const;
 };

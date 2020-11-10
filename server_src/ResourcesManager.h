@@ -14,7 +14,7 @@ class ResourcesManager {
  public:
   ResourcesManager();
   void addResource(std::string name, std::string body);
-  bool hasResource(std::string& resourceName);
+  bool hasResource(const std::string& resourceName);
   const std::string& getResourceBody(const std::string& name);
 };
 

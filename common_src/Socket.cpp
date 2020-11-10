@@ -51,7 +51,7 @@ Socket::~Socket() {
   close(fd);
 }
 
-int Socket::accept() {
+int Socket::accept() const {
   int peerfd = ::accept(fd, nullptr, nullptr);
   if (peerfd == -1) throw std::invalid_argument("socket closed.");
   return peerfd;

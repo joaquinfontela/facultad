@@ -1,5 +1,7 @@
 #include "ClientSocket.h"
 
+#include <string>
+
 ClientSocket::ClientSocket() : Socket() {}
 
 void ClientSocket::connect(const std::string& host, const std::string& port) {
@@ -27,6 +29,6 @@ void ClientSocket::connect(const std::string& host, const std::string& port) {
   freeaddrinfo(connections);
 
   if (this->fd == -1) {
-    // throw;
+    std::__throw_runtime_error("error connecting");
   }
 }

@@ -38,7 +38,7 @@ void ServerSocket::bind(const std::string& port, const bool reusablePort) {
 void ServerSocket::listen(const u_int32_t maxAcceptQueueLength) const {
   int status = ::listen(fd, maxAcceptQueueLength);
   if (status < 0) {
-    // throw err;
+    std::__throw_runtime_error("error at socket::listen");
   }
 }
 

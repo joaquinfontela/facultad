@@ -9,5 +9,5 @@ class ClientCommandParser : public CommandParser {
  public:
   ClientCommandParser();
   bool commandIsValid(const int argc, char* argv[]);
-  std::string getHost();
+  std::string getHost() const;
 };
