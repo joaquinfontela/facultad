@@ -1,3 +1,6 @@
+#include <string>
+#include <utility>
+
 #include "ResourcesManager.h"
 #include "ServerAnswerer.h"
 #include "ServerAnswererFactory.h"
@@ -14,6 +17,6 @@ class SingleClientHandler : public Thread {
  public:
   SingleClientHandler(ServerSocket&& peer, ResourcesManager& resourcesManager);
   ~SingleClientHandler();
-  void run();
+  void run() override;
   bool isDead();
 };

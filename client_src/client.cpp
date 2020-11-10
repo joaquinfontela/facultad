@@ -13,7 +13,7 @@ int main(int argc, char* argv[]) {
 
   const std::string HOST = commandParser.getHost();
   const std::string PORT = commandParser.getPort();
-    client.connect(HOST, PORT);
+  client.connect(HOST, PORT);
 
   std::string line;
   while (reader.readLine(line)) client.send(line, line.size());

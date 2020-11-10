@@ -1,4 +1,6 @@
 #include <list>
+#include <string>
+#include <utility>
 
 #include "HTTPProtocolParser.h"
 #include "SingleClientHandler.h"
@@ -14,6 +16,6 @@ class ClientManager : public Thread {
  public:
   ClientManager(const std::string& port, ResourcesManager& resourcesManager);
   ~ClientManager();
-  void run();
+  void run() override;
   void clientCleaner();
 };

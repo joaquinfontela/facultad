@@ -1,3 +1,5 @@
+#include <string>
+
 #include "HTTPProtocolParser.h"
 #include "ServerAnswerer.h"
 

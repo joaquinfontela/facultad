@@ -2,8 +2,7 @@
 
 SingleClientHandler::SingleClientHandler(ServerSocket&& peer,
                                          ResourcesManager& resources)
-    : resourcesManager(resources) {
-  peerSkt = std::move(peer);
+    : peerSkt(std::move(peer)), resourcesManager(resources) {
   dead = false;
 }
 

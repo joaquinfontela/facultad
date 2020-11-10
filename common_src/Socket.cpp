@@ -15,6 +15,11 @@ Socket& Socket::operator=(Socket&& other) {
   return *this;
 }
 
+Socket::Socket(Socket&& other) {
+  this->fd = other.fd;
+  other.fd = -1;
+}
+
 struct addrinfo* Socket::defaultGetAddrInfo(const std::string& host,
                                             const std::string& port,
                                             const bool isServer) const {

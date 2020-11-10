@@ -14,7 +14,7 @@ void ClientSocket::connect(const std::string& host, const std::string& port) {
       // fprintf(stderr, "%s\n", strerror(errno));
       continue;
     } else if (::connect(fd, connectionsCopy->ai_addr,
-                       connectionsCopy->ai_addrlen) == -1) {
+                         connectionsCopy->ai_addrlen) == -1) {
       // fprintf(stderr, "%s\n", strerror(errno));
       connectionsCopy = connectionsCopy->ai_next;
       close(fd);

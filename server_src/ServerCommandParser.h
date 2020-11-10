@@ -1,3 +1,5 @@
+#include <string>
+
 #include "../common_src/CommandParser.h"
 
 class ServerCommandParser : public CommandParser {

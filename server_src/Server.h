@@ -1,3 +1,5 @@
+#include <string>
+
 #include "ClientManager.h"
 #include "FileReader.h"
 #include "ResourcesManager.h"
@@ -9,6 +11,6 @@ class Server {
   ResourcesManager resourcesManager;
 
  public:
-  Server(const ServerCommandParser& commandParser);
+  explicit Server(const ServerCommandParser& commandParser);
   void run();
 };

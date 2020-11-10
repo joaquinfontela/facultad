@@ -1,3 +1,5 @@
+#include <string>
+
 #include "ServerAnswerer.h"
 
 class ServerAnswererPost : public ServerAnswerer {
@@ -5,7 +7,7 @@ class ServerAnswererPost : public ServerAnswerer {
   void updateResources(ResourcesManager& resources);
 
  public:
-  ServerAnswererPost(const HTTPProtocolParser& parser);
+  explicit ServerAnswererPost(const HTTPProtocolParser& parser);
   ~ServerAnswererPost();
-  std::string getAnswer(ResourcesManager& resources);
+  std::string getAnswer(ResourcesManager& resources) override;
 };

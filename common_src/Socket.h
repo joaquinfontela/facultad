@@ -18,8 +18,10 @@ class Socket {
   explicit Socket(int fd);
   void operator()(int fd);
   Socket& operator=(Socket&& other);
+  Socket(Socket&& other);
   Socket(const Socket& other) = delete;
   ~Socket();
+
   int accept();
   void send(const std::string& message, const size_t length) const;
   ssize_t recieve(std::string& buffer, const size_t length) const;

@@ -1,8 +1,10 @@
+#include <string>
+
 #include "ServerAnswerer.h"
 
 class ServerAnswererIncorrectMethod : public ServerAnswerer {
  public:
-  ServerAnswererIncorrectMethod(const HTTPProtocolParser& parser);
+  explicit ServerAnswererIncorrectMethod(const HTTPProtocolParser& parser);
   ~ServerAnswererIncorrectMethod();
-  std::string getAnswer(ResourcesManager& resources);
+  std::string getAnswer(ResourcesManager& resources) override;
 };

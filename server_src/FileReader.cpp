@@ -4,7 +4,7 @@
 
 FileReader::FileReader() {}
 
-std::string FileReader::getFileContent(std::string& filePath) {
+std::string FileReader::getFileContent(const std::string& filePath) {
   std::ifstream file;
   file.open(filePath);
   std::string line;
@@ -12,5 +12,5 @@ std::string FileReader::getFileContent(std::string& filePath) {
   while (getline(file, line)) {
     fileContent += (line + "\n");
   }
-  return std::move(fileContent);
+  return fileContent;
 }

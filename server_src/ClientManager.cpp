@@ -20,7 +20,7 @@ void ClientManager::run() {
     ServerSocket peerSkt;
     try {
       peerSkt(serverSkt.accept());
-    } catch (std::invalid_argument e) {
+    } catch (std::invalid_argument& e) {
       break;
     }
     SingleClientHandler* s =
@@ -38,7 +38,7 @@ void ClientManager::clientCleaner() {
       delete *it;
       it = clientHandlers.erase(it);
     } else {
-      it++;
+      ++it;
     }
   }
 }

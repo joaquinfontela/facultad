@@ -11,7 +11,6 @@ void HTTPProtocolParser::parseFirstLine(std::string& line) {
   std::vector<std::string> lineArguments = StringSplitter().split(line, " ");
   method = lineArguments.at(0);
   resource = lineArguments.at(1);
-  protocol = lineArguments.at(2);
 }
 
 void HTTPProtocolParser::parseFile(const std::string& fileContent) {
@@ -34,8 +33,6 @@ void HTTPProtocolParser::parseFile(const std::string& fileContent) {
 }
 
 std::string HTTPProtocolParser::getMethod() const { return method; }
-
-std::string HTTPProtocolParser::getProtocol() const { return protocol; }
 
 std::string HTTPProtocolParser::getResource() const { return resource; }
 

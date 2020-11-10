@@ -1,3 +1,5 @@
+#include <string>
+
 #include "../common_src/Socket.h"
 
 class ServerSocket : public Socket {

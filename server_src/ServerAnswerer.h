@@ -13,7 +13,7 @@ class ServerAnswerer {
   const HTTPProtocolParser& httpProtocolParser;
 
  public:
-  ServerAnswerer(const HTTPProtocolParser& httpProtocolParser);
+  explicit ServerAnswerer(const HTTPProtocolParser& httpProtocolParser);
   ServerAnswerer(ServerAnswerer&& other) noexcept;
 
   virtual ~ServerAnswerer() = 0;

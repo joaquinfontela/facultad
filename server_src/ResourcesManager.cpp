@@ -10,7 +10,7 @@ bool ResourcesManager::hasResource(std::string& resourceName) {
   return (resources.find(resourceName) != resources.end());
 }
 
-const std::string& ResourcesManager::getResourceBody(std::string& name) {
+const std::string& ResourcesManager::getResourceBody(const std::string& name) {
   std::unique_lock<std::mutex> lock(m);
   return resources.at(name);
 }
