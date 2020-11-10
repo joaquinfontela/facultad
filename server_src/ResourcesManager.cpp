@@ -11,5 +11,6 @@ bool ResourcesManager::hasResource(std::string& resourceName) {
 }
 
 const std::string& ResourcesManager::getResourceBody(std::string& name) {
+  std::unique_lock<std::mutex> lock(m);
   return resources.at(name);
 }

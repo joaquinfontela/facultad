@@ -3,11 +3,13 @@
 
 #include <iostream>
 #include <map>
+#include <mutex>
 #include <string>
 
 class ResourcesManager {
  private:
   std::map<std::string, std::string> resources;
+  std::mutex m;
 
  public:
   ResourcesManager();
