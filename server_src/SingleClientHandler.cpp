@@ -4,6 +4,7 @@ SingleClientHandler::SingleClientHandler(ServerSocket&& peer,
                                          ResourcesManager& resources)
     : protocolParser(), resourcesManager(resources) {
   peerSkt = std::move(peer);
+  dead = false;
 }
 
 SingleClientHandler::~SingleClientHandler() { this->join(); }
