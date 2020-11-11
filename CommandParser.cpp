@@ -10,7 +10,8 @@ CommandParser::CommandParser(const int argc, char** argv) {
 }
 
 void CommandParser::parseArguments(const int argc, char** argv) {
-  this->numberOfThreads = strtol((char*)argv[1], (char**)NULL, 10);
+  std::string firstArg(argv[1]);
+  this->numberOfThreads = std::stoi(firstArg, nullptr, 10);
 
   int argNumber = 2;
   while (argNumber < argc) {

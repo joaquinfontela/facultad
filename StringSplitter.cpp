@@ -26,5 +26,5 @@ std::vector<std::string> StringSplitter::split(const std::string string,
     lastDelimLocation = delimLocation;
   }
   splitedString.push_back(string.substr(lastDelimLocation + 2, string.size()));
-  return splitedString;
+  return std::move(splitedString);
 }

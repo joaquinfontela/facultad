@@ -27,7 +27,7 @@ size_t Graph::size() const { return nodes.size(); }
 std::set<int> Graph::runDFS(DFS& dfs) {
   std::set<int> visitedNodes;
   std::set<int> parentNodes;
-  dfs.DFSexecute(1, &visitedNodes, &parentNodes);
+  dfs.DFSexecute(1, visitedNodes, parentNodes);
   return visitedNodes;
 }
 
