@@ -1,2 +1,2 @@
-*.bpf
-Makefile
+utils/test-files
+utils/Makefile
