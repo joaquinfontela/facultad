@@ -52,27 +52,27 @@ Para identificar _leaks_ de memoria. Fue muy util para detectar el ultimo error 
 
 A continuacion, diagramas de clases representativos de este proyecto.
 
-#### DIAG
+#### SERVER
 
 ![](https://github.com/joaquinfontela/tp3-taller/blob/master/utils/diagrama1.jpeg)
 
-#### DIAG
+#### CLIENT
 
 ![](https://github.com/joaquinfontela/tp3-taller/blob/master/utils/diagrama5.jpeg)
 
-#### DIAG
+#### CLIENT MANAGER
 
 ![](https://github.com/joaquinfontela/tp3-taller/blob/master/utils/diagrama6.jpeg)
 
-#### DIAG
+#### SOCKET
 
 ![](https://github.com/joaquinfontela/tp3-taller/blob/master/utils/diagrama2.jpeg)
 
-#### DIAG
+#### SERVER ANSWERER
 
 ![](https://github.com/joaquinfontela/tp3-taller/blob/master/utils/diagrama3.jpeg)
 
-#### DIAG
+#### SINGLE CLIENT HANDLER
 
 ![](https://github.com/joaquinfontela/tp3-taller/blob/master/utils/diagrama4.jpeg)
 
