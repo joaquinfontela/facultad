@@ -54,15 +54,27 @@ A continuacion, diagramas de clases representativos de este proyecto.
 
 #### DIAG
 
-(falta diag)
+![](https://github.com/joaquinfontela/tp3-taller/blob/master/utils/diagrama1.jpeg)
 
 #### DIAG
 
-(falta diag)
+![](https://github.com/joaquinfontela/tp3-taller/blob/master/utils/diagrama5.jpeg)
 
 #### DIAG
 
-(falta diag)
+![](https://github.com/joaquinfontela/tp3-taller/blob/master/utils/diagrama6.jpeg)
+
+#### DIAG
+
+![](https://github.com/joaquinfontela/tp3-taller/blob/master/utils/diagrama2.jpeg)
+
+#### DIAG
+
+![](https://github.com/joaquinfontela/tp3-taller/blob/master/utils/diagrama3.jpeg)
+
+#### DIAG
+
+![](https://github.com/joaquinfontela/tp3-taller/blob/master/utils/diagrama4.jpeg)
 
 
 ## CONCLUSIONES
