@@ -26,3 +26,4 @@ std::vector<std::string>& CommandParser::getFileNames() {
 }
 
 int CommandParser::getNumberOfThreads() { return numberOfThreads; }
+

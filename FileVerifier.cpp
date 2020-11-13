@@ -1,6 +1,6 @@
 #include "FileVerifier.h"
 
-void FileVerifier::verify(Graph& fileGraph, const std::string nameOfFile,
+void FileVerifier::verify(Graph& fileGraph, const std::string& nameOfFile,
                           std::string& result) const {
   if (nameOfFile.empty()) {
     result = "";

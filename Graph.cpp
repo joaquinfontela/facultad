@@ -47,3 +47,4 @@ void Graph::reinit() {
   nodes.clear();
   adjacencies.clear();
 }
+

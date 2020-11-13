@@ -1,5 +1,7 @@
 #include "FileRepository.h"
 
+// Me pide que fileNames sea const pero lo necesito modificar por dentro.
+// cppcheck-suppress constParameter
 FileRepository::FileRepository(std::vector<std::string>& fileNames) {
   this->fileNames = fileNames;
 }

@@ -3,11 +3,13 @@
 #include <iostream>
 
 JumpCommandProcessor::JumpCommandProcessor(
-    int lineNumber, std::vector<std::string>& argumentList) {
+    int lineNumber, const std::vector<std::string>& argumentList) {
   this->lineNumber = lineNumber;
   this->argumentList = argumentList;
 }
 
+// Me pide que fileGraphData sea const pero lo necesito modificar.
+// cppcheck-suppress constParameter
 void JumpCommandProcessor::processJump(FileGraphData& fileGraphData) {
   switch (argumentList.size()) {
     case 1:

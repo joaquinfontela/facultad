@@ -15,7 +15,8 @@ class JumpCommandProcessor {
   void processThreeArgumentsJump(FileGraphData& fileGraphData);
 
  public:
-  JumpCommandProcessor(int lineNumber, std::vector<std::string>& argumentList);
+  JumpCommandProcessor(int lineNumber,
+                       const std::vector<std::string>& argumentList);
 
   void processJump(FileGraphData& fileGraphData);
 };

@@ -4,6 +4,8 @@
 
 #include <string>
 
+// Me pide que fileRepository sea const pero lo necesito modificar por dentro.
+// cppcheck-suppress constParameter
 FileParser::FileParser(FileRepository& fileRepository)
     : fileHandler(fileRepository) {
   currentLineNumber = 1;

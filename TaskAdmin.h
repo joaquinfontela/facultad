@@ -1,3 +1,5 @@
+#include <string>
+
 #include "FileParser.h"
 #include "FileResults.h"
 #include "FileVerifier.h"
@@ -10,5 +12,5 @@ class TaskAdmin : public Thread {
 
  public:
   TaskAdmin(FileRepository& fileRepository, FileResults& fileResults);
-  void run();
+  void run() override;
 };
