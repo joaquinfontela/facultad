@@ -4,5 +4,5 @@
 |--------|---------------------------|
 | 104105 | Jonathan David Rosenblatt |
 |        | Matías Alberto Venglar    |
-|        | Joaquín Betz              |
+| 104348 | Joaquín Betz              |
 | 103924 | Joaquín Fontela           |
