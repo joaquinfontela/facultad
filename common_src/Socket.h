@@ -4,6 +4,7 @@
 #include <sys/types.h>
 #include <unistd.h>
 
+#include <sstream>
 #include <string>
 
 class Socket {
@@ -24,7 +25,7 @@ class Socket {
 
   int accept() const;
   void send(const char* message, const size_t length) const;
-  ssize_t recieve(char* buffer, const size_t length) const;
+  ssize_t recieve(char* buf, const size_t length) const;
 
   void readShutdown();
   void writeShutdown();

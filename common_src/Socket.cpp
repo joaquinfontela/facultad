@@ -1,7 +1,7 @@
 #include "Socket.h"
 
 #include <iostream>
-#define BUFFER_LEN 1000
+#define TO_READ 64
 
 Socket::Socket() {}
 
@@ -76,10 +76,10 @@ void Socket::send(const char* message, const size_t length) const {
 
 ssize_t Socket::recieve(char* buffer, const size_t length) const {
   size_t bytesRecieved = 0;
+  ssize_t bytesRecievedInLastCall = 1;
 
-  while (bytesRecieved < length) {
-    ssize_t bytesRecievedInLastCall =
-        recv(fd, &buffer[bytesRecieved], length - bytesRecieved, 0);
+  while (bytesRecievedInLastCall > 0) {
+    bytesRecievedInLastCall = recv(fd, &buffer[bytesRecieved], TO_READ, 0);
 
     if (bytesRecievedInLastCall == -1) {
       std::string errorDesc(strerror(errno));
