@@ -22,7 +22,7 @@ void SingleClientHandler::run() {
   std::string answer = serverAnswerer->getAnswer(resourcesManager);
   delete serverAnswerer;
 
-  peerSkt.send(answer, answer.size());
+  peerSkt.send(answer.c_str(), answer.size());
   peerSkt.writeShutdown();
   dead = true;
 }

@@ -23,7 +23,7 @@ class Socket {
   ~Socket();
 
   int accept() const;
-  void send(const std::string& message, const size_t length) const;
+  void send(const char* message, const size_t length) const;
   ssize_t recieve(std::string& buffer, const size_t length) const;
 
   void readShutdown();

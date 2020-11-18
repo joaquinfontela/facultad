@@ -57,13 +57,12 @@ int Socket::accept() const {
   return peerfd;
 }
 
-void Socket::send(const std::string& message, const size_t length) const {
+void Socket::send(const char* message, const size_t length) const {
   size_t bytesSent = 0;
 
-  const char* charMsg = message.c_str();
   while (bytesSent < length) {
     ssize_t bytesSentInLastCall =
-        ::send(fd, &charMsg[bytesSent], length - bytesSent, MSG_NOSIGNAL);
+        ::send(fd, &message[bytesSent], length - bytesSent, MSG_NOSIGNAL);
 
     if (bytesSentInLastCall == -1) {
       std::string errorDesc(strerror(errno));

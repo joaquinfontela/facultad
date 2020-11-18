@@ -8,7 +8,7 @@ void Client::run() const {
   HTTPProtocolReader reader;
 
   std::string line;
-  while (reader.readLine(line)) clientSkt.send(line, line.size());
+  while (reader.readLine(line)) clientSkt.send(line.c_str(), line.size());
   clientSkt.writeShutdown();
 
   std::string serverAnswer;
