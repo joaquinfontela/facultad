@@ -27,7 +27,7 @@ void ServerSocket::bind(const std::string& port, const bool reusablePort) {
                       connectionsCopy->ai_addrlen) == -1) {
       // fprintf(stderr, "%s\n", strerror(errno));
       connectionsCopy = connectionsCopy->ai_next;
-      close(fd);
+      ::close(fd);
       continue;
     } else {
       this->fd = fd;
@@ -54,4 +54,10 @@ void ServerSocket::bindListen(const std::string& port, const bool reusablePort,
                               const u_int32_t maxAcceptQueueLength) {
   bind(port, reusablePort);
   listen(maxAcceptQueueLength);
+}
+
+void ServerSocket::close() {
+  if (fd == -1) return;
+  ::close(fd);
+  fd = -1;
 }

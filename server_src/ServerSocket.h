@@ -14,4 +14,6 @@ class ServerSocket : public Socket {
   ServerSocket(const std::string& port, const bool reusablePort,
                const u_int32_t maxAcceptQueueLength);
   // ServerSocket(const ServerSocket& other) = delete;
+
+  void close();
 };

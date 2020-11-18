@@ -11,7 +11,9 @@ ClientManager::~ClientManager() {
   for (SingleClientHandler* s : clientHandlers) {
     delete s;
   }
-  serverSkt.~ServerSocket();
+  serverSkt.readShutdown();
+  serverSkt.writeShutdown();
+  serverSkt.close();
   this->join();
 }
 
