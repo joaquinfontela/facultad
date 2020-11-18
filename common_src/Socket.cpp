@@ -74,12 +74,13 @@ void Socket::send(const char* message, const size_t length) const {
   }
 }
 
-ssize_t Socket::recieve(char* buffer, const size_t length) const {
+ssize_t Socket::recieve(std::stringbuf& buf) const {
   size_t bytesRecieved = 0;
   ssize_t bytesRecievedInLastCall = 1;
 
   while (bytesRecievedInLastCall > 0) {
-    bytesRecievedInLastCall = recv(fd, &buffer[bytesRecieved], TO_READ, 0);
+    char buffer[100];
+    bytesRecievedInLastCall = recv(fd, buffer, TO_READ, 0);
 
     if (bytesRecievedInLastCall == -1) {
       std::string errorDesc(strerror(errno));
@@ -88,9 +89,9 @@ ssize_t Socket::recieve(char* buffer, const size_t length) const {
       break;
     }
     bytesRecieved += bytesRecievedInLastCall;
+    buf.sputn(buffer, bytesRecievedInLastCall);
   }
-  uint8_t endOfString = '\0';
-  buffer[bytesRecieved] = endOfString;
+  buf.sputbackc(0);
 
   return bytesRecieved;
 }
