@@ -1,4 +1,5 @@
 #include "SingleClientHandler.h"
+#define FILE_CONTENT_MAX_LEN 1000
 
 SingleClientHandler::SingleClientHandler(ServerSocket&& peer,
                                          ResourcesManager& resources)
@@ -9,7 +10,7 @@ SingleClientHandler::SingleClientHandler(ServerSocket&& peer,
 SingleClientHandler::~SingleClientHandler() { this->join(); }
 
 void SingleClientHandler::run() {
-  std::string fileContent;
+  char fileContent[FILE_CONTENT_MAX_LEN];
   peerSkt.recieve(fileContent, 1000);
   peerSkt.readShutdown();
 
