@@ -2,7 +2,10 @@
 
 #include <string>
 
-ClientSocket::ClientSocket() : Socket() {}
+ClientSocket::ClientSocket(const std::string& host, const std::string& port)
+    : Socket() {
+  connect(host, port);
+}
 
 void ClientSocket::connect(const std::string& host, const std::string& port) {
   struct addrinfo* connections = defaultGetAddrInfo(host, port, false);

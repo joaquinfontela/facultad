@@ -12,6 +12,7 @@ class ClientManager : public Thread {
   ServerSocket serverSkt;
   std::list<SingleClientHandler*> clientHandlers;
   ResourcesManager& resourcesManager;
+  std::string port;
 
  public:
   ClientManager(const std::string& port, ResourcesManager& resourcesManager);

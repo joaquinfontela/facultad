@@ -3,8 +3,8 @@
 
 ClientManager::ClientManager(const std::string& port,
                              ResourcesManager& resources)
-    : serverSkt(), clientHandlers(), resourcesManager(resources) {
-  serverSkt.bindListen(port, true, QUEUE_LENGTH);
+    : serverSkt(port, true, 10), clientHandlers(), resourcesManager(resources) {
+  this->port = port;
 }
 
 ClientManager::~ClientManager() {

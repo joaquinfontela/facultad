@@ -1,7 +1,13 @@
 #include "ServerSocket.h"
 #define BUFFER_LEN 1000
 
-ServerSocket::ServerSocket() : Socket() {}
+ServerSocket::ServerSocket() {}
+
+ServerSocket::ServerSocket(const std::string& port, const bool reusablePort,
+                           const u_int32_t maxAcceptQueueLength)
+    : Socket() {
+  bindListen(port, reusablePort, maxAcceptQueueLength);
+}
 
 void ServerSocket::bind(const std::string& port, const bool reusablePort) {
   std::string nullStr = "";
@@ -38,7 +44,9 @@ void ServerSocket::bind(const std::string& port, const bool reusablePort) {
 void ServerSocket::listen(const u_int32_t maxAcceptQueueLength) const {
   int status = ::listen(fd, maxAcceptQueueLength);
   if (status < 0) {
-    std::__throw_runtime_error("error at socket::listen");
+    std::string errorMsg("error at socket::listen: ");
+    errorMsg += strerror(errno);
+    std::__throw_runtime_error(errorMsg.c_str());
   }
 }
 

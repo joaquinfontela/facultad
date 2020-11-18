@@ -3,9 +3,10 @@
 #include "../common_src/Socket.h"
 
 class ClientSocket : public Socket {
- public:
-  ClientSocket();
-  ClientSocket(const ClientSocket& other) = delete;
-
+ private:
   void connect(const std::string& host, const std::string& port);
+
+ public:
+  ClientSocket(const std::string& host, const std::string& port);
+  ClientSocket(const ClientSocket& other) = delete;
 };

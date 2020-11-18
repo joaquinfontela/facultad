@@ -4,10 +4,8 @@ Client::Client(const ClientCommandParser& commandParser)
     : HOST(commandParser.getHost()), PORT(commandParser.getPort()) {}
 
 void Client::run() const {
-  ClientSocket clientSkt;
+  ClientSocket clientSkt(HOST, PORT);
   HTTPProtocolReader reader;
-
-  clientSkt.connect(HOST, PORT);
 
   std::string line;
   while (reader.readLine(line)) clientSkt.send(line, line.size());
