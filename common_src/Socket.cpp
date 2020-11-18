@@ -3,7 +3,7 @@
 #include <iostream>
 #define BUFFER_LEN 1000
 
-Socket::Socket() : fd(-1) {}
+Socket::Socket() {}
 
 Socket::Socket(int fd) { this->fd = fd; }
 
