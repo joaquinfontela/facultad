@@ -5,9 +5,11 @@ ClientManager::ClientManager(const std::string& port,
                              ResourcesManager& resources)
     : serverSkt(port, true, 10), clientHandlers(), resourcesManager(resources) {
   this->port = port;
+  continueRunning = true;
 }
 
 ClientManager::~ClientManager() {
+  continueRunning = false;
   for (SingleClientHandler* s : clientHandlers) {
     delete s;
   }
@@ -18,7 +20,7 @@ ClientManager::~ClientManager() {
 }
 
 void ClientManager::run() {
-  while (true) {
+  while (continueRunning) {
     ServerSocket peerSkt;
     try {
       peerSkt(serverSkt.accept());

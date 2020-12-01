@@ -13,6 +13,7 @@ class ClientManager : public Thread {
   std::list<SingleClientHandler*> clientHandlers;
   ResourcesManager& resourcesManager;
   std::string port;
+  bool continueRunning;
 
  public:
   ClientManager(const std::string& port, ResourcesManager& resourcesManager);
