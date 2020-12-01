@@ -18,8 +18,8 @@ class Socket {
   Socket();
   explicit Socket(int fd);
   void operator()(int fd);
-  Socket& operator=(Socket&& other);
   Socket(Socket&& other);
+  Socket& operator=(Socket&& other) = delete;
   Socket(const Socket& other) = delete;
   ~Socket();
 

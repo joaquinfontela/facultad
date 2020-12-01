@@ -9,12 +9,6 @@ Socket::Socket(int fd) { this->fd = fd; }
 
 void Socket::operator()(int fd) { this->fd = fd; }
 
-Socket& Socket::operator=(Socket&& other) {
-  this->fd = other.fd;
-  other.fd = -1;
-  return *this;
-}
-
 Socket::Socket(Socket&& other) {
   this->fd = other.fd;
   other.fd = -1;
