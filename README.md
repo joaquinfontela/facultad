@@ -15,6 +15,8 @@
 
 - To install the graph package: `npm install graphology` and `npm install graphology-types`
 
+- Parse pdfs: `npm install pdf-parse`
+
 # The TypeScript Language
 
 TypeScript is a JavaScript superset and therefore they share many features such as variable declaration, API's usage, and more.
