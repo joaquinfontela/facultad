@@ -13,6 +13,8 @@
 
 - To crate a React proyect with Typescript run: `npx create-react-app <APPNAME> --template typescript`
 
+- To install the graph package: `npm install graphology` and `npm install graphology-types`
+
 # The TypeScript Language
 
 TypeScript is a JavaScript superset and therefore they share many features such as variable declaration, API's usage, and more.
@@ -62,6 +64,10 @@ There are two ways of declaring arrays:
 `let list: number[] = [9, 99, 999];`
 
 `let list: Array<Number> = [999, 99, 9];`
+
+They can also be readonly:
+
+`let list: ReadonlyArray<Number> = [999, 99, 9];`
 
 ### Tuples:
 
@@ -119,11 +125,21 @@ Declares something that _should_ never happen. Useful to raise errors.
 
 Object is a type that reresents anything that is not number, string, boolean, bigint, symbol, null, or undefined.
 
-### Variable Types:
+### Union Types:
 
 If you know that a variable can only have certain types, then you can name them between pipes:
 
 `let stringornumber: string | number = ...;`
+
+Or even certain values:
+
+`let dice: 1 | 2 | 3 | 4 | 5 | 6;` 
+
+### Intersection Types:
+
+Let's you have the properties of every entity referenced:
+
+`let explosiveFork: fork & bomb;`
 
 ### Type Casting:
 
@@ -138,3 +154,71 @@ And with the “angle-bracket” syntax:
 `let something: unknown = "this is a string";`
 
 `let len: number = (<string>something).length;`
+
+### Readonly:
+
+Keeps members readonly, obviously.
+
+### Interface:
+
+Describes objects that must have a certain member (all public): 
+
+```
+interface LabeledValue {
+  label: string;
+}
+
+let myObj = { size: 10, label: "Size 10 Object" };
+```
+
+If a property is not always requiered, you can describe this by adding a ? at the end of it:
+
+```
+interface CoffeeBox {
+  readonly label: string;
+  readonly expired: boolean,
+  readonly discountcode?: string,
+}
+// They can also be readonly properties.
+```
+
+Interfaces can inherit properties from anothers:
+
+```
+interface Animal {
+  name: string;
+}
+
+interface Dog extends Animal {
+  breed: string;
+}
+```
+
+### Classes:
+
+Classes that implement interfaces must follow it's contract. These can have non-public properties.
+
+interface ClockInterface {
+  currentTime: Date;
+}
+
+class Clock implements ClockInterface {
+  currentTime: Date = new Date();
+  constructor(h: number, m: number) {}
+}
+
+Extending a interface (or many, which is possible) copies its properties to the class instance. 
+
+### Rest Parameters:
+
+Variables can have an unknown number of values you can use:
+
+```
+function buildName(firstName: string, ...restOfName: string[]) {
+  return firstName + " " + restOfName.join(" ");
+}
+
+// employeeName will be "Joseph Samuel Lucas MacKinzie"
+let employeeName = buildName("Joseph", "Samuel", "Lucas", "MacKinzie");
+```
+
