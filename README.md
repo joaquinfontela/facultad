@@ -17,6 +17,8 @@
 
 - Parse pdfs: `npm install pdf-parse`
 
+- Compile .ts project: `npx tsc`
+
 # The TypeScript Language
 
 TypeScript is a JavaScript superset and therefore they share many features such as variable declaration, API's usage, and more.
