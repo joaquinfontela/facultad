@@ -1,7 +1,7 @@
 const fs = require('fs');
 const pdf = require('pdf-parse');
 
-let dataBuffer = fs.readFileSync('../../pdfstoparse/Ingenieria Civil 2009.pdf');
+let dataBuffer = fs.readFileSync('../pdfs/Ingenieria Civil 2009.pdf');
 
 pdf(dataBuffer).then(function (data: any) {
 

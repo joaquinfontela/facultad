@@ -1,7 +1,7 @@
 "use strict";
 var fs = require('fs');
 var pdf = require('pdf-parse');
-var dataBuffer = fs.readFileSync('../../pdfstoparse/Ingenieria Civil 2009.pdf');
+var dataBuffer = fs.readFileSync('../pdfs/Ingenieria Civil 2009.pdf');
 pdf(dataBuffer).then(function (data) {
     console.log(data.numpages);
     console.log(data.numrender);
