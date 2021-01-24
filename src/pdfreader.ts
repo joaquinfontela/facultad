@@ -1,20 +1,28 @@
+import { Subject } from './graph'
+
 const fs = require('fs');
 const pdf = require('pdf-parse');
 
-let dataBuffer = fs.readFileSync('../pdfs/Ingenieria Civil 2009.pdf');
+export class PdfParser {
 
-pdf(dataBuffer).then(function (data: any) {
+    public dataBuffer: any;
 
-    console.log(data.numpages);
-    console.log(data.numrender);
-    console.log(data.info);
-    console.log(data.metadata);
-    console.log(data.version);
-    console.log(data.text);
+    public constructor(filepath: string) {
+        this.dataBuffer = fs.readFileSync(filepath);
+    }
 
-});
+    public writeToTxt(filepath: string) {
+        pdf(this.dataBuffer).then((data: any) => {
+            fs.writeFile(filepath, data.text, function (err: Error) {
+                if (err) return console.log(err);
+            });
+        });
+    }
+}
 
-// I need a class that can act as a middleman between this backend and any client.
+var parser: PdfParser = new PdfParser('../pdfs/Ingenieria Civil 2009.pdf');
+parser.writeToTxt('test.txt');
+
 // All pdfs shall be on its folder and automatically parsed and read.
 
 // There also needs to be some type of structure that can hold all the information
