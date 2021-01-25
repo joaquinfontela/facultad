@@ -17,6 +17,8 @@
 
 - Parse pdfs: `npm install pdf-parse`
 
+- Read files line by line: `npm install --save line-reader`
+
 - Compile .ts project: `npx tsc`
 
 # The TypeScript Language
