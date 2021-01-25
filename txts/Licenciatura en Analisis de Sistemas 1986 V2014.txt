@@ -1,0 +1,752 @@
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+Plan de Estudios  
+ 
+Licenciatura en  
+Análisis de Sistemas 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Actualización 2016 
+Plan 1986 modificado en 2014  
+Vigente para aquellos estudiantes que iniciaron el Segundo Ciclo de la carrera a 
+partir 2º cuatrimestre de 2015 
+ 
+ 
+
+ 
+ 
+ENCUADRE GENERAL DEL PLAN DE ESTUDIOS 
+Las carreras de Ingeniería de la UBA tienen una duración de seis (6) años y la Licenciatura en 
+Análisis  de  Sistemas  de  cuatro  (4)  años  y  medio.  En  todos  los  casos  se  incluye  el  año  de 
+cursado del Ciclo Básico Común (CBC), primer año de todas las carreras de la Universidad de 
+Buenos Aires. 
+Las carreras que se desarrollan en la Facultad de Ingeniería incluyen asignaturas obligatorias 
+y  electivas.  Las  asignaturas  obligatorias  forman  el  tronco  principal  de  aprendizaje  de  la 
+carrera, mientras que las electivas dan al estudiante la oportunidad de adecuar su aprendizaje a 
+sus intereses y necesidades. 
+El Régimen de Enseñanza en la Facultad de Ingeniería tiene una estructura basada en créditos, 
+esto significa que cada asignatura tiene asignado un número de créditos. Un crédito equivale a 
+una hora semanal de actividad académica efectiva en la Facultad durante un cuatrimestre. Por 
+ejemplo, una asignatura de cuatro créditos equivale a una asistencia semanal a clases de por lo 
+menos cuatro horas durante un cuatrimestre.  
+El número de créditos necesarios para acceder al título varía para cada carrera.  
+Se  publica  en este  documento una  posible  distribución  de  asignaturas  por  cuatrimestre, 
+aunque  el  estudiante  puede  seleccionar  su  propio  camino,  respetando  las  correlatividades  y 
+condiciones para el cursado de las asignaturas.  
+Para  completar  la  carrera  en  el  lapso  nominal  de  seis  (6)  años,  en  el  caso  de  las  carreras  de 
+ingeniería  y  de  4,5  años  para  la  licenciatura, se  recomienda  destinar  entre  veintidós (22)  a 
+veintiocho  (28)  horas  semanales  para  la  concurrencia  a  clases  u  otra  actividad  académica 
+efectiva.  Por  cada  una  de  las  horas  efectivas  de  concurrencia  a  clases,  el  estudiante  deberá 
+dedicar por lo menos otro tanto para el estudio, redacción de informes, solución de problemas, 
+simulaciones por computadora, preparación de láminas, búsqueda bibliográfica, etc. 
+Para  cada  una  de  las  carreras  existe  un  Director  de  Carrera  y  una  Comisión  Curricular 
+Permanente  de  ocho  (8)  miembros,  integrada  por  cuatro  (4) profesores,  dos  (2)  graduados  y 
+dos  (2)  estudiantes.  Esta  estructura  asesora  al  Consejo  Directivo  en  temas  de  cambios 
+curriculares, la  asignación  de  créditos  a  estudiantes  por  actividades extra-curriculares que 
+aporten  a  su  formación  académica  y/o  profesional  y  la  aprobación  de  los  temas  y  planes  de 
+Tesis de grado presentados por los estudiantes. 
+El  Ciclo  Superior  de  cada  carrera  de  Ingeniería,  culmina  con  un  trabajo  de  investigación  o 
+desarrollo original e individual del estudiante, que permita una evaluación global antes de su 
+egreso  denominado  Tesis  de  Ingeniería.  La  Tesis  podrá  ser  parte  integrante  de  un  desarrollo 
+en equipo de su misma especialidad o multidisciplinario y se lleva a cabo normalmente en los 
+dos últimos cuatrimestres de la carrera. Los estudiantes que así lo deseen pueden reemplazar 
+la  Tesis  de  Ingeniería  por  la  asignatura  Trabajo  Profesional  y  un  número  de  asignaturas 
+electivas cuyos créditos sumados sean iguales a los asignados para la Tesis. 
+
+ 
+ 
+RÉGIMEN DE ENSEÑANZA 
+El  año  lectivo  está  dividido  en  dos  cuatrimestres.  Estos  cuatrimestres  comprenden  los 
+siguientes períodos no superpuestos: 
+ Período de Clases: 16 semanas. 
+ Período   de   Evaluaciones: 7   semanas,   destinadas   a   la   recuperación   de   las 
+Evaluaciones Parciales y a Evaluaciones Integradoras.  
+Para  cursar  las  asignaturas  obligatorias  o  electivas  de  su  elección,  el  estudiante  se  debe 
+inscribir en las fechas indicadas en el Calendario de la Facultad. 
+Para  cursar  una  dada  asignatura  el  estudiante  debe  tener  aprobadas  todas  las  asignaturas 
+correlativas previas especificadas en el Plan de Estudios vigente al momento del comienzo de 
+las clases.  
+El  cursado  incluye  clases  teóricas  y  prácticas  coordinadas.  El  estudiante  debe  asistir,  como 
+mínimo,  al  75  %  de  la  totalidad  de  las  clases  de  asistencia  obligatoria  y  realizar  los  trabajos 
+prácticos correspondientes, de acuerdo con los plazos previstos. En caso de no cumplir estas 
+condiciones, el estudiante debe recursar la asignatura. 
+La  aprobación  de  la  asignatura  incluye,  además,  una  Evaluación  Parcial  y  una Evaluación 
+Integradora. La Evaluación Parcial tiene en cuenta aspectos teóricos, prácticos y conceptuales 
+y  se  puede  rendir  hasta  tres  (3)  veces  en  las  fechas  establecidas  por  la  asignatura.  Al  menos 
+dos  (2)  fechas  de  Evaluación  Parcial  deben  estar  dentro del  Periodo  de  Cursado.  La 
+aprobación de la Evaluación Parcial y los requisitos de asistencia y trabajos prácticos habilita 
+al estudiante a rendir la Evaluación Integradora. La Evaluación Integradora incluye todos los 
+temas de la asignatura.  
+La   tercera   instancia   de   Evaluación   Parcial   y   la   Evaluación   Integradora   se   toman 
+exclusivamente  en  el  Periodo  de  Evaluaciones,  salvo  para  estudiantes  que  no  se  hallen 
+cursando asignaturas, los que pueden rendir durante todo el año en fechas acordadas con los 
+responsables de la asignatura.  
+Dentro  del  Periodo  de  Evaluación  cada  asignatura  fija  cinco  (5)  fechas  para  tomar  la 
+Evaluación  Integradora.  Una  vez  habilitados  para  rendir  esta  Evaluación,  los  estudiantes 
+disponen  de  tres  (3)  Periodos  de  Evaluación  consecutivos  en los  cuales  pueden  rendir  hasta 
+tres (3) veces. Si al final de este lapso el estudiante se ha presentado al menos una vez a rendir 
+la Evaluación  Integradora sin aprobarla o si  ya ha rendido tres veces  aunque aún no se haya 
+agotado el lapso, recibe la calificación de Insuficiente que se asienta en los Libros de Actas de 
+Examen  y  debe  recursar  la  asignatura.  En  caso  de  aprobar  la  Evaluación  Integradora  dentro 
+del lapso de habilitación, la calificación correspondiente se asienta en los Libros de Actas de 
+Examen. 
+En forma alternativa el estudiante puede rendir una asignatura por Examen Libre, para lo cual 
+debe tener aprobadas todas las asignaturas correlativas fijadas en el Plan de Estudios vigente. 
+Dichos  exámenes  se  rinden  en  las  mismas  fechas  fijadas  para  las Evaluaciones  Integradoras 
+para estudiantes regulares y se califican en la misma escala. Esta calificación se asienta en los 
+Libros de Actas de Examen. 
+ 
+
+ 
+ 
+La  carrera  de Licenciatura  en  Análisis  de  Sistemas,  se  organiza  en  un  Ciclo  de  Grado  de  nueve 
+cuatrimestres,  en  los  que  se  incluyen asignaturas  comunes  a  todas  las  ramas  de  la  Ingeniería  y  otras 
+específicas de las ciencias de la Informática. Estas últimas se fundamentan en técnicas de aplicación, 
+sistemas operativos, programas de aplicación, lenguajes —software— y asignaturas de administración 
+de lo escaso.  
+OBJETIVOS DE LA CARRERA 
+Formar profesionales capaces de:  
+ Identificar  y  elaborar  soluciones  informáticas  basadas  en  software  a  los  problemas  de  las 
+organizaciones y de la comunidad en general. 
+ Participar en el análisis, diseño, construcción, integración y evolución de soluciones informáticas. 
+ Actuar como interlocutores entre los conocedores de áreas de aplicación y los especialistas de otras 
+disciplinas informáticas. 
+ Dirigir proyectos de desarrollo y/o implantación de soluciones informáticas. 
+ Dirigir organizaciones de tecnología informática. 
+ Iniciar y dirigir emprendimientos propios en el ámbito de la tecnología informática.  
+ Abocarse al aprendizaje continuo. 
+ Garantizar que el producto de su trabajo cumpla con los más altos estándares profesionales. 
+ Actuar en forma consistente con el bien de la comunidad en general. 
+ Promover el comportamiento ético en la práctica de su profesión. 
+PERFIL DEL GRADUADO 
+Un  Licenciado  en  Análisis  de  Sistemas  es  un  profesional  de las  tecnologías  de  la  información, 
+especializado  en  asistir  a  las  organizaciones  en  la  identificación  y  elaboración  de  soluciones 
+informáticas con el propósito de resolver problemas operativos, de servicio o de negocio. 
+REQUISITOS DE INGRESO 
+Para ingresar en la carrera, el estudiante deberá contar con el nivel secundario completo o bien cumplir 
+con  las  condiciones de  ingreso establecidas en la  Resolución CS Nº 6716/97, para  personas  mayores 
+de 25 años que no hayan aprobado estudios de nivel secundario 
+CARGA LECTIVA TOTAL 
+La carga lectiva total de la carrera es de 3.424 horas reloj y se compone de la siguiente manera:  
+ 608 horas correspondientes al Primer Ciclo (dos cuatrimestres);  
+ 2.816  horas  correspondientes  al  Segundo  Ciclo (siete  cuatrimestres),  equivalentes  a  176 
+créditos (1 crédito es igual a 1 hora de asistencia semanal a clases durante el cuatrimestre de 
+16 semanas)  
+REQUISITOS PARA LA OBTENCIÓN DEL TITULO 
+Para obtener el título de Licenciado en Análisis de Sistemas se requiere: 
+ Haber aprobado el primer ciclo. 
+
+ 
+ 
+ Completar en  el segundo ciclo un mínimo de  ciento setenta  y seis  (176) créditos, distribuidos  del 
+siguiente modo: 
+o Un  total  de  ciento  cuarenta  y  ocho  (148)  correspondientes  a  la  aprobación de  las  asignaturas 
+obligatorias comunes para todos los estudiantes de la carrera. 
+o Un  mínimo  de  veintiocho  (28)  créditos  en  asignaturas  electivas,  o  bien  otorgados  por  la 
+Comisión  Curricular  permanente,  por  haber  realizado  actividades  académicas  afines  a  la 
+carrera o aprobado otras asignaturas.  
+ Haber alcanzado el grado requerido de dominio del idioma inglés que se determinará mediante una 
+prueba de nivel en la que se evaluará la capacidad de utilizar bibliografía especializada de la carrera 
+en  dicho  idioma.  A  tal  efecto  la  Facultad  ofrecerá  cursos  preparatorios  no obligatorios  y  no 
+arancelados. 
+PRIMER CICLO 
+Primero y Segundo Cuatrimestres 
+Código Nombre de la Asignatura Créditos 
+Hs. 
+Semanales 
+Total 
+Hs. 
+Correlativas 
+(*) 
+Carácter de 
+la 
+asignatura 
+28 Análisis Matemático  - 9 144 - OBL 
+27 Álgebra - 9 144 - OBL 
+3 Física - 6 96 - OBL 
+5 Química - 6 96 - OBL 
+24 
+Introducción al Conocimiento de la Sociedad y 
+el Estado 
+- 4 64 - OBL 
+40 Introducción al Pensamiento Científico - 4 64 - OBL 
+TOTAL HORAS CBC 608 
+ 
+SEGUNDO CICLO 
+Tercer Cuatrimestre 
+Código Nombre de la Asignatura Créditos 
+Hs. 
+Semanales 
+Total 
+Hs. 
+Correlativas 
+(*) 
+Carácter de 
+la 
+asignatura 
+81.01 Análisis Matemático II 8 8 128 Primer Ciclo OBL 
+81.02 Álgebra II 8 8 128 Primer Ciclo OBL 
+95.14 Algoritmos y Programación I 6 6 96 Primer Ciclo OBL 
+TOTAL 22 22 352 
+Cuarto Cuatrimestre 
+81.11 Matemática Discreta 6 6 96 Primer Ciclo OBL 
+95.57 Organización del Computador 8 8 128 95.14 OBL 
+95.15 Algoritmos y Programación II 6 6 96 95.14 OBL 
+TOTAL 20 20 320 
+Quinto Cuatrimestre 
+81.04 Probabilidad y Estadística B 6 6 96 81.01-81.02 OBL 
+91.39 
+Estructuras y Procesos Organizacionales 6 6 96 22 créditos 
+aprobados 
+OBL 
+95.58 Organización de Datos 6 6 96 95.57-95.15 OBL 
+95.02 Algoritmos y Programación III 6 6 96 95.15 OBL 
+TOTAL 24 24 384 
+Sexto Cuatrimestre 
+91.41 Economía de las Organizaciones 4 4 64 81.04-91.39 OBL 
+95.03 Sistemas Operativos 6 6 96 95.58 OBL 
+95.20 
+Métodos y Modelos en la Ingeniería de 
+Software I 
+6 6 96 95.02-95.58 OBL 
+95.08 Taller de Programación 4 4 64 95.02-95.57 OBL 
+  Electivas 6 6 96  
+TOTAL 26 26 416 
+ 
+
+ 
+ 
+ 
+Código Nombre de la Asignatura Créditos 
+Hs. 
+Semanales 
+Total 
+Hs. 
+Correlativas 
+(*) 
+Carácter de 
+la 
+asignatura 
+Séptimo Cuatrimestre 
+91.04 Modelos y Optimización I 6 6 96 
+81.01-81.02-81.11-
+95.15 
+OBL 
+95.21 
+Métodos y Modelos en la Ingeniería de 
+Software II 
+6 6 96 95.20 OBL 
+95.05 Base de Datos 6 6 96 95.20 OBL 
+91.42 Administración de las Organizaciones 4 4 64 91.41-95.20 OBL 
+ Electivas 6 6 96   
+TOTAL 28 28 448 
+Octavo Cuatrimestre 
+91.05 
+Modelos y Optimización II 4 4 64 81.04-91.04 
+OBL 
+95.24 
+Administración y Control de Proyectos 
+Informáticos I 
+6 6 96 91.42-95.21 OBL 
+95.59 
+Diseño, Operación y Gestión de Servicios 
+Informáticos 
+4 4 64 91.42-95.21 OBL 
+95.60 
+Redes y Aplicaciones Distribuidas 
+6 6 96 95.05-95.03 OBL 
+ 
+Electivas 8 8 128   
+TOTAL 
+28 28 448 
+Noveno Cuatrimestre 
+95.61 
+Trabajo Profesional de Licenciatura en 
+Análisis de Sistemas 
+12 12 192 95.24-95.59-95.60 OBL 
+91.40 
+Legislación y Ejercicio Profesional en 
+Sistemas e Informática 
+4 4 64 
+100 créditos 
+aprobados 
+OBL 
+95.30 
+Estándares de Calidad y Modelos de 
+Referencia 
+4 4 64 95.24 OBL 
+  Electivas 8 8 128  
+TOTAL 28 28 448 
+TOTAL DEL CICLO 176 2816 horas 
+ 
+TOTAL CBC + SEGUNDO CICLO 3424 horas 
+(*) Según régimen vigente 
+ASIGNATURAS ELECTIVAS 
+Código Nombre de la Asignatura Créditos 
+Hs. 
+Semanales 
+Total Hs. 
+Correlativas 
+(*) 
+86.36  Criptografía y Seguridad Informática 6 6 96 95.60 
+91.24 
+ Macroeconomía y Estructura Económica  
+Argentina 
+6 6 96 91.39  
+91.06  Modelos y Optimización III 6 6 96 91.05  
+91.37  Emprendimientos en Ingeniería 3 3 48 95.24 
+91.35  Análisis de Casos 3 3 48 91.05 
+95.04  Análisis Numérico I 6 6 96 81.01-81.02-95.14 
+95.06  Teoría de Algoritmos I   6 6 96 81.11-95.15 
+95.07  Teoría de Lenguajes de Programación 4 4 64 95.15 
+95.19  Simulación 6 6 96 81.04-95.15 
+
+ 
+ 
+Código Nombre de la Asignatura Créditos 
+Hs. 
+Semanales 
+Total Hs. 
+Correlativas 
+(*) 
+95.25  Inteligencia Artificial 6 6 96 95.02 
+95.35  Evaluación e Implantación de Sistemas 4 4 48 95.24 
+95.37  Evaluación de Proyectos y Manejo de  Riesgos 4 4 48 95.24 
+95.09  Técnicas de Programación Concurrente I 6 6 96 95.03 
+95.48  Lenguajes Formales 6 6 96 81.11 
+95.49  Lenguajes de Programación 6 6 96 95.48 
+95.62  Innovación Tecnológica 4 4 48 95.24 
+95.63  Desarrollo de Aplicaciones Mainframe  4 4 48 95.05-95.15 
+95.64  Auditoria de Sistemas 4 4 48 95.24 
+95.65  Diseño y Desarrollo de Interfaces de Usuario 4 4 48 95.20 
+95.66  Bases de Datos Multidimensionales 4 4 48 95.05 
+95.67  Minería de Datos 4 4 48 95.05 
+95.68  Desarrollo con Nuevas Tecnologías 4 4 48 95.02 
+95.69 
+ Seminario de Sistemas de Información y 
+Gestión 
+4 4 48 91.42 - 95.21 
+95.70 
+ Seminario de Metodologías de Desarrollo de 
+Sistemas 
+4 4 48 95.21 
+95.71  Arquitecturas y Configuraciones 4 4 48 95.03 
+98.01  Idioma Inglés (**) 4 4 48 
+Grado requerido de dominio de 
+Idioma Inglés para obtener el 
+título de grado.
+ 
+98.02  Idioma Alemán (**) 4 4 48 Primer Ciclo 
+98.03  Idioma Francés (**) 4 4 48 
+Primer Ciclo 
+98.04  Idioma Italiano (**) 4 4 48 
+Primer Ciclo 
+98.05  Idioma Portugués (**) 4    4 48 Primer Ciclo 
+(*) Según régimen vigente. 
+(**) El estudiante podrá cursar sólo un idioma en carácter de asignatura electiva 
+ASIGNATURAS DE OTRAS CARRERAS DE LA FACULTAD DE INGENIERÍA 
+Los  estudiantes  podrán  cursar  asignaturas  de  otras  carreras  de  la  Facultad  de  Ingeniería,  previo  acuerdo  con  la 
+Comisión Curricular Permanente de la carrera de Licenciatura en Análisis de Sistemas. Esta última propondrá al 
+Consejo Directivo las equivalencias que pudieran corresponder o el número de créditos a otorgar en cada caso. 
+ASIGNATURAS  DE  OTRAS  FACULTADES  DE  LA UNIVERSIDAD  DE  BUENOS 
+AIRES 
+Los estudiantes podrán cursar asignaturas en otras Facultades de la Universidad de Buenos Aires previo acuerdo 
+con  la  Comisión  Curricular  Permanente  de  la  carrera  de  Licenciatura  en  Análisis  de  Sistemas.  Esta  última 
+propondrá al Consejo Directivo las equivalencias que pudieran corresponder o el número de créditos a otorgar en 
+cada caso. 
+
+ 
+ 
+ASIGNATURAS DE OTRAS UNIVERSIDADES 
+Los  estudiantes  podrán  cursar  asignaturas  en  otras  Universidades  del  país  o  del  extranjero,  teniendo  en  cuenta 
+todos los aspectos de la Res CS 3836/11 previo acuerdo con la Comisión Curricular Permanente de la carrera de 
+Licenciatura en Análisis de Sistemas.  
+REQUISITOS PARA MANTENER LA REGULARIDAD EN LA CARRERA 
+En  el  marco  de  la  Resolución  (CS)  1648/91  establece el  régimen  de  regularidad  de  los  estudiantes  de  la 
+Universidad  de  Buenos  Aires,  los  estudiantes  de  la  Facultad  de  Ingeniería  deben  cumplir  con  la  normativa 
+vigente  en esta  Facultad relativa  a  las condiciones de  regularidad. En caso de  modificarse  dicha  normativa, los 
+requisitos correspondientes a este plan se ajustarán automáticamente a lo que indicare la modificación. 
+EQUIVALENCIAS Y PLAN DE TRANSICIÓN 
+El  plan  1986  mantendrá  su  vigencia  por  9  (nueve)  cuatrimestres  contados  a  partir  de  la  fecha  de  entrada en 
+vigencia del nuevo plan de estudios. 
+Los estudiantes de la Licenciatura en Análisis de Sistemas que solo hubieran aprobado el Primer Ciclo completo 
+en el plan 1986 al concluir el primer cuatrimestre de 2015 se incorporarán automáticamente al plan 1986 versión 
+2014.- 
+Los estudiantes de la Licenciatura en Análisis de Sistemas que hubieran aprobado el Primer Ciclo completo en el 
+plan 1986 ay se hubieran al menos inscripto en alguna actividad curricular correspondiente a ese plan hasta el 7 
+de  julio  de  2015, continuaran  sus  estudios  en  el  plan  86    o  podrán  optar  por  hacerlo  en  el plan  1986  versión 
+2014.- Para  ello  deberán  expresar  fehacientemente  la  opción  de  pase  de  plan,  completando el  formulario  de  la 
+página  de  la  FIUBA  (nota  modelo  dirigida  al  Decano)  y  presentarlo  a  la  Dirección  de  Alumnos  (Ventanilla). 
+Hasta  tanto  no  realicen  la  opción,  y  siempre  dentro  de  los  plazos  establecidos  para  la  vigencia  del  Plan  86, 
+permanecerán en ese Plan. 
+Los estudiantes que opten por el pase de plan, lo que puede producirse en cualquier momento, obtendrán créditos 
+para el nuevo plan por las asignaturas del plan 1986 que  hayan aprobado a la fecha de  opción de pase de plan, 
+según lo indicado en la tabla de equivalencias.  
+Adicionalmente,  se  les  reconocerán  créditos  por  el  total  de  asignaturas  electivas  del  plan  1986  que  hayan 
+aprobado a la fecha de opción de pase de plan. Los créditos en asignaturas electivas que pasan a ser obligatorias 
+en el plan 1986 versión 2014 que un estudiante haya aprobado en el plan 1986, no podrán ser computados como 
+electivos. 
+Se entiende que todos aquellos estudiantes que se cambien del Plan de Estudio 1986 al plan 1986 versión 2014, 
+no podrán cursar aquellas asignaturas que sean equivalentes a asignaturas previamente aprobadas.  
+Los    estudiantes    del plan    1986    versión    2014 no    pueden    optar    por    pasar    al    plan    anterior.
+
+ 
+ 
+Tabla 1: Equivalencias entre el Planes de la carrera de Licenciatura en Análisis de Sistemas 
+Se darán por aprobadas en el Plan 1986 versión 2014, las asignaturas: Si en el PLAN 1986 y modificatorias , se han aprobado las asignaturas: 
+COD DENOMINACION CRED CORRELATIVAS TIPO COD DENOMINACION CRED CORRELATIVAS TIPO 
+28 Análisis Matemático  - - OBL 28 Análisis Matemático  - - OBL 
+27 Álgebra - - OBL 27 Álgebra - - OBL 
+3 Física - - OBL 3 Física - - OBL 
+5 Química - - OBL 5 Química - - OBL 
+40 
+Introducción al Conocimiento de la 
+Sociedad y el Estado 
+- - OBL 40 
+Introducción al Conocimiento de la Sociedad y 
+el Estado 
+- - OBL 
+24 Introducción al Pensamiento Científico - - OBL 24 Introducción al Pensamiento Científico - - OBL 
+81.01  Análisis Matemático II 8 Primer Ciclo OBL 61.03 Análisis Matemático II A  8 CBC OBL 
+81.02  Álgebra II  8 Primer Ciclo OBL 61.08 Álgebra II A 8 CBC OBL 
+81.04 Probabilidad y Estadística B 6 81.01-81.02 OBL 61.09 Probabilidad y Estadística B 6 61.03-61.08 OBL 
+81.11  Matemática Discreta  6 Primer Ciclo OBL 61.07 Matemática Discreta 6 CBC OBL 
+86.36 Criptografía y Seguridad Informática 6 95.60 ELEC      
+91.04 Modelos y Optimización I 6 81.01-81.02-81.11-95.15 OBL 71.14 Modelos y Optimización I 6 61.03-61.07-61.08 OBL 
+91.05 Modelos y Optimización II 4 81.04-91.04 OBL 71.15 Modelos y Optimización II 6 61.09-71.14 OBL 
+     71.18 Estructura Económica Argentina 4 CBC ELEC 
+91.06 Modelos y Optimización III 6 91.05  ELEC 71.20 Modelos y Optimización III 6 71.15 ELEC 
+91.34 
+Macroeconomía y Estructura Económica 
+Argentina 
+6 91.39 ELEC      
+91.39 Estructuras y Procesos Organizacionales 6 22 créditos  aprobados OBL 
+71.12 
++ 
+71.13 
+Estructura de las Organizaciones   (*) 
++ 
+Información en las Organizaciones (*) 
+6 
+ 
+6 
+CBC 
+ 
+71.12 
+OBL 
+ 
+OBL 
+91.35 Análisis de casos 3 91.05 ELEC 71.58 
+Análisis y Resolución de Problemas de 
+Sistemas 
+6 71.15 ELEC 
+91.37 Emprendimientos en Ingeniería 3 95.24 ELEC           
+91.40 
+Legislación y Ejercicio Profesional en 
+Sistemas e Informática 
+4 100 créditos aprobados OBL 71.17 Derecho Informático 4 
+sin correlativas 
+asignadas 
+ELEC 
+91.41 Economía de las Organizaciones 4 81.04-91.39 OBL 71.46 Ingeniería Económica 6 71.13 ELEC 
+91.42 Administración de las Organizaciones 4 91.41-95.20 OBL 71.16 Administración de Proyectos 6 71.12-71.14 OBL 
+95.02 Algoritmos y Programación III 6 95.15 OBL 75.07 Algoritmos y Programación III 6 75.41 OBL 
+95.04 Análisis Numérico I 6 81.01-81.02-95.14 ELEC 75.12 Análisis Numérico I 6 61.03-61.08-75.41 ELEC 
+ 
+
+ 
+ 
+Se darán por aprobadas en el Plan 1986 versión 2014, las asignaturas: Si en el PLAN 1986 y modificatorias, se han aprobado las asignaturas: 
+COD DENOMINACION CRED 
+CORRELATIVA
+S 
+TIPO COD DENOMINACION CRED CORRELATIVAS 
+TIPO 
+95.05 Base de Datos 6 95.20 OBL 75.15 Base de Datos  6 75.09 
+OBL 
+95.06 Teoría de Algoritmos I   6 81.11-95.15 ELEC 75.29 Teoría de Algoritmos I 6 61.07-75.41 
+ELEC 
+95.07 Teoría de Lenguajes de Programación 4 95.15 ELEC 75.24 Teoría de la Programación 4 75.41 
+ELEC 
+95.08 Taller de Programación 4 95.02-95.57 OBL 75.42 Taller de Programación I 4 75.03-75.41 
+OBL 
+95.14 Algoritmos y Programación I 6 CBC OBL 75.40 Algoritmos y Programación I 6 CBC 
+OBL 
+95.15 Algoritmos y Programación II 6 95.14 OBL 75.41 Algoritmos y Programación II 6 75.40 
+OBL 
+95.03 Sistemas Operativos 6 95.58 OBL 75.08 Sistemas Operativos  6 75.06 
+OBL 
+95.19 Simulación 6 81.04-95.15 ELEC 75.26 Simulación 6 61.09 
+ELEC 
+95.20 
++ 
+ 
+95.21 
+Métodos y Modelos en la Ingeniería de Software I 
+    + 
+Métodos y Modelos en la Ingeniería de Software 
+II 
+6 
+ 
+6 
+95.02-95.58 
+ 
+95.20 
+OBL 
+ 
+OBL 
+75.09 
+  + 
+75.10 
+Análisis de la Información (*) 
+         + 
+Técnicas de Diseño (*) 
+6 
+ 
+6 
+75.06-75.07 
+ 
+75.09 
+OBL (*) 
+ 
+OBL (*) 
+95.24 
+Administración y Control de Proyectos 
+Informáticos I 
+6 91.42-95.21 OBL 75.18 Proyectos Informáticos 6 71.13-71.16-75.17 
+OBL 
+95.25 Inteligencia Artificial 6 95.02 ELEC 
+75.23 
+ó 
+75.50 
+Inteligencia Artificial 
+      ó 
+Introducción a los Sistemas Inteligentes 
+6 
+ 
+6 
+75.41 
+ 
+61.09-71.14 
+ELEC 
+ 
+ELEC 
+95.30 Estándares de Calidad y Modelos de Referencia 4 95.24 OBL         
+  
+95.35 Evaluación e Implantación de Sistemas 4 95.24 ELEC 75.17 Implantación de Sistemas  6 75.10 
+OBL 
+95.37 Evaluación de Proyectos y Manejo de Riesgos 4 95.24 ELEC         
+  
+95.09 Técnicas de Programación Concurrente I 6 95.03 ELEC 75.22 Concurrencia 8 75.08 
+ELEC 
+95.48  Lenguajes Formales 6 81.11 ELEC 75.14 Lenguajes Formales 6 61.07 
+ELEC 
+95.49  Lenguajes de Programación 6 95.48 ELEC 75.16 Lenguajes de Programación 6 75.14 
+ELEC 
+95.57  Organización del Computador  8 95.14 OBL 75.03 Organización del Computador 8 75.40 
+OBL 
+95.58 Organización de Datos 6 95.57-95.15 OBL 75.06 Organización de Datos 6 75.03-75.41 
+OBL 
+95.59 
+Diseño, Operación y Gestión de Servicios 
+Informáticos 
+4 91.42-95.21 OBL         
+  
+95.60 Redes y Aplicaciones Distribuidas 6 95.05-95.03 OBL 75.33 Redes y Teleprocesamientos I 6 75.08-75.15 
+ELEC 
+(*) No se otorgarán créditos en asignaturas electivas por cualquiera de las dos en forma separada. 
+
+ 
+ 
+ 
+Se darán por aprobadas en el Plan 1986 versión 2014, las asignaturas: Si en el PLAN 1986 y modificatorias, se han aprobado las asignaturas: 
+COD DENOMINACION CRED CORRELATIVAS TIPO COD DENOMINACION CRED CORRELATIVAS TIPO 
+95.61 
+Trabajo Profesional de Licenciatura en Análisis 
+de Sistemas 
+12 95.24-95.59-95.60 OBL           
+95.62 Innovación Tecnológica 4 95.24 ELEC           
+95.63  Desarrollo de Aplicaciones Mainframe  4 95.05-95.15 ELEC 75.27 Algoritmos y Programación IV 6 75.07 ELEC 
+95.64 Auditoría de Sistemas 4 95.24 ELEC      
+95.65 Diseño y Desarrollo de Interfaces de Usuario 4 95.20 ELEC           
+95.66 Bases de Datos Multidimensionales 4 95.05 ELEC           
+95.67 Minería de Datos 4 95.05 ELEC           
+95.68 Desarrollo con Nuevas Tecnologías 4 95.02 ELEC 75.71 Seminario de Ingeniería de Informática I 3 75.07 ELEC 
+95.69 
+Seminario de Sistemas de Información y 
+Gestión 
+4 91.42 - 95.21 ELEC           
+95.70 
+Seminario de Metodologías de Desarrollo de 
+Sistemas 
+4 95.21 ELEC           
+95.71 Arquitecturas y Configuraciones 4 95.03 ELEC           
+- 
+Grado requerido de dominio de Idioma Inglés 
+para obtener el título de grado.
+  
+- - OBL 78.01 Idioma Inglés 4 CBC ELEC 
+98.01 Idioma Inglés (**) 4 
+Grado requerido de 
+dominio de Idioma 
+Inglés para obtener el 
+título de grado.
+ 
+ELEC      
+98.02 Idioma Alemán (**) 4 Primer Ciclo ELEC 78.02 Idioma Alemán 4 CBC ELEC 
+98.03 Idioma Francés (**) 4 Primer Ciclo ELEC 78.03 Idioma Francés 4 CBC ELEC 
+98.04 Idioma Italiano (**) 4 Primer Ciclo ELEC 78.04 Idioma Italiano 4 CBC ELEC 
+98.05 Idioma Portugués (**) 4 Primer Ciclo ELEC 78.05 Idioma Portugués 4 CBC ELEC 
+         75.19 Teoría de Comunicación 6 75.08 ELEC 
+
+ 
+ 
+ 
+Se darán por aprobadas en el Plan 1986 versión 2014, las asignaturas: Si en el PLAN 1986 y modificatorias, se han aprobado las asignaturas: 
+COD DENOMINACION CRED CORRELATIVAS TIPO COD DENOMINACION CRED CORRELATIVAS TIPO 
+         75.20 Arquitecturas y Configuración 6 75.08 ELEC 
+         75.32 Práctica Profesional 3 71.13-75.10-75.15 ELEC 
+         75.34 Redes y Teleprocesamientos II 6 75.33 ELEC 
+         75.36 
+Seminario de Lógica y Bases de 
+Datos 
+3 75.15 ELEC 
+         75.38 Análisis Numérico II A 6 75.12 ELEC 
+         75.39 Aplicaciones Informáticas 6 75.08-75.09 ELEC 
+         75.72 
+Seminario de Ingeniería de 
+Informática II 
+3 75.06-75.41 ELEC 
+(**) El estudiante podrá cursar sólo un idioma en carácter de asignatura electiva  
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+Tabla de Equivalencias entre las carreras de Ingeniería Informática (Plan 1986) y Licenciatura en Análisis de Sistemas (Plan 1986 versión 2014), establecidas en la 
+Res(CD) nº 2636/15 
+ 
+Se darán por aprobadas en la carrera de Licenciatura en Análisis en Sistemas (Plan aprobado por 
+Res(CS)nº1662/14), las asignaturas:  
+Si en la carrera de Ingeniería Informática (Plan 1986) se han aprobado, las asignaturas: 
+COD DENOMINACION CRED CORRELATIVAS TIPO COD DENOMINACION CRED CORRELATIVAS TIPO 
+28 Análisis Matemático     OBL 28 Análisis Matemático     OBL 
+27 Algebra     OBL 27 Algebra     OBL 
+3 Física     OBL 3 Física     OBL 
+5 Química     OBL 5 Química     OBL 
+40 
+Introducción al Conocimiento de la Sociedad y 
+el Estado 
+    OBL 40 Introducción al Conocimiento de la Sociedad y el Estado     OBL 
+24 Introducción al Pensamiento Científico     OBL 24 Introducción al Pensamiento Científico     OBL 
+86.36 Criptografía y Seguridad Informática 6 95.60 ELEC 66.69 Criptografía y Seguridad Informática 6 75.43 ELEC 
+91.35 Análisis de Casos 3 91.05 ELEC 71.41 Análisis y Resolución de Problemas 6 71.15 ELEC 
+91.40 
+Legislación y Ejercicio Profesional en Sistemas 
+e Informática 
+4 100 créditos aprobados OBL 71.40 
+Legislación y Ejercicio Profesional de la Ingeniería en 
+Informática 
+4 
+140 créditos 
+aprobados 
+OBL 
+95.07 Teoría de Lenguajes de Programación 4 95.15 ELEC 75.31 Teoría de Lenguaje 4 75.41 ELEC 
+95.09 Técnicas de Programación Concurrente I 6 95.03 ELEC 75.59 Técnicas de Programación Concurrente I 6 75.08 ELEC 
+95.24 
+Administración y Control de Proyectos 
+Informáticos I 
+6 91.42-95.21 OBL 75.44 Administración y Control de Proyectos Informáticos I 6 71.12-75.10 ELEC 
+95.35 Evaluación e Implantación de Sistemas 4 95.24 ELEC 75.56 Organización de la Implantación y el Mantenimiento 6 75.46-75.48 ELEC 
+95.37 Evaluación de Proyectos y Manejo de Riesgos 4 95.24 ELEC 75.58 Evaluación de Proyectos y Manejo de Riesgos 4 75.46-75.48 ELEC 
+95.57  Organización del Computador  8 95.14 OBL 
+66.70 
++ 
+66.02 
+Estructura del Computador  
++ 
+Laboratorio 
+6 
+ 
+6 
+61.08-62.03-75.41 
+ 
+62.03 
+OBL 
+ 
+OBL 
+95.60 Redes y Aplicaciones Distribuidas 6 95.05-95.03 OBL 75.43 Introducción a los Sistemas Distribuidos 6 62.15-66.20-75.08 OBL 
+(*) La Comisión Curricular de la Carrera de Licenciatura en Análisis de Sistemas no recomendará otorgar créditos por cualquiera de las dos asignaturas por 
+separada. 
+
+ 
+ 
+LICENCIATURA EN ANÁLISIS DE SISTEMAS 
+RESOLUCIÓN CONSEJO SUPERIOR Nº 1662 DEL 17 DE DICIEMBRE DE 2014  
+El título de Licenciado en Análisis de Sistemas capacita y habilita para: 
+1. Planificar, dirigir, realizar y/o evaluar proyectos de relevamiento de problemas del mundo real. Especificación 
+formal,  diseño,  implementación,  prueba,  verificación,  validación,  mantenimiento  y  control  de  calidad  de 
+sistemas de software que se ejecuten sobre sistemas de procesamiento de datos. 
+2. Organizar,  dirigir,  y  controlar  las  áreas  informáticas  de  las  organizaciones,  seleccionando  y  capacitando  al 
+personal técnico de los mismos. 
+3. Dirigir el relevamiento y análisis de los procesos funcionales de una Organización, con la finalidad de dirigir 
+proyectos de diseño de Sistemas de Información asociados, así como los Sistemas de Software que hagan a su 
+funcionamiento.  Determinar,  regular y  administrar  las  pautas  operativas  y  reglas  de  control  que  hacen  al 
+funcionamiento de las áreas informáticas de las empresas y organizaciones. 
+4. Entender,  planificar  y/o  participar  de  los  estudios  técnicos-económicos  de  factibilidad  y/o  referentes  a  la 
+configuración y dimensionamiento de sistemas de  procesamiento de información. Supervisar la  implantación 
+de los sistemas de información y organizar y capacitar al personal afectado por dichos sistemas. 
+5. Establecer  métricas  y  normas  de  calidad  y  seguridad  de  software,  controlando  las  mismas  a  fin  de  tener  un 
+producto  industrial  que  respete  las  normas  nacionales  e  internacionales.  Control  de  la  especificación  formal 
+del producto, del proceso de diseño, desarrollo, implementación y mantenimiento. Establecimiento de métricas 
+de validación y certificación de calidad. 
+6. Planificar, dirigir, realizar y/o evaluar los sistemas de seguridad en el almacenamiento y procesamiento de la 
+información.   Realizar   la   especificación,   diseño,   desarrollo,   implementación   y   mantenimiento   de   los 
+componentes de seguridad de información embebidos en los sistemas físicos y en los sistemas de software de 
+aplicación.  Establecer  y  controlar  las  metodologías  de  procesamiento  de  datos  orientadas  a  seguridad, 
+incluyendo data-warehousing. 
+7. Efectuar  las tareas  de  Auditoria  de  los  Sistemas  Informáticos.  Realizar  arbitrajes,  pericias  y  tasaciones 
+relacionados con los Sistemas Informáticos. 
+8. Planificar,  dirigir,  realizar  y/o  evaluar  proyectos  de  sistemas  de  administración  de  recursos.  Especificación 
+formal  de  los  mismos,  diseño,  implementación,  prueba,  verificación,  validación, mantenimiento  y  control de 
+eficiencia/  calidad  de  los  sistemas  de  administración  de  recursos  que  se  implanten  como  software  sobre 
+sistemas de procesamiento de datos. 
+9. Analizar  y  evaluar proyectos  de  especificación,  diseño,  implementación,  verificación,  puesta  a  punto, 
+mantenimiento y actualización de sistemas de procesamiento de datos. 
+10. Analizar  y  evaluar  proyectos  de  especificación,  diseño,  implementación,  verificación,  puesta  a  punto  y 
+mantenimiento de redes de comunicaciones que vinculen sistemas de procesamiento de datos. 
+11. Realizar  tareas  como  docente  universitario  en  Informática  en  todos  los  niveles,  de  acuerdo  a  la  jerarquía  de 
+título  de  grado  máximo.  Realizar  tareas  de  enseñanza  de  la  especialidad  en  todos  los  niveles  educativos. 
+Planificar y desarrollar cursos de actualización profesional y capacitación en general en Sistemas/Sistemas de 
+Información. 
+12. Realizar tareas de investigación científica básica y aplicada en temas de Sistemas de Software y Sistemas de 
+Información, participando como Becario, Docente-Investigador o Investigador Científico/ Tecnológico. Dirigir 
+Proyectos,  Laboratorios,  Centros  e  Institutos  de  Investigación  y  Desarrollo  en  Informática  orientados  a  las 
+áreas de Sistemas/ Sistemas de Información.  
+ 
+ 
+ 
