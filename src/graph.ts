@@ -6,28 +6,19 @@ const Graph = require('graphology');
 export class Subject {
     private name: string;
     private code: string;
-    private credits: number;
-    private correlatives: Subject[];
+    private credits: string;
+    private correlativeCodes: string[];
 
     public getCode(): string { return this.code; }
-    public getCredits(): number { return this.credits; }
+    public getCredits(): string { return this.credits; }
     public getName(): string { return this.name; }
-    public getCorrelatives(): Subject[] { return this.correlatives; }
-    public changeName(name: string): void { this.name = name; }
+    public getCorrelatives(): string[] { return this.correlativeCodes; }
 
-    public constructor(name: string, code: string, credits: number) {
+    public constructor(name: string, code: string, credits: string, correlatives: string[]) {
         this.name = name;
         this.code = code;
         this.credits = credits;
-        this.correlatives = [];
-    }
-
-    /**
-     * 
-     * @param subjects Subjects to be added as correlatives.
-     */
-    public addCorrelatives(subjects: Subject[]): void {
-        this.correlatives = this.correlatives.concat(subjects);
+        this.correlativeCodes = correlatives;
     }
 };
 
@@ -49,7 +40,7 @@ export class SubjectGraph {
      * @returns Subject or undefined whether the subject was found or not.
      */
     private searchSubjectByCode(code: string): Subject | undefined {
-        return this.adjList.find((s: Subject) => s.getCode() == code);
+        return this.adjList.find((s: Subject) => s.getCode() === code);
     }
 
     /**
@@ -71,7 +62,7 @@ export class SubjectGraph {
      * 
      * @param code Code of the subjects correlative list to be returned.
      */
-    public getCorrelatives(code: string): Subject[] {
+    public getCorrelatives(code: string): string[] {
         return this.getSubjectByCode(code).getCorrelatives();
     }
 
@@ -84,26 +75,50 @@ export class SubjectGraph {
         for (var i = 0; i < this.adjList.length; i++) {
             var subject: Subject = this.adjList[i];
             var correlativeString: string = "";
-            var correlatives: Subject[] = subject.getCorrelatives();
-            correlatives.forEach((s: Subject) => {
-                correlativeString += " -> " + s.getName();
+            var correlatives: string[] = subject.getCorrelatives();
+            correlatives.forEach((code: string) => {
+                correlativeString += " -> " + this.getSubjectByCode(code).getName();
             });
             console.log(subject.getName() + correlativeString);
         }
     }
+
+    private _subjectCodesNeededFor(code: string, codes: string[]): string[] {
+        console.log(`Codes up to now: ${codes.toString()}`);
+        this.adjList.forEach((s: Subject) => {
+            let correlatives: string[] = this.getCorrelatives(code);
+            let iterCode: string = s.getCode();
+            if (correlatives.includes(iterCode) && !codes.includes(iterCode)) {
+                codes.push(iterCode);
+                codes = this._subjectCodesNeededFor(iterCode, codes);
+            }
+        });
+        return codes;
+    }
+
+    public subjectCodesNeededFor(code: string): string[] {
+        return this._subjectCodesNeededFor(code, []);
+    }
+
+    public size(): number {
+        return this.adjList.length;
+    }
 }
 
-var graph: SubjectGraph = new SubjectGraph();
-var a1: Subject = new Subject("analisis 1", "x1", 10);
-var a2: Subject = new Subject("analisis 2", "x2", 20);
-var a3: Subject = new Subject("analisis 3", "x3", 40);
-var av: Subject = new Subject("algebra vectorial", "x4", 30);
-graph.addSubject(a1);
-graph.addSubject(a2);
-graph.addSubject(a3);
-graph.addSubject(av);
-a1.addCorrelatives([a2]);
-a2.addCorrelatives([a3, av]);
-a3.addCorrelatives([]);
-av.addCorrelatives([]);
-graph.printGraph();
+function test(): void {
+    var graph: SubjectGraph = new SubjectGraph();
+    var a1: Subject = new Subject("analisis 1", "A1", "10", []);
+    var a2: Subject = new Subject("analisis 2", "A2", "20", ["A1"]);
+    var a3: Subject = new Subject("analisis 3", "A3", "40", ["A2"]);
+    var av: Subject = new Subject("algebra super-vectorial", "AV", "30", ["A2"]);
+    var final: Subject = new Subject("gg", "FF", "90", ["AV", "A3"]);
+    graph.addSubject(a1);
+    graph.addSubject(a2);
+    graph.addSubject(a3);
+    graph.addSubject(av);
+    graph.addSubject(final);
+    graph.printGraph();
+    console.log(graph.subjectCodesNeededFor("FF").toString());
+}
+
+//test();
