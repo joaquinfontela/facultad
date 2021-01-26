@@ -19,6 +19,10 @@
 
 - Read files line by line: `npm install --save n-readlines`
 
+- Discord module: `npm install discord.js`
+
+- Read environmental variables: `npm install dotenv`
+
 - Compile .ts project: `npx tsc`
 
 # The TypeScript Language
