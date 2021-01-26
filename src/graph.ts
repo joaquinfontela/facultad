@@ -1,5 +1,8 @@
 const Graph = require('graphology');
 
+/**
+ * This class holds every important bit of information a subject can have.
+ */
 export class Subject {
     private name: string;
     private code: string;
@@ -19,6 +22,10 @@ export class Subject {
         this.correlatives = [];
     }
 
+    /**
+     * 
+     * @param subjects Subjects to be added as correlatives.
+     */
     public addCorrelatives(subjects: Subject[]): void {
         this.correlatives = this.correlatives.concat(subjects);
     }
@@ -27,14 +34,30 @@ export class Subject {
 export class SubjectGraph {
     private adjList: Subject[] = [];
 
+    /**
+     * 
+     * @param subject Pushes subject to adjacency list.
+     */
     public addSubject(subject: Subject) {
         this.adjList.push(subject);
     }
 
+    /**
+     * 
+     * @param code String that represents the code of the subject to be searched.
+     * 
+     * @returns Subject or undefined whether the subject was found or not.
+     */
     private searchSubjectByCode(code: string): Subject | undefined {
         return this.adjList.find((s: Subject) => s.getCode() == code);
     }
 
+    /**
+     * Wrapper for this.searchSubjectByCode. Returns the answer if it was found,
+     * throws and exception otherwise.
+     * 
+     * @param code String that represents the code of the subject to be searched. 
+     */
     public getSubjectByCode(code: string): Subject {
         var value: Subject | undefined = this.searchSubjectByCode(code);
         if (value === undefined) {
@@ -44,10 +67,19 @@ export class SubjectGraph {
         }
     }
 
+    /**
+     * 
+     * @param code Code of the subjects correlative list to be returned.
+     */
     public getCorrelatives(code: string): Subject[] {
         return this.getSubjectByCode(code).getCorrelatives();
     }
 
+    /**
+     * DEBUG ONLY
+     * 
+     * This function prints the graph structure.
+     */
     public printGraph() {
         for (var i = 0; i < this.adjList.length; i++) {
             var subject: Subject = this.adjList[i];
