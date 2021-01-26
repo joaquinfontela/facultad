@@ -17,7 +17,7 @@
 
 - Parse pdfs: `npm install pdf-parse`
 
-- Read files line by line: `npm install --save line-reader`
+- Read files line by line: `npm install --save n-readlines`
 
 - Compile .ts project: `npx tsc`
 
