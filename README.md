@@ -13,10 +13,6 @@
 
 - To crate a React proyect with Typescript run: `npx create-react-app <APPNAME> --template typescript`
 
-- To install the graph package: `npm install graphology` and `npm install graphology-types`
-
-- Parse pdfs: `npm install pdf-parse`
-
 - Read files line by line: `npm install --save n-readlines`
 
 - Discord module: `npm install discord.js`
@@ -24,6 +20,8 @@
 - Read environmental variables: `npm install dotenv`
 
 - Compile .ts project: `npx tsc`
+
+- Run Discord bot: `npm run start`
 
 # The TypeScript Language
 
