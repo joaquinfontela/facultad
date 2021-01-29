@@ -1,5 +1,12 @@
 require("dotenv").config();
 
+import { Bot } from "./bot";
+
+var bot: Bot = new Bot();
+
+const COMMAND_HEADER = "\n```+------AVAILABLE COMMANDS------+\n\n";
+const COMMAND_FOOTER = "```";
+
 const { Client, WebhookClient } = require('discord.js');
 
 const client = new Client({
@@ -17,6 +24,11 @@ client.on('ready', () => {
     console.log(`${client.user.tag} has logged in.`);
 });
 
+function destroyClient(): void {
+    client.destroy();
+    process.exit();
+}
+
 client.on('message', async (message: any) => {
     if (message.author.bot) return;
     if (message.content.startsWith(COMMAND_PREFIX)) {
@@ -26,9 +38,13 @@ client.on('message', async (message: any) => {
             .split(/\s+/);
         if (CMD_NAME === 'announce') {
             console.log(args);
-            const msg = args.join(' ');
+            var msg: string = args.join(' ');
             console.log(msg);
             webhookClient.send(msg);
+        } else if (CMD_NAME === 'help') {
+            message.reply(COMMAND_HEADER + bot.getHelp() + COMMAND_FOOTER);
+        } else if (CMD_NAME == 'disconnect') {
+            destroyClient();
         }
     }
 });
