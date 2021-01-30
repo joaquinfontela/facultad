@@ -58,7 +58,7 @@ export class GraphFiller {
 
 }
 
-var filler: GraphFiller = new GraphFiller("../csv/");
+/*var filler: GraphFiller = new GraphFiller("../csv/");
 
 var graphs: SubjectGraph[] = filler.parseAllText();
-console.log(graphs[0].subjectCodesNeededFor("62.03").toString());
+console.log(graphs[0].subjectCodesNeededFor("62.03").toString());*/

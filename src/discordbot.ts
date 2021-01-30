@@ -1,11 +1,15 @@
 require("dotenv").config();
 
 import { Bot } from "./bot";
+import { GraphFiller } from "./graphfiller";
+import { SubjectGraph } from "./graph";
 
 var bot: Bot = new Bot();
+const filler: GraphFiller = new GraphFiller("./csv/");
 
-const COMMAND_HEADER = "\n```+------AVAILABLE COMMANDS------+\n\n";
+const COMMAND_HEADER = "\n```+------ COMANDOS FIUBENSES DISPONIBLES ------+\n\n";
 const COMMAND_FOOTER = "```";
+const UNAVAILABLE_COMMAND = "Error, el comando ingresado no existe. La próxima te mandamos a recursar álgebra."
 
 const { Client, WebhookClient } = require('discord.js');
 
@@ -29,6 +33,8 @@ function destroyClient(): void {
     process.exit();
 }
 
+// Separar el if en varias funciones y parametrizar todo
+// con lambdas para achicar la función.
 client.on('message', async (message: any) => {
     if (message.author.bot) return;
     if (message.content.startsWith(COMMAND_PREFIX)) {
@@ -43,8 +49,18 @@ client.on('message', async (message: any) => {
             webhookClient.send(msg);
         } else if (CMD_NAME === 'help') {
             message.reply(COMMAND_HEADER + bot.getHelp() + COMMAND_FOOTER);
-        } else if (CMD_NAME == 'disconnect') {
+        } else if (CMD_NAME == 'tomatela') {
             destroyClient();
+        } else if (CMD_NAME == 'disponibles') {
+            var graphs: SubjectGraph[] = filler.parseAllText();
+            var answer: string[] = graphs[11].subjectsICanDo(args);
+            var reply: string = "Podés cursar: \n";
+            answer.forEach((code: string) => {
+                reply += code + " " + graphs[11].getSubjectByCode(code).getName() + "\n";
+            });
+            message.reply(reply);
+        } else {
+            message.reply(UNAVAILABLE_COMMAND);
         }
     }
 });
