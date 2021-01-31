@@ -18,6 +18,7 @@ export class Bot {
         this.commandList.push(new Command("Guarda en el sistema las materias aprobadas", "aprobe"));
         this.commandList.push(new Command("Quita materias aprobadas del sistema", "recurse"));
         this.commandList.push(new Command("Muestra la lista de materias aprobadas", "siu"));
+        //this.commandList.push(new Command("Asigna rol de carrera a usuario. Si sos de letras te bannea", "carrera"));
     }
 
     public addCommand(command: Command): void {
