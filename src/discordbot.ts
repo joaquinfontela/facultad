@@ -55,7 +55,7 @@ client.on('message', async (message: any) => {
             destroyClient();
         } else if (CMD_NAME == 'disponibles') {
             var graphs: SubjectGraph[] = filler.parseAllText();
-            var answer: string[] = graphs[11].subjectsICanDo(args);
+            var answer: string[] = graphs[11].subjectsICanDo(materiasCompletas);
             var reply: string = "Podés cursar: \n";
             answer.forEach((code: string) => {
                 reply += code + " " + graphs[11].getSubjectByCode(code).getName() + "\n";
@@ -72,7 +72,7 @@ client.on('message', async (message: any) => {
             message.reply("\n" + graphs[11].subjectCodesNeededFor(args[0]).join("\n"));
         } else if (CMD_NAME == 'creds') {
             var graphs: SubjectGraph[] = filler.parseAllText();
-            message.reply("\n" + graphs[11].getTotalCredits(args));
+            message.reply("\n" + graphs[11].getTotalCredits(materiasCompletas));
         } else {
             message.reply(UNAVAILABLE_COMMAND);
         }
