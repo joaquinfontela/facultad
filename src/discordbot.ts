@@ -3,6 +3,7 @@ require("dotenv").config();
 import { Bot } from "./bot";
 import { GraphFiller } from "./graphfiller";
 import { SubjectGraph } from "./graph";
+import { Channel } from "discord.js";
 
 var bot: Bot = new Bot();
 const filler: GraphFiller = new GraphFiller("./csv/");
@@ -34,6 +35,8 @@ function destroyClient(): void {
     client.destroy();
     process.exit();
 }
+
+var careersMsgID: string = "";
 
 // Separar el if en varias funciones y parametrizar todo
 // con lambdas para achicar la función.
@@ -73,6 +76,10 @@ client.on('message', async (message: any) => {
         } else if (CMD_NAME == 'creds') {
             var graphs: SubjectGraph[] = filler.parseAllText();
             message.reply("\n" + graphs[11].getTotalCredits(materiasCompletas));
+        } else if (CMD_NAME == 'carreras') {
+            var channelId: string = message.channel.id;
+            client.channels.cache.get(channelId).send(bot.getRolesMsg()).then(
+                (msg: any) => { careersMsgID = msg.id; });
         } else {
             message.reply(UNAVAILABLE_COMMAND);
         }
@@ -82,20 +89,20 @@ client.on('message', async (message: any) => {
 client.on('messageReactionAdd', (reaction: any, user: any) => {
     const { name } = reaction.emoji;
     const member = reaction.message.guild.members.cache.get(user.id);
-    if (!member.guild.me.hasPermission('MANAGE_ROLES'))
+    if (!member.guild.me.hasPermission('MANAGE_ROLES')) {
         return console.log("No tengo el rol para darte roles, 🐱");
-    if (reaction.message.id === '805506591071666186') {
-        member.roles.add(bot.getRole(name))
+    } else if (reaction.message.id === careersMsgID) {
+        member.roles.add(bot.getRoleID(name))
     }
 });
 
 client.on('messageReactionRemove', (reaction: any, user: any) => {
     const { name } = reaction.emoji;
     const member = reaction.message.guild.members.cache.get(user.id);
-    if (!member.guild.me.hasPermission('MANAGE_ROLES'))
+    if (!member.guild.me.hasPermission('MANAGE_ROLES')) {
         return console.log("No tengo el rol para darte roles, 🐱");
-    if (reaction.message.id === '805506591071666186') {
-        member.roles.remove(bot.getRole(name))
+    } else if (reaction.message.id === careersMsgID) {
+        member.roles.remove(bot.getRoleID(name))
     }
 });
 
