@@ -15,6 +15,9 @@ export class Bot {
         this.commandList.push(new Command("Brinda una lista de materias que se pueden cursar, en función de los códigos de materias aprobados dados", "disponibles"));
         this.commandList.push(new Command("Muestra que materias uno necesita tener aprobado para cursar una en particular", "restantes"));
         this.commandList.push(new Command("Responde con la cantidad de créditos (robados) conseguidos", "creds"));
+        this.commandList.push(new Command("Guarda en el sistema las materias aprobadas", "aprobe"));
+        this.commandList.push(new Command("Quita materias aprobadas del sistema", "recurse"));
+        this.commandList.push(new Command("Muestra la lista de materias aprobadas", "siu"));
     }
 
     public addCommand(command: Command): void {

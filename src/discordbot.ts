@@ -13,6 +13,8 @@ const UNAVAILABLE_COMMAND = "Error, el comando ingresado no existe. La próxima 
 
 const { Client, WebhookClient } = require('discord.js');
 
+var materiasCompletas: string[] = [];
+
 const client = new Client({
     partials: ['MESSAGE', 'REACTION']
 });
@@ -59,6 +61,12 @@ client.on('message', async (message: any) => {
                 reply += code + " " + graphs[11].getSubjectByCode(code).getName() + "\n";
             });
             message.reply(reply);
+        } else if (CMD_NAME == 'aprobe') {
+            materiasCompletas = materiasCompletas.concat(Array.from(args));
+        } else if (CMD_NAME == 'recurse') {
+            materiasCompletas = materiasCompletas.filter((c: string) => !args.includes(c));
+        } else if (CMD_NAME == 'siu') {
+            message.reply(" Usted robó las materias: \n" + materiasCompletas.join("\n"));
         } else if (CMD_NAME == 'restantes') {
             var graphs: SubjectGraph[] = filler.parseAllText();
             message.reply("\n" + graphs[11].subjectCodesNeededFor(args[0]).join("\n"));
