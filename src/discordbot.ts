@@ -59,6 +59,9 @@ client.on('message', async (message: any) => {
                 reply += code + " " + graphs[11].getSubjectByCode(code).getName() + "\n";
             });
             message.reply(reply);
+        } else if (CMD_NAME == 'restantes') {
+            var graphs: SubjectGraph[] = filler.parseAllText();
+            message.reply("\n" + graphs[11].subjectCodesNeededFor(args[0]).join("\n"));
         } else {
             message.reply(UNAVAILABLE_COMMAND);
         }
