@@ -85,44 +85,7 @@ client.on('messageReactionAdd', (reaction: any, user: any) => {
     if (!member.guild.me.hasPermission('MANAGE_ROLES'))
         return console.log("No tengo el rol para darte roles, 🐱");
     if (reaction.message.id === '805506591071666186') {
-        switch (name) { // We are using the emoji unicode
-            case '🌿':
-                member.roles.add('805497434896859156');
-                break;
-            case '🍎':
-                member.roles.add('805497533366534154');
-                break;
-            case '🏦':
-                member.roles.add('805497587171459102');
-                break;
-            case '⚡':
-                member.roles.add('805497633334362112');
-                break;
-            case '🔌':
-                member.roles.add('805497707778408448');
-                break;
-            case '🏭':
-                member.roles.add('805497753035472917');
-                break;
-            case '💾':
-                member.roles.add('805497795318251550');
-                break;
-            case '🛠️':
-                member.roles.add('805497827073064970');
-                break;
-            case '⚓':
-                member.roles.add('805497878265069568');
-                break;
-            case '⛽':
-                member.roles.add('805497925907251200');
-                break;
-            case '🧪':
-                member.roles.add('805497970606604288');
-                break;
-            case '💻':
-                member.roles.add('805498041028313108');
-                break;
-        }
+        member.roles.add(bot.getRole(name))
     }
 });
 
@@ -132,44 +95,7 @@ client.on('messageReactionRemove', (reaction: any, user: any) => {
     if (!member.guild.me.hasPermission('MANAGE_ROLES'))
         return console.log("No tengo el rol para darte roles, 🐱");
     if (reaction.message.id === '805506591071666186') {
-        switch (name) { // We are using the emoji unicode
-            case '🌿':
-                member.roles.remove('805497434896859156');
-                break;
-            case '🍎':
-                member.roles.remove('805497533366534154');
-                break;
-            case '🏦':
-                member.roles.remove('805497587171459102');
-                break;
-            case '⚡':
-                member.roles.remove('805497633334362112');
-                break;
-            case '🔌':
-                member.roles.remove('805497707778408448');
-                break;
-            case '🏭':
-                member.roles.remove('805497753035472917');
-                break;
-            case '💾':
-                member.roles.remove('805497795318251550');
-                break;
-            case '🛠️':
-                member.roles.remove('805497827073064970');
-                break;
-            case '⚓':
-                member.roles.remove('805497878265069568');
-                break;
-            case '⛽':
-                member.roles.remove('805497925907251200');
-                break;
-            case '🧪':
-                member.roles.remove('805497970606604288');
-                break;
-            case '💻':
-                member.roles.remove('805498041028313108');
-                break;
-        }
+        member.roles.remove(bot.getRole(name))
     }
 });
 
