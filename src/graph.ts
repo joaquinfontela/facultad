@@ -129,6 +129,14 @@ export class SubjectGraph {
         return this.adjList.length;
     }
 
+    public getTotalCredits(codes: string[]): number {
+        var creditosAcumulados: number = 0;
+        codes.forEach((s: string) => {
+            creditosAcumulados += Number(this.getSubjectByCode(s).getCredits());
+        });
+        return creditosAcumulados;
+    }
+
     public subjectsICanDo(codes: string[]): string[] {
         var availables: string[] = [];
         var creditosAcumulados: number = 0;

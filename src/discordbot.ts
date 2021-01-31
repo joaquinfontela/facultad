@@ -62,6 +62,9 @@ client.on('message', async (message: any) => {
         } else if (CMD_NAME == 'restantes') {
             var graphs: SubjectGraph[] = filler.parseAllText();
             message.reply("\n" + graphs[11].subjectCodesNeededFor(args[0]).join("\n"));
+        } else if (CMD_NAME == 'creds') {
+            var graphs: SubjectGraph[] = filler.parseAllText();
+            message.reply("\n" + graphs[11].getTotalCredits(args));
         } else {
             message.reply(UNAVAILABLE_COMMAND);
         }
