@@ -7,29 +7,44 @@ export class Subject {
     private name: string;
     private code: string;
     private credits: string;
+    private neededCredits: number;
     private correlativeCodes: string[];
 
     public getCode(): string { return this.code; }
     public getCredits(): string { return this.credits; }
+    public getNeededCredits(): number { return this.neededCredits; }
     public getName(): string { return this.name; }
     public getCorrelatives(): string[] { return this.correlativeCodes; }
+
+    private loadNeededCredits(): void {
+        for (var i = 0; i < this.correlativeCodes.length; i++) {
+            var corr: string = this.correlativeCodes[i];
+            if (corr.substr(0, 4) === "CRED") {
+                this.correlativeCodes = this.correlativeCodes.filter((c: string) => c !== corr);
+                console.log(this.correlativeCodes.toString());
+                this.neededCredits = Number(corr.substr(4, corr.length));
+                return;
+            }
+        }
+    }
 
     public constructor(name: string, code: string, credits: string, correlatives: string[]) {
         this.name = name;
         this.code = code;
         this.credits = credits;
         this.correlativeCodes = correlatives;
+        this.neededCredits = 0;
+        this.loadNeededCredits();
     }
 };
 
 function listConainedInAnother(a: any[], b: any[]): boolean {
-    console.log("Comparando: ", a.toString(), " con: ", b.toString());
-    for (var i = 0; i < a.length; i++) {
-        if (b.includes(a[i])) {
-            return true;
+    for (var i = 0; i < b.length; i++) {
+        if (!a.includes(b[i])) {
+            return false;
         }
     }
-    return false;
+    return true;
 }
 
 export class SubjectGraph {
@@ -62,7 +77,7 @@ export class SubjectGraph {
     public getSubjectByCode(code: string): Subject {
         var value: Subject | undefined = this.searchSubjectByCode(code);
         if (value === undefined) {
-            throw new TypeError("Couldn't find said subject.");
+            throw new TypeError("Couldn't find the subject with code: " + code);
         } else {
             return value;
         }
@@ -116,12 +131,15 @@ export class SubjectGraph {
 
     public subjectsICanDo(codes: string[]): string[] {
         var availables: string[] = [];
+        var creditosAcumulados: number = 0;
+        codes.forEach((s: string) => {
+            creditosAcumulados += Number(this.getSubjectByCode(s).getCredits());
+        });
         for (var i = 0; i < this.adjList.length; i++) {
             let correlatives: string[] = this.adjList[i].getCorrelatives();
-            /*if () {
-                availables.push(this.adjList[i].getCode());
-            }*/
-            if (listConainedInAnother(codes, correlatives)) {
+            if ((listConainedInAnother(codes, correlatives) &&
+                (creditosAcumulados >= this.adjList[i].getNeededCredits())) &&
+                (!codes.includes(this.adjList[i].getCode()))) {
                 availables.push(this.adjList[i].getCode());
             }
         }
