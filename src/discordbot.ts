@@ -3,20 +3,14 @@ require("dotenv").config();
 import { Bot } from "./bot";
 import { GraphFiller } from "./graphfiller";
 import { SubjectGraph } from "./graph";
-import { Channel, MessageEmbed } from "discord.js";
 import { Users } from "./user";
-import { NODATA } from "dns";
 
 const COMMAND_PREFIX = ">";
 const COMMAND_HEADER = "\n```+------ COMANDOS FIUBENSES DISPONIBLES ------+\n\n";
 const COMMAND_FOOTER = "```";
 const UNAVAILABLE_COMMAND = "Error, el comando ingresado no existe. La próxima te mandamos a recursar álgebra."
-const { Client, WebhookClient } = require('discord.js');
+const { Client } = require('discord.js');
 const client = new Client({ partials: ['MESSAGE', 'REACTION'] });
-const webhookClient = new WebhookClient(
-    process.env.WEBHOOK_ID,
-    process.env.WEBHOOK_TOKEN,
-);
 
 var bot: Bot = new Bot();
 const filler: GraphFiller = new GraphFiller("./csv/");
@@ -32,6 +26,7 @@ function destroyClient(): void {
     process.exit();
 }
 
+// Not going for the api rest.
 function getCareerCodes(message: any): number[] {
     var ids: number[] = []
     var careerIds: { [code: string]: number } = bot.getCareerIds();
@@ -45,15 +40,13 @@ function getCareerCodes(message: any): number[] {
     return ids;
 }
 
-function replyWithHelp(message: any): void {
-    message.reply(COMMAND_HEADER + bot.getHelp() + COMMAND_FOOTER);
+function replyWithHelp(): string {
+    return (COMMAND_HEADER + bot.getHelp() + COMMAND_FOOTER);
 }
 
-function availableSubjects(message: any): void {
+function availableSubjects(userid: string, careerCodes: number[]): string {
     var graphs: SubjectGraph[] = filler.parseAllText();
-    var careerCodes: number[] = getCareerCodes(message);
     var reply: string = "\n";
-    var userid: string = message.author.id;
     careerCodes.forEach((id: number) => {
         var answer: string[] = graphs[id].subjectsICanDo(users.getSubjects(userid));
         reply += "Para la carrera de " + bot.getCareerNameFromId(id) + " se puede cursar: \n"
@@ -66,17 +59,14 @@ function availableSubjects(message: any): void {
         }
         reply += "\n";
     });
-    message.reply(reply);
+    return reply;
 }
 
-function remainingSubjects(message: any, args: string[]): void {
+function remainingSubjects(userid: string, careerCodes: number[], args: string[]): string {
     if (Array.from(args).length === 0) {
-        message.reply("Me tenes que pasar algún código para analizar master.");
-        return;
+        return ("Me tenes que pasar algún código para analizar master.");
     }
-    var userid: string = message.author.id;
     var graphs: SubjectGraph[] = filler.parseAllText();
-    var careerCodes: number[] = getCareerCodes(message);
     var ans: string = "";
     careerCodes.forEach((id: number) => {
         ans += "\n En la carrera de " + bot.getCareerNameFromId(id) + " ";
@@ -94,39 +84,28 @@ function remainingSubjects(message: any, args: string[]): void {
             }
         }
     });
-    message.reply(ans);
+    return ans;
 }
 
-function sendCreds(message: any): void {
+function sendCreds(userid: string): string {
     var graphs: SubjectGraph[] = filler.parseAllText();
-    var userid: string = message.author.id;
-    message.reply("\n" + graphs[11].getTotalCredits(users.getSubjects(userid)));
+    return ("\n" + graphs[11].getTotalCredits(users.getSubjects(userid)));
 }
 
-function sendCareersMsj(message: any): void {
-    var channelId: string = message.channel.id;
-    client.channels.cache.get(channelId).send(bot.getRolesMsg()).then(
-        (msg: any) => { careersMsgID = msg.id; });
-}
-
-function addSubjects(message: any, args: string[]): void {
-    var userid: string = message.author.id;
+function addSubjects(userid: string, args: string[]): void {
     users.addSubjects(userid, Array.from(args));
 }
 
-function removeSubjects(message: any, args: string[]): void {
-    var userid: string = message.author.id;
+function removeSubjects(userid: string, args: string[]): void {
     users.removeSubjects(userid, args);
 }
 
-function showSubjects(message: any) {
-    var userid: string = message.author.id;
+function showSubjects(userid: string): string {
     var subj: string[] = users.getSubjects(userid);
     if (subj.length === 0) {
-        message.reply(" Aparentemente no aprobaste nada, fijate en fiubaconsultas");
-    } else {
-        message.reply(" Usted robó las materias: \n" + subj.join(', '));
+        return " Aparentemente no aprobaste nada, fijate en fiubaconsultas";
     }
+    return (" Usted robó las materias: \n" + subj.join(', '));
 }
 
 // Separar el if en varias funciones y parametrizar todo
@@ -142,23 +121,24 @@ client.on('message', async (message: any) => {
             .split(/\s+/);
         CMD_NAME = CMD_NAME.toLowerCase();
         if (CMD_NAME === 'ayuda') {
-            replyWithHelp(message);
+            message.reply(replyWithHelp());
         } else if (CMD_NAME == 'tomatela') {
             destroyClient();
         } else if (CMD_NAME == 'disponibles') {
-            availableSubjects(message);
+            message.reply(availableSubjects(userid, getCareerCodes(message)));
         } else if (CMD_NAME == 'aprobe') {
-            addSubjects(message, args);
+            addSubjects(userid, args);
         } else if (CMD_NAME == 'recurse') {
-            removeSubjects(message, args);
+            removeSubjects(userid, args);
         } else if (CMD_NAME == 'siu') {
-            showSubjects(message);
+            message.reply(showSubjects(userid));
         } else if (CMD_NAME == 'restantes') {
-            remainingSubjects(message, args);
+            message.reply(remainingSubjects(userid, getCareerCodes(message), args));
         } else if (CMD_NAME == 'creds') {
-            sendCreds(message);
+            message.reply(sendCreds(userid));
         } else if (CMD_NAME == 'carreras') {
-            sendCareersMsj(message);
+            client.channels.cache.get(message.channel.id).send(bot.getRolesMsg()).then(
+                (msg: any) => { careersMsgID = msg.id; });
         } else {
             message.reply(UNAVAILABLE_COMMAND);
         }
