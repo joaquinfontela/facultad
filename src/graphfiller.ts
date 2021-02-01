@@ -38,6 +38,7 @@ export class GraphFiller {
      */
     private addToGraph(line: string, graph: SubjectGraph): void {
         var data: string[] = line.split(',');
+        console.log(data.join(','));
         graph.addSubject(new Subject(data[1], data[0], data[2], data[3].split('-')));
     }
 
