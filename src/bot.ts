@@ -2,8 +2,9 @@ import { Command } from './command';
 
 export class Bot {
 
-    // Maps each career from it's unicode id (1-12) to a [unique id, role id, name] tuple
-    private careers: { [code: string]: [number, string, string] } = {};
+    // Maps each career from it's unicode id (1-12) to a [role id, name] tuple
+    private careers: { [code: string]: [string, string] } = {};
+    private careerIds: { [code: string]: number } = {};
     private commandList: Command[];
 
     constructor() {
@@ -36,29 +37,65 @@ export class Bot {
 
 
     public getRoleID(name: string): string {
-        return this.careers[name][1];
+        return this.careers[name][0];
     }
 
     private initializeCareerCodes(): void {
-        this.careers['🌿'] = [1, '805497434896859156', 'agrimensura'];
-        this.careers['🍎'] = [2, '805497533366534154', 'alimentos'];
-        this.careers['🏦'] = [3, '805497587171459102', 'civil'];
-        this.careers['⚡'] = [4, '805497633334362112', 'electrica'];
-        this.careers['🔌'] = [5, '805497707778408448', 'electronica'];
-        this.careers['🏭'] = [6, '805497753035472917', 'industrial'];
-        this.careers['💾'] = [7, '805497795318251550', 'informatica'];
-        this.careers['🛠️'] = [8, '805497827073064970', 'mecanica'];
-        this.careers['⚓'] = [9, '805497878265069568', 'naval'];
-        this.careers['⛽'] = [10, '805497925907251200', 'petroleo'];
-        this.careers['🧪'] = [11, '805497970606604288', 'quimica'];
-        this.careers['💻'] = [12, '805498041028313108', 'sistemas'];
+        this.careers['🌿'] = ['805497434896859156', 'agrimensura'];
+        this.careers['🍎'] = ['805497533366534154', 'alimentos'];
+        this.careers['🏦'] = ['805497587171459102', 'civil'];
+        this.careers['⚡'] = ['805497633334362112', 'electrica'];
+        this.careers['🔌'] = ['805497707778408448', 'electronica'];
+        this.careers['🏭'] = ['805497753035472917', 'industrial'];
+        this.careers['💾'] = ['805497795318251550', 'informatica'];
+        this.careers['🛠️'] = ['805497827073064970', 'mecanica'];
+        this.careers['⚓'] = ['805497878265069568', 'naval'];
+        this.careers['⛽'] = ['805497925907251200', 'petroleo'];
+        this.careers['🧪'] = ['805497970606604288', 'quimica'];
+        this.careers['💻'] = ['805498041028313108', 'sistemas'];
+        this.careerIds['805497434896859156'] = 1;
+        this.careerIds['805497533366534154'] = 2;
+        this.careerIds['805497587171459102'] = 3;
+        this.careerIds['805497633334362112'] = 4;
+        this.careerIds['805497707778408448'] = 5;
+        this.careerIds['805497753035472917'] = 6;
+        this.careerIds['805497795318251550'] = 7;
+        this.careerIds['805497827073064970'] = 8;
+        this.careerIds['805497878265069568'] = 9;
+        this.careerIds['805497925907251200'] = 10;
+        this.careerIds['805497970606604288'] = 11;
+        this.careerIds['805498041028313108'] = 12;
+    }
+
+    public getCareerNameFromId(id: number): string {
+        id += 1;
+        var roleid: string = "";
+        var ans: string = "";
+        Object.keys(this.careerIds).forEach((key: string) => {
+            if (this.careerIds[key] === id) {
+                roleid = key;
+            }
+        });
+        Object.keys(this.careers).forEach((emoji: string) => {
+            console.log(emoji, this.careers[emoji][0], roleid);
+            if (this.careers[emoji][0] === roleid) {
+                ans = this.careers[emoji][1];
+            }
+        });
+        return ans;
+    }
+
+    public getCarrerNumberFromRoleID(id: string): number {
+        return this.careerIds[id];
     }
 
     public getRolesMsg(): string {
         var ans: string = "Para obtener tu rol de carrera reacciona a este mensaje con su emoji correspondiente:\n";
         Object.keys(this.careers).forEach((key: string) => {
-            ans += this.careers[key][2] + "  ⇒  " + key + "\n";
+            ans += this.careers[key][1] + "  ⇒  " + key + "\n";
         });
         return ans;
     }
-}
+
+    public getCareerIds(): { [code: string]: number } { return this.careerIds; }
+}    

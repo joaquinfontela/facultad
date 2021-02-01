@@ -21,7 +21,6 @@ export class Subject {
             var corr: string = this.correlativeCodes[i];
             if (corr.substr(0, 4) === "CRED") {
                 this.correlativeCodes = this.correlativeCodes.filter((c: string) => c !== corr);
-                console.log(this.correlativeCodes.toString());
                 this.neededCredits = Number(corr.substr(4, corr.length));
                 return;
             }

@@ -3,7 +3,7 @@ require("dotenv").config();
 import { Bot } from "./bot";
 import { GraphFiller } from "./graphfiller";
 import { SubjectGraph } from "./graph";
-import { Channel } from "discord.js";
+import { Channel, MessageEmbed } from "discord.js";
 
 var bot: Bot = new Bot();
 const filler: GraphFiller = new GraphFiller("./csv/");
@@ -36,6 +36,19 @@ function destroyClient(): void {
     process.exit();
 }
 
+function getCareerCodes(message: any): number[] {
+    var ids: number[] = []
+    var careerIds: { [code: string]: number } = bot.getCareerIds();
+    Object.keys(careerIds).forEach((key: string) => {
+        if (message.member.roles.cache.has(key)) {
+            ids.push(careerIds[key] - 1);
+            // El -1 es porque se mapean las carreras 
+            // contando desde el cero y no desde el uno
+        }
+    });
+    return ids;
+}
+
 var careersMsgID: string = "";
 
 // Separar el if en varias funciones y parametrizar todo
@@ -43,10 +56,11 @@ var careersMsgID: string = "";
 client.on('message', async (message: any) => {
     if (message.author.bot) return;
     if (message.content.startsWith(COMMAND_PREFIX)) {
-        const [CMD_NAME, ...args] = message.content
+        var [CMD_NAME, ...args] = message.content
             .trim()
             .substring(COMMAND_PREFIX.length)
             .split(/\s+/);
+        CMD_NAME = CMD_NAME.toLowerCase();
         if (CMD_NAME === 'announce') {
             console.log(args);
             var msg: string = args.join(' ');
@@ -58,10 +72,15 @@ client.on('message', async (message: any) => {
             destroyClient();
         } else if (CMD_NAME == 'disponibles') {
             var graphs: SubjectGraph[] = filler.parseAllText();
-            var answer: string[] = graphs[11].subjectsICanDo(materiasCompletas);
-            var reply: string = "Podés cursar: \n";
-            answer.forEach((code: string) => {
-                reply += code + " " + graphs[11].getSubjectByCode(code).getName() + "\n";
+            var careerCodes: number[] = getCareerCodes(message);
+            var reply: string = "\n";
+            careerCodes.forEach((id: number) => {
+                var answer: string[] = graphs[id].subjectsICanDo(materiasCompletas);
+                reply += "Para la carrera de " + bot.getCareerNameFromId(id) + " se puede cursar: \n"
+                answer.forEach((code: string) => {
+                    reply += code + " " + graphs[id].getSubjectByCode(code).getName() + "\n";
+                });
+                reply += "\n";
             });
             message.reply(reply);
         } else if (CMD_NAME == 'aprobe') {
@@ -72,7 +91,13 @@ client.on('message', async (message: any) => {
             message.reply(" Usted robó las materias: \n" + materiasCompletas.join("\n"));
         } else if (CMD_NAME == 'restantes') {
             var graphs: SubjectGraph[] = filler.parseAllText();
-            message.reply("\n" + graphs[11].subjectCodesNeededFor(args[0]).join("\n"));
+            var careerCodes: number[] = getCareerCodes(message);
+            var ans: string = "";
+            careerCodes.forEach((id: number) => {
+                ans += "\n En la carrera " + bot.getCareerNameFromId(id) + " necesita cursar: " +
+                    graphs[id].subjectCodesNeededFor(args[0]).filter((s: string) => !materiasCompletas.includes(s)).join(", ");
+            });
+            message.reply(ans);
         } else if (CMD_NAME == 'creds') {
             var graphs: SubjectGraph[] = filler.parseAllText();
             message.reply("\n" + graphs[11].getTotalCredits(materiasCompletas));
