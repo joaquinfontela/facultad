@@ -1,6 +1,7 @@
 import { Command } from './command';
+import { Credentials } from './credentials';
 
-export class Credentials {
+export class DiscordCredentials implements Credentials {
 
     // Maps each career from it's unicode id (1-12) to a [role id, name] tuple
     private careers: { [code: string]: [string, string] } = {};

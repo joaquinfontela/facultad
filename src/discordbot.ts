@@ -1,13 +1,14 @@
 require("dotenv").config();
 
-import { SubjectGraph } from "./graph";
 import { Bot } from "./bot";
+import { DiscordCredentials } from "./discordcredentials";
 
 const COMMAND_PREFIX = ">";
 const UNAVAILABLE_COMMAND = "Error, el comando ingresado no existe. La próxima te mandamos a recursar álgebra."
 const { Client } = require('discord.js');
 const client = new Client({ partials: ['MESSAGE', 'REACTION'] });
-const bot = new Bot();
+const credentials: DiscordCredentials = new DiscordCredentials();
+const bot = new Bot(credentials);
 var careersMsgID: string = "";
 
 client.on('ready', () => {
@@ -27,7 +28,7 @@ function destroyClient(): void {
  */
 function getCareerCodes(message: any): number[] {
     var ids: number[] = []
-    var careerIds: { [code: string]: number } = bot.getCredentialManager().getCareerIds();
+    var careerIds: { [code: string]: number } = credentials.getCareerIds();
     Object.keys(careerIds).forEach((key: string) => {
         if (message.member.roles.cache.has(key)) {
             ids.push(careerIds[key] - 1);
@@ -65,9 +66,9 @@ client.on('message', async (message: any) => {
         } else if (CMD_NAME == 'restantes') {
             message.reply(bot.remainingSubjects(userid, getCareerCodes(message), args));
         } else if (CMD_NAME == 'creds') {
-            message.reply(bot.sendCreds(userid));
+            message.reply(bot.sendCreds(userid, getCareerCodes(message)));
         } else if (CMD_NAME == 'carreras') {
-            client.channels.cache.get(message.channel.id).send(bot.getCredentialManager().getRolesMsg()).then(
+            client.channels.cache.get(message.channel.id).send(credentials.getRolesMsg()).then(
                 (msg: any) => { careersMsgID = msg.id; });
         } else {
             message.reply(UNAVAILABLE_COMMAND);
@@ -81,7 +82,7 @@ client.on('messageReactionAdd', (reaction: any, user: any) => {
     if (!member.guild.me.hasPermission('MANAGE_ROLES')) {
         return console.log("No tengo el rol para darte roles, 🐱");
     } else if (reaction.message.id === careersMsgID) {
-        member.roles.add(bot.getCredentialManager().getRoleID(name))
+        member.roles.add(credentials.getRoleID(name))
     }
 });
 
@@ -91,7 +92,7 @@ client.on('messageReactionRemove', (reaction: any, user: any) => {
     if (!member.guild.me.hasPermission('MANAGE_ROLES')) {
         return console.log("No tengo el rol para darte roles, 🐱");
     } else if (reaction.message.id === careersMsgID) {
-        member.roles.remove(bot.getCredentialManager().getRoleID(name))
+        member.roles.remove(credentials.getRoleID(name))
     }
 });
 
