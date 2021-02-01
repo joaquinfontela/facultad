@@ -13,33 +13,51 @@ export class Credentials {
         this.initializeCareerCodes();
     }
 
+    /**
+     * Pushes and creates each command.
+     */
     private initializeCommands() {
-        this.commandList.push(new Command("Brinda información de los comandos disponibles.", "ayuda"));
-        this.commandList.push(new Command("Desconecta al bot como, si te obligaran a activar la cámara.", "tomatela"));
-        this.commandList.push(new Command("Brinda una lista de materias que se pueden cursar, en función de los códigos de materias aprobadas dadas", "disponibles"));
-        this.commandList.push(new Command("Muestra que materias uno necesita tener aprobado para cursar una en particular", "restantes"));
-        this.commandList.push(new Command("Responde con la cantidad de créditos (robados) conseguidos", "creds"));
-        this.commandList.push(new Command("Guarda en el sistema las materias aprobadas", "aprobe"));
-        this.commandList.push(new Command("Quita materias aprobadas del sistema", "recurse"));
-        this.commandList.push(new Command("Muestra la lista de materias aprobadas", "siu"));
-        this.commandList.push(new Command("Envia un mensaje con el que cada fiubense puede elegir su rol de carrera. Si sos de letras te bannea", "carreras"));
+        this.addCommand(new Command("Brinda información de los comandos disponibles.", "ayuda"));
+        this.addCommand(new Command("Desconecta al bot como, si te obligaran a activar la cámara.", "tomatela"));
+        this.addCommand(new Command("Brinda una lista de materias que se pueden cursar, en función de los códigos de materias aprobadas dadas", "disponibles"));
+        this.addCommand(new Command("Muestra que materias uno necesita tener aprobado para cursar una en particular", "restantes"));
+        this.addCommand(new Command("Responde con la cantidad de créditos (robados) conseguidos", "creds"));
+        this.addCommand(new Command("Guarda en el sistema las materias aprobadas", "aprobe"));
+        this.addCommand(new Command("Quita materias aprobadas del sistema", "recurse"));
+        this.addCommand(new Command("Muestra la lista de materias aprobadas", "siu"));
+        this.addCommand(new Command("Envia un mensaje con el que cada fiubense puede elegir su rol de carrera. Si sos de letras te bannea", "carreras"));
     }
 
+    /**
+     * 
+     * @param command Command instance to be pushed in the list.
+     */
     public addCommand(command: Command): void {
         this.commandList.push(command);
     }
 
+    /**
+     * @returns Returns a string that concats each command description to its keyword.
+     */
     public getHelp(): string {
         var help: string = "";
         this.commandList.forEach((c: Command) => { help += c.getDescription() + "\n" });
         return help;
     }
 
-
+    /**
+     * 
+     * @param name Career emoji key. Unicode encoded. 
+     * 
+     * @returns Returns role id from said key.
+     */
     public getRoleID(name: string): string {
         return this.careers[name][0];
     }
 
+    /**
+     * Initializes the dict with each career values.
+     */
     private initializeCareerCodes(): void {
         this.careers['🌿'] = ['805497434896859156', 'agrimensura'];
         this.careers['🍎'] = ['805497533366534154', 'alimentos'];
@@ -61,6 +79,12 @@ export class Credentials {
         });
     }
 
+    /**
+     * 
+     * @param id Career id. Number between 0 and 11.
+     * 
+     * @returns Return said career's name from the dict.
+     */
     public getCareerNameFromId(id: number): string {
         id += 1;
         var roleid: string = "";
@@ -78,10 +102,19 @@ export class Credentials {
         return ans;
     }
 
+    /**
+     * 
+     * @param id Career's role id.
+     * 
+     * @returns Returns the career id. Number between 0 and 11.
+     */
     public getCarrerNumberFromRoleID(id: string): number {
         return this.careerIds[id];
     }
 
+    /**
+     * @returns Returns a string that maps every career's name to it's unicode key.
+     */
     public getRolesMsg(): string {
         var ans: string = "Para obtener tu rol de carrera reacciona a este mensaje con su emoji correspondiente:\n";
         Object.keys(this.careers).forEach((key: string) => {
@@ -90,5 +123,8 @@ export class Credentials {
         return ans;
     }
 
+    /**
+     * @returns Returns the dictionary of career ids.
+     */
     public getCareerIds(): { [code: string]: number } { return this.careerIds; }
 }    
