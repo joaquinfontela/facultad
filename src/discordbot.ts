@@ -27,6 +27,11 @@ function destroyClient(): void {
 }
 
 // Not going for the api rest.
+
+/**
+ * Devuelve una lista de números, del 0 al 11, que representan las doce
+ * carreras, en orden alfabético.
+ */
 function getCareerCodes(message: any): number[] {
     var ids: number[] = []
     var careerIds: { [code: string]: number } = bot.getCareerIds();
