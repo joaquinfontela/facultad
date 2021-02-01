@@ -74,6 +74,7 @@ export class Users {
      * @param tokill List of subjects to remove from said user.
      */
     public removeSubjects(id: string, tokill: string[]): void {
+        if (tokill.length === 0) return;
         tokill = tokill.map((s: string) => s.toUpperCase());
         return this.removeValue(id, MATERIAS, tokill);
     }
@@ -118,6 +119,7 @@ export class Users {
      * @param subjects List of subjects to add to user.
      */
     public addSubjects(id: string, subjects: string[]): void {
+        if (subjects.length === 0) return;
         subjects = subjects.map((s: string) => s.toUpperCase());
         return this.addValue(id, MATERIAS, subjects);
     }
