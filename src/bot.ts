@@ -3,8 +3,7 @@ import { Users } from "./user";
 import { GraphFiller } from "./graphfiller";
 import { Subject, SubjectGraph } from "./graph";
 
-const COMMAND_HEADER = "\n```    +------ COMANDOS FIUBENSES DISPONIBLES ------+\n\n";
-const COMMAND_FOOTER = "```";
+const COMMAND_HEADER = "\n    +------ COMANDOS FIUBENSES DISPONIBLES ------+\n\n";
 
 export class Bot {
 
@@ -35,7 +34,7 @@ export class Bot {
      * @returns Returns help to the user.
      */
     public replyWithHelp(): string {
-        return (COMMAND_HEADER + this.credentialsManager.getHelp() + COMMAND_FOOTER);
+        return (COMMAND_HEADER + this.credentialsManager.getHelp());
     }
 
     /**

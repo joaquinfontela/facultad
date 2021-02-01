@@ -3,12 +3,18 @@ require("dotenv").config();
 import { Bot } from "./bot";
 import { DiscordCredentials } from "./discordcredentials";
 
-const COMMAND_PREFIX = ">";
+const COMMAND_PREFIX = "!";
 const UNAVAILABLE_COMMAND = "Error, el comando ingresado no existe. La próxima te mandamos a recursar álgebra."
 const { Client } = require('discord.js');
 const client = new Client({ partials: ['MESSAGE', 'REACTION'] });
 const credentials: DiscordCredentials = new DiscordCredentials();
 const bot = new Bot(credentials);
+const RED: string = "```diff\n";
+const ORANGE: string = "```css\n";
+const YELLOW: string = "```fix\n";
+const BLUE: string = "```init\n";
+const GREEN: string = "```json\n";
+const END_COLOR: string = "\n```";
 var careersMsgID: string = "";
 
 client.on('ready', () => {
@@ -52,26 +58,26 @@ client.on('message', async (message: any) => {
             .split(/\s+/);
         CMD_NAME = CMD_NAME.toLowerCase();
         if (CMD_NAME === 'ayuda') {
-            message.reply(bot.replyWithHelp());
+            message.reply(YELLOW + bot.replyWithHelp() + END_COLOR);
         } else if (CMD_NAME == 'tomatela') {
             destroyClient();
         } else if (CMD_NAME == 'disponibles') {
-            message.reply(bot.availableSubjects(userid, getCareerCodes(message)));
+            message.reply(ORANGE + bot.availableSubjects(userid, getCareerCodes(message)) + END_COLOR);
         } else if (CMD_NAME == 'aprobe') {
             bot.addSubjects(userid, args);
         } else if (CMD_NAME == 'recurse') {
             bot.removeSubjects(userid, args);
         } else if (CMD_NAME == 'siu') {
-            message.reply(bot.showSubjects(userid));
+            message.reply(GREEN + bot.showSubjects(userid) + END_COLOR);
         } else if (CMD_NAME == 'restantes') {
-            message.reply(bot.remainingSubjects(userid, getCareerCodes(message), args));
+            message.reply(BLUE + bot.remainingSubjects(userid, getCareerCodes(message), args) + END_COLOR);
         } else if (CMD_NAME == 'creds') {
             message.reply(bot.sendCreds(userid, getCareerCodes(message)));
         } else if (CMD_NAME == 'carreras') {
             client.channels.cache.get(message.channel.id).send(credentials.getRolesMsg()).then(
                 (msg: any) => { careersMsgID = msg.id; });
         } else {
-            message.reply(UNAVAILABLE_COMMAND);
+            message.reply(RED + UNAVAILABLE_COMMAND + END_COLOR);
         }
     }
 });
