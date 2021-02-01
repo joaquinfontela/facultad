@@ -56,11 +56,4 @@ export class Users {
         return this.addValue(id, MATERIAS, subjects);
     }
 
-    public save(): void {
-
-    }
-
-    public load(): void {
-
-    }
 }

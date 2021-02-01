@@ -74,7 +74,7 @@ client.on('message', async (message: any) => {
                 var answer: string[] = graphs[id].subjectsICanDo(users.getSubjects(userid));
                 reply += "Para la carrera de " + bot.getCareerNameFromId(id) + " se puede cursar: \n"
                 if (answer.length === 0) {
-                    reply += "nada, anda a estudiar vago";
+                    reply += "nada, anda a estudiar vago\n";
                 } else {
                     answer.forEach((code: string) => {
                         reply += code + " " + graphs[id].getSubjectByCode(code).getName() + "\n";
