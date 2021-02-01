@@ -9,6 +9,7 @@ const RESET = "\x1b[0m";
 export class GraphFiller {
 
     private pathname: string;
+    private graphs: SubjectGraph[] = [];
 
     /**
      * 
@@ -45,15 +46,17 @@ export class GraphFiller {
      * be valid text files.
      */
     public parseAllText(): SubjectGraph[] {
-        var graphs: SubjectGraph[] = [];
+        if (this.graphs.length !== 0) {
+            return this.graphs;
+        }
         fs.readdirSync(this.pathname).forEach((file: string) => {
             console.log(BLUE + "reading: ", this.pathname + file + RESET);
             var graph: SubjectGraph = new SubjectGraph();
             this.parseText(file, graph);
-            graphs.push(graph);
+            this.graphs.push(graph);
             console.log(graph.size());
         });
-        return graphs;
+        return this.graphs;
     }
 
 }

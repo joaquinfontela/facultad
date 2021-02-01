@@ -5,28 +5,23 @@ import { GraphFiller } from "./graphfiller";
 import { SubjectGraph } from "./graph";
 import { Channel, MessageEmbed } from "discord.js";
 import { Users } from "./user";
+import { NODATA } from "dns";
 
-var bot: Bot = new Bot();
-const filler: GraphFiller = new GraphFiller("./csv/");
-
+const COMMAND_PREFIX = ">";
 const COMMAND_HEADER = "\n```+------ COMANDOS FIUBENSES DISPONIBLES ------+\n\n";
 const COMMAND_FOOTER = "```";
 const UNAVAILABLE_COMMAND = "Error, el comando ingresado no existe. La próxima te mandamos a recursar álgebra."
-
 const { Client, WebhookClient } = require('discord.js');
-
-var users: Users = new Users();
-
-const client = new Client({
-    partials: ['MESSAGE', 'REACTION']
-});
-
+const client = new Client({ partials: ['MESSAGE', 'REACTION'] });
 const webhookClient = new WebhookClient(
     process.env.WEBHOOK_ID,
     process.env.WEBHOOK_TOKEN,
 );
 
-const COMMAND_PREFIX = ">";
+var bot: Bot = new Bot();
+const filler: GraphFiller = new GraphFiller("./csv/");
+var users: Users = new Users();
+var careersMsgID: string = "";
 
 client.on('ready', () => {
     console.log(`${client.user.tag} has logged in.`);
@@ -49,8 +44,6 @@ function getCareerCodes(message: any): number[] {
     });
     return ids;
 }
-
-var careersMsgID: string = "";
 
 // Separar el if en varias funciones y parametrizar todo
 // con lambdas para achicar la función.
@@ -80,9 +73,13 @@ client.on('message', async (message: any) => {
             careerCodes.forEach((id: number) => {
                 var answer: string[] = graphs[id].subjectsICanDo(users.getSubjects(userid));
                 reply += "Para la carrera de " + bot.getCareerNameFromId(id) + " se puede cursar: \n"
-                answer.forEach((code: string) => {
-                    reply += code + " " + graphs[id].getSubjectByCode(code).getName() + "\n";
-                });
+                if (answer.length === 0) {
+                    reply += "nada, anda a estudiar vago";
+                } else {
+                    answer.forEach((code: string) => {
+                        reply += code + " " + graphs[id].getSubjectByCode(code).getName() + "\n";
+                    });
+                }
                 reply += "\n";
             });
             message.reply(reply);

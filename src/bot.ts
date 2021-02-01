@@ -71,7 +71,6 @@ export class Bot {
             }
         });
         Object.keys(this.careers).forEach((emoji: string) => {
-            console.log(emoji, this.careers[emoji][0], roleid);
             if (this.careers[emoji][0] === roleid) {
                 ans = this.careers[emoji][1];
             }
