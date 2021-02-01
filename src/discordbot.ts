@@ -45,6 +45,90 @@ function getCareerCodes(message: any): number[] {
     return ids;
 }
 
+function replyWithHelp(message: any): void {
+    message.reply(COMMAND_HEADER + bot.getHelp() + COMMAND_FOOTER);
+}
+
+function availableSubjects(message: any): void {
+    var graphs: SubjectGraph[] = filler.parseAllText();
+    var careerCodes: number[] = getCareerCodes(message);
+    var reply: string = "\n";
+    var userid: string = message.author.id;
+    careerCodes.forEach((id: number) => {
+        var answer: string[] = graphs[id].subjectsICanDo(users.getSubjects(userid));
+        reply += "Para la carrera de " + bot.getCareerNameFromId(id) + " se puede cursar: \n"
+        if (answer.length === 0) {
+            reply += "nada, anda a estudiar vago\n";
+        } else {
+            answer.forEach((code: string) => {
+                reply += code + " " + graphs[id].getSubjectByCode(code).getName() + "\n";
+            });
+        }
+        reply += "\n";
+    });
+    message.reply(reply);
+}
+
+function remainingSubjects(message: any, args: string[]): void {
+    if (Array.from(args).length === 0) {
+        message.reply("Me tenes que pasar algún código para analizar master.");
+        return;
+    }
+    var userid: string = message.author.id;
+    var graphs: SubjectGraph[] = filler.parseAllText();
+    var careerCodes: number[] = getCareerCodes(message);
+    var ans: string = "";
+    careerCodes.forEach((id: number) => {
+        ans += "\n En la carrera de " + bot.getCareerNameFromId(id) + " ";
+        if (graphs[id].searchSubjectByCode(args[0]) === undefined) {
+            ans += "no existe la materia de código: " + args[0];
+        } else if (users.getSubjects(userid).includes(args[0])) {
+            ans += "ya aprobó la materia."
+        } else {
+            var aCursar: string[] = graphs[id].subjectCodesNeededFor(args[0]).filter(
+                (s: string) => !users.getSubjects(userid).includes(s));
+            if (aCursar.length === 0) {
+                ans += "ya puede cursar la materia ingresada.";
+            } else {
+                ans += "necesita cursar: " + aCursar.join(', ');
+            }
+        }
+    });
+    message.reply(ans);
+}
+
+function sendCreds(message: any): void {
+    var graphs: SubjectGraph[] = filler.parseAllText();
+    var userid: string = message.author.id;
+    message.reply("\n" + graphs[11].getTotalCredits(users.getSubjects(userid)));
+}
+
+function sendCareersMsj(message: any): void {
+    var channelId: string = message.channel.id;
+    client.channels.cache.get(channelId).send(bot.getRolesMsg()).then(
+        (msg: any) => { careersMsgID = msg.id; });
+}
+
+function addSubjects(message: any, args: string[]): void {
+    var userid: string = message.author.id;
+    users.addSubjects(userid, Array.from(args));
+}
+
+function removeSubjects(message: any, args: string[]): void {
+    var userid: string = message.author.id;
+    users.removeSubjects(userid, args);
+}
+
+function showSubjects(message: any) {
+    var userid: string = message.author.id;
+    var subj: string[] = users.getSubjects(userid);
+    if (subj.length === 0) {
+        message.reply(" Aparentemente no aprobaste nada, fijate en fiubaconsultas");
+    } else {
+        message.reply(" Usted robó las materias: \n" + subj.join(', '));
+    }
+}
+
 // Separar el if en varias funciones y parametrizar todo
 // con lambdas para achicar la función.
 client.on('message', async (message: any) => {
@@ -57,70 +141,24 @@ client.on('message', async (message: any) => {
             .substring(COMMAND_PREFIX.length)
             .split(/\s+/);
         CMD_NAME = CMD_NAME.toLowerCase();
-        if (CMD_NAME === 'announce') {
-            console.log(args);
-            var msg: string = args.join(' ');
-            console.log(msg);
-            webhookClient.send(msg);
-        } else if (CMD_NAME === 'ayuda') {
-            message.reply(COMMAND_HEADER + bot.getHelp() + COMMAND_FOOTER);
+        if (CMD_NAME === 'ayuda') {
+            replyWithHelp(message);
         } else if (CMD_NAME == 'tomatela') {
             destroyClient();
         } else if (CMD_NAME == 'disponibles') {
-            var graphs: SubjectGraph[] = filler.parseAllText();
-            var careerCodes: number[] = getCareerCodes(message);
-            var reply: string = "\n";
-            careerCodes.forEach((id: number) => {
-                var answer: string[] = graphs[id].subjectsICanDo(users.getSubjects(userid));
-                reply += "Para la carrera de " + bot.getCareerNameFromId(id) + " se puede cursar: \n"
-                if (answer.length === 0) {
-                    reply += "nada, anda a estudiar vago\n";
-                } else {
-                    answer.forEach((code: string) => {
-                        reply += code + " " + graphs[id].getSubjectByCode(code).getName() + "\n";
-                    });
-                }
-                reply += "\n";
-            });
-            message.reply(reply);
+            availableSubjects(message);
         } else if (CMD_NAME == 'aprobe') {
-            users.addSubjects(userid, Array.from(args));
+            addSubjects(message, args);
         } else if (CMD_NAME == 'recurse') {
-            users.removeSubjects(userid, args);
+            removeSubjects(message, args);
         } else if (CMD_NAME == 'siu') {
-            message.reply(" Usted robó las materias: \n" + users.getSubjects(userid));
+            showSubjects(message);
         } else if (CMD_NAME == 'restantes') {
-            if (Array.from(args).length === 0) {
-                message.reply("Me tenes que pasar algún código para analizar master.");
-                return;
-            }
-            var graphs: SubjectGraph[] = filler.parseAllText();
-            var careerCodes: number[] = getCareerCodes(message);
-            var ans: string = "";
-            careerCodes.forEach((id: number) => {
-                ans += "\n En la carrera de " + bot.getCareerNameFromId(id) + " ";
-                if (graphs[id].searchSubjectByCode(args[0]) === undefined) {
-                    ans += "no existe la materia de código: " + args[0];
-                } else if (users.getSubjects(userid).includes(args[0])) {
-                    ans += "ya aprobó la materia."
-                } else {
-                    var aCursar: string[] = graphs[id].subjectCodesNeededFor(args[0]).filter(
-                        (s: string) => !users.getSubjects(userid).includes(s));
-                    if (aCursar.length === 0) {
-                        ans += "ya puede cursar la materia ingresada.";
-                    } else {
-                        ans += "necesita cursar: " + aCursar.join(', ');
-                    }
-                }
-            });
-            message.reply(ans);
+            remainingSubjects(message, args);
         } else if (CMD_NAME == 'creds') {
-            var graphs: SubjectGraph[] = filler.parseAllText();
-            message.reply("\n" + graphs[11].getTotalCredits(users.getSubjects(userid)));
+            sendCreds(message);
         } else if (CMD_NAME == 'carreras') {
-            var channelId: string = message.channel.id;
-            client.channels.cache.get(channelId).send(bot.getRolesMsg()).then(
-                (msg: any) => { careersMsgID = msg.id; });
+            sendCareersMsj(message);
         } else {
             message.reply(UNAVAILABLE_COMMAND);
         }

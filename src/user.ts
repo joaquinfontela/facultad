@@ -1,3 +1,5 @@
+import { WSAEDQUOT } from "constants";
+
 const MATERIAS: number = 0;
 const ROLES: number = 1;
 
@@ -34,6 +36,7 @@ export class Users {
     }
 
     public removeSubjects(id: string, tokill: string[]): void {
+        tokill = tokill.map((s: string) => s.toUpperCase());
         return this.removeValue(id, MATERIAS, tokill);
     }
 
