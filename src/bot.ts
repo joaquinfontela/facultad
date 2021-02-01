@@ -1,7 +1,7 @@
 import { Credentials } from "./credentialsmanager";
 import { Users } from "./user";
 import { GraphFiller } from "./graphfiller";
-import { SubjectGraph } from "./graph";
+import { Subject, SubjectGraph } from "./graph";
 
 const COMMAND_HEADER = "\n```    +------ COMANDOS FIUBENSES DISPONIBLES ------+\n\n";
 const COMMAND_FOOTER = "```";
@@ -35,7 +35,12 @@ export class Bot {
                 reply += "nada, anda a estudiar vago\n";
             } else {
                 answer.forEach((code: string) => {
-                    reply += code + " " + graphs[id].getSubjectByCode(code).getName() + "\n";
+                    var subj: Subject | undefined = graphs[id].searchSubjectByCode(code);
+                    if (subj === undefined) {
+                        reply += " no se encontró el código: " + code + "\n";
+                    } else {
+                        reply += code + " " + subj.getName() + "\n";
+                    }
                 });
             }
             reply += "\n";

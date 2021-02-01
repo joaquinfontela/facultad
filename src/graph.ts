@@ -73,21 +73,23 @@ export class SubjectGraph {
      * 
      * @param code String that represents the code of the subject to be searched. 
      */
-    public getSubjectByCode(code: string): Subject {
+    /*public getSubjectByCode(code: string): Subject {
         var value: Subject | undefined = this.searchSubjectByCode(code);
         if (value === undefined) {
             throw new TypeError("Couldn't find the subject with code: " + code);
         } else {
             return value;
         }
-    }
+    }*/
 
     /**
      * 
      * @param code Code of the subjects correlative list to be returned.
      */
     public getCorrelatives(code: string): string[] {
-        return this.getSubjectByCode(code).getCorrelatives();
+        var subj: Subject | undefined = this.searchSubjectByCode(code);
+        if (subj === undefined) return [];
+        return subj.getCorrelatives();
     }
 
     /**
@@ -101,7 +103,9 @@ export class SubjectGraph {
             var correlativeString: string = "";
             var correlatives: string[] = subject.getCorrelatives();
             correlatives.forEach((code: string) => {
-                correlativeString += " -> " + this.getSubjectByCode(code).getName();
+                var subj: Subject | undefined = this.searchSubjectByCode(code);
+                if (subj === undefined) return;
+                correlativeString += " -> " + subj.getName();
             });
             console.log(subject.getName() + correlativeString);
         }
@@ -131,17 +135,17 @@ export class SubjectGraph {
     public getTotalCredits(codes: string[]): number {
         var creditosAcumulados: number = 0;
         codes.forEach((s: string) => {
-            creditosAcumulados += Number(this.getSubjectByCode(s).getCredits());
+            var subj: Subject | undefined = this.searchSubjectByCode(s);
+            if (subj !== undefined) {
+                creditosAcumulados += Number(subj.getCredits());
+            }
         });
         return creditosAcumulados;
     }
 
     public subjectsICanDo(codes: string[]): string[] {
         var availables: string[] = [];
-        var creditosAcumulados: number = 0;
-        codes.forEach((s: string) => {
-            creditosAcumulados += Number(this.getSubjectByCode(s).getCredits());
-        });
+        var creditosAcumulados: number = this.getTotalCredits(codes);
         for (var i = 0; i < this.adjList.length; i++) {
             let correlatives: string[] = this.adjList[i].getCorrelatives();
             if ((listConainedInAnother(codes, correlatives) &&
@@ -153,26 +157,3 @@ export class SubjectGraph {
         return availables;
     }
 }
-
-function test(): void {
-    var graph: SubjectGraph = new SubjectGraph();
-    var a1: Subject = new Subject("analisis 1", "A1", "10", []);
-    var a2: Subject = new Subject("analisis 2", "A2", "20", ["A1"]);
-    var a3: Subject = new Subject("analisis 3", "A3", "40", ["A2"]);
-    var av: Subject = new Subject("algebra super-vectorial", "AV", "30", ["A2"]);
-    var final: Subject = new Subject("gg", "FF", "90", ["AV", "A3"]);
-    var f1: Subject = new Subject("fisica 1", "F1", "10", []);
-    var f2: Subject = new Subject("fisica 2", "F2", "10", ["F1"]);
-    graph.addSubject(a1);
-    graph.addSubject(a2);
-    graph.addSubject(a3);
-    graph.addSubject(av);
-    graph.addSubject(final);
-    graph.addSubject(f1);
-    graph.addSubject(f2);
-    //graph.printGraph();
-    //console.log(graph.subjectCodesNeededFor("FF").toString());
-    console.log(graph.subjectsICanDo(["A2", "F1"]).toString());
-}
-
-//test();
