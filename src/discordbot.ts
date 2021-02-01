@@ -66,7 +66,7 @@ client.on('message', async (message: any) => {
             var msg: string = args.join(' ');
             console.log(msg);
             webhookClient.send(msg);
-        } else if (CMD_NAME === 'help') {
+        } else if (CMD_NAME === 'ayuda') {
             message.reply(COMMAND_HEADER + bot.getHelp() + COMMAND_FOOTER);
         } else if (CMD_NAME == 'tomatela') {
             destroyClient();

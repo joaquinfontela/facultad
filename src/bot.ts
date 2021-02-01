@@ -53,18 +53,12 @@ export class Bot {
         this.careers['⛽'] = ['805497925907251200', 'petroleo'];
         this.careers['🧪'] = ['805497970606604288', 'quimica'];
         this.careers['💻'] = ['805498041028313108', 'sistemas'];
-        this.careerIds['805497434896859156'] = 1;
-        this.careerIds['805497533366534154'] = 2;
-        this.careerIds['805497587171459102'] = 3;
-        this.careerIds['805497633334362112'] = 4;
-        this.careerIds['805497707778408448'] = 5;
-        this.careerIds['805497753035472917'] = 6;
-        this.careerIds['805497795318251550'] = 7;
-        this.careerIds['805497827073064970'] = 8;
-        this.careerIds['805497878265069568'] = 9;
-        this.careerIds['805497925907251200'] = 10;
-        this.careerIds['805497970606604288'] = 11;
-        this.careerIds['805498041028313108'] = 12;
+
+        var i: number = 1;
+        Object.keys(this.careers).forEach((emoji: string) => {
+            this.careerIds[this.careers[emoji][0]] = i;
+            i++;
+        });
     }
 
     public getCareerNameFromId(id: number): string {
