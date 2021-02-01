@@ -3,7 +3,7 @@ import { Users } from "./user";
 import { GraphFiller } from "./graphfiller";
 import { SubjectGraph } from "./graph";
 
-const COMMAND_HEADER = "\n```+------ COMANDOS FIUBENSES DISPONIBLES ------+\n\n";
+const COMMAND_HEADER = "\n```    +------ COMANDOS FIUBENSES DISPONIBLES ------+\n\n";
 const COMMAND_FOOTER = "```";
 
 export class Bot {
@@ -23,6 +23,9 @@ export class Bot {
     }
 
     public availableSubjects(userid: string, careerCodes: number[]): string {
+        if (careerCodes.length === 0) {
+            return "Te tenes que anotar en alguna materia (pst, andate a la utn si podes)";
+        }
         var graphs: SubjectGraph[] = this.filler.parseAllText();
         var reply: string = "\n";
         careerCodes.forEach((id: number) => {
@@ -42,7 +45,9 @@ export class Bot {
 
     public remainingSubjects(userid: string, careerCodes: number[], args: string[]): string {
         if (Array.from(args).length === 0) {
-            return ("Me tenes que pasar algún código para analizar master.");
+            return "Me tenes que pasar algún código para analizar master.";
+        } else if (careerCodes.length === 0) {
+            return "Te tenes que anotar en alguna materia (pst, andate a la utn si podes)";
         }
         var graphs: SubjectGraph[] = this.filler.parseAllText();
         var ans: string = "";
@@ -81,7 +86,7 @@ export class Bot {
     public showSubjects(userid: string): string {
         var subj: string[] = this.users.getSubjects(userid);
         if (subj.length === 0) {
-            return " Aparentemente no aprobaste nada, fijate en fiubaconsultas";
+            return " Aparentemente no aprobaste nada, ojo y fijate en fiubaconsultas eh";
         }
         return (" Usted robó las materias: \n" + subj.join(', '));
     }
