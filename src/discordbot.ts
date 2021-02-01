@@ -94,8 +94,20 @@ client.on('message', async (message: any) => {
             var careerCodes: number[] = getCareerCodes(message);
             var ans: string = "";
             careerCodes.forEach((id: number) => {
-                ans += "\n En la carrera " + bot.getCareerNameFromId(id) + " necesita cursar: " +
-                    graphs[id].subjectCodesNeededFor(args[0]).filter((s: string) => !materiasCompletas.includes(s)).join(", ");
+                ans += "\n En la carrera de " + bot.getCareerNameFromId(id) + " ";
+                if (graphs[id].searchSubjectByCode(args[0]) === undefined) {
+                    ans += "no existe la materia de código: " + args[0];
+                } else if (materiasCompletas.includes(args[0])) {
+                    ans += "ya aprobó la materia."
+                } else {
+                    var aCursar: string[] = graphs[id].subjectCodesNeededFor(args[0]).filter(
+                        (s: string) => !materiasCompletas.includes(s));
+                    if (aCursar.length === 0) {
+                        ans += "ya puede cursar la materia ingresada.";
+                    } else {
+                        ans += "necesita cursar: " + aCursar.join(', ');
+                    }
+                }
             });
             message.reply(ans);
         } else if (CMD_NAME == 'creds') {

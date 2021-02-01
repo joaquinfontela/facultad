@@ -63,7 +63,7 @@ export class SubjectGraph {
      * 
      * @returns Subject or undefined whether the subject was found or not.
      */
-    private searchSubjectByCode(code: string): Subject | undefined {
+    public searchSubjectByCode(code: string): Subject | undefined {
         return this.adjList.find((s: Subject) => s.getCode() === code);
     }
 
