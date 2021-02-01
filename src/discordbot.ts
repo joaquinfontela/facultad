@@ -1,6 +1,6 @@
 require("dotenv").config();
 
-import { Bot } from "./bot";
+import { Credentials } from "./credentialsmanager";
 import { GraphFiller } from "./graphfiller";
 import { SubjectGraph } from "./graph";
 import { Users } from "./user";
@@ -12,7 +12,7 @@ const UNAVAILABLE_COMMAND = "Error, el comando ingresado no existe. La próxima 
 const { Client } = require('discord.js');
 const client = new Client({ partials: ['MESSAGE', 'REACTION'] });
 
-var bot: Bot = new Bot();
+var credentialsManager: Credentials = new Credentials();
 const filler: GraphFiller = new GraphFiller("./csv/");
 var users: Users = new Users();
 var careersMsgID: string = "";
@@ -34,7 +34,7 @@ function destroyClient(): void {
  */
 function getCareerCodes(message: any): number[] {
     var ids: number[] = []
-    var careerIds: { [code: string]: number } = bot.getCareerIds();
+    var careerIds: { [code: string]: number } = credentialsManager.getCareerIds();
     Object.keys(careerIds).forEach((key: string) => {
         if (message.member.roles.cache.has(key)) {
             ids.push(careerIds[key] - 1);
@@ -46,7 +46,7 @@ function getCareerCodes(message: any): number[] {
 }
 
 function replyWithHelp(): string {
-    return (COMMAND_HEADER + bot.getHelp() + COMMAND_FOOTER);
+    return (COMMAND_HEADER + credentialsManager.getHelp() + COMMAND_FOOTER);
 }
 
 function availableSubjects(userid: string, careerCodes: number[]): string {
@@ -54,7 +54,7 @@ function availableSubjects(userid: string, careerCodes: number[]): string {
     var reply: string = "\n";
     careerCodes.forEach((id: number) => {
         var answer: string[] = graphs[id].subjectsICanDo(users.getSubjects(userid));
-        reply += "Para la carrera de " + bot.getCareerNameFromId(id) + " se puede cursar: \n"
+        reply += "Para la carrera de " + credentialsManager.getCareerNameFromId(id) + " se puede cursar: \n"
         if (answer.length === 0) {
             reply += "nada, anda a estudiar vago\n";
         } else {
@@ -74,7 +74,7 @@ function remainingSubjects(userid: string, careerCodes: number[], args: string[]
     var graphs: SubjectGraph[] = filler.parseAllText();
     var ans: string = "";
     careerCodes.forEach((id: number) => {
-        ans += "\n En la carrera de " + bot.getCareerNameFromId(id) + " ";
+        ans += "\n En la carrera de " + credentialsManager.getCareerNameFromId(id) + " ";
         if (graphs[id].searchSubjectByCode(args[0]) === undefined) {
             ans += "no existe la materia de código: " + args[0];
         } else if (users.getSubjects(userid).includes(args[0])) {
@@ -142,7 +142,7 @@ client.on('message', async (message: any) => {
         } else if (CMD_NAME == 'creds') {
             message.reply(sendCreds(userid));
         } else if (CMD_NAME == 'carreras') {
-            client.channels.cache.get(message.channel.id).send(bot.getRolesMsg()).then(
+            client.channels.cache.get(message.channel.id).send(credentialsManager.getRolesMsg()).then(
                 (msg: any) => { careersMsgID = msg.id; });
         } else {
             message.reply(UNAVAILABLE_COMMAND);
@@ -156,7 +156,7 @@ client.on('messageReactionAdd', (reaction: any, user: any) => {
     if (!member.guild.me.hasPermission('MANAGE_ROLES')) {
         return console.log("No tengo el rol para darte roles, 🐱");
     } else if (reaction.message.id === careersMsgID) {
-        member.roles.add(bot.getRoleID(name))
+        member.roles.add(credentialsManager.getRoleID(name))
     }
 });
 
@@ -166,7 +166,7 @@ client.on('messageReactionRemove', (reaction: any, user: any) => {
     if (!member.guild.me.hasPermission('MANAGE_ROLES')) {
         return console.log("No tengo el rol para darte roles, 🐱");
     } else if (reaction.message.id === careersMsgID) {
-        member.roles.remove(bot.getRoleID(name))
+        member.roles.remove(credentialsManager.getRoleID(name))
     }
 });
 
