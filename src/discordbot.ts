@@ -4,6 +4,7 @@ import { Bot } from "./bot";
 import { GraphFiller } from "./graphfiller";
 import { SubjectGraph } from "./graph";
 import { Channel, MessageEmbed } from "discord.js";
+import { Users } from "./user";
 
 var bot: Bot = new Bot();
 const filler: GraphFiller = new GraphFiller("./csv/");
@@ -14,7 +15,7 @@ const UNAVAILABLE_COMMAND = "Error, el comando ingresado no existe. La próxima 
 
 const { Client, WebhookClient } = require('discord.js');
 
-var materiasCompletas: string[] = [];
+var users: Users = new Users();
 
 const client = new Client({
     partials: ['MESSAGE', 'REACTION']
@@ -55,6 +56,8 @@ var careersMsgID: string = "";
 // con lambdas para achicar la función.
 client.on('message', async (message: any) => {
     if (message.author.bot) return;
+    var userid: string = message.author.id;
+    users.addUser(message.author.id);
     if (message.content.startsWith(COMMAND_PREFIX)) {
         var [CMD_NAME, ...args] = message.content
             .trim()
@@ -75,7 +78,7 @@ client.on('message', async (message: any) => {
             var careerCodes: number[] = getCareerCodes(message);
             var reply: string = "\n";
             careerCodes.forEach((id: number) => {
-                var answer: string[] = graphs[id].subjectsICanDo(materiasCompletas);
+                var answer: string[] = graphs[id].subjectsICanDo(users.getSubjects(userid));
                 reply += "Para la carrera de " + bot.getCareerNameFromId(id) + " se puede cursar: \n"
                 answer.forEach((code: string) => {
                     reply += code + " " + graphs[id].getSubjectByCode(code).getName() + "\n";
@@ -84,12 +87,16 @@ client.on('message', async (message: any) => {
             });
             message.reply(reply);
         } else if (CMD_NAME == 'aprobe') {
-            materiasCompletas = materiasCompletas.concat(Array.from(args));
+            users.addSubjects(userid, Array.from(args));
         } else if (CMD_NAME == 'recurse') {
-            materiasCompletas = materiasCompletas.filter((c: string) => !args.includes(c));
+            users.removeSubjects(userid, args);
         } else if (CMD_NAME == 'siu') {
-            message.reply(" Usted robó las materias: \n" + materiasCompletas.join("\n"));
+            message.reply(" Usted robó las materias: \n" + users.getSubjects(userid));
         } else if (CMD_NAME == 'restantes') {
+            if (Array.from(args).length === 0) {
+                message.reply("Me tenes que pasar algún código para analizar master.");
+                return;
+            }
             var graphs: SubjectGraph[] = filler.parseAllText();
             var careerCodes: number[] = getCareerCodes(message);
             var ans: string = "";
@@ -97,11 +104,11 @@ client.on('message', async (message: any) => {
                 ans += "\n En la carrera de " + bot.getCareerNameFromId(id) + " ";
                 if (graphs[id].searchSubjectByCode(args[0]) === undefined) {
                     ans += "no existe la materia de código: " + args[0];
-                } else if (materiasCompletas.includes(args[0])) {
+                } else if (users.getSubjects(userid).includes(args[0])) {
                     ans += "ya aprobó la materia."
                 } else {
                     var aCursar: string[] = graphs[id].subjectCodesNeededFor(args[0]).filter(
-                        (s: string) => !materiasCompletas.includes(s));
+                        (s: string) => !users.getSubjects(userid).includes(s));
                     if (aCursar.length === 0) {
                         ans += "ya puede cursar la materia ingresada.";
                     } else {
@@ -112,7 +119,7 @@ client.on('message', async (message: any) => {
             message.reply(ans);
         } else if (CMD_NAME == 'creds') {
             var graphs: SubjectGraph[] = filler.parseAllText();
-            message.reply("\n" + graphs[11].getTotalCredits(materiasCompletas));
+            message.reply("\n" + graphs[11].getTotalCredits(users.getSubjects(userid)));
         } else if (CMD_NAME == 'carreras') {
             var channelId: string = message.channel.id;
             client.channels.cache.get(channelId).send(bot.getRolesMsg()).then(
