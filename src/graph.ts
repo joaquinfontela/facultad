@@ -9,31 +9,37 @@ export class Subject {
     private correlativeCodes: string[];
 
     /**
+     * 
      * @returns Returns the subject's code.
      */
     public getCode(): string { return this.code; }
 
     /**
+     * 
      * @returns Returns the amount of credits said subject gives.
      */
     public getCredits(): string { return this.credits; }
 
     /**
+     * 
      * @returns Returns the amount of credits needed to take this subject.
      */
     public getNeededCredits(): number { return this.neededCredits; }
 
     /**
+     * 
      * @returns Returns the subject's name.
      */
     public getName(): string { return this.name; }
 
     /**
+     * 
      * @returns Returns the list of subject codes that must be passed for one to take this couse.
      */
     public getCorrelatives(): string[] { return this.correlativeCodes; }
 
     /**
+     * 
      * Loads the amount of needed credits for one to take this course.
      */
     private loadNeededCredits(): void {
@@ -50,8 +56,11 @@ export class Subject {
     /**
      * 
      * @param name Name of the subject.
+     * 
      * @param code The subject's name.
+     * 
      * @param credits The amount of credits it gives once passed.
+     * 
      * @param correlatives List of correlative subjects.
      */
     public constructor(name: string, code: string, credits: string, correlatives: string[]) {
@@ -128,6 +137,7 @@ export class SubjectGraph {
     /**
      * 
      * @param code Code of the subject to analyze.
+     * 
      * @param codes List needed for recursive algorithm.
      * 
      * @returns Returns a list of the subjects codes needed to take said course.
@@ -158,6 +168,7 @@ export class SubjectGraph {
     }
 
     /**
+     * 
      * @returns Returns the number of pushed subjects.
      */
     public size(): number {

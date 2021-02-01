@@ -37,6 +37,7 @@ export class Credentials {
     }
 
     /**
+     * 
      * @returns Returns a string that concats each command description to its keyword.
      */
     public getHelp(): string {
@@ -113,6 +114,7 @@ export class Credentials {
     }
 
     /**
+     * 
      * @returns Returns a string that maps every career's name to it's unicode key.
      */
     public getRolesMsg(): string {
@@ -124,6 +126,7 @@ export class Credentials {
     }
 
     /**
+     * 
      * @returns Returns the dictionary of career ids.
      */
     public getCareerIds(): { [code: string]: number } { return this.careerIds; }

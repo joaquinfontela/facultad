@@ -6,6 +6,7 @@ export class Command {
     /**
      * 
      * @param description Descripción del comando. 
+     * 
      * @param keyword Palabra clave que ejecuta el mismo.
      */
     constructor(description: string, keyword: string) {
@@ -14,6 +15,7 @@ export class Command {
     }
 
     /**
+     * 
      * @returns Un string que contiene el keyword y descripción.
      */
     public getDescription(): string {

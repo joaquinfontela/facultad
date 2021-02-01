@@ -56,7 +56,9 @@ export class Users {
     /**
      * 
      * @param id User's id.
+     * 
      * @param pos 0 if it's trying to access the subject's list. 1 for the roles list
+     * 
      * @param list List of items to remove.
      */
     public removeValue(id: string, pos: 0 | 1, list: string[]): void {
@@ -68,6 +70,7 @@ export class Users {
     /**
      * 
      * @param id User's id.
+     * 
      * @param tokill List of subjects to remove from said user.
      */
     public removeSubjects(id: string, tokill: string[]): void {
@@ -78,6 +81,7 @@ export class Users {
     /**
      * 
      * @param id User's id.
+     * 
      * @param tokill List of roles to remove from said user.
      */
     public removeRoles(id: string, tokill: string[]): void {
@@ -87,7 +91,9 @@ export class Users {
     /**
      * 
      * @param id User's id.
+     * 
      * @param pos 0 if it's trying to access the subject's list. 1 for the roles list.
+     * 
      * @param list List of values to concat.
      */
     public addValue(id: string, pos: number, list: string[]): void {
@@ -98,6 +104,7 @@ export class Users {
     /**
      * 
      * @param id User's id.
+     * 
      * @param roleids List of roles to add to user.
      */
     public addRoles(id: string, roleids: string[]): void {
@@ -107,6 +114,7 @@ export class Users {
     /**
      * 
      * @param id User's id.
+     * 
      * @param subjects List of subjects to add to user.
      */
     public addSubjects(id: string, subjects: string[]): void {
