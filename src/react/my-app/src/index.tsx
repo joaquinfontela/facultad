@@ -1,12 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { Square } from './Square'
+import { Application } from './Application/Application'
 
 ReactDOM.render(
-  <Square />,
+  <Application />,
   document.getElementById('root')
 );
 
