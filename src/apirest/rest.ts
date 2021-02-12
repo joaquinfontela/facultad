@@ -7,12 +7,12 @@ router.get('/', function (req: any, res: any) {
     res.send("Hello World!");
 });
 
-router.get('/testing/', function (req: any, res: any) {
-    res.send("Hello Testing!");
-});
-
 router.post('/', function (req: any, res: any) {
     res.send("Hello Post!");
+});
+
+router.delete('/', function (req: any, res: any) {
+    res.send("Hello Delete!");
 });
 
 app.use(router);
