@@ -23,6 +23,10 @@
 
 - Run Discord bot: `npm run start`
 
+- To create the server: `npm install express`
+
+- For MongoDB: `npm install mongoose` 
+
 # The TypeScript Language
 
 TypeScript is a JavaScript superset and therefore they share many features such as variable declaration, API's usage, and more.

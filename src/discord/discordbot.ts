@@ -1,6 +1,6 @@
 require("dotenv").config();
 
-import { Bot } from "./bot";
+import { Bot } from "../server/bot";
 import { DiscordCredentials } from "./discordcredentials";
 
 const COMMAND_PREFIX = "!";

@@ -1,5 +1,5 @@
-import { Command } from './command';
-import { Credentials } from './credentials';
+import { Command } from '../server/command';
+import { Credentials } from '../server/credentials';
 
 export class DiscordCredentials implements Credentials {
 
