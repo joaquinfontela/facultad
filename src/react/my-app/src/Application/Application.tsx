@@ -32,7 +32,7 @@ export class Application extends React.Component<{}, ApplicationState> {
                 </div>
                 <div>
                     <ButtonMenu onClick={this.handleButtonClick} />
-                    <ResultsWindow text={this.state.renderResults} />
+                    <ResultsWindow renderId={this.state.renderResults} />
                 </div>
             </div>
         );
