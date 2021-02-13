@@ -4,17 +4,22 @@ import { MenuButton } from './MenuButton/MenuButton'
 
 
 interface ButtonMenuProps {
+    onClick: any
 }
 
 export class ButtonMenu extends React.Component<ButtonMenuProps> {
 
+    constructor(props: any) {
+        super(props);
+    }
+
     render(): JSX.Element {
         return (
             <div className="buttonMenu">
-                <MenuButton text="DISPONIBLES" />
-                <MenuButton text="RESTANTES" />
-                <MenuButton text="CREDITOS" />
-                <MenuButton text="APROBADAS" />
+                <MenuButton text="DISPONIBLES" onClick={() => this.props.onClick('available')} />
+                <MenuButton text="RESTANTES" onClick={() => this.props.onClick('remaining')} />
+                <MenuButton text="CREDITOS" onClick={() => this.props.onClick('credits')} />
+                <MenuButton text="APROBADAS" onClick={() => this.props.onClick('passed')} />
             </div>
         );
     }

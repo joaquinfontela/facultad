@@ -1,0 +1,8 @@
+.resultsWindowBox {
+    border-color: black; 
+    background-color:lightsteelblue;
+    position: absolute;
+    right: 10px;
+    width: 1350px;
+    height: 750px;
+}
