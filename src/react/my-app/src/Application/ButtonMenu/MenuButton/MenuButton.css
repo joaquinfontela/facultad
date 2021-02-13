@@ -1,0 +1,11 @@
+.menuButton {
+    width: 300px;
+    height: 80px;
+    background-color:darkslateblue;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border-width: 3px;
+    outline: none;
+    color: snow;
+    font-size: 20px;
+}
