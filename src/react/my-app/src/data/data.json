@@ -1,0 +1,72 @@
+{
+    "data": {
+        "available": [
+            {
+                "code": "81.01",
+                "name": "Analisis Matematico II",
+                "credits": 8
+            },
+            {
+                "code": "81.02",
+                "name": "Algebra II",
+                "credits": 8
+            },
+            {
+                "code": "95.15",
+                "name": "Algoritmos y Programacion II",
+                "credits": 6
+            },
+            {
+                "code": "81.11",
+                "name": "Matematica Discreta",
+                "credits": 6
+            },
+            {
+                "code": "95.57",
+                "name": "Organizacion del Computador",
+                "credits": 8
+            }
+        ],
+        "left": {
+            "95.02": [
+                {
+                    "code": "95.15",
+                    "name": "Algoritmos y Programacion II",
+                    "credits": 6
+                }
+            ],
+            "81.04": [
+                {
+                    "code": "81.01",
+                    "name": "Analisis Matematico II",
+                    "credits": 8
+                },
+                {
+                    "code": "81.02",
+                    "name": "Algebra II",
+                    "credits": 8
+                }
+            ],
+            "95.58": [
+                {
+                    "code": "95.02",
+                    "name": "Algoritmos y Programacion III",
+                    "credits": 6
+                },
+                {
+                    "code": "95.57",
+                    "name": "Organizacion del Computador",
+                    "credits": 8
+                }
+            ]
+        },
+        "credits": 6,
+        "passed": [
+            {
+                "code": "95.14",
+                "name": "Algoritmos y Programacion I",
+                "credits": 6
+            }
+        ]
+    }
+}

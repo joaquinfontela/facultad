@@ -1,10 +1,14 @@
 import React from 'react';
 import { Title } from './Title/Title'
+import { ButtonMenu } from './ButtonMenu/ButtonMenu'
 
 export class Application extends React.Component {
-    render() {
+    render(): JSX.Element {
         return (
-            <Title />
+            <div>
+                <Title />
+                <ButtonMenu />
+            </div>
         );
     }
 }
