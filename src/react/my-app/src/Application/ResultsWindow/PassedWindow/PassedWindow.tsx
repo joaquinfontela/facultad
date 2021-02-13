@@ -1,14 +1,14 @@
 import React from 'react'
-import "./AvailableWindow.css"
+import "./PassedWindow.css"
 import * as data from '../../../data/data.json'
 import { SubjectRender } from '../SubjectRender/SubjectRender'
 
-export class AvailableWindow extends React.Component {
+export class PassedWindow extends React.Component {
 
     render(): JSX.Element {
-        const available = data.data.available;
+        const passed = data.data.passed;
 
-        const subjects = available.map((s) => {
+        const subjects = passed.map((s) => {
             return (
                 <SubjectRender
                     code={s.code}
@@ -19,7 +19,7 @@ export class AvailableWindow extends React.Component {
         })
 
         return (
-            <div className="availableWindow">
+            <div className="passedWindow">
                 <ul>{subjects}</ul>
             </div>
         );
