@@ -26,12 +26,6 @@ export class ResultsWindow extends React.Component<ResultsWindowProps> {
                         <CreditsWindow />
                     </div>
                 );
-            case ('help'):
-                return (
-                    <div className="resultsWindowBox">
-                        <HelpWindow />
-                    </div>
-                );
             case ('passed'):
                 return (
                     <div className="resultsWindowBox">
@@ -44,10 +38,16 @@ export class ResultsWindow extends React.Component<ResultsWindowProps> {
                         <RemainingWindow />
                     </div>
                 );
+            case ('update'):
+                return (
+                    <div className="resultsWindowBox">
+                        <RemainingWindow />
+                    </div>
+                );
             default:
                 return (
-                    <div className="emptyResultsWindowBox">
-                        {this.props.renderId}
+                    <div className="resultsWindowBox">
+                        <HelpWindow />
                     </div>
                 );
         }
