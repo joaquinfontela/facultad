@@ -40,7 +40,7 @@ export class RemainingWindow extends React.Component<{}, RemainingWindowState> {
                 <div className="remainingWindow">
                     <div className="remainingWindowTitle">Ingrese el codigo de la materia:</div>
                     <SubjectCodeInput input={this.state.input} handleChange={this.handleInputChange} />
-                    <div className="subjectNotFoundErrorMessage">{(this.state.input === "") ? "" : "La materia ingresada no fue encontrada."}</div>
+                    <div className="subjectNotFoundErrorMessage">{(this.state.input === "") ? "" : "La materia ingresada no fue encontrada entre tus pendientes."}</div>
                 </div>
             );
         }

@@ -12,7 +12,7 @@ export class SubjectCodeInput extends React.Component<SubjectCodeInputProps, {}>
         super(props);
     }
 
-    render() {
+    render(): JSX.Element {
         return (
             <input className="subjectCodeInput" value={this.props.input} onChange={(e) => { this.props.handleChange(e.target.value) }}></input>
         );

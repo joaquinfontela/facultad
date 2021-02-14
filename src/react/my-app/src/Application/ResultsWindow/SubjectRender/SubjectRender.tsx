@@ -18,7 +18,7 @@ export class SubjectRender extends React.Component<SubjectRenderProps, {}> {
             <li className="subjectData">
                 <ul>
                     <li className="subjectCodeName">{this.props.code + " - " + this.props.name}</li>
-                    <li className="subjectCredits">{"Otorga " + this.props.credits + " creditos"}</li>
+                    <li className="subjectCredits">{"Otorga " + this.props.credits + " créditos."}</li>
                 </ul>
             </li>
         );

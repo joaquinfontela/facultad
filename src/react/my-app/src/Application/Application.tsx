@@ -2,6 +2,7 @@ import React from 'react';
 import { Title } from './Title/Title'
 import { ButtonMenu } from './ButtonMenu/ButtonMenu'
 import { ResultsWindow } from './ResultsWindow/ResultsWindow'
+import { Login } from "./Login/Login"
 
 interface ApplicationState {
     renderResults: string;
@@ -27,9 +28,8 @@ export class Application extends React.Component<{}, ApplicationState> {
 
         return (
             <div>
-                <div>
-                    <Title />
-                </div>
+                <Title />
+                <Login />
                 <div>
                     <ButtonMenu onClick={this.handleButtonClick} />
                     <ResultsWindow renderId={this.state.renderResults} />

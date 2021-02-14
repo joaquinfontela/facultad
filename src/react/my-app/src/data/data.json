@@ -3,27 +3,27 @@
         "available": [
             {
                 "code": "81.01",
-                "name": "Analisis Matematico II",
+                "name": "Análisis Matemático II",
                 "credits": 8
             },
             {
                 "code": "81.02",
-                "name": "Algebra II",
+                "name": "Álgebra II",
                 "credits": 8
             },
             {
                 "code": "95.15",
-                "name": "Algoritmos y Programacion II",
+                "name": "Algoritmos y Programación II",
                 "credits": 6
             },
             {
                 "code": "81.11",
-                "name": "Matematica Discreta",
+                "name": "Matemática Discreta",
                 "credits": 6
             },
             {
                 "code": "95.57",
-                "name": "Organizacion del Computador",
+                "name": "Organización del Computador",
                 "credits": 8
             }
         ],
@@ -38,24 +38,24 @@
             "81.04": [
                 {
                     "code": "81.01",
-                    "name": "Analisis Matematico II",
+                    "name": "Análisis Matemático II",
                     "credits": 8
                 },
                 {
                     "code": "81.02",
-                    "name": "Algebra II",
+                    "name": "Álgebra II",
                     "credits": 8
                 }
             ],
             "95.58": [
                 {
                     "code": "95.02",
-                    "name": "Algoritmos y Programacion III",
+                    "name": "Algoritmos y Programación III",
                     "credits": 6
                 },
                 {
                     "code": "95.57",
-                    "name": "Organizacion del Computador",
+                    "name": "Organización del Computador",
                     "credits": 8
                 }
             ]
@@ -64,7 +64,7 @@
         "passed": [
             {
                 "code": "95.14",
-                "name": "Algoritmos y Programacion I",
+                "name": "Algoritmos y Programación I",
                 "credits": 6
             }
         ]
