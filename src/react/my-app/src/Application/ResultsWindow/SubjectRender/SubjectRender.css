@@ -8,9 +8,11 @@
     font-size: 20px;
     color: snow;
     margin-top: 2px;
+    list-style-type: none;
 }
 
 .subjectData {
     margin-bottom: 20px;
     margin-top: 7.5px;
+    list-style-type: none;
 }

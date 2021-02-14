@@ -3,6 +3,8 @@ import './ResultsWindow.css'
 import { CreditsWindow } from './CreditsWindow/CreditsWindow'
 import { AvailableWindow } from './AvailableWindow/AvailableWindow';
 import { PassedWindow } from './PassedWindow/PassedWindow'
+import { RemainingWindow } from './RemainingWindow/RemainingWindow'
+
 
 interface ResultsWindowProps {
     renderId: string
@@ -28,6 +30,12 @@ export class ResultsWindow extends React.Component<ResultsWindowProps> {
                 return (
                     <div className="resultsWindowBox">
                         <PassedWindow />
+                    </div>
+                );
+            case ('remaining'):
+                return (
+                    <div className="resultsWindowBox">
+                        <RemainingWindow />
                     </div>
                 );
             default:

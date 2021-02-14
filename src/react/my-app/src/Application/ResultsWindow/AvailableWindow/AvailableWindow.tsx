@@ -18,6 +18,24 @@ export class AvailableWindow extends React.Component {
             );
         })
 
+
+        // console.log(subjects)
+
+        // subjects.sort(function (a: any, b: any) {
+        //     var keyA = a.name;
+        //     var keyB = b.name;
+        //     var result = 0;
+        //     // Compare the 2 dates
+        //     if (keyA < keyB) result = -1;
+        //     if (keyA > keyB) result = 1;
+        //     console.log(keyA + " vs. " + keyB);
+        //     console.log(result);
+        //     return result;
+        //     return 0;
+        // })
+
+        // console.log(subjects)
+
         return (
             <div className="availableWindow">
                 <ul>{subjects}</ul>
