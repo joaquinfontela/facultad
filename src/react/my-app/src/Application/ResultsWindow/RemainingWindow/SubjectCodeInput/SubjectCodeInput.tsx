@@ -14,7 +14,7 @@ export class SubjectCodeInput extends React.Component<SubjectCodeInputProps, {}>
 
     render(): JSX.Element {
         return (
-            <input className="subjectCodeInput" value={this.props.input} onChange={(e) => { this.props.handleChange(e.target.value) }}></input>
+            <input className="subjectCodeInput" placeholder="XX.XX" value={this.props.input} onChange={(e) => { this.props.handleChange(e.target.value) }}></input>
         );
     }
 }

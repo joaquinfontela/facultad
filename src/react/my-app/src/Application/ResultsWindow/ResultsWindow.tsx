@@ -4,7 +4,7 @@ import { CreditsWindow } from './CreditsWindow/CreditsWindow'
 import { AvailableWindow } from './AvailableWindow/AvailableWindow';
 import { PassedWindow } from './PassedWindow/PassedWindow'
 import { RemainingWindow } from './RemainingWindow/RemainingWindow'
-
+import { HelpWindow } from "./HelpWindow/HelpWindow"
 
 interface ResultsWindowProps {
     renderId: string
@@ -24,6 +24,12 @@ export class ResultsWindow extends React.Component<ResultsWindowProps> {
                 return (
                     <div className="emptyResultsWindowBox">
                         <CreditsWindow />
+                    </div>
+                );
+            case ('help'):
+                return (
+                    <div className="resultsWindowBox">
+                        <HelpWindow />
                     </div>
                 );
             case ('passed'):

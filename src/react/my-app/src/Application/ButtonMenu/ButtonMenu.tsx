@@ -20,6 +20,8 @@ export class ButtonMenu extends React.Component<ButtonMenuProps> {
                 <MenuButton text="RESTANTES" onClick={() => this.props.onClick('remaining')} />
                 <MenuButton text="CREDITOS" onClick={() => this.props.onClick('credits')} />
                 <MenuButton text="APROBADAS" onClick={() => this.props.onClick('passed')} />
+                <MenuButton text="ACTUALIZAR" onClick={() => this.props.onClick('update')} />
+                <MenuButton text="AYUDA" onClick={() => this.props.onClick('help')} />
             </div>
         );
     }
