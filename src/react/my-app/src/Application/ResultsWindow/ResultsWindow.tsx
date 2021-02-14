@@ -22,7 +22,7 @@ export class ResultsWindow extends React.Component<ResultsWindowProps> {
                 );
             case ('credits'):
                 return (
-                    <div className="resultsWindowBox">
+                    <div className="emptyResultsWindowBox">
                         <CreditsWindow />
                     </div>
                 );
@@ -40,7 +40,7 @@ export class ResultsWindow extends React.Component<ResultsWindowProps> {
                 );
             default:
                 return (
-                    <div className="resultsWindowBox">
+                    <div className="emptyResultsWindowBox">
                         {this.props.renderId}
                     </div>
                 );

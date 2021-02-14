@@ -1,6 +1,17 @@
 .resultsWindowBox {
+    margin-top: 17.25px;
     border-color: black; 
     background-color:darkslateblue;
+    position: absolute;
+    right: 10px;
+    width: 1350px;
+    height: 750px;
+}
+
+.emptyResultsWindowBox {
+    margin-top: 17.25px;
+    border-color: black; 
+    background-color:mediumslateblue;
     position: absolute;
     right: 10px;
     width: 1350px;
