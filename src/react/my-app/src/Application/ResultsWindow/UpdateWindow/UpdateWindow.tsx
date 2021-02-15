@@ -80,38 +80,32 @@ export class UpdateWindow extends React.Component<{}, UpdateWindowState> {
             );
         })
 
-        let subjectCheckboxesList1;
-        let subjectCheckboxesList2;
-        let subjectCheckboxesList3;
-        let subjectCheckboxesList4;
+        let subjectCheckboxesList1: any[] = [];
+        let subjectCheckboxesList2: any[] = [];
+        let subjectCheckboxesList3: any[] = [];
+        let subjectCheckboxesList4: any[] = [];
+        let listToAdd: number = 1;
 
-        switch (subjectCheckboxes.length % 4) {
+        while (!(subjectCheckboxes.length === 0)) {
 
-
-            case 0:
-                subjectCheckboxesList1 = subjectCheckboxes.slice(0, (subjectCheckboxes.length) / 4);
-                subjectCheckboxesList2 = subjectCheckboxes.slice((subjectCheckboxes.length) / 4, (subjectCheckboxes.length) / 2);
-                subjectCheckboxesList3 = subjectCheckboxes.slice((subjectCheckboxes.length) / 2, 3 * (subjectCheckboxes.length) / 4);
-                subjectCheckboxesList4 = subjectCheckboxes.slice(3 * (subjectCheckboxes.length) / 4);
-                break;
-            case 1:
-                subjectCheckboxesList1 = subjectCheckboxes.slice(0, (subjectCheckboxes.length) / 4 + 0.75);
-                subjectCheckboxesList2 = subjectCheckboxes.slice((subjectCheckboxes.length) / 4 + 0.75, (subjectCheckboxes.length) / 2 + 0.5);
-                subjectCheckboxesList3 = subjectCheckboxes.slice((subjectCheckboxes.length) / 2 + 0.5, 3 * (subjectCheckboxes.length) / 4 + 0.25);
-                subjectCheckboxesList4 = subjectCheckboxes.slice(3 * (subjectCheckboxes.length) / 4 + 0.25);
-                break;
-            case 2:
-                subjectCheckboxesList1 = subjectCheckboxes.slice(0, (subjectCheckboxes.length) / 4 + 0.5);
-                subjectCheckboxesList2 = subjectCheckboxes.slice((subjectCheckboxes.length) / 4 + 0.5, (subjectCheckboxes.length) / 2 + 1);
-                subjectCheckboxesList3 = subjectCheckboxes.slice((subjectCheckboxes.length) / 2 + 1, 3 * (subjectCheckboxes.length) / 4 + 0.5);
-                subjectCheckboxesList4 = subjectCheckboxes.slice(3 * (subjectCheckboxes.length) / 4 + 0.5);
-                break;
-            default:
-                subjectCheckboxesList1 = subjectCheckboxes.slice(0, (subjectCheckboxes.length) / 4 + 0.25);
-                subjectCheckboxesList2 = subjectCheckboxes.slice((subjectCheckboxes.length) / 4 + 0.25, (subjectCheckboxes.length) / 2 + 0.5);
-                subjectCheckboxesList3 = subjectCheckboxes.slice((subjectCheckboxes.length) / 2 + 0.5, 3 * (subjectCheckboxes.length) / 4 + 0.75);
-                subjectCheckboxesList4 = subjectCheckboxes.slice(3 * (subjectCheckboxes.length) / 4 + 0.75);
-                break;
+            switch (listToAdd) {
+                case 1:
+                    subjectCheckboxesList1.push(subjectCheckboxes.shift());
+                    listToAdd += 1;
+                    break;
+                case 2:
+                    subjectCheckboxesList2.push(subjectCheckboxes.shift());
+                    listToAdd += 1;
+                    break;
+                case 3:
+                    subjectCheckboxesList3.push(subjectCheckboxes.shift());
+                    listToAdd += 1;
+                    break;
+                default:
+                    subjectCheckboxesList4.push(subjectCheckboxes.shift());
+                    listToAdd = 1;
+                    break;
+            }
         }
 
         return (
