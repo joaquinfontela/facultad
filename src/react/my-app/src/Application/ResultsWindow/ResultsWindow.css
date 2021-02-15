@@ -6,6 +6,7 @@
     right: 10px;
     width: 1350px;
     height: 745px;
+    overflow-y: auto;
 }
 
 .emptyResultsWindowBox {
@@ -16,4 +17,5 @@
     right: 10px;
     width: 1350px;
     height: 745px;
+    overflow-y: auto;
 }

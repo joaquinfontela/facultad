@@ -3,10 +3,24 @@ import "./AvailableWindow.css"
 import * as data from '../../../data/data.json'
 import { SubjectRender } from '../SubjectRender/SubjectRender'
 
+interface Subject {
+    code: string,
+    name: string,
+    credits: number
+}
+
 export class AvailableWindow extends React.Component {
 
     render(): JSX.Element {
-        const available = data.data.available;
+        const available: Subject[] = data.data.available;
+
+        available.sort(function (a: Subject, b: Subject) {
+            var keyA = a.code;
+            var keyB = b.code;
+            if (keyA < keyB) return -1;
+            if (keyA > keyB) return 1;
+            return 0;
+        })
 
         const subjects = available.map((s) => {
             return (
@@ -17,24 +31,6 @@ export class AvailableWindow extends React.Component {
                 />
             );
         })
-
-
-        // console.log(subjects)
-
-        // subjects.sort(function (a: any, b: any) {
-        //     var keyA = a.name;
-        //     var keyB = b.name;
-        //     var result = 0;
-        //     // Compare the 2 dates
-        //     if (keyA < keyB) result = -1;
-        //     if (keyA > keyB) result = 1;
-        //     console.log(keyA + " vs. " + keyB);
-        //     console.log(result);
-        //     return result;
-        //     return 0;
-        // })
-
-        // console.log(subjects)
 
         return (
             <div className="availableWindow">

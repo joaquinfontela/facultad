@@ -25,7 +25,7 @@ export class RemainingWindow extends React.Component<{}, RemainingWindowState> {
     }
 
     handleInputChange(newInput: string): void {
-        if (!isNaN(Number(newInput)) || (newInput === ".")) {
+        if ((!isNaN(Number(newInput)) || (newInput === ".")) && (newInput.length <= 5)) {
             this.setState({
                 input: newInput
             })
@@ -35,6 +35,7 @@ export class RemainingWindow extends React.Component<{}, RemainingWindowState> {
     render(): JSX.Element {
         const subjectsToDo = data.data.left;
         const subjectsLeft = (subjectsToDo as any)[this.state.input];
+
         if (!subjectsLeft) {
             return (
                 <div className="remainingWindow">
@@ -44,6 +45,14 @@ export class RemainingWindow extends React.Component<{}, RemainingWindowState> {
                 </div>
             );
         }
+
+        subjectsLeft.sort(function (a: any, b: any) {
+            var keyA = a.code;
+            var keyB = b.code;
+            if (keyA < keyB) return -1;
+            if (keyA > keyB) return 1;
+            return 0;
+        })
 
         const subjects = subjectsLeft.map((s: Subject) => {
             return (

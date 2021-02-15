@@ -3,10 +3,24 @@ import "./PassedWindow.css"
 import * as data from '../../../data/data.json'
 import { SubjectRender } from '../SubjectRender/SubjectRender'
 
+interface Subject {
+    code: string,
+    name: string,
+    credits: number
+}
+
 export class PassedWindow extends React.Component {
 
     render(): JSX.Element {
-        const passed = data.data.passed;
+        const passed: Subject[] = data.data.passed;
+
+        passed.sort(function (a: Subject, b: Subject) {
+            var keyA = a.code;
+            var keyB = b.code;
+            if (keyA < keyB) return -1;
+            if (keyA > keyB) return 1;
+            return 0;
+        })
 
         const subjects = passed.map((s) => {
             return (

@@ -5,6 +5,7 @@ import { AvailableWindow } from './AvailableWindow/AvailableWindow';
 import { PassedWindow } from './PassedWindow/PassedWindow'
 import { RemainingWindow } from './RemainingWindow/RemainingWindow'
 import { HelpWindow } from "./HelpWindow/HelpWindow"
+import { UpdateWindow } from "./UpdateWindow/UpdateWindow"
 
 interface ResultsWindowProps {
     renderId: string
@@ -41,7 +42,7 @@ export class ResultsWindow extends React.Component<ResultsWindowProps> {
             case ('update'):
                 return (
                     <div className="resultsWindowBox">
-                        <RemainingWindow />
+                        <UpdateWindow />
                     </div>
                 );
             default:

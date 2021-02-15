@@ -1,0 +1,19 @@
+.subjectCheckboxContainer {
+    font-size: 30px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    list-style-type: square;
+    margin-right: 5px;
+}
+
+.subjectPassedCheckbox {
+    margin-left: 10px;
+    width: 17.5px;
+    height: 17.5px;
+}
+
+.subjectFailedCheckbox {
+    margin-left: 10px;
+    width: 17.5px;
+    height: 17.5px;
+}
