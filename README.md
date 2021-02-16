@@ -9,7 +9,11 @@
 
 ### Requirements for Linux users:
 
-- For the apt package manager run: `sudo apt install npm`
+- For the npm package manager run: `sudo apt install npm`
+
+- Install TypeScript: `npm install typescript`
+
+- Install the TypeScript compiler: `npm install tsc`
 
 - To crate a React proyect with Typescript run: `npx create-react-app <APPNAME> --template typescript`
 
@@ -24,8 +28,6 @@
 - Run Discord bot: `npm run start`
 
 - To create the server: `npm install express`
-
-- For MongoDB: `npm install mongoose` 
 
 # The TypeScript Language
 
