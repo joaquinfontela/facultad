@@ -29,7 +29,6 @@ export class PassedWindow extends React.Component<PassedWindowProps, PassedWindo
 
     componentDidMount() {
         new ApiHandler().getStudentData(this.props.studentId).then((d) => {
-            console.log(d);
             this.setState({
                 data: d
             });

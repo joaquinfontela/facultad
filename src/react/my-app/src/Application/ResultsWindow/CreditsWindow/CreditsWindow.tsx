@@ -21,7 +21,6 @@ export class CreditsWindow extends React.Component<CreditsWindowProps, CreditsWi
 
     componentDidMount() {
         new ApiHandler().getStudentData(this.props.studentId).then((d) => {
-            console.log(d);
             this.setState({
                 data: d
             });

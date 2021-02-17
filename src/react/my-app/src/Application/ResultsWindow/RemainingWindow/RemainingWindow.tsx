@@ -41,7 +41,6 @@ export class RemainingWindow extends React.Component<RemainingWindowProps, Remai
 
     componentDidMount() {
         new ApiHandler().getStudentData(this.props.studentId).then((d) => {
-            console.log(d);
             this.setState({
                 data: d
             });
@@ -78,6 +77,7 @@ export class RemainingWindow extends React.Component<RemainingWindowProps, Remai
         const subjects = subjectsLeft.map((s: Subject) => {
             return (
                 <SubjectRender
+                    key={s.code}
                     code={s.code}
                     name={s.name}
                     credits={s.credits}

@@ -1,7 +1,6 @@
 import React from 'react'
 import "./UpdateWindow.css"
 import SubjectCheckbox from "./SubjectCheckbox/SubjectCheckbox"
-import { JsxEmit } from 'typescript';
 import ApiHandler from '../../API/ApiHandler'
 
 
@@ -14,6 +13,13 @@ interface UpdateWindowState {
 interface UpdateWindowProps {
     studentId: string
 }
+
+interface Subject {
+    code: string,
+    name: string,
+    credits: number
+}
+
 
 export class UpdateWindow extends React.Component<UpdateWindowProps, UpdateWindowState> {
 
@@ -67,17 +73,22 @@ export class UpdateWindow extends React.Component<UpdateWindowProps, UpdateWindo
     }
 
     componentDidMount() {
-        new ApiHandler().getStudentData(this.props.studentId).then((d) => {
-            console.log(d);
+        new ApiHandler().getStudentData(this.props.studentId).then((d: any) => {
+            let passedSubjectsCodes: string[] = d.data.passed.map((sub: Subject) => {
+                return sub.code;
+            });
             this.setState({
-                data: d
+                data: d,
+                passedSubjectsCodes,
+                failedSubjectsCodes: d.data.subjectCodes.sistemas.filter((sub: string) => {
+                    return !passedSubjectsCodes.includes(sub);
+                })
             });
         });
     }
 
     render() {
         if (!this.state.data.data) {
-            console.log("NO DATA!");
             return (<div></div>);
         }
         const subjectCodes: string[] = this.state.data.data.subjectCodes.sistemas;

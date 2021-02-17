@@ -28,7 +28,6 @@ export class AvailableWindow extends React.Component<AvailableWindowProps, Avail
 
     componentDidMount() {
         new ApiHandler().getStudentData(this.props.studentId).then((d) => {
-            console.log(d);
             this.setState({
                 data: d
             });
