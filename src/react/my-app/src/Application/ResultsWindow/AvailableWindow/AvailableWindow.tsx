@@ -1,7 +1,7 @@
 import React from 'react'
 import "./AvailableWindow.css"
-import * as data from '../../../data/data.json'
 import { SubjectRender } from '../SubjectRender/SubjectRender'
+import ApiHandler from '../../API/ApiHandler'
 
 interface Subject {
     code: string,
@@ -9,10 +9,35 @@ interface Subject {
     credits: number
 }
 
-export class AvailableWindow extends React.Component {
+interface AvailableWindowState {
+    data: any
+}
 
-    render(): JSX.Element {
-        const available: Subject[] = data.data.available;
+export class AvailableWindow extends React.Component<{}, AvailableWindowState> {
+
+    constructor(props: any) {
+        super(props);
+        this.state = {
+            data: {}
+        }
+    }
+
+    componentDidMount() {
+        new ApiHandler().getStudentData("103924").then((d) => {
+            console.log(d);
+            this.setState({
+                data: d
+            });
+        });
+    }
+
+    render() {
+        if (!this.state.data.data) {
+            return (<div className="availableWindow">
+                <ul>{ }</ul>
+            </div>);
+        }
+        const available: Subject[] = this.state.data.data.available;
 
         available.sort(function (a: Subject, b: Subject) {
             var keyA = a.code;
@@ -25,6 +50,7 @@ export class AvailableWindow extends React.Component {
         const subjects = available.map((s) => {
             return (
                 <SubjectRender
+                    key={s.code}
                     code={s.code}
                     name={s.name}
                     credits={s.credits}

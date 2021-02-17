@@ -1,11 +1,13 @@
 import React from 'react'
 import "./RemainingWindow.css"
-import * as data from '../../../data/data.json'
 import { SubjectRender } from '../SubjectRender/SubjectRender'
 import { SubjectCodeInput } from '../SubjectCodeInput/SubjectCodeInput'
+import ApiHandler from '../../API/ApiHandler'
+
 
 interface RemainingWindowState {
-    input: string;
+    input: string,
+    data: any
 }
 
 interface Subject {
@@ -20,7 +22,8 @@ export class RemainingWindow extends React.Component<{}, RemainingWindowState> {
         super(props);
         this.handleInputChange = this.handleInputChange.bind(this);
         this.state = {
-            input: ""
+            input: "",
+            data: {}
         }
     }
 
@@ -32,8 +35,22 @@ export class RemainingWindow extends React.Component<{}, RemainingWindowState> {
         }
     }
 
-    render(): JSX.Element {
-        const subjectsToDo = data.data.left;
+    componentDidMount() {
+        new ApiHandler().getStudentData("103924").then((d) => {
+            console.log(d);
+            this.setState({
+                data: d
+            });
+        });
+    }
+
+    render() {
+        if (!this.state.data.data) {
+            return (<div className="remainingWindow">
+                <ul>{ }</ul>
+            </div>);
+        }
+        const subjectsToDo = this.state.data.data.left;
         const subjectsLeft = (subjectsToDo as any)[this.state.input];
 
         if (!subjectsLeft) {

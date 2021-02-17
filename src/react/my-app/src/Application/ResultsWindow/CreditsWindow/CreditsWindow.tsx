@@ -1,14 +1,38 @@
 import React from 'react'
 import "./CreditsWindow.css"
-import * as data from '../../../data/data.json'
+import ApiHandler from '../../API/ApiHandler'
 
-export class CreditsWindow extends React.Component {
+interface CreditsWindowState {
+    data: any
+}
 
-    render(): JSX.Element {
+
+export class CreditsWindow extends React.Component<{}, CreditsWindowState> {
+
+    constructor(props: any) {
+        super(props);
+        this.state = {
+            data: {}
+        }
+    }
+
+    componentDidMount() {
+        new ApiHandler().getStudentData("103924").then((d) => {
+            console.log(d);
+            this.setState({
+                data: d
+            });
+        });
+    }
+
+    render() {
+        if (!this.state.data.data) {
+            return (<div className="creditsWindow"></div>);
+        }
 
         return (
             <div className="creditsWindow">
-                A lo largo de tu carrera acumulaste {data.data.credits} créditos.
+                A lo largo de tu carrera acumulaste {this.state.data.data.credits} créditos.
             </div>
         );
     }

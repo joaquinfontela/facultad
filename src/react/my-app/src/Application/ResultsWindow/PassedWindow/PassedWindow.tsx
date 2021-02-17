@@ -1,7 +1,8 @@
 import React from 'react'
 import "./PassedWindow.css"
-import * as data from '../../../data/data.json'
 import { SubjectRender } from '../SubjectRender/SubjectRender'
+import ApiHandler from '../../API/ApiHandler'
+
 
 interface Subject {
     code: string,
@@ -9,10 +10,35 @@ interface Subject {
     credits: number
 }
 
-export class PassedWindow extends React.Component {
+interface PassedWindowState {
+    data: any
+}
 
-    render(): JSX.Element {
-        const passed: Subject[] = data.data.passed;
+export class PassedWindow extends React.Component<{}, PassedWindowState> {
+
+    constructor(props: any) {
+        super(props);
+        this.state = {
+            data: {}
+        }
+    }
+
+    componentDidMount() {
+        new ApiHandler().getStudentData("103924").then((d) => {
+            console.log(d);
+            this.setState({
+                data: d
+            });
+        });
+    }
+
+    render() {
+        if (!this.state.data.data) {
+            return (<div className="passedWindow">
+                <ul>{ }</ul>
+            </div>);
+        }
+        const passed: Subject[] = this.state.data.data.passed;
 
         passed.sort(function (a: Subject, b: Subject) {
             var keyA = a.code;
@@ -25,6 +51,7 @@ export class PassedWindow extends React.Component {
         const subjects = passed.map((s) => {
             return (
                 <SubjectRender
+                    key={s.code}
                     code={s.code}
                     name={s.name}
                     credits={s.credits}

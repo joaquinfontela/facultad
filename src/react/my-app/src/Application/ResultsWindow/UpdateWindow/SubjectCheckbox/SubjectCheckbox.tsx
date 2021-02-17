@@ -18,11 +18,11 @@ export default class SubjectCheckbox extends React.Component<SubjectCheckboxProp
                 <input className="subjectPassedCheckbox"
                     type="checkbox"
                     checked={this.props.passed}
-                    onClick={() => { this.props.handlePassedClick(this.props.code) }}></input>
+                    onChange={() => { this.props.handlePassedClick(this.props.code) }}></input>
                 <input className="subjectFailedCheckbox"
                     type="checkbox"
                     checked={this.props.failed}
-                    onClick={() => { this.props.handleFailedClick(this.props.code) }}></input>
+                    onChange={() => { this.props.handleFailedClick(this.props.code) }}></input>
             </li>
         );
     }

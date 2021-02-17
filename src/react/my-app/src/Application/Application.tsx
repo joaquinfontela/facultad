@@ -3,6 +3,7 @@ import { Title } from './Title/Title'
 import { ButtonMenu } from './ButtonMenu/ButtonMenu'
 import { ResultsWindow } from './ResultsWindow/ResultsWindow'
 import { Login } from "./Login/Login"
+import ApiHandler from './API/ApiHandler'
 
 interface ApplicationState {
     renderResults: string;

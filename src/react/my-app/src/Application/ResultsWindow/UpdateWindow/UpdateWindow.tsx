@@ -1,12 +1,14 @@
 import React from 'react'
 import "./UpdateWindow.css"
-import * as data from '../../../data/data.json'
 import SubjectCheckbox from "./SubjectCheckbox/SubjectCheckbox"
 import { JsxEmit } from 'typescript';
+import ApiHandler from '../../API/ApiHandler'
+
 
 interface UpdateWindowState {
     passedSubjectsCodes: string[],
-    failedSubjectsCodes: string[]
+    failedSubjectsCodes: string[],
+    data: any
 }
 
 export class UpdateWindow extends React.Component<{}, UpdateWindowState> {
@@ -15,7 +17,8 @@ export class UpdateWindow extends React.Component<{}, UpdateWindowState> {
         super(props);
         this.state = {
             passedSubjectsCodes: [],
-            failedSubjectsCodes: []
+            failedSubjectsCodes: [],
+            data: {}
         }
         this.handlePassedClick = this.handlePassedClick.bind(this);
         this.handleFailedClick = this.handleFailedClick.bind(this);
@@ -59,8 +62,21 @@ export class UpdateWindow extends React.Component<{}, UpdateWindowState> {
         })
     }
 
-    render(): JSX.Element {
-        const subjectCodes: string[] = data.data.subjectCodes.sistemas;
+    componentDidMount() {
+        new ApiHandler().getStudentData("103924").then((d) => {
+            console.log(d);
+            this.setState({
+                data: d
+            });
+        });
+    }
+
+    render() {
+        if (!this.state.data.data) {
+            console.log("NO DATA!");
+            return (<div></div>);
+        }
+        const subjectCodes: string[] = this.state.data.data.subjectCodes.sistemas;
 
         subjectCodes.sort(function (a: string, b: string) {
             var keyA: number = Number(a);
@@ -72,7 +88,8 @@ export class UpdateWindow extends React.Component<{}, UpdateWindowState> {
 
         const subjectCheckboxes: JSX.Element[] = subjectCodes.map(s => {
             return (
-                <SubjectCheckbox code={s}
+                <SubjectCheckbox key={s}
+                    code={s}
                     passed={this.state.passedSubjectsCodes.includes(s)}
                     failed={this.state.failedSubjectsCodes.includes(s)}
                     handlePassedClick={this.handlePassedClick}
