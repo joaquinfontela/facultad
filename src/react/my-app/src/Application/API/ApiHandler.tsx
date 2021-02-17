@@ -2,13 +2,24 @@ import axios from 'axios'
 
 export default class ApiHandler {
 
-    async getStudentData(studentId: string) {
+    async getStudentData(studentId: string): Promise<string> {
         return await axios.get(`http://localhost:2000/data/${studentId}`)
-            .then(function (response) {
-                return response.data;
+            .then(response =>
+                response.data
+            )
+            .catch(error =>
+                error
+            );
+
+    }
+
+    async validateStudentId(studentId: string): Promise<boolean> {
+        return await axios.get(`http://localhost:2000/data/${studentId}`)
+            .then(() => {
+                return true;
             })
-            .catch(function (error) {
-                return error;
+            .catch((error) => {
+                return false;
             });
     }
 

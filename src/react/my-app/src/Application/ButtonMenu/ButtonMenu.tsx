@@ -4,7 +4,8 @@ import { MenuButton } from './MenuButton/MenuButton'
 
 
 interface ButtonMenuProps {
-    onClick: any
+    onClick: any,
+    enabledMenu: boolean
 }
 
 export class ButtonMenu extends React.Component<ButtonMenuProps> {
@@ -16,12 +17,12 @@ export class ButtonMenu extends React.Component<ButtonMenuProps> {
     render(): JSX.Element {
         return (
             <div className="buttonMenu">
-                <MenuButton text="DISPONIBLES" onClick={() => this.props.onClick('available')} />
-                <MenuButton text="RESTANTES" onClick={() => this.props.onClick('remaining')} />
-                <MenuButton text="CREDITOS" onClick={() => this.props.onClick('credits')} />
-                <MenuButton text="APROBADAS" onClick={() => this.props.onClick('passed')} />
-                <MenuButton text="ACTUALIZAR" onClick={() => this.props.onClick('update')} />
-                <MenuButton text="AYUDA" onClick={() => this.props.onClick('help')} />
+                <MenuButton text="DISPONIBLES" onClick={() => this.props.onClick('available')} enabled={this.props.enabledMenu} />
+                <MenuButton text="RESTANTES" onClick={() => this.props.onClick('remaining')} enabled={this.props.enabledMenu} />
+                <MenuButton text="CREDITOS" onClick={() => this.props.onClick('credits')} enabled={this.props.enabledMenu} />
+                <MenuButton text="APROBADAS" onClick={() => this.props.onClick('passed')} enabled={this.props.enabledMenu} />
+                <MenuButton text="ACTUALIZAR" onClick={() => this.props.onClick('update')} enabled={this.props.enabledMenu} />
+                <MenuButton text="AYUDA" onClick={() => this.props.onClick('help')} enabled={true} />
             </div>
         );
     }

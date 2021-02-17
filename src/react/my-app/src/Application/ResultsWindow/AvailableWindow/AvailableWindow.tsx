@@ -13,7 +13,11 @@ interface AvailableWindowState {
     data: any
 }
 
-export class AvailableWindow extends React.Component<{}, AvailableWindowState> {
+interface AvailableWindowProps {
+    studentId: string
+}
+
+export class AvailableWindow extends React.Component<AvailableWindowProps, AvailableWindowState> {
 
     constructor(props: any) {
         super(props);
@@ -23,7 +27,7 @@ export class AvailableWindow extends React.Component<{}, AvailableWindowState> {
     }
 
     componentDidMount() {
-        new ApiHandler().getStudentData("103924").then((d) => {
+        new ApiHandler().getStudentData(this.props.studentId).then((d) => {
             console.log(d);
             this.setState({
                 data: d

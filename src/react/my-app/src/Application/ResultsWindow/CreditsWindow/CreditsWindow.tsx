@@ -6,8 +6,11 @@ interface CreditsWindowState {
     data: any
 }
 
+interface CreditsWindowProps {
+    studentId: string
+}
 
-export class CreditsWindow extends React.Component<{}, CreditsWindowState> {
+export class CreditsWindow extends React.Component<CreditsWindowProps, CreditsWindowState> {
 
     constructor(props: any) {
         super(props);
@@ -17,7 +20,7 @@ export class CreditsWindow extends React.Component<{}, CreditsWindowState> {
     }
 
     componentDidMount() {
-        new ApiHandler().getStudentData("103924").then((d) => {
+        new ApiHandler().getStudentData(this.props.studentId).then((d) => {
             console.log(d);
             this.setState({
                 data: d

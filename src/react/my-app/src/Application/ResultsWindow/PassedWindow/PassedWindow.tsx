@@ -14,7 +14,11 @@ interface PassedWindowState {
     data: any
 }
 
-export class PassedWindow extends React.Component<{}, PassedWindowState> {
+interface PassedWindowProps {
+    studentId: string
+}
+
+export class PassedWindow extends React.Component<PassedWindowProps, PassedWindowState> {
 
     constructor(props: any) {
         super(props);
@@ -24,7 +28,7 @@ export class PassedWindow extends React.Component<{}, PassedWindowState> {
     }
 
     componentDidMount() {
-        new ApiHandler().getStudentData("103924").then((d) => {
+        new ApiHandler().getStudentData(this.props.studentId).then((d) => {
             console.log(d);
             this.setState({
                 data: d

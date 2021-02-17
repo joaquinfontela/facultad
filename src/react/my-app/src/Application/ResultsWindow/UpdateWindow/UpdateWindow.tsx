@@ -11,7 +11,11 @@ interface UpdateWindowState {
     data: any
 }
 
-export class UpdateWindow extends React.Component<{}, UpdateWindowState> {
+interface UpdateWindowProps {
+    studentId: string
+}
+
+export class UpdateWindow extends React.Component<UpdateWindowProps, UpdateWindowState> {
 
     constructor(props: any) {
         super(props);
@@ -63,7 +67,7 @@ export class UpdateWindow extends React.Component<{}, UpdateWindowState> {
     }
 
     componentDidMount() {
-        new ApiHandler().getStudentData("103924").then((d) => {
+        new ApiHandler().getStudentData(this.props.studentId).then((d) => {
             console.log(d);
             this.setState({
                 data: d

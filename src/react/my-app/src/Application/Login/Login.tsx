@@ -1,6 +1,7 @@
 import React, { ChangeEvent } from 'react'
 import { textChangeRangeIsUnchanged } from 'typescript';
 import "./Login.css"
+import ApiHandler from "../API/ApiHandler"
 
 interface LoginState {
     input: string
@@ -8,31 +9,44 @@ interface LoginState {
     sentInput: boolean
 }
 
-export class Login extends React.Component<{}, LoginState> {
+interface LoginProps {
+    initialSentInput: boolean,
+    successFulLoginHandler: any
+}
+
+export class Login extends React.Component<LoginProps, LoginState> {
 
     constructor(props: any) {
         super(props);
         this.state = {
             input: "",
-            validInput: false,
-            sentInput: false
+            validInput: true,
+            sentInput: this.props.initialSentInput
         }
     }
 
     handleInputChange(newInput: string): void {
         this.setState({
             input: newInput,
-            validInput: /^\d+$/.test(newInput), // esto valida que todos los caracteres de una str sean digitos.
             sentInput: false
         })
     }
 
-    handleInputSubmit(eventCode: string): void {
+    async handleInputSubmit(eventCode: string): Promise<void> {
         if (eventCode === "Enter") {
+            const validInput: boolean = await this.validateInput(this.state.input);
+            if (validInput) {
+                this.props.successFulLoginHandler(this.state.input);
+            }
             this.setState({
-                sentInput: true // esto valida que todos los caracteres de una str sean digitos.
+                sentInput: true,
+                validInput
             })
         }
+    }
+
+    async validateInput(loginId: string): Promise<boolean> {
+        return await new ApiHandler().validateStudentId(loginId);
     }
 
     render(): JSX.Element {

@@ -10,13 +10,17 @@ interface RemainingWindowState {
     data: any
 }
 
+interface RemainingWindowProps {
+    studentId: string
+}
+
 interface Subject {
     code: string,
     name: string,
     credits: number
 }
 
-export class RemainingWindow extends React.Component<{}, RemainingWindowState> {
+export class RemainingWindow extends React.Component<RemainingWindowProps, RemainingWindowState> {
 
     constructor(props: any) {
         super(props);
@@ -36,7 +40,7 @@ export class RemainingWindow extends React.Component<{}, RemainingWindowState> {
     }
 
     componentDidMount() {
-        new ApiHandler().getStudentData("103924").then((d) => {
+        new ApiHandler().getStudentData(this.props.studentId).then((d) => {
             console.log(d);
             this.setState({
                 data: d

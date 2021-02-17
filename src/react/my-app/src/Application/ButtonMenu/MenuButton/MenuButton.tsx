@@ -4,6 +4,7 @@ import "./MenuButton.css"
 interface MenuButtonProps {
     text: string;
     onClick: any;
+    enabled: boolean
 }
 
 export class MenuButton extends React.Component<MenuButtonProps> {
@@ -11,7 +12,7 @@ export class MenuButton extends React.Component<MenuButtonProps> {
     render(): JSX.Element {
         return (
             <div>
-                <button className="menuButton" onClick={this.props.onClick}>{this.props.text}</button>
+                <button className="menuButton" onClick={this.props.onClick} disabled={!this.props.enabled}>{this.props.text}</button>
             </div>
         );
     }
