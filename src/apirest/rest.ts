@@ -19,27 +19,22 @@ import { Bot } from '../server/bot';
 // const bot: Bot = new Bot();
 
 router.get('/', (req: any, res: any) => {
-    // console.log(req);
     res.send("Hello World!");
 });
 
 router.get('/data/', (req: any, res: any) => {
-    // console.log(req);
     res.send("Hello Data!");
 });
 
 router.get('/data/103924', (req: any, res: any) => {
-    // console.log(req);
     res.send(data);
 });
 
 router.post('/', (req: any, res: any) => {
-    // console.log(req);
     res.send("Hello Post!");
 });
 
 router.delete('/', (req: any, res: any) => {
-    // console.log(req);
     res.send("Hello Delete!");
 });
 
