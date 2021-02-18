@@ -108,7 +108,6 @@ export class Bot {
         return ans;
     }
 
-
     /**
      * 
      * @param userid User's id.
@@ -122,14 +121,30 @@ export class Bot {
             return "Te tenes que anotar en alguna carrera (pst, andate a la utn si podes)";
         }
         var ans: string = "";
-        careerCodes.forEach((code: number) => {
-            var graphs: SubjectGraph[] = this.filler.parseAllText();
-            ans += "Para la carrera " + this.credentialsManager.getCareerNameFromId(code) + " tenés: "
-            ans += graphs[code].getTotalCredits(this.users.getSubjects(userid)) + "\n";
+        var values: [string, number][] = this.getCredsTuple(userid, careerCodes);
+        values.forEach((tuple: [string, number]) => {
+            ans += "Para la carrera " + tuple[0] + " tenés: " + tuple[1] + "\n";
         });
         return ans;
     }
 
+    /**
+     * 
+     * @param userid User's id.
+     * 
+     * @param careerCodes List of the career codes that the user is enrolled in.
+     * 
+     * @param careerCodes List of [careerName: string, creds: number] tuples.
+     */
+    public getCredsTuple(userid: string, careerCodes: number[]): [string, number][] {
+        var tuples: [string, number][] = [];
+        careerCodes.forEach((code: number) => {
+            var graphs: SubjectGraph[] = this.filler.parseAllText();
+            tuples.push([this.credentialsManager.getCareerNameFromId(code),
+            graphs[code].getTotalCredits(this.users.getSubjects(userid))]);
+        });
+        return tuples;
+    }
 
     /**
      * 
