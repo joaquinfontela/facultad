@@ -43,10 +43,7 @@ export class UpdateWindow extends React.Component<UpdateWindowProps, UpdateWindo
             if (failed.includes(subjectCode)) {
                 failed.splice(failed.indexOf(subjectCode), 1);
             }
-        } else {
-            passed.splice(passed.indexOf(subjectCode), 1);
         }
-
         this.setState({
             passedSubjectsCodes: passed,
             failedSubjectsCodes: failed
@@ -62,8 +59,6 @@ export class UpdateWindow extends React.Component<UpdateWindowProps, UpdateWindo
             if (passed.includes(subjectCode)) {
                 passed.splice(passed.indexOf(subjectCode), 1);
             }
-        } else {
-            failed.splice(failed.indexOf(subjectCode), 1);
         }
 
         this.setState({
