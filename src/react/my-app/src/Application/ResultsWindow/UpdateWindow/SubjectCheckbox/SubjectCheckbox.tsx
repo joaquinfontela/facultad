@@ -15,14 +15,22 @@ export default class SubjectCheckbox extends React.Component<SubjectCheckboxProp
         return (
             <li className="subjectCheckboxContainer">
                 <text>{this.props.code}</text>
-                <input className="subjectPassedCheckbox"
-                    type="checkbox"
-                    checked={this.props.passed}
-                    onChange={() => { this.props.handlePassedClick(this.props.code) }}></input>
-                <input className="subjectFailedCheckbox"
-                    type="checkbox"
-                    checked={this.props.failed}
-                    onChange={() => { this.props.handleFailedClick(this.props.code) }}></input>
+                <label className="passedContainer">
+                    <input
+                        type="checkbox"
+                        checked={this.props.passed}
+                        onChange={() => { this.props.handlePassedClick(this.props.code) }}>
+                    </input>
+                    <span className="checkmark"></span>
+                </label>
+                <label className="failedContainer">
+                    <input
+                        type="checkbox"
+                        checked={this.props.failed}
+                        onChange={() => { this.props.handleFailedClick(this.props.code) }}>
+                    </input>
+                    <span className="checkmark"></span>
+                </label>
             </li>
         );
     }
