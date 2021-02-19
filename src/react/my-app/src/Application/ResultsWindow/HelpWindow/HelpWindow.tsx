@@ -8,7 +8,7 @@ export class HelpWindow extends React.Component {
         return (
             <div className="helpWindow">
                 <ul>
-                    <li className="helpWindowLoginWarning">IMPORTANTE! PARA PODER UTILIZAR LAS FUNCIONALIDADES DE LA APP, USTED DEBE OBLIGATORIAMENTE INICIAR SESION.</li>
+                    <li className="helpWindowLoginWarning">IMPORTANTE! PARA PODER UTILIZAR LAS FUNCIONALIDADES DE LA APP, USTED DEBE OBLIGATORIAMENTE INICIAR SESION Y ESCOGER UNA CARRERA.</li>
                     <li className="helpWindowDescription">DISPONIBLES: muestra en pantalla las materias en las cuales el alumno puede anotarse para cursar.</li>
                     <li className="helpWindowDescription">RESTANTES: pide ingresar el codigo de una materia, y muestra en pantalla las materias restantes por aprobar para poder cursar la materia de codigo ingresado.</li>
                     <li className="helpWindowDescription">CREDITOS: muestra en pantalla la cantidad de creditos obtenidos por el alumno a lo largo de la carrera.</li>

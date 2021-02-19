@@ -9,7 +9,8 @@ import { UpdateWindow } from "./UpdateWindow/UpdateWindow"
 
 interface ResultsWindowProps {
     renderId: string,
-    studentId: string
+    studentId: string,
+    carreerId: number
 }
 
 export class ResultsWindow extends React.Component<ResultsWindowProps> {

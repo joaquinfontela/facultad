@@ -3,10 +3,12 @@ import { Title } from './Title/Title'
 import { ButtonMenu } from './ButtonMenu/ButtonMenu'
 import { ResultsWindow } from './ResultsWindow/ResultsWindow'
 import { Login } from "./Login/Login"
+import CarreerMenu from "./CarreerMenu/CarreerMenu"
 
 interface ApplicationState {
     renderResults: string,
     studentId: string,
+    carreerId: number,
     loggedIn: boolean
 }
 
@@ -17,10 +19,12 @@ export class Application extends React.Component<{}, ApplicationState> {
         this.state = {
             loggedIn: false,
             studentId: "",
+            carreerId: 0,
             renderResults: ""
         }
         this.handleButtonClick = this.handleButtonClick.bind(this);
         this.handleSuccessfulLogin = this.handleSuccessfulLogin.bind(this);
+        this.changeCurrentCarreerId = this.changeCurrentCarreerId.bind(this);
     }
 
     handleButtonClick(buttonId: string): void {
@@ -36,15 +40,22 @@ export class Application extends React.Component<{}, ApplicationState> {
         })
     }
 
+    changeCurrentCarreerId(carreerId: number): void {
+        this.setState({
+            carreerId
+        })
+    }
+
     render(): JSX.Element {
 
         return (
             <div>
                 <Title />
                 <Login successFulLoginHandler={this.handleSuccessfulLogin} initialSentInput={this.state.loggedIn} />
+                <CarreerMenu onClick={this.changeCurrentCarreerId} carreerId={this.state.carreerId} loggedIn={this.state.loggedIn} />
                 <div>
-                    <ButtonMenu onClick={this.handleButtonClick} enabledMenu={this.state.loggedIn} />
-                    <ResultsWindow renderId={this.state.renderResults} studentId={this.state.studentId} />
+                    <ButtonMenu onClick={this.handleButtonClick} enabledMenu={this.state.loggedIn && this.state.carreerId != 0} />
+                    <ResultsWindow renderId={this.state.renderResults} studentId={this.state.studentId} carreerId={this.state.carreerId} />
                 </div>
             </div>
         );
