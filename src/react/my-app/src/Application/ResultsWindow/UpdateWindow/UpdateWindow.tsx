@@ -137,6 +137,8 @@ export class UpdateWindow extends React.Component<UpdateWindowProps, UpdateWindo
 
         return (
             <div>
+                <button className="updateButton">ACTUALIZAR</button>
+                <hr></hr>
                 <div>
                     <ul className="subjectCheckboxList">{subjectCheckboxesList1}</ul>
                 </div>
