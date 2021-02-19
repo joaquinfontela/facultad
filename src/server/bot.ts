@@ -46,7 +46,6 @@ export class Bot {
      * @returns Returns a string containing the subjects that the user can take, depending on the career. 
      */
     public availableSubjects(userid: string, careerCodes: number[]): string {
-        this.getAvailableSubjects(userid, careerCodes);
         if (careerCodes.length === 0) {
             return "Te tenes que anotar en alguna materia (pst, andate a la utn si podes)";
         }
@@ -110,7 +109,6 @@ export class Bot {
      * @returns Returns the information of the needed subjects to pass before taking up said courses. 
      */
     public remainingSubjects(userid: string, careerCodes: number[], wanted: string): string {
-        this.getRemainingSubjects(userid, careerCodes, wanted);
         if (wanted.length === 0) {
             return "Me tenes que pasar algún código para analizar master.";
         } else if (careerCodes.length === 0) {
@@ -161,13 +159,6 @@ export class Bot {
                 }
             }
         });
-
-        console.log("---------------------------------------");
-        careerCodes.forEach((i: number) => {
-            console.log(ans[i].toString());
-        });
-        console.log("---------------------------------------");
-
         return ans;
     }
 
