@@ -70,7 +70,7 @@ client.on('message', async (message: any) => {
         } else if (CMD_NAME == 'siu') {
             message.reply(GREEN + bot.showSubjects(userid) + END_COLOR);
         } else if (CMD_NAME == 'restantes') {
-            message.reply(BLUE + bot.remainingSubjects(userid, getCareerCodes(message), args) + END_COLOR);
+            message.reply(BLUE + bot.remainingSubjects(userid, getCareerCodes(message), args[0]) + END_COLOR);
         } else if (CMD_NAME == 'creds') {
             message.reply(bot.sendCreds(userid, getCareerCodes(message)));
         } else if (CMD_NAME == 'carreras') {

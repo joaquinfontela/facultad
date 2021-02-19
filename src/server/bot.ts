@@ -1,9 +1,9 @@
 import { Credentials } from "./credentials";
-import { Users } from "./user";
+import { Users } from "./users";
 import { GraphFiller } from "./graphfiller";
 import { Subject, SubjectGraph } from "./graph";
 
-const COMMAND_HEADER = "\n    +------ COMANDOS FIUBENSES DISPONIBLES ------+\n\n";
+const COMMAND_HEADER = "\n +--------------------- COMANDOS FIUBENSES DISPONIBLES ---------------------+ \n\n";
 
 export class Bot {
 
@@ -37,7 +37,7 @@ export class Bot {
         return (COMMAND_HEADER + this.credentialsManager.getHelp());
     }
 
-    /**
+    /** REFACTOR
      * 
      * @param userid User's id.
      * 
@@ -46,6 +46,7 @@ export class Bot {
      * @returns Returns a string containing the subjects that the user can take, depending on the career. 
      */
     public availableSubjects(userid: string, careerCodes: number[]): string {
+        this.getAvailableSubjects(userid, careerCodes);
         if (careerCodes.length === 0) {
             return "Te tenes que anotar en alguna materia (pst, andate a la utn si podes)";
         }
@@ -77,12 +78,40 @@ export class Bot {
      * 
      * @param careerCodes List of the career codes that the user is enrolled in.
      * 
-     * @param args Subject codes to analyze.
+     * @returns Dict that maps CareerID -> Subjects Available to Do from the given data.
+     */
+    public getAvailableSubjects(userid: string, careerCodes: number[]): { [career: number]: Subject[] } {
+        var ans: { [career: number]: Subject[] } = [];
+        var graphs: SubjectGraph[] = this.filler.parseAllText();
+        careerCodes.forEach((id: number) => {
+            var availables: string[] = graphs[id].subjectsICanDo(this.users.getSubjects(userid));
+            ans[id] = [];
+            availables.forEach((code: string) => {
+                var subj: Subject | undefined = graphs[id].searchSubjectByCode(code);
+                if (subj !== undefined) {
+                    ans[id].push(subj);
+                }
+            });
+        });
+
+        return ans;
+    }
+
+    // Get remaming, done and to do subjects.
+
+    /** REFACTOR
+     * 
+     * @param userid User's id.
+     * 
+     * @param careerCodes List of the career codes that the user is enrolled in.
+     * 
+     * @param wanted Subject code to analyze.
      * 
      * @returns Returns the information of the needed subjects to pass before taking up said courses. 
      */
-    public remainingSubjects(userid: string, careerCodes: number[], args: string[]): string {
-        if (Array.from(args).length === 0) {
+    public remainingSubjects(userid: string, careerCodes: number[], wanted: string): string {
+        this.getRemainingSubjects(userid, careerCodes, wanted);
+        if (wanted.length === 0) {
             return "Me tenes que pasar algún código para analizar master.";
         } else if (careerCodes.length === 0) {
             return "Te tenes que anotar en alguna carrera (pst, andate a la utn si podes)";
@@ -90,13 +119,13 @@ export class Bot {
         var graphs: SubjectGraph[] = this.filler.parseAllText();
         var ans: string = "";
         careerCodes.forEach((id: number) => {
-            ans += "\n En la carrera de " + this.credentialsManager.getCareerNameFromId(id) + " ";
-            if (graphs[id].searchSubjectByCode(args[0]) === undefined) {
-                ans += "no existe la materia de código: " + args[0];
-            } else if (this.users.getSubjects(userid).includes(args[0])) {
+            ans += "\n⇒ En la carrera de " + this.credentialsManager.getCareerNameFromId(id) + " ";
+            if (graphs[id].searchSubjectByCode(wanted) === undefined) {
+                ans += "no existe la materia de código: " + wanted;
+            } else if (this.users.getSubjects(userid).includes(wanted)) {
                 ans += "ya aprobó la materia."
             } else {
-                var aCursar: string[] = graphs[id].subjectCodesNeededFor(args[0]).filter(
+                var aCursar: string[] = graphs[id].subjectCodesNeededFor(wanted).filter(
                     (s: string) => !this.users.getSubjects(userid).includes(s));
                 if (aCursar.length === 0) {
                     ans += "ya puede cursar la materia ingresada.";
@@ -105,6 +134,40 @@ export class Bot {
                 }
             }
         });
+        return ans;
+    }
+
+    /** REFACTOR
+    * 
+    * @param userid User's id.
+    * 
+    * @param careerCodes List of the career codes that the user is enrolled in.
+    * 
+    * @param wanted Subject code to analyze.
+    * 
+    * @returns A dict mapping CareerId -> Subjects codes needed on each career to do the wanted one. 
+    */
+    public getRemainingSubjects(userid: string, careerCodes: number[], wanted: string): { [career: number]: string[] } {
+        var ans: { [career: number]: string[] } = [];
+        var graphs: SubjectGraph[] = this.filler.parseAllText();
+        careerCodes.forEach((id: number) => {
+            ans[id] = [];
+            if (graphs[id].searchSubjectByCode(wanted) !== undefined && // The subject must exist
+                !this.users.getSubjects(userid).includes(wanted)) { // The subject must still be doable
+                var aCursar: string[] = graphs[id].subjectCodesNeededFor(wanted).filter(
+                    (s: string) => !this.users.getSubjects(userid).includes(s));
+                if (aCursar.length !== 0) { // If the subjects exist
+                    ans[id] = aCursar;
+                }
+            }
+        });
+
+        console.log("---------------------------------------");
+        careerCodes.forEach((i: number) => {
+            console.log(ans[i].toString());
+        });
+        console.log("---------------------------------------");
+
         return ans;
     }
 
@@ -173,10 +236,20 @@ export class Bot {
      * @returns Returns the subjects that the user has passed.
      */
     public showSubjects(userid: string): string {
-        var subj: string[] = this.users.getSubjects(userid);
+        var subj: string[] = this.getPassedSubjects(userid);
         if (subj.length === 0) {
             return " Aparentemente no aprobaste nada, ojo y fijate en fiubaconsultas eh";
         }
         return (" Usted robó las materias: \n" + subj.join(', '));
+    }
+
+    /**
+     * 
+     * @param userid User's id.
+     * 
+     * @returns List of passed subjects.
+     */
+    public getPassedSubjects(userid: string): string[] {
+        return this.users.getSubjects(userid);
     }
 }

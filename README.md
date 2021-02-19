@@ -23,7 +23,7 @@
 
 - Read environmental variables: `npm install dotenv`
 
-- Compile .ts project: `npx tsc`
+- Compile .ts project: `npx tsc --jsx react-jsx`
 
 - Run Discord bot: `npm run start`
 

@@ -1,7 +1,19 @@
 import { WSAEDQUOT } from "constants";
+require("dotenv").config();
 
 const MATERIAS: 0 | 1 = 0;
 const ROLES: 0 | 1 = 1;
+
+const MongoClient = require('mongodb').MongoClient;
+const uri = process.env.DB_CONNECTION;
+const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+client.connect((err: Error) => {
+    const collection = client.db("test").collection("devices");
+    // perform actions on the collection object
+    console.log("Connected to DB!");
+    client.close();
+});
+
 
 export class Users {
 
