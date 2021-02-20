@@ -72,6 +72,10 @@ client.on('message', async (message: any) => {
             message.reply(YELLOW + bot.replyWithHelp() + END_COLOR);
         } else if (CMD_NAME == 'tomatela') {
             destroyClient();
+        } else if (CMD_NAME == 'registrar') {
+            if (args.length > 0) {
+                USERS[message.author.id] = args[0]; // Guardo el padrón
+            }
         } else if (CMD_NAME == 'disponibles') {
             message.reply(ORANGE + bot.availableSubjects(userid, getCareerCodes(message)) + END_COLOR);
         } else if (CMD_NAME == 'aprobe') {

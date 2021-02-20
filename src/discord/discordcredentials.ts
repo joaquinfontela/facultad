@@ -27,6 +27,7 @@ export class DiscordCredentials implements Credentials {
         this.addCommand(new Command("Quita materias aprobadas del sistema", "recurse"));
         this.addCommand(new Command("Muestra la lista de materias aprobadas", "siu"));
         this.addCommand(new Command("Envia un mensaje con el que cada fiubense puede elegir su rol de carrera. Si sos de letras te bannea", "carreras"));
+        this.addCommand(new Command("Registra tu usuario con el padrón que le pasas", "registrar"));
     }
 
     /**
