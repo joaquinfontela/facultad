@@ -1,48 +1,29 @@
 import { WSAEDQUOT } from "constants";
 require("dotenv").config();
 
-const MATERIAS: 0 | 1 = 0;
-const ROLES: 0 | 1 = 1;
-
-const MongoClient = require('mongodb').MongoClient;
-const uri = process.env.DB_CONNECTION;
-const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
-client.connect((err: Error) => {
-    const collection = client.db("test").collection("devices");
-    // perform actions on the collection object
-    console.log("Connected to DB!");
-    client.close();
-});
-
-
 export class Users {
 
     // User id -> [Subjects passed, Roles]
-    private users: { [id: string]: [string[], string[]] } = {};
+    private subjects: { [id: string]: string[] } = {};
+    private careers: { [id: string]: number[] } = {};
+
+    public updateCareer(userid: string, careerCodes: number[]): void {
+        Object.keys(this.careers).forEach((key: string) => {
+            if (key === userid) {
+                this.careers[key] = careerCodes;
+            };
+        });
+    }
 
     /**
      * 
      * @param id Id of the user to add.
      */
     public addUser(id: string): void {
-        if (!(id in this.users)) {
-            this.users[id] = [[], []];
+        if (!(id in this.subjects)) {
+            this.subjects[id] = [];
+            this.careers[id] = [];
         }
-    }
-
-    /**
-     * 
-     * @param id User id.
-     * 
-     * @param pos 0 if it's trying to access the subject's list. 1 for the roles list.
-     * 
-     * @returns List with the values fetched from id and pos.
-     */
-    private getValue(id: string, pos: 0 | 1): string[] {
-        if (id in this.users) {
-            return this.users[id][pos];
-        }
-        return [];
     }
 
     /**
@@ -52,7 +33,7 @@ export class Users {
      * @returns Returns a list of passed subjects.
      */
     public getSubjects(id: string): string[] {
-        return this.getValue(id, MATERIAS);
+        return this.subjects[id];
     }
 
     /**
@@ -61,22 +42,8 @@ export class Users {
      * 
      * @returns Returns a list of the user's assigned roles.
      */
-    public getRoles(id: string): string[] {
-        return this.getValue(id, ROLES);
-    }
-
-    /**
-     * 
-     * @param id User's id.
-     * 
-     * @param pos 0 if it's trying to access the subject's list. 1 for the roles list
-     * 
-     * @param list List of items to remove.
-     */
-    public removeValue(id: string, pos: 0 | 1, list: string[]): void {
-        if (id in this.users) {
-            this.users[id][pos] = this.users[id][pos].filter((c: string) => !list.includes(c));
-        }
+    public getCareers(id: string): number[] {
+        return this.careers[id];
     }
 
     /**
@@ -88,7 +55,7 @@ export class Users {
     public removeSubjects(id: string, tokill: string[]): void {
         if (tokill.length === 0) return;
         tokill = tokill.map((s: string) => s.toUpperCase());
-        return this.removeValue(id, MATERIAS, tokill);
+        this.subjects[id] = this.subjects[id].filter((c: string) => !tokill.includes(c));
     }
 
     /**
@@ -97,31 +64,18 @@ export class Users {
      * 
      * @param tokill List of roles to remove from said user.
      */
-    public removeRoles(id: string, tokill: string[]): void {
-        return this.removeValue(id, ROLES, tokill);
+    public removeCareers(id: string, tokill: number[]): void {
+        this.careers[id] = this.careers[id].filter((n: number) => !tokill.includes(n));
     }
 
     /**
      * 
      * @param id User's id.
      * 
-     * @param pos 0 if it's trying to access the subject's list. 1 for the roles list.
-     * 
-     * @param list List of values to concat.
-     */
-    public addValue(id: string, pos: number, list: string[]): void {
-        if (id in this.users) {
-            this.users[id][pos] = this.users[id][pos].concat(list);
-        }
-    }
-    /**
-     * 
-     * @param id User's id.
-     * 
      * @param roleids List of roles to add to user.
      */
-    public addRoles(id: string, roleids: string[]): void {
-        return this.addValue(id, ROLES, roleids);
+    public addCareer(id: string, roleids: number[]): void {
+        this.careers[id] = this.careers[id].concat(roleids);
     }
 
     /**
@@ -130,10 +84,10 @@ export class Users {
      * 
      * @param subjects List of subjects to add to user.
      */
-    public addSubjects(id: string, subjects: string[]): void {
-        if (subjects.length === 0) return;
-        subjects = subjects.map((s: string) => s.toUpperCase());
-        return this.addValue(id, MATERIAS, subjects);
+    public addSubjects(id: string, subs: string[]): void {
+        if (subs.length === 0) return;
+        subs = subs.map((s: string) => s.toUpperCase());
+        this.subjects[id] = this.subjects[id].concat(subs);
     }
 
 }

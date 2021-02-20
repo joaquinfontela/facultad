@@ -15,11 +15,19 @@ export class Bot {
         this.credentialsManager = credentialsManager;
     }
 
+    public getCareersFromUserid(userid: string): number[] {
+        return this.users.getCareers(userid);
+    }
+
     /**
      * 
      * @param id Creates new user with the given id.
      */
     public addUser(id: string) { this.users.addUser(id); }
+
+    public updateUserCareer(userid: string, careerCodes: number[]): void {
+        this.users.updateCareer(userid, careerCodes);
+    }
 
     /**
      * 

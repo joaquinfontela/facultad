@@ -15,6 +15,7 @@ const YELLOW: string = "```fix\n";
 const BLUE: string = "```init\n";
 const GREEN: string = "```json\n";
 const END_COLOR: string = "\n```";
+const USERS: { [discord: string]: string } = {};
 var careersMsgID: string = "";
 
 client.on('ready', () => {
@@ -33,7 +34,7 @@ function destroyClient(): void {
  * carreras, en orden alfabético.
  */
 function getCareerCodes(message: any): number[] {
-    var ids: number[] = []
+    var ids: number[] = [];
     var careerIds: { [code: string]: number } = credentials.getCareerIds();
     Object.keys(careerIds).forEach((key: string) => {
         if (message.member.roles.cache.has(key)) {
@@ -45,12 +46,22 @@ function getCareerCodes(message: any): number[] {
     return ids;
 }
 
+function getId(discordId: string): string {
+    if (discordId in Object.keys(USERS)) {
+        return USERS[discordId];
+    } else {
+        return discordId;
+    }
+}
+
 // Separar el if en varias funciones y parametrizar todo
 // con lambdas para achicar la función.
 client.on('message', async (message: any) => {
     if (message.author.bot) return;
-    var userid: string = message.author.id;
-    bot.addUser(message.author.id);
+    var userid: string = getId(message.author.id);
+    bot.addUser(userid);
+    bot.updateUserCareer(userid, getCareerCodes(message));
+    console.log(bot.getCareersFromUserid(userid).toString());
     if (message.content.startsWith(COMMAND_PREFIX)) {
         var [CMD_NAME, ...args] = message.content
             .trim()
@@ -70,7 +81,12 @@ client.on('message', async (message: any) => {
         } else if (CMD_NAME == 'siu') {
             message.reply(GREEN + bot.showSubjects(userid) + END_COLOR);
         } else if (CMD_NAME == 'restantes') {
-            message.reply(BLUE + bot.remainingSubjects(userid, getCareerCodes(message), args[0]) + END_COLOR);
+            console.log(args.toString());
+            if (args.length < 1) {
+                message.reply(BLUE + "Dame materias masterchef" + END_COLOR);
+            } else {
+                message.reply(BLUE + bot.remainingSubjects(userid, getCareerCodes(message), args[0]) + END_COLOR);
+            }
         } else if (CMD_NAME == 'creds') {
             message.reply(bot.sendCreds(userid, getCareerCodes(message)));
         } else if (CMD_NAME == 'carreras') {
@@ -83,22 +99,22 @@ client.on('message', async (message: any) => {
 });
 
 client.on('messageReactionAdd', (reaction: any, user: any) => {
-    const { name } = reaction.emoji;
+    const { emoji } = reaction.emoji;
     const member = reaction.message.guild.members.cache.get(user.id);
     if (!member.guild.me.hasPermission('MANAGE_ROLES')) {
         return console.log("No tengo el rol para darte roles, 🐱");
     } else if (reaction.message.id === careersMsgID) {
-        member.roles.add(credentials.getRoleID(name))
+        member.roles.add(credentials.getRoleID(emoji))
     }
 });
 
 client.on('messageReactionRemove', (reaction: any, user: any) => {
-    const { name } = reaction.emoji;
+    const { emoji } = reaction.emoji;
     const member = reaction.message.guild.members.cache.get(user.id);
     if (!member.guild.me.hasPermission('MANAGE_ROLES')) {
         return console.log("No tengo el rol para darte roles, 🐱");
     } else if (reaction.message.id === careersMsgID) {
-        member.roles.remove(credentials.getRoleID(name))
+        member.roles.remove(credentials.getRoleID(emoji))
     }
 });
 
