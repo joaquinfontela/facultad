@@ -1,12 +1,13 @@
 import React from 'react'
+import { MouseEventHandler } from 'react';
 import "./SubjectCheckbox.css"
 
 interface SubjectCheckboxProps {
     code: string,
     passed: boolean,
     failed: boolean,
-    handlePassedClick: any,
-    handleFailedClick: any
+    handlePassedClick: Function,
+    handleFailedClick: Function
 }
 
 export default class SubjectCheckbox extends React.Component<SubjectCheckboxProps, {}> {

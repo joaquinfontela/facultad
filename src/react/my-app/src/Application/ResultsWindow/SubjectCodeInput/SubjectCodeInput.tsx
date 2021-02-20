@@ -3,7 +3,7 @@ import "./SubjectCodeInput.css"
 
 interface SubjectCodeInputProps {
     input: string
-    handleChange: any
+    handleChange: Function
 }
 
 export class SubjectCodeInput extends React.Component<SubjectCodeInputProps, {}> {

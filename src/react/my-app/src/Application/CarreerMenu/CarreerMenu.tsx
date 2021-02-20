@@ -3,7 +3,7 @@ import "./CarreerMenu.css"
 
 interface CarreerMenuProps {
     carreerId: number
-    onClick: any
+    onClick: Function
     loggedIn: boolean
 }
 

@@ -105,6 +105,15 @@ export class SubjectGraph {
 
     /**
      * 
+     */
+    public getAllSubjectCodes(): string[] {
+        return this.adjList.map((subject : Subject) => {
+            return subject.getCode();
+        });
+    }
+
+    /**
+     * 
      * @param code Code of the subjects correlative list to be returned.
      * 
      * @returns Returns the list of said subjects correlatives.
