@@ -272,7 +272,7 @@ export class Bot {
      */
     private getUserData(userID: string): { [data: string]: { [career: number]: { [careerData: string]: any } } } {
         var userData: { [data: string]: { [career: number]: any } } = { "data": {} };
-        var userCareers: number[] = this.users.getCareers(userID); /* Proximamente este metodo dara un number[] */
+        var userCareers: number[] = this.users.getCareers(userID);
         var allGraphs: SubjectGraph[] = this.filler.parseAllText();
         userCareers.forEach(career => {
             userData["data"][career] = this.getUserCareerData(userID, career, allGraphs);
