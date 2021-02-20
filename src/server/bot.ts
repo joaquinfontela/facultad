@@ -251,7 +251,7 @@ export class Bot {
     public getPassedSubjects(userid: string): string[] {
         return this.users.getSubjects(userid);
     }
-    
+
     /**
      * 
      * @param userID User's ID
@@ -259,7 +259,7 @@ export class Bot {
      * @returns User's data, meant to be written in a JSON file. Contains passed, available, and remaining subjects of the user's career or careers, as well as the total credits obtained in each one.
      */
     public getUserDataFile(userID: string): string {
-        var userData: { [data: string]: { [career: string] : any } } = this.getUserData(userID);
+        var userData: { [data: string]: { [career: string]: any } } = this.getUserData(userID);
         var userDataFile: string = JSON.stringify(userData);
         return userDataFile;
     }
@@ -270,9 +270,9 @@ export class Bot {
      * 
      * @returns User's data, which contains passed, available, and remaining subjects of the user's career or careers, as well as the total credits obtained in each one.
      */
-    private getUserData(userID: string): { [data: string]: { [career: number] : { [careerData: string] : any } } } {
-        var userData: { [data: string] : { [career: number] : any } } = {"data" : {}};
-        var userCareers: number[] = this.users.getRoles(userID); /* Proximamente este metodo dara un number[] */
+    private getUserData(userID: string): { [data: string]: { [career: number]: { [careerData: string]: any } } } {
+        var userData: { [data: string]: { [career: number]: any } } = { "data": {} };
+        var userCareers: number[] = this.users.getCareers(userID); /* Proximamente este metodo dara un number[] */
         var allGraphs: SubjectGraph[] = this.filler.parseAllText();
         userCareers.forEach(career => {
             userData["data"][career] = this.getUserCareerData(userID, career, allGraphs);
@@ -291,26 +291,26 @@ export class Bot {
      * @returns User's career data, which contains passed, available, and remaining subjects of the user's career, as well as the total credits obtained in it.
      * 
      */
-    private getUserCareerData(userID: string, careerID: number, allGraphs: SubjectGraph[]): { [careerData: string] : any } {
-        var userData: { [careerData: string] : any } = {};
+    private getUserCareerData(userID: string, careerID: number, allGraphs: SubjectGraph[]): { [careerData: string]: any } {
+        var userData: { [careerData: string]: any } = {};
         var careerGraph: SubjectGraph = allGraphs[careerID];
         var passedSubjects: string[] = this.users.getSubjects(userID);
         var availableSubjects: string[] = careerGraph.subjectsICanDo(passedSubjects);
-        
+
         userData["available"] = [];
         availableSubjects.forEach((subjectCode: string) => {
             userData["passed"].push(this.getSubjectInfo(subjectCode, careerGraph));
         });
-        
+
         userData["left"] = {};
         careerGraph.getAllSubjectCodes().forEach((subjectCode: string) => {
             if (!passedSubjects.includes(subjectCode) && !availableSubjects.includes(subjectCode)) {
-                userData["left"][subjectCode] = careerGraph.subjectCodesNeededFor(subjectCode).filter((neededSubjectCode : string) => {
+                userData["left"][subjectCode] = careerGraph.subjectCodesNeededFor(subjectCode).filter((neededSubjectCode: string) => {
                     return !passedSubjects.includes(neededSubjectCode);
                 });
             }
         });
-        
+
         userData["credits"] = careerGraph.getTotalCredits(passedSubjects);
 
         userData["passed"] = [];
@@ -329,9 +329,9 @@ export class Bot {
      * 
      * @returns Subject information related to the given career graph. Contains code, name, and credits of said subject.
      */
-    private getSubjectInfo(subjectCode: string, careerGraph: SubjectGraph): { [info: string] : string | number } {
+    private getSubjectInfo(subjectCode: string, careerGraph: SubjectGraph): { [info: string]: string | number } {
         var subject: Subject | undefined = careerGraph.searchSubjectByCode(subjectCode);
-        var subjectInfo: { [info : string] : string | number } = {}
+        var subjectInfo: { [info: string]: string | number } = {}
         if (subject !== undefined) {
             subjectInfo["code"] = subject.getCode();
             subjectInfo["name"] = subject.getName();
