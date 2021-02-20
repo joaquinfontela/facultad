@@ -66,7 +66,7 @@ export class RemainingWindow extends React.Component<RemainingWindowProps, Remai
             );
         }
 
-        subjectsLeft.sort(function (a: any, b: any) {
+        subjectsLeft.sort(function (a: Subject, b: Subject) {
             var keyA = a.code;
             var keyB = b.code;
             if (keyA < keyB) return -1;

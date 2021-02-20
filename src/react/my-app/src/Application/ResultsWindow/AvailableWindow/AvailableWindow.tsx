@@ -26,7 +26,7 @@ export class AvailableWindow extends React.Component<AvailableWindowProps, Avail
         }
     }
 
-    componentDidMount() {
+    componentDidMount(): void {
         new ApiHandler().getStudentData(this.props.studentId).then((d) => {
             this.setState({
                 data: d
@@ -34,7 +34,7 @@ export class AvailableWindow extends React.Component<AvailableWindowProps, Avail
         });
     }
 
-    render() {
+    render(): JSX.Element {
         if (!this.state.data.data) {
             return (<div className="availableWindow">
                 <ul>{ }</ul>

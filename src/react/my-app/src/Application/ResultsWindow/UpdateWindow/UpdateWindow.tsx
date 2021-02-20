@@ -67,7 +67,7 @@ export class UpdateWindow extends React.Component<UpdateWindowProps, UpdateWindo
         })
     }
 
-    componentDidMount() {
+    componentDidMount(): void {
         new ApiHandler().getStudentData(this.props.studentId).then((d: any) => {
             let passedSubjectsCodes: string[] = d.data.passed.map((sub: Subject) => {
                 return sub.code;
@@ -96,7 +96,7 @@ export class UpdateWindow extends React.Component<UpdateWindowProps, UpdateWindo
             return 0;
         })
 
-        const subjectCheckboxes: JSX.Element[] = subjectCodes.map(s => {
+        const subjectCheckboxes: JSX.Element[] = subjectCodes.map((s: string) => {
             return (
                 <SubjectCheckbox key={s}
                     code={s}

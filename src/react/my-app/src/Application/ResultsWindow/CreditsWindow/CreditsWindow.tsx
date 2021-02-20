@@ -19,15 +19,15 @@ export class CreditsWindow extends React.Component<CreditsWindowProps, CreditsWi
         }
     }
 
-    componentDidMount() {
-        new ApiHandler().getStudentData(this.props.studentId).then((d) => {
+    componentDidMount(): void {
+        new ApiHandler().getStudentData(this.props.studentId).then((d: any) => {
             this.setState({
                 data: d
             });
         });
     }
 
-    render() {
+    render(): JSX.Element {
         if (!this.state.data.data) {
             return (<div className="creditsWindow"></div>);
         }
