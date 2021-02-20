@@ -33,7 +33,7 @@ export class Application extends React.Component<{}, ApplicationState> {
         });
     }
 
-    handleSuccessfulLogin(studentId: string) {
+    handleSuccessfulLogin(studentId: string): void {
         this.setState({
             loggedIn: true,
             studentId

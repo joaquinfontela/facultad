@@ -27,15 +27,15 @@ export class PassedWindow extends React.Component<PassedWindowProps, PassedWindo
         }
     }
 
-    componentDidMount() {
-        new ApiHandler().getStudentData(this.props.studentId).then((d) => {
+    componentDidMount(): void {
+        new ApiHandler().getStudentData(this.props.studentId).then((d: any) => {
             this.setState({
                 data: d
             });
         });
     }
 
-    render() {
+    render(): JSX.Element {
         if (!this.state.data.data) {
             return (<div className="passedWindow">
                 <ul>{ }</ul>
@@ -51,7 +51,7 @@ export class PassedWindow extends React.Component<PassedWindowProps, PassedWindo
             return 0;
         })
 
-        const subjects = passed.map((s) => {
+        const subjects = passed.map((s: Subject) => {
             return (
                 <SubjectRender
                     key={s.code}
