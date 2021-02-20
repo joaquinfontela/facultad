@@ -1,9 +1,10 @@
 import React from 'react'
+import { MouseEventHandler } from 'react';
 import "./MenuButton.css"
 
 interface MenuButtonProps {
     text: string;
-    onClick: any;
+    onClick: MouseEventHandler;
     enabled: boolean
 }
 
