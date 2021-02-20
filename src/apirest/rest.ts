@@ -12,11 +12,14 @@ app.use(function (req: any, res: any, next: any) {
 var router = express.Router();
 
 import { Bot } from '../server/bot';
+import { Credentials } from '../server/credentials';
+import { DiscordCredentials } from '../discord/discordcredentials';
 
 // Crear una clase que implemente a las 
 // credenciales y pasarlas por parámetro.
 
-// const bot: Bot = new Bot();
+const credentialsManager: Credentials = new DiscordCredentials();
+const bot: Bot = new Bot(credentialsManager);
 
 router.get('/', (req: any, res: any) => {
     res.send("Hello World!");
@@ -28,6 +31,12 @@ router.get('/data/', (req: any, res: any) => {
 
 router.get('/data/103924', (req: any, res: any) => {
     res.send(data);
+});
+
+router.get('/data/:userid', (req: any, res: any) => {
+    var userId : string = req.params["userid"];
+    var userDataFile : string = bot.getUserDataFile(userId);
+    res.json(userDataFile);
 });
 
 router.post('/', (req: any, res: any) => {
