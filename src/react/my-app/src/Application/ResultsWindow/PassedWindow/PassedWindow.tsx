@@ -42,7 +42,9 @@ export class PassedWindow extends React.Component<PassedWindowProps, PassedWindo
                 <ul>{ }</ul>
             </div>);
         }
-        const passed: Subject[] = this.state.data.data[this.props.carreerId].passed;
+        let passed: Subject[] = this.state.data.data[this.props.carreerId].passed;
+        passed = passed.filter((s: Subject) => { return s.code })
+
 
         passed.sort(function (a: Subject, b: Subject) {
             var keyA = a.code;
