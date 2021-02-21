@@ -16,6 +16,7 @@ interface PassedWindowState {
 
 interface PassedWindowProps {
     studentId: string
+    carreerId: number
 }
 
 export class PassedWindow extends React.Component<PassedWindowProps, PassedWindowState> {
@@ -30,7 +31,7 @@ export class PassedWindow extends React.Component<PassedWindowProps, PassedWindo
     componentDidMount(): void {
         new ApiHandler().getStudentData(this.props.studentId).then((d: any) => {
             this.setState({
-                data: d
+                data: JSON.parse(d)
             });
         });
     }
@@ -41,7 +42,7 @@ export class PassedWindow extends React.Component<PassedWindowProps, PassedWindo
                 <ul>{ }</ul>
             </div>);
         }
-        const passed: Subject[] = this.state.data.data.passed;
+        const passed: Subject[] = this.state.data.data[this.props.carreerId].passed;
 
         passed.sort(function (a: Subject, b: Subject) {
             var keyA = a.code;

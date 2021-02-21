@@ -15,6 +15,7 @@ interface AvailableWindowState {
 
 interface AvailableWindowProps {
     studentId: string
+    carreerId: number
 }
 
 export class AvailableWindow extends React.Component<AvailableWindowProps, AvailableWindowState> {
@@ -27,9 +28,9 @@ export class AvailableWindow extends React.Component<AvailableWindowProps, Avail
     }
 
     componentDidMount(): void {
-        new ApiHandler().getStudentData(this.props.studentId).then((d) => {
+        new ApiHandler().getStudentData(this.props.studentId).then((d: any) => {
             this.setState({
-                data: d
+                data: JSON.parse(d)
             });
         });
     }
@@ -40,7 +41,7 @@ export class AvailableWindow extends React.Component<AvailableWindowProps, Avail
                 <ul>{ }</ul>
             </div>);
         }
-        const available: Subject[] = this.state.data.data.available;
+        const available: Subject[] = this.state.data.data[11].available;
 
         available.sort(function (a: Subject, b: Subject) {
             var keyA = a.code;

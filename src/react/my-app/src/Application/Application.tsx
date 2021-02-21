@@ -19,7 +19,7 @@ export class Application extends React.Component<{}, ApplicationState> {
         this.state = {
             loggedIn: false,
             studentId: "",
-            carreerId: 0,
+            carreerId: 12,
             renderResults: ""
         }
         this.handleButtonClick = this.handleButtonClick.bind(this);
@@ -52,7 +52,7 @@ export class Application extends React.Component<{}, ApplicationState> {
             <div>
                 <Title />
                 <Login successFulLoginHandler={this.handleSuccessfulLogin} initialSentInput={this.state.loggedIn} />
-                <CarreerMenu onClick={this.changeCurrentCarreerId} carreerId={this.state.carreerId} loggedIn={this.state.loggedIn} />
+                <CarreerMenu onClick={this.changeCurrentCarreerId} studentId={this.state.studentId} carreerId={this.state.carreerId} loggedIn={this.state.loggedIn} />
                 <div>
                     <ButtonMenu onClick={this.handleButtonClick} enabledMenu={this.state.loggedIn && this.state.carreerId != 0} />
                     <ResultsWindow renderId={this.state.renderResults} studentId={this.state.studentId} carreerId={this.state.carreerId} />

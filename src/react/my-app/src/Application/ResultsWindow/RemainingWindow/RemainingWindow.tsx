@@ -12,6 +12,7 @@ interface RemainingWindowState {
 
 interface RemainingWindowProps {
     studentId: string
+    carreerId: number
 }
 
 interface Subject {
@@ -42,7 +43,7 @@ export class RemainingWindow extends React.Component<RemainingWindowProps, Remai
     componentDidMount() {
         new ApiHandler().getStudentData(this.props.studentId).then((d) => {
             this.setState({
-                data: d
+                data: JSON.parse(d)
             });
         });
     }
@@ -53,7 +54,7 @@ export class RemainingWindow extends React.Component<RemainingWindowProps, Remai
                 <ul>{ }</ul>
             </div>);
         }
-        const subjectsToDo = this.state.data.data.left;
+        const subjectsToDo = this.state.data.data[this.props.carreerId].left;
         const subjectsLeft = (subjectsToDo as any)[this.state.input];
 
         if (!subjectsLeft) {

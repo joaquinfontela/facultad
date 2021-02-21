@@ -8,6 +8,7 @@ interface CreditsWindowState {
 
 interface CreditsWindowProps {
     studentId: string
+    carreerId: number
 }
 
 export class CreditsWindow extends React.Component<CreditsWindowProps, CreditsWindowState> {
@@ -22,7 +23,7 @@ export class CreditsWindow extends React.Component<CreditsWindowProps, CreditsWi
     componentDidMount(): void {
         new ApiHandler().getStudentData(this.props.studentId).then((d: any) => {
             this.setState({
-                data: d
+                data: JSON.parse(d)
             });
         });
     }
@@ -34,7 +35,7 @@ export class CreditsWindow extends React.Component<CreditsWindowProps, CreditsWi
 
         return (
             <div className="creditsWindow">
-                A lo largo de tu carrera acumulaste {this.state.data.data.credits} créditos.
+                A lo largo de tu carrera acumulaste {this.state.data.data[this.props.carreerId].credits} créditos.
             </div>
         );
     }

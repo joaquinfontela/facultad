@@ -10,7 +10,7 @@ import { UpdateWindow } from "./UpdateWindow/UpdateWindow"
 interface ResultsWindowProps {
     renderId: string,
     studentId: string,
-    carreerId: number
+    carreerId: number,
 }
 
 export class ResultsWindow extends React.Component<ResultsWindowProps> {
@@ -30,31 +30,31 @@ export class ResultsWindow extends React.Component<ResultsWindowProps> {
             case ('available'):
                 return (
                     <div className="resultsWindowBox">
-                        <AvailableWindow key={"availableWindow" + this.nextUniqueRenderId.toString()} studentId={this.props.studentId} />
+                        <AvailableWindow key={"availableWindow" + this.nextUniqueRenderId.toString()} studentId={this.props.studentId} carreerId={this.props.carreerId} />
                     </div>
                 );
             case ('credits'):
                 return (
                     <div className="emptyResultsWindowBox">
-                        <CreditsWindow key={"creditsWindow" + this.nextUniqueRenderId.toString()} studentId={this.props.studentId} />
+                        <CreditsWindow key={"creditsWindow" + this.nextUniqueRenderId.toString()} studentId={this.props.studentId} carreerId={this.props.carreerId} />
                     </div>
                 );
             case ('passed'):
                 return (
                     <div className="resultsWindowBox">
-                        <PassedWindow key={"passedWindow" + this.nextUniqueRenderId.toString()} studentId={this.props.studentId} />
+                        <PassedWindow key={"passedWindow" + this.nextUniqueRenderId.toString()} studentId={this.props.studentId} carreerId={this.props.carreerId} />
                     </div>
                 );
             case ('remaining'):
                 return (
                     <div className="resultsWindowBox">
-                        <RemainingWindow key={"remainingWindow" + this.nextUniqueRenderId.toString()} studentId={this.props.studentId} />
+                        <RemainingWindow key={"remainingWindow" + this.nextUniqueRenderId.toString()} studentId={this.props.studentId} carreerId={this.props.carreerId} />
                     </div>
                 );
             case ('update'):
                 return (
                     <div className="resultsWindowBox">
-                        <UpdateWindow key={"updateWindow" + this.nextUniqueRenderId.toString()} studentId={this.props.studentId} />
+                        <UpdateWindow key={"updateWindow" + this.nextUniqueRenderId.toString()} studentId={this.props.studentId} carreerId={this.props.carreerId} />
                     </div>
                 );
             default:

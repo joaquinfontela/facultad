@@ -3,9 +3,18 @@ require("dotenv").config();
 
 export class Users {
 
-    // User id -> [Subjects passed, Roles]
     private subjects: { [id: string]: string[] } = {};
     private careers: { [id: string]: number[] } = {};
+    private universityIds: { [id: string]: string } = {};
+
+    public registerUniversityId(uniId: string, userId: string): void {
+        console.log("Guardando con clave uniId: " + uniId + " el valor: " + userId);
+        this.universityIds[uniId] = userId;
+    }
+
+    public getDiscordId(uniId: string): string {
+        return this.universityIds[uniId];
+    }
 
     public updateCareer(userid: string, careerCodes: number[]): void {
         Object.keys(this.careers).forEach((key: string) => {
@@ -43,6 +52,7 @@ export class Users {
      * @returns Returns a list of the user's assigned roles.
      */
     public getCareers(id: string): number[] {
+        console.log(this.careers);
         return this.careers[id];
     }
 

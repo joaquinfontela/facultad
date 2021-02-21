@@ -15,7 +15,6 @@ const YELLOW: string = "```fix\n";
 const BLUE: string = "```init\n";
 const GREEN: string = "```json\n";
 const END_COLOR: string = "\n```";
-const USERS: { [discord: string]: string } = {};
 var careersMsgID: string = "";
 
 client.on('ready', () => {
@@ -46,19 +45,11 @@ function getCareerCodes(message: any): number[] {
     return ids;
 }
 
-function getId(discordId: string): string {
-    if (discordId in Object.keys(USERS)) {
-        return USERS[discordId];
-    } else {
-        return discordId;
-    }
-}
-
 // Separar el if en varias funciones y parametrizar todo
 // con lambdas para achicar la función.
 client.on('message', async (message: any) => {
     if (message.author.bot) return;
-    var userid: string = getId(message.author.id);
+    var userid: string = message.author.id;
     bot.addUser(userid);
     bot.updateUserCareer(userid, getCareerCodes(message));
     console.log(bot.getCareersFromUserid(userid).toString());
@@ -74,7 +65,7 @@ client.on('message', async (message: any) => {
             destroyClient();
         } else if (CMD_NAME == 'registrar') {
             if (args.length > 0) {
-                USERS[message.author.id] = args[0]; // Guardo el padrón
+                bot.users.registerUniversityId(args[0], message.author.id); // Guardo el padrón
             }
         } else if (CMD_NAME == 'disponibles') {
             message.reply(ORANGE + bot.availableSubjects(userid, getCareerCodes(message)) + END_COLOR);
@@ -123,3 +114,54 @@ client.on('messageReactionRemove', (reaction: any, user: any) => {
 });
 
 client.login(process.env.DISCORDJS_BOT_TOKEN);
+
+import * as data from './data/data.json'
+
+const express = require("express");
+const app = express();
+
+app.use(function (req: any, res: any, next: any) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
+
+var router = express.Router();
+
+import { Credentials } from '../server/credentials';
+
+// Crear una clase que implemente a las 
+// credenciales y pasarlas por parámetro.
+
+const credentialsManager: Credentials = new DiscordCredentials();
+
+router.get('/', (req: any, res: any) => {
+    res.send("Hello World!");
+});
+
+router.get('/data/', (req: any, res: any) => {
+    res.send("Hello Data!");
+});
+
+router.get('/data/:userid', (req: any, res: any) => {
+    var univId: string = req.params["userid"];
+    console.log("USERID: " + bot.users.getDiscordId(univId));
+    console.log("UNIV ID: " + univId);
+    var userDataFile: string = bot.getUserDataFile(bot.users.getDiscordId(univId));
+    console.log("USER DATA FILE: " + userDataFile);
+    res.json(userDataFile);
+});
+
+router.post('/', (req: any, res: any) => {
+    res.send("Hello Post!");
+});
+
+router.delete('/', (req: any, res: any) => {
+    res.send("Hello Delete!");
+});
+
+app.use(router);
+
+app.listen(2000, function () {
+    console.log("Node server running on http://localhost:2000");
+});

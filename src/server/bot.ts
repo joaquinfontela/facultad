@@ -9,7 +9,7 @@ export class Bot {
 
     private credentialsManager: Credentials;
     private filler: GraphFiller = new GraphFiller("./csv/");
-    private users: Users = new Users();
+    public users: Users = new Users();
 
     constructor(credentialsManager: Credentials) {
         this.credentialsManager = credentialsManager;
@@ -274,7 +274,8 @@ export class Bot {
         var userData: { [data: string]: { [career: number]: any } } = { "data": {} };
         var userCareers: number[] = this.users.getCareers(userID);
         var allGraphs: SubjectGraph[] = this.filler.parseAllText();
-        userCareers.forEach(career => {
+        console.log("HOLA: " + userID);
+        userCareers.forEach((career: number) => {
             userData["data"][career] = this.getUserCareerData(userID, career, allGraphs);
         });
         return userData;
@@ -299,14 +300,16 @@ export class Bot {
 
         userData["available"] = [];
         availableSubjects.forEach((subjectCode: string) => {
-            userData["passed"].push(this.getSubjectInfo(subjectCode, careerGraph));
+            userData["available"].push(this.getSubjectInfo(subjectCode, careerGraph));
         });
 
         userData["left"] = {};
         careerGraph.getAllSubjectCodes().forEach((subjectCode: string) => {
-            if (!passedSubjects.includes(subjectCode) && !availableSubjects.includes(subjectCode)) {
+            if (!passedSubjects.includes(subjectCode)) {
                 userData["left"][subjectCode] = careerGraph.subjectCodesNeededFor(subjectCode).filter((neededSubjectCode: string) => {
                     return !passedSubjects.includes(neededSubjectCode);
+                }).map((neededSubjectCode: string) => {
+                    return this.getSubjectInfo(neededSubjectCode, careerGraph);
                 });
             }
         });

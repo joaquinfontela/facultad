@@ -1,16 +1,27 @@
 import React from 'react'
 import "./CarreerMenu.css"
+import ApiHandler from '../API/ApiHandler'
+
 
 interface CarreerMenuProps {
     carreerId: number
     onClick: Function
     loggedIn: boolean
+    studentId: string
 }
 
-export default class CarreerMenu extends React.Component<CarreerMenuProps, {}> {
+interface CarreerMenuState {
+    carreerIds: number[]
+}
+
+export default class CarreerMenu extends React.Component<CarreerMenuProps, CarreerMenuState> {
 
     constructor(props: any) {
         super(props);
+
+        this.state = {
+            carreerIds: []
+        }
 
         window.onclick = function (event: any) {
             if (!event.target.matches('.dropbtn')) {
@@ -26,10 +37,20 @@ export default class CarreerMenu extends React.Component<CarreerMenuProps, {}> {
         }
     }
 
+    componentDidMount(): void {
+        new ApiHandler().getStudentData(this.props.studentId).then((d: any) => {
+            const data: any = JSON.parse(d);
+            this.setState({
+                carreerIds: Object.keys(data.data).map(key => parseInt(key))
+            });
+        });
+    }
+
     getCarreerNameButtonList(): JSX.Element[] {
         let i: number;
         var carreerNameDivList: JSX.Element[] = [];
-        for (i = 1; i <= 12; i++) {
+        for (i = 1; i <= 11; i++) {
+            if (!this.state.carreerIds.includes(i)) continue;
             const constI: number = i;
             carreerNameDivList.push(<button key={i} onClick={() => { this.props.onClick(constI) }}>{idCarreerMap[i]}</button>);
         }
@@ -52,17 +73,17 @@ export default class CarreerMenu extends React.Component<CarreerMenuProps, {}> {
 }
 
 const idCarreerMap: any = {
-    0: "Escoja una carrera...",
-    1: "Ingeniería Civil",
-    2: "Ingeniería de Alimentos",
+    12: "Escoja una carrera...",
+    2: "Ingeniería Civil",
+    1: "Ingeniería de Alimentos",
     3: "Ingeniería Electricista",
     4: "Ingeniería Electrónica",
-    5: "Ingeniería en Agrimensura",
+    0: "Ingeniería en Agrimensura",
     6: "Ingeniería en Informática",
-    7: "Ingeniería en Petroleo",
-    8: "Ingeniería Industrial",
-    9: "Ingeniería Mecánica",
-    10: "Ingeniería Naval y Mecánica",
-    11: "Ingeniería Química",
-    12: "Lic. en Análisis de Sistemas",
+    9: "Ingeniería en Petroleo",
+    5: "Ingeniería Industrial",
+    7: "Ingeniería Mecánica",
+    8: "Ingeniería Naval y Mecánica",
+    10: "Ingeniería Química",
+    11: "Lic. en Análisis de Sistemas",
 }

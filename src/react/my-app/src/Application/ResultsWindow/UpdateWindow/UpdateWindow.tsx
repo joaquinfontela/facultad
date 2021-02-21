@@ -12,6 +12,7 @@ interface UpdateWindowState {
 
 interface UpdateWindowProps {
     studentId: string
+    carreerId: number
 }
 
 interface Subject {
@@ -73,7 +74,7 @@ export class UpdateWindow extends React.Component<UpdateWindowProps, UpdateWindo
                 return sub.code;
             });
             this.setState({
-                data: d,
+                data: JSON.parse(d),
                 passedSubjectsCodes,
                 failedSubjectsCodes: d.data.subjectCodes.sistemas.filter((sub: string) => {
                     return !passedSubjectsCodes.includes(sub);
@@ -86,7 +87,7 @@ export class UpdateWindow extends React.Component<UpdateWindowProps, UpdateWindo
         if (!this.state.data.data) {
             return (<div></div>);
         }
-        const subjectCodes: string[] = this.state.data.data.subjectCodes.sistemas;
+        const subjectCodes: string[] = this.state.data.data[this.props.carreerId].subjectCodes.sistemas;
 
         subjectCodes.sort(function (a: string, b: string) {
             var keyA: number = Number(a);
