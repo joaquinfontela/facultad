@@ -94,22 +94,22 @@ client.on('message', async (message: any) => {
 });
 
 client.on('messageReactionAdd', (reaction: any, user: any) => {
-    const { emoji } = reaction.emoji;
+    const { name } = reaction.emoji;
     const member = reaction.message.guild.members.cache.get(user.id);
     if (!member.guild.me.hasPermission('MANAGE_ROLES')) {
         return console.log("No tengo el rol para darte roles, 🐱");
     } else if (reaction.message.id === careersMsgID) {
-        member.roles.add(credentials.getRoleID(emoji))
+        member.roles.add(credentials.getRoleID(name))
     }
 });
 
 client.on('messageReactionRemove', (reaction: any, user: any) => {
-    const { emoji } = reaction.emoji;
+    const { name } = reaction.emoji;
     const member = reaction.message.guild.members.cache.get(user.id);
     if (!member.guild.me.hasPermission('MANAGE_ROLES')) {
         return console.log("No tengo el rol para darte roles, 🐱");
     } else if (reaction.message.id === careersMsgID) {
-        member.roles.remove(credentials.getRoleID(emoji))
+        member.roles.remove(credentials.getRoleID(name))
     }
 });
 

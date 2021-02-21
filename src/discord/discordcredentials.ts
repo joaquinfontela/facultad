@@ -54,7 +54,7 @@ export class DiscordCredentials implements Credentials {
      * 
      * @returns Returns role id from said key.
      */
-    public getRoleID(name: string): string {
+    public getRoleID(name: any): string {
         return this.careers[name][0];
     }
 
