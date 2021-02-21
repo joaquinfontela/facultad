@@ -4,24 +4,18 @@ import ApiHandler from '../API/ApiHandler'
 
 
 interface CarreerMenuProps {
-    carreerId: number
+    selectedCarreerId: number
     onClick: Function
     loggedIn: boolean
     studentId: string
-}
-
-interface CarreerMenuState {
     carreerIds: number[]
 }
 
-export default class CarreerMenu extends React.Component<CarreerMenuProps, CarreerMenuState> {
+
+export default class CarreerMenu extends React.Component<CarreerMenuProps, {}> {
 
     constructor(props: any) {
         super(props);
-
-        this.state = {
-            carreerIds: []
-        }
 
         window.onclick = function (event: any) {
             if (!event.target.matches('.dropbtn')) {
@@ -37,20 +31,11 @@ export default class CarreerMenu extends React.Component<CarreerMenuProps, Carre
         }
     }
 
-    componentDidMount(): void {
-        new ApiHandler().getStudentData(this.props.studentId).then((d: any) => {
-            const data: any = JSON.parse(d);
-            this.setState({
-                carreerIds: Object.keys(data.data).map(key => parseInt(key))
-            });
-        });
-    }
-
     getCarreerNameButtonList(): JSX.Element[] {
         let i: number;
         var carreerNameDivList: JSX.Element[] = [];
         for (i = 1; i <= 11; i++) {
-            if (!this.state.carreerIds.includes(i)) continue;
+            if (!this.props.carreerIds.includes(i)) continue;
             const constI: number = i;
             carreerNameDivList.push(<button key={i} onClick={() => { this.props.onClick(constI) }}>{idCarreerMap[i]}</button>);
         }
@@ -58,12 +43,13 @@ export default class CarreerMenu extends React.Component<CarreerMenuProps, Carre
     }
 
     render(): JSX.Element {
+        console.log(this.props);
         if (!this.props.loggedIn) {
             return (<div></div>);
         }
         return (
             <div className="dropdown">
-                <button onClick={() => { document.getElementById("myDropdown")?.classList.toggle("show") }} className="dropbtn">{idCarreerMap[this.props.carreerId]}</button>
+                <button onClick={() => { document.getElementById("myDropdown")?.classList.toggle("show") }} className="dropbtn">{idCarreerMap[this.props.selectedCarreerId]}</button>
                 <div id="myDropdown" className="dropdown-content">
                     {this.getCarreerNameButtonList()}
                 </div>

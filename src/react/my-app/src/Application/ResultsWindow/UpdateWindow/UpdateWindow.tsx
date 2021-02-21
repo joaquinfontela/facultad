@@ -84,7 +84,7 @@ export class UpdateWindow extends React.Component<UpdateWindowProps, UpdateWindo
     }
 
     render() {
-        if (!this.state.data.data) {
+        if (!this.state.data.data || this.props.carreerId === 12) {
             return (<div></div>);
         }
         const subjectCodes: string[] = this.state.data.data[this.props.carreerId].subjectCodes.sistemas;

@@ -29,7 +29,7 @@ export class CreditsWindow extends React.Component<CreditsWindowProps, CreditsWi
     }
 
     render(): JSX.Element {
-        if (!this.state.data.data) {
+        if (!this.state.data.data || this.props.carreerId === 12) {
             return (<div className="creditsWindow"></div>);
         }
 

@@ -36,12 +36,12 @@ export class AvailableWindow extends React.Component<AvailableWindowProps, Avail
     }
 
     render(): JSX.Element {
-        if (!this.state.data.data) {
+        if (!this.state.data.data || this.props.carreerId === 12) {
             return (<div className="availableWindow">
                 <ul>{ }</ul>
             </div>);
         }
-        const available: Subject[] = this.state.data.data[11].available;
+        const available: Subject[] = this.state.data.data[this.props.carreerId].available;
 
         available.sort(function (a: Subject, b: Subject) {
             var keyA = a.code;

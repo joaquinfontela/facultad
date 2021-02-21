@@ -37,7 +37,7 @@ export class PassedWindow extends React.Component<PassedWindowProps, PassedWindo
     }
 
     render(): JSX.Element {
-        if (!this.state.data.data) {
+        if (!this.state.data.data || this.props.carreerId === 12) {
             return (<div className="passedWindow">
                 <ul>{ }</ul>
             </div>);
