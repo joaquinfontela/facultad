@@ -27,6 +27,8 @@
 
 - Run Discord bot: `npm run start`
 
+- Run React App: `npm run start --prefix src/react/my-app`
+
 - To create the server: `npm install express`
 
 # The TypeScript Language
