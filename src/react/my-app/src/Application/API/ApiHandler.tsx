@@ -23,4 +23,8 @@ export default class ApiHandler {
             });
     }
 
+    async sendData(studentId: string, studentData: JSON) {
+        return await axios.post(`http://localhost:2000/data/${studentId}`, studentData);
+    }
+
 }

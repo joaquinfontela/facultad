@@ -70,24 +70,46 @@ export class UpdateWindow extends React.Component<UpdateWindowProps, UpdateWindo
 
     componentDidMount(): void {
         new ApiHandler().getStudentData(this.props.studentId).then((d: any) => {
-            let passedSubjectsCodes: string[] = d.data.passed.map((sub: Subject) => {
+            let passedSubjectsCodes: string[] = JSON.parse(d).data[this.props.carreerId].passed.map((sub: Subject) => {
                 return sub.code;
             });
             this.setState({
                 data: JSON.parse(d),
                 passedSubjectsCodes,
-                failedSubjectsCodes: d.data.subjectCodes.sistemas.filter((sub: string) => {
+                failedSubjectsCodes: this.getAllSubjectCodes(d).filter((sub: string) => {
                     return !passedSubjectsCodes.includes(sub);
                 })
             });
         });
     }
 
+    getAllSubjectCodes(d: string): string[] {
+        const data: any = JSON.parse(d);
+        const available: Subject[] = data.data[this.props.carreerId].available;
+        const left: any = data.data[this.props.carreerId].left;
+        const passed: Subject[] = data.data[this.props.carreerId].passed;
+        const availableCodes: string[] = available.map((s: Subject) => s.code);
+        const leftCodes: any = Object.keys(left).filter((subCode: string) => {
+            return !availableCodes.includes(subCode);
+        });
+        const passedCodes: string[] = passed.map((s: Subject) => s.code);
+        return availableCodes.concat(leftCodes.concat(passedCodes));
+    }
+
     render(): JSX.Element {
         if (!this.state.data.data || this.props.carreerId === 12) {
             return (<div></div>);
         }
-        const subjectCodes: string[] = this.state.data.data[this.props.carreerId].subjectCodes.sistemas;
+        const available: Subject[] = this.state.data.data[this.props.carreerId].available;
+        const left: any = this.state.data.data[this.props.carreerId].left;
+        const passed: Subject[] = this.state.data.data[this.props.carreerId].passed;
+
+        const availableCodes: string[] = available.map((s: Subject) => s.code);
+        const leftCodes: any = Object.keys(left).filter((subCode: string) => {
+            return !availableCodes.includes(subCode);
+        });
+        const passedCodes: string[] = passed.map((s: Subject) => s.code);
+        const subjectCodes: string[] = availableCodes.concat(leftCodes.concat(passedCodes));
 
         subjectCodes.sort(function (a: string, b: string) {
             var keyA: number = Number(a);
