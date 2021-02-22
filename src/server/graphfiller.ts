@@ -35,6 +35,7 @@ export class GraphFiller {
     /**
      * 
      * @param line Adds line to graph.
+     * @param graph Subject Graph.
      */
     private addToGraph(line: string, graph: SubjectGraph): void {
         var data: string[] = line.split(',');
@@ -44,6 +45,8 @@ export class GraphFiller {
     /**
      * Parses all text files found on this.pathname. Must all 
      * be valid text files.
+     * 
+     * @returns List of all the subject graphs.
      */
     public parseAllText(): SubjectGraph[] {
         if (this.graphs.length !== 0) {

@@ -73,6 +73,13 @@ export class Subject {
     }
 };
 
+/**
+ * 
+ * @param a First list
+ * @param b Second List
+ * 
+ * @returns A boolean representing true if the list "a" is included in "b"
+ */
 function listConainedInAnother(a: any[], b: any[]): boolean {
     for (var i = 0; i < b.length; i++) {
         if (!a.includes(b[i])) {
@@ -105,9 +112,10 @@ export class SubjectGraph {
 
     /**
      * 
+     * @returns Returns a list of all the subject codes.
      */
     public getAllSubjectCodes(): string[] {
-        return this.adjList.map((subject : Subject) => {
+        return this.adjList.map((subject: Subject) => {
             return subject.getCode();
         });
     }
@@ -166,7 +174,7 @@ export class SubjectGraph {
 
     /**
      * 
-     * Wrapper for _subjectCodesNeededFor(string, string[])
+     * Wrapper for _subjectCodesNeededFor(...)
      * 
      * @param code Code of the subject to analyze.
      * 

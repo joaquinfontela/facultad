@@ -15,6 +15,12 @@ export class Bot {
         this.credentialsManager = credentialsManager;
     }
 
+    /**
+     * 
+     * @param userid User id.
+     * 
+     * @returns A list of the users careers.
+     */
     public getCareersFromUserid(userid: string): number[] {
         return this.users.getCareers(userid);
     }

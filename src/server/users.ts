@@ -7,15 +7,29 @@ export class Users {
     private careers: { [id: string]: number[] } = {};
     private universityIds: { [id: string]: string } = {};
 
+    /**
+     * 
+     * @param uniId User's university id (padrón).
+     * @param userId User id.
+     */
     public registerUniversityId(uniId: string, userId: string): void {
         console.log("Guardando con clave uniId: " + uniId + " el valor: " + userId);
         this.universityIds[uniId] = userId;
     }
 
+    /**
+     * 
+     * @param uniId Returns the discord id.
+     */
     public getDiscordId(uniId: string): string {
         return this.universityIds[uniId];
     }
 
+    /**
+     * 
+     * @param userid User id.
+     * @param careerCodes Career codes that the user is enrolled in.
+     */
     public updateCareer(userid: string, careerCodes: number[]): void {
         Object.keys(this.careers).forEach((key: string) => {
             if (key === userid) {
@@ -92,7 +106,7 @@ export class Users {
      * 
      * @param id User's id.
      * 
-     * @param subjects List of subjects to add to user.
+     * @param subs List of subjects to add to user.
      */
     public addSubjects(id: string, subs: string[]): void {
         if (subs.length === 0) return;
