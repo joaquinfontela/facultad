@@ -89,7 +89,11 @@
 					<h3>Requirements for Linux users:</h3>
 				</a>
 				<ul>
-					<li><p>For the apt package manager run: <code>sudo apt install npm</code></p>
+					<li><p>For the npm package manager run: <code>sudo apt install npm</code></p>
+					</li>
+					<li><p>Install TypeScript: <code>npm install typescript</code></p>
+					</li>
+					<li><p>Install the TypeScript compiler: <code>npm install tsc</code></p>
 					</li>
 					<li><p>To crate a React proyect with Typescript run: <code>npx create-react-app &lt;APPNAME&gt; --template typescript</code></p>
 					</li>
@@ -99,9 +103,13 @@
 					</li>
 					<li><p>Read environmental variables: <code>npm install dotenv</code></p>
 					</li>
-					<li><p>Compile .ts project: <code>npx tsc</code></p>
+					<li><p>Compile .ts project: <code>npx tsc --jsx react-jsx</code></p>
 					</li>
 					<li><p>Run Discord bot: <code>npm run start</code></p>
+					</li>
+					<li><p>Run React App: <code>npm run start --prefix src/react/my-app</code></p>
+					</li>
+					<li><p>To create the server: <code>npm install express</code></p>
 					</li>
 				</ul>
 				<a href="#the-typescript-language" id="the-typescript-language" style="color: inherit; text-decoration: none;">
@@ -279,22 +287,25 @@
 						<a href="modules.html">Exports</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/bot.html">bot</a>
+						<a href="modules/discord_discordcredentials.html">discord/discordcredentials</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/command.html">command</a>
+						<a href="modules/server_bot.html">server/bot</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/credentialsmanager.html">credentialsmanager</a>
+						<a href="modules/server_command.html">server/command</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/graph.html">graph</a>
+						<a href="modules/server_credentials.html">server/credentials</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/graphfiller.html">graphfiller</a>
+						<a href="modules/server_graph.html">server/graph</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/user.html">user</a>
+						<a href="modules/server_graphfiller.html">server/graphfiller</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/server_users.html">server/users</a>
 					</li>
 				</ul>
 			</nav>
@@ -309,6 +320,9 @@
 	<div class="container">
 		<h2>Legend</h2>
 		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
 			</ul>
