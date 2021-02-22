@@ -168,7 +168,7 @@ export class UpdateWindow extends React.Component<UpdateWindowProps, UpdateWindo
 
         return (
             <div>
-                <button className="updateButton" onClick={() => { }}>ACTUALIZAR</button>
+                <button className="updateButton" onClick={() => { this.handleUpdateClick() }}>ACTUALIZAR</button>
                 <hr></hr>
                 <div>
                     <ul className="subjectCheckboxList">{subjectCheckboxesList1}</ul>

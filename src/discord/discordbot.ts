@@ -145,15 +145,18 @@ router.get('/data/', (req: any, res: any) => {
 
 router.get('/data/:userid', (req: any, res: any) => {
     var univId: string = req.params["userid"];
-    console.log("USERID: " + bot.users.getDiscordId(univId));
-    console.log("UNIV ID: " + univId);
     var userDataFile: string = bot.getUserDataFile(bot.users.getDiscordId(univId));
-    console.log("USER DATA FILE: " + userDataFile);
     res.json(userDataFile);
 });
 
-router.post('/', (req: any, res: any) => {
-    res.send("Hello Post!");
+router.post('/data/:userid/:studentData', (req: any, res: any) => {
+    let univId: string = req.params["userid"];
+    let studentData: any = JSON.parse(req.params["studentData"]);
+    const passed: string[] = studentData.passed;
+    const failed: string[] = studentData.failed;
+    let discordId: string = bot.users.getDiscordId(univId);
+    bot.addSubjects(discordId, passed);
+    bot.removeSubjects(discordId, failed);
 });
 
 router.delete('/', (req: any, res: any) => {
