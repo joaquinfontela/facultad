@@ -83,7 +83,7 @@ export class UpdateWindow extends React.Component<UpdateWindowProps, UpdateWindo
         });
     }
 
-    render() {
+    render(): JSX.Element {
         if (!this.state.data.data || this.props.carreerId === 12) {
             return (<div></div>);
         }

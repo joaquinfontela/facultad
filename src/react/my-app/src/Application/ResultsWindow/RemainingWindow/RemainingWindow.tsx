@@ -40,7 +40,7 @@ export class RemainingWindow extends React.Component<RemainingWindowProps, Remai
         }
     }
 
-    componentDidMount() {
+    componentDidMount(): void {
         new ApiHandler().getStudentData(this.props.studentId).then((d) => {
             this.setState({
                 data: JSON.parse(d)
@@ -48,7 +48,7 @@ export class RemainingWindow extends React.Component<RemainingWindowProps, Remai
         });
     }
 
-    render() {
+    render(): JSX.Element {
         if (!this.state.data.data) {
             return (<div className="remainingWindow">
                 <ul>{ }</ul>
