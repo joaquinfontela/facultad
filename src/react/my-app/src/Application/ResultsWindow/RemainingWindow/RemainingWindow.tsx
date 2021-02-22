@@ -57,7 +57,7 @@ export class RemainingWindow extends React.Component<RemainingWindowProps, Remai
         const subjectsToDo = this.state.data.data[this.props.carreerId].left;
         const subjectsLeft = (subjectsToDo as any)[this.state.input];
 
-        if (!subjectsLeft) {
+        if (!subjectsLeft || subjectsLeft.length === 0) {
             return (
                 <div className="remainingWindow">
                     <div className="remainingWindowTitle">Ingrese el codigo de la materia:</div>

@@ -115,19 +115,25 @@ export class UpdateWindow extends React.Component<UpdateWindowProps, UpdateWindo
         const passed: Subject[] = this.state.data.data[this.props.carreerId].passed;
 
         const availableCodes: string[] = available.map((s: Subject) => s.code);
-        const leftCodes: any = Object.keys(left).filter((subCode: string) => {
+        const leftCodes: string[] = Object.keys(left).filter((subCode: string) => {
             return !availableCodes.includes(subCode);
         });
         const passedCodes: string[] = passed.map((s: Subject) => s.code);
-        const subjectCodes: string[] = availableCodes.concat(leftCodes.concat(passedCodes));
+        let subjectCodes: string[] = availableCodes.concat(leftCodes.concat(passedCodes));
 
-        subjectCodes.sort(function (a: string, b: string) {
-            var keyA: number = Number(a);
-            var keyB: number = Number(b);
-            if (keyA < keyB) return -1;
-            if (keyA > keyB) return 1;
-            return 0;
-        })
+
+        subjectCodes = subjectCodes
+            .sort(function (a: string, b: string) {
+                if (a === "CBC") return -1;
+                if (b === "CBC") return 1;
+                if (a < b) return -1;
+                if (a > b) return 1;
+                return 0;
+            })
+            .filter((subCode: string) => {
+                return subCode;
+            });
+
 
         const subjectCheckboxes: JSX.Element[] = subjectCodes.map((s: string) => {
             return (

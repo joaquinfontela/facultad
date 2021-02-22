@@ -43,7 +43,6 @@ export class Application extends React.Component<{}, ApplicationState> {
         data = await new ApiHandler().getStudentData(studentId).then((d: any) => {
             return JSON.parse(d);
         });
-        console.log(data);
         this.setState({
             loggedIn: true,
             studentId,
