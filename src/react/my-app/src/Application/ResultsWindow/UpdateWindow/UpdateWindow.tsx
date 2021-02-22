@@ -68,6 +68,14 @@ export class UpdateWindow extends React.Component<UpdateWindowProps, UpdateWindo
         })
     }
 
+    handleUpdateClick() {
+        const studentData: object = {
+            passed: this.state.passedSubjectsCodes,
+            failed: this.state.failedSubjectsCodes
+        }
+        new ApiHandler().sendData(this.props.studentId, studentData);
+    }
+
     componentDidMount(): void {
         new ApiHandler().getStudentData(this.props.studentId).then((d: any) => {
             let passedSubjectsCodes: string[] = JSON.parse(d).data[this.props.carreerId].passed.map((sub: Subject) => {
@@ -160,7 +168,7 @@ export class UpdateWindow extends React.Component<UpdateWindowProps, UpdateWindo
 
         return (
             <div>
-                <button className="updateButton">ACTUALIZAR</button>
+                <button className="updateButton" onClick={() => { }}>ACTUALIZAR</button>
                 <hr></hr>
                 <div>
                     <ul className="subjectCheckboxList">{subjectCheckboxesList1}</ul>

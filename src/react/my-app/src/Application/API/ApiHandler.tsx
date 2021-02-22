@@ -23,8 +23,9 @@ export default class ApiHandler {
             });
     }
 
-    async sendData(studentId: string, studentData: JSON) {
-        return await axios.post(`http://localhost:2000/data/${studentId}`, studentData);
+    async sendData(studentId: string, studentData: object) {
+        console.log(studentData);
+        // return await axios.post(`http://localhost:2000/data/${studentId}`, studentData);
     }
 
 }
