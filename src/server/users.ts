@@ -25,6 +25,10 @@ export class Users {
         return this.universityIds[uniId];
     }
 
+    public getUniversityId(discordId: string) {
+        return Object.keys(this.universityIds).find(key => this.universityIds[key] === discordId);
+    }
+
     /**
      * 
      * @param userid User id.
@@ -111,6 +115,9 @@ export class Users {
     public addSubjects(id: string, subs: string[]): void {
         if (subs.length === 0) return;
         subs = subs.map((s: string) => s.toUpperCase());
+        subs = subs.filter((sub: string) => {
+            return !this.subjects[id].includes(sub);
+        })
         this.subjects[id] = this.subjects[id].concat(subs);
     }
 

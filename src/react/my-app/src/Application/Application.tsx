@@ -36,11 +36,12 @@ export class Application extends React.Component<{}, ApplicationState> {
         });
     }
 
-    async handleSuccessfulLogin(studentId: string): Promise<any> {
+    async handleSuccessfulLogin(studentId: string): Promise<void> {
         let data: any;
         data = await new ApiHandler().getStudentData(studentId).then((d: any) => {
             return JSON.parse(d);
         });
+        console.log(data);
         this.setState({
             loggedIn: true,
             studentId,

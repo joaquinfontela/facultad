@@ -43,7 +43,6 @@ export default class CarreerMenu extends React.Component<CarreerMenuProps, {}> {
     }
 
     render(): JSX.Element {
-        console.log(this.props);
         if (!this.props.loggedIn) {
             return (<div></div>);
         }
