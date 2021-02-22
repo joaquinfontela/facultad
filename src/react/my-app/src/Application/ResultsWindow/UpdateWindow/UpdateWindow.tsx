@@ -13,6 +13,7 @@ interface UpdateWindowState {
 interface UpdateWindowProps {
     studentId: string
     carreerId: number
+    handleUpdateClick: any
 }
 
 interface Subject {
@@ -74,6 +75,7 @@ export class UpdateWindow extends React.Component<UpdateWindowProps, UpdateWindo
             failed: this.state.failedSubjectsCodes
         }
         new ApiHandler().sendData(this.props.studentId, studentData);
+        this.props.handleUpdateClick();
     }
 
     componentDidMount(): void {

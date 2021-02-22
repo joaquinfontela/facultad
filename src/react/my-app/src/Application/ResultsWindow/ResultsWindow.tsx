@@ -11,6 +11,7 @@ interface ResultsWindowProps {
     renderId: string,
     studentId: string,
     carreerId: number,
+    handleUpdateClick: any
 }
 
 export class ResultsWindow extends React.Component<ResultsWindowProps> {
@@ -54,7 +55,7 @@ export class ResultsWindow extends React.Component<ResultsWindowProps> {
             case ('update'):
                 return (
                     <div className="resultsWindowBox">
-                        <UpdateWindow key={"updateWindow" + this.nextUniqueRenderId.toString()} studentId={this.props.studentId} carreerId={this.props.carreerId} />
+                        <UpdateWindow key={"updateWindow" + this.nextUniqueRenderId.toString()} studentId={this.props.studentId} carreerId={this.props.carreerId} handleUpdateClick={this.props.handleUpdateClick} />
                     </div>
                 );
             default:
