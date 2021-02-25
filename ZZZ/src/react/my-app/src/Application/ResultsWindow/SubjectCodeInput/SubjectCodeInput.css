@@ -1,0 +1,10 @@
+.subjectCodeInput {
+    margin-left: 75px;
+    margin-top: 10px;
+    width: 350px;
+    height: 50px;
+    border-color: mediumslateblue;
+    border-width: 3px;
+    font-size: 35px;
+    color: darkslateblue;
+}

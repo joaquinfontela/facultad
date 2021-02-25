@@ -1,0 +1,15 @@
+.helpWindowDescription {
+    font-size: 30px;
+    color: snow;
+    margin-top: 35px;
+    margin-bottom: 55px;
+    margin-left: 15px;
+}
+
+.helpWindowLoginWarning {
+    font-size: 30px;
+    color: darkred;
+    margin-top: 35px;
+    margin-bottom: 50px;
+    margin-left: 15px; 
+}

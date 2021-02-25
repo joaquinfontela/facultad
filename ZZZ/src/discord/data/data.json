@@ -1,0 +1,101 @@
+{
+    "data": {
+        "available": [
+            {
+                "code": "81.01",
+                "name": "Análisis Matemático II",
+                "credits": 8
+            },
+            {
+                "code": "81.02",
+                "name": "Álgebra II",
+                "credits": 8
+            },
+            {
+                "code": "95.15",
+                "name": "Algoritmos y Programación II",
+                "credits": 6
+            },
+            {
+                "code": "81.11",
+                "name": "Matemática Discreta",
+                "credits": 6
+            },
+            {
+                "code": "95.57",
+                "name": "Organización del Computador",
+                "credits": 8
+            }
+        ],
+        "left": {
+            "95.02": [
+                {
+                    "code": "95.15",
+                    "name": "Algoritmos y Programacion II",
+                    "credits": 6
+                }
+            ],
+            "81.04": [
+                {
+                    "code": "81.01",
+                    "name": "Análisis Matemático II",
+                    "credits": 8
+                },
+                {
+                    "code": "81.02",
+                    "name": "Álgebra II",
+                    "credits": 8
+                }
+            ],
+            "95.58": [
+                {
+                    "code": "95.02",
+                    "name": "Algoritmos y Programación III",
+                    "credits": 6
+                },
+                {
+                    "code": "95.57",
+                    "name": "Organización del Computador",
+                    "credits": 8
+                }
+            ]
+        },
+        "credits": 6,
+        "passed": [
+            {
+                "code": "95.14",
+                "name": "Algoritmos y Programación I",
+                "credits": 6
+            }
+        ],
+        "subjectCodes": {
+            "sistemas": [
+                "81.01",
+                "81.02",
+                "95.14",
+                "81.11",
+                "95.15",
+                "95.57",
+                "81.04",
+                "91.39",
+                "95.58",
+                "95.02",
+                "91.41",
+                "95.03",
+                "95.20",
+                "95.08",
+                "91.04",
+                "95.21",
+                "95.05",
+                "91.42",
+                "91.05",
+                "95.24",
+                "95.59",
+                "95.60",
+                "95.61",
+                "91.40",
+                "95.30"
+            ]
+        }
+    }
+}

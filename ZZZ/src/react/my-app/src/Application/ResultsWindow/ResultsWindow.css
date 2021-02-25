@@ -1,0 +1,21 @@
+.resultsWindowBox {
+    margin-top: 17.25px;
+    border-color: black;
+    background-color:slateblue;
+    position: absolute;
+    right: 10px;
+    width: 1350px;
+    height: 745px;
+    overflow-y: auto;
+}
+
+.emptyResultsWindowBox {
+    margin-top: 17.25px;
+    border-color: black;
+    background-color:mediumslateblue;
+    position: absolute;
+    right: 10px;
+    width: 1350px;
+    height: 745px;
+    overflow-y: auto;
+}
