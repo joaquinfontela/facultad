@@ -1,0 +1,19 @@
+La ventaja principal de la utilizacion de un lock RAII es que, gracias al aprovechamiento de este patron de disenio y a que C++ nos garantiza la ejecucion del destructor independientemente de lo que ocurra durante la ejecucion del programa, no nos tenemos que estar ocupando de hacer lock() y unlock() de los mutex. Solo instanciamos un objeto de un Lock RAII donde queremos hacer un lock(), y cuando el objeto salga de scope se ejecutara el unlock() automaticamente.
+
+Es algo del estilo:
+
+	class RAIILock {
+	
+		std::mutex m;
+		
+		RAIILock() {
+			m.lock();
+		}
+		
+		(...)
+		
+		~RAIILock() {
+			m.unlock();
+		}
+	};
+

@@ -1,0 +1,14 @@
+La compilacion condicional se define cuando queremos que un segmento de codigo se compile segun cierta condicion (usualmente la utilizamos para no compilarlo dos o mas veces, cuando un header se incluye en mas de un archivo de codigo fuente).
+
+Ejemplo en codigo:
+
+#ifndef CONDITIONAL	// sino esta definida la var. CONDITIONAL (la primera vez que se pase por aca no lo estara, despues si).
+#define CONDITIONAL	// definila como el segmento de codigo, desde aca hasta que encuentres un endif.
+
+int main() {
+	const char hello[13] = "Hello World!\0";
+	printf("%s", hello);
+	return 0;
+}
+
+#endif	// hasta aca llega el define.

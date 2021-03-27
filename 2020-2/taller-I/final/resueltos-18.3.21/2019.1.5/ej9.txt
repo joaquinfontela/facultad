@@ -1,0 +1,15 @@
+La funcion utilizada en este caso sera std::thread::join().
+
+Ejemplo:
+
+main() {
+
+	List<Worker> workers;	// Worker implementa Thread.
+	for ( worker: workers ) {
+		worker.start();		// start por dentro ejecuta el trabajo del thread.
+	}
+	
+	for ( worker: workers ) {
+		worker.join();		// llama a thread::join()
+	}
+}

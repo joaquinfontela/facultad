@@ -1,0 +1,20 @@
+El loop de eventos (o "event loop" en ingles) es un termino que se utiliza para identificar el loop que se encarga de administrar (recorrer constantemente) la cola (u otra estructura de datos) de eventos en POE. 
+Si la implementacion es una cola de eventos, esta es una "WaitingQueue" (esto es, una cola que, cuando se le aplica la operacion desencolar, y esta vacia, el programa se queda esperando a que se ingrese un elemento nuevo) a la cual se le van encolando objetos que representan eventos.
+El loop de eventos administra esta WaitingQueue de la siguiente manera:
+
+WaitingQueue w;
+bool running = true;
+
+while (running) {
+	Event e = w.dequeue();
+	if (e.exit()) { 
+		running = false;
+	} else {
+		e.handle();
+		// se envia el evento a su respectivo handler.
+	}
+}
+
+En particular para interfaces graficas, el "event loop" se encarga de manejar todos los eventos relacionados a la interaccion del usuario con la aplicacion (indirectamente, es decir, mejor dicho, su interaccion con la computadora), y enviar los distintos eventos a sus respectivos handlers.
+Por ejemplo, si el usuario toca ESC, podriamos implementar una funcionalidad para esa tecla que lo hiciera salir del modo Pantalla Completa.
+

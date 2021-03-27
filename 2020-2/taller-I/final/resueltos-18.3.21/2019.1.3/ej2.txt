@@ -1,0 +1,3 @@
+Un functor es una propiedad que tienen algunos objetos de C++ que nos permiten hacer que el objeto sea "llamable", es decir, que podamos utilizarlo como si fuera una funcion.
+Para lograr esto con una clase de C++, debemos sobrecargar el operador().
+Tanto un functor como una funcion convencional pueden pasarse como parametros a otras funcion, pero la gran ventaja que tienen los functors es que no deben pasarse como punteros, por lo tanto respetamos el patron RAII, ya que no tenemos que estar preocupandonos por utilizar punteros no inicializados.

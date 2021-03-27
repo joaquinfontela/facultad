@@ -1,0 +1,1 @@
+Para que un compilador sea considerado portable, debe poder reconocer el sistema operativo, la arquitectura, el set de instrucciones, etc. de la maquina en la cual se esta realizando el proceso de compilacion, para que el ejecutable obtenido como resultado coincida y pueda correr con todas las caracteristicas antes mencionadas.

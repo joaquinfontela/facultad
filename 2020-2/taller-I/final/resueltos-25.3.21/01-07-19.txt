@@ -1,0 +1,17 @@
+1)	Un constructor por copia en C++ nos permite obtener otra instancia identica a la recibida por parametro en el constructor, almacenada en otra zona de la memoria distinta.
+
+a)	En caso de no ser definido por el programador, el constructor por copia default genera una nueva instancia de la clase de la cual es instancia el objeto recibido por parametro, copiando byte a byte este ultimo y almacenando la instancia devolver en una zona de memoria distinta, de manera tal que modificando una instancia no se modifique a la otra.
+
+b)	class NoCopy {
+		NoCopy(const NoCopy& other) = delete;
+		NoCopy operator=(const NoCopy& other) = delete;
+	};
+	
+	
+c)	A diferencia del constructor por copia, el constructor por movimiento no mantiene vivas dos instancias de la misma clase al finalizar el proceso. Lo que hace es tomar los atributos de la instancia recibida por parametro como atributos de la nueva instancia, y dejar invalida a la instancia original (cambiando el puntero a nullptr o reinicializando los atributos).
+
+3) 	1. Es la declaracion de F, un puntero a funcion que recibe un entero como unico parametro y no devuelve nada.
+	2. Es la definicion de B, una funcion que recibe dos floats y no devuelve nada. El modificador static indica que solo es accesible en el archivo donde esta declarada (y, en este caso, tambien definida).
+	3. Es la definicion de C, un puntero a un array de 5 punteros a int.
+	
+5)	

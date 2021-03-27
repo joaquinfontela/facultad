@@ -1,0 +1,17 @@
+No, es falso. Esto ocurre debido a la alineacion y el padding en los structs. Los distintos atributos de un struct se "acomodan" en la memoria de tal manera que, contando desde el principio del struct, cada atributo nuevo se posicione en un area de memoria multiplo de 4. Esto nos permite priorizar la performance por sobre el uso de la memoria. Un ejemplo grafico del ejercicio dado lo muestra mas claramente:
+
+Formato: variable (dir. de mem.) - variable (dir. de mem.) - ...
+
+a (X)   - a (X+1)      - a (X+2)      - a (X+3)
+b (X+4) - basura (X+5) - basura (X+6) - basura (X+7)
+...
+
+El tamanio exacto que ocupa un int o un char depende de la plataforma, pero en este caso tomamos sizeof(int) = 4, sizeof(char) = 1.
+
+En caso de querer invertir la prioridad (memoria > performance), debemos declarar el struct de la siguiente manera:
+
+struct <name> { 
+	(...)
+} __attribute__((packed));
+
+Y entonces ya no se realizara ese desperdicio de la memoria usando alineacion y padding.

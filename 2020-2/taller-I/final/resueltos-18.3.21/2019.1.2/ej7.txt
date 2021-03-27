@@ -1,0 +1,10 @@
+a)
+	static long SUMA(long a, long b) {
+		return a + b;
+	}
+	
+b)
+	int** a;
+	
+c)
+	static char b = "j";

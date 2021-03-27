@@ -1,0 +1,18 @@
+Una variable de clase es, a diferencia de una de instancia, una variable que pertenece a toda la clase en su conjunto, y que es modificada accediendo a la clase o a metodos de esta.
+
+class Example {
+
+	public:
+		static int classVariable;
+
+};
+
+Example::classVariable = 0;
+// si fuera constante podria (y deberia) inicializarla dentro de la clase en la declaracion.
+
+int main() {
+
+	std::cout << Example::classVariable << std::endl;
+	return 0;
+	
+}

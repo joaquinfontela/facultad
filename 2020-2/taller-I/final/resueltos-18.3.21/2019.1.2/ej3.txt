@@ -1,0 +1,43 @@
+La decision del metodo a llamar en C++ se realiza en tiempo de compilacion. Sin embargo, en casos de herencia esto resulta un problema. Por ejemplo:
+
+class Vehiculo {
+
+	public:
+
+	virtual int obtenerPrecioPasaje() = 0;
+};
+
+class Colectivo : public Vehiculo {
+
+	public:
+		
+	Colectivo() : Vehiculo() {}
+
+	int obtenerPrecioPasaje() {
+		return 25;
+	}
+};
+	
+class ColectivoRapido : public Colectivo {
+
+	public:
+	
+	ColectivoRapido() : Colectivo () {}
+	
+	int obtenerPrecioPasaje() {
+		return 40;
+	}
+};
+
+int main() {
+	
+	Colectivo c;
+	ColectivoRapido c2;
+	c = c2;
+	std::cout << c.obtenerPrecioPasaje() << std::endl; // 25
+}
+
+Imprimira 25, en vez de 40, como deberia, ya que la decision de que metodo llamar se hace en tiempo de compilacion, y al ver que c es un objeto de tipo Colectivo, llamara al metodo de esa clase.
+La forma de solucionarlo, es declarar los metodos cuya decision de cual llamar queremos que se haga en tiempo de ejecucion como virtuales (virtual int obtener...).
+Las referencias y los punteros (estos ultimos menos RAII) no aplican a esto, ya que la decision de que metodo llamar para estos objetos si se hace en tiempo de ejecucion, con lo cual si c fuera una referencia, todo funcionaria como esperariamos.
+	

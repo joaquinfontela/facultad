@@ -1,0 +1,7 @@
+a)	long int** a;
+
+b) 	long int RESTA(long int a, long int b) {
+		return a - b;
+	}
+	
+c)	static char c = "a";

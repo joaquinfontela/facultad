@@ -1,0 +1,1 @@
+f es un puntero a funcion cuya firma recibe como primer parametro un puntero a short y como segundo un array de 4 char, y devuelve un int.

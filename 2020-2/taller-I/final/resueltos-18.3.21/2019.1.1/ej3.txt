@@ -1,0 +1,3 @@
+a) Es la declaracion de un puntero a funcion que no devuelve nada y recibe como unico par. un entero.
+b) Es la definicion de una funcion B que solo es accesible en el archivo donde esta definida, no devuelve nada, y recibe como primer y segundo parametro, dos float.
+c) Es la declaracion de C, un puntero a un array de 5 punteros a int.

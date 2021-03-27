@@ -1,0 +1,59 @@
+2)	Es la declaracion de f, un puntero a funcion que recibe un puntero a short como primer parametro y un array de 4 char como segundo, y devuelve un entero.
+
+
+3)	El codigo indicado imprime 1004, ya que en un principio Pi almacene el valor 1000 (una direccion de memoria). Cuando a un puntero se lo incrementa en uno, el valor de la direccion de memoria aumenta en sizeof(tipo del valor al que apunta). En este caso: sizeof(int) = 4. Entonces 1000 + 4 = 1004.
+
+4) 	Un functor es una propiedad de algunos objetos que nos permiten tratarlo como una funcion o hacerlo "llamable" (es decir, aplicarle el operador()).
+	El operador () se sobrecarga en una clase de la siguiente manera:
+		
+	class Example {
+		
+		void operator()(int exampleParam) { //code }
+	
+	};
+	
+	Mientras tanto los functors como los punteros a funcion nos permiten pasarse por parametro, la ventaja de los primeros es que no corremos el riesgo de utilizarlos no inicializados. Por lo tanto, es recomendable (principalmente si utilizamos RAII) usar functors por sobre punteros a funcion.
+	
+6)	El loop de eventos es un concepto de POE que se basa en implementar un loop constante que interactue con una estructura de datos.
+	Usualmente, se utiliza una WaitingQueue (una cola que, en caso de no contener elementos, bloquea el hilo de ejecucion a la espera de que se ingrese un nuevo elemento) que contiene por dentro objetos que representan eventos. Mientras el evento desencolado no indique que finalice el loop, este continua, y se envia el evento a su respectivo handler. Se lo implementa (pseudocodigo) de la siguiente manera:
+	
+	bool running = true;
+	std::queue q;
+	Event e;
+	
+	while (running) {
+		e = q.desencolar_evento();
+		if (e == exit) {
+			running = false;
+		} else {
+			e.handle();
+		}
+	}
+	
+	En entornos de interfaz grafica, se utiliza el loop de eventos para implementar todo lo relacionado a la interaccion con el usuario. Por ejemplo, si el usuario aprieta la tecla ESC, podriamos implementar un handler que, como resultado, quite la pantalla completa de la interfaz.
+	
+7) 	La afirmacion es falsa, ya que en los struct existe el padding, que alinea cada elemento del struct de manera tal que ocupe un numero fijo de bytes (usualmente un multiplo de 4). De esta manera, cuando nosotros agregamos un entero al struct, si sizeof(int) = 4, como en las arquitecturas de 64 bits, el struct ocupara 4 bytes, pero luego, al agregar un char, a pesar de que sizeof(char) = 1, el struct ocupara 8 bytes, ya que se agregara un padding de 3 bytes para que el siguiente valor del struct arranque en una posicion de memoria (relativa al comienzo del struct) multiplo de 4.
+
+8)	El patron de disenio RAII esta orientado a la correcta administracion (inicializacion, liberacion y destruccion) de los recursos de memoria al programar.
+	El lenguaje de programacion en el cual apliquemos el patron nos debe proporcionar un constructor y un destructor, y garantizarnos el llamado de ambos incondicionalmente al construir y destruir el objeto respectivamente.
+	En el constructor debemos incluir todo lo necesario para que sea inicializado en un estado valido: inicializacion de punteros (o recibirlos por parametro y asignarlos), abrir archivos, etc.
+	En el destructor debemos asegurarnos de que la memoria de la cual es responsable el objeto se libere correctamente: cerrar archivos, liberar file descriptors, destruir punteros al heap, etc.
+	La gran ventaja de este patron es que nos proporciona la posibilidad de implementar todas estas funcionalidades en un solo lugar, con la seguridad de que el codigo que nosotros escribamos relacionado a ellas, se ejecutara.
+	Para finalizar, el patron nos recomienda utilizar referencias antes que punteros (ya que con estos ultimos corremos el riesgo de usarlos no inicializados). Ademas, usemos o no punteros, se recomienda usar el stack antes que el heap, ya que en este ultimo caso debemos estar lidiando con no olvidarnos de liberar la memoria.
+	
+	Un ejemplo de objeto RAII es el UniqueLock del mutex:
+	
+	class UniqueLock {
+	
+		std::mutex m;
+		
+		UniqueLock(std::mutex m) : m(m) {
+			m.lock();
+		}
+		
+		//...
+		
+		~UniqueLock() {
+			m.unlock();
+		}
+	};

@@ -1,16 +1,15 @@
 #ifndef __PLAYER_H__
 #define __PLAYER_H__
 
-#include "../Position/Position.h"
-#include "PlayerConfig.h"
 #include "../../../../common/includes/PlayerData.h"
 #include "../../../../common/includes/Queue/WaitingQueue.h"
 #include "../../Control/Notification/Notification.h"
 #include "../../Control/UpdatableEvent/Updatable.h"
 #include "../Item/Weapon/Weapon.h"
-#include "WeaponInventory.h"
 #include "../Map/Map.h"
-
+#include "../Position/Position.h"
+#include "PlayerConfig.h"
+#include "WeaponInventory.h"
 
 class Map;
 class Updatable;
@@ -55,7 +54,6 @@ class Player {
 
   // CONSTRUCTORS
   Player(YAMLConfigReader yamlConfigReader, Map& map, unsigned int playerID);
-
 
   /*
    * @brief [SERVER-SIDE] Sets the shooting state as requested
@@ -124,7 +122,8 @@ class Player {
   bool hasGunWithId(int uniqueId);
 
   /*
-   * @brief [SERVER-SIDE] Process the final death of the player, removing him from the map.
+   * @brief [SERVER-SIDE] Process the final death of the player, removing him
+   * from the map.
    *
    * @param The notification queue to notify of death
    * @return -1 to indicate player can no longer respawn

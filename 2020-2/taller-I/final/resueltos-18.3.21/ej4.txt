@@ -1,0 +1,33 @@
+Un functor nos permite hacer a una instancia de una clase (un objeto) llamable. Es decir, podemos tratar a ese objeto como una funcion.
+Tiene muchas de las ventajas de utilizar punteros a funciones (ya que al igual que estos ultimos, podemos pasar por parametro la instancia para luego llamarla), pero ademas, no tenemos el riesgo de pasar un puntero no inicializado (en este ultimo sentido, observamos que es una de las grandes ventajas que tambien tienen las referencias sobre los punteros).
+
+Ej:
+
+	class Sumador {
+	
+		int suma;
+	
+		public:
+		
+		Sumador() : suma(0) {}
+		
+		int operator()(int valor) {
+			suma += valor;
+			return suma;
+		}
+		
+	}
+
+Uso:
+
+	int main() {
+	
+		Sumador s;
+		int suma;
+		suma = s(3);
+		cout << suma; //3
+		suma = s(2);
+		cout << suma; //5
+		suma = s(7);
+		cout << suma; //12
+	}

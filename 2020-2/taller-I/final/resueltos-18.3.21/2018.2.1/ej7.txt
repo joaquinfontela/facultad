@@ -1,0 +1,2 @@
+Un constructor MOVE en C++ nos permite justamente mover un objeto de un stack a otro. Esto nos puede servir, por ejemplo, cuando creamos un objeto dentro de una funcion y queremos enviarlo afuera sin perderlo al llamar automaticamente a su destructor.
+Si este no es definido por el desarrollador, el sistema genera uno por default que toma el objeto recibido por parametro, toma todos sus atributos para un nuevo objeto (punteros incluidos), lo deja inutilizable, y devuelve el nuevo objeto.

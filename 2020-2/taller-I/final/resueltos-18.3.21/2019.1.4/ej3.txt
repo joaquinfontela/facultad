@@ -1,0 +1,1 @@
+Es la declaracion de f, que es un puntero a funcion, cuya firma devuelve un char, y recibe com primer parametro un puntero a int, y como segundo un array de 3 char.

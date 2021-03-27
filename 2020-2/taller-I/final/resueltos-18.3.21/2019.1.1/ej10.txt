@@ -1,0 +1,3 @@
+Cuando una funcion es blocante, quiere decir que puede detenerse la ejecucion del programa durante el llamado a esta (por ejemplo, a la espera de recibir datos de otra fuente).
+Ejemplos de funciones blocantes son listen() y accept() para los sockets.
+La manera de mantener el programa 'vivo' es usando threads (hilos de ejecucion), de tal manera que, mientras un hilo del programa se queda esperando, otro hilo puede estar haciendo otras cosas mientras tanto.

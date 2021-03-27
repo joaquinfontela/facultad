@@ -1,0 +1,20 @@
+Esto es porque las funciones, clases, etc. que usan templates necesitan (por reglas de sintaxis del lenguaje) que la declaracion y definicion de ellas esten presentes todas en un mismo archivo.
+Porque ocurre esto ultimo? Porque como bien lo indica su nombre, son templates (plantillas). Lo que hace el compilador es luego buscar en los archivos ".cpp" los distintos tipos que se utilizan como reemplazo del template en esa clase, y crea las clases correspondientes para ellas. 
+Por ejemplo:
+
+template <class T>
+class Foo {
+	void setVar(T var) {
+		// hago algo con var
+	}
+};
+
+// en alguna parte del codigo
+Foo<int> f;
+
+// en otra parte
+Foo<char> f;
+
+Entonces se crean dos clases.
+
+Si el compilador solo tiene informacion acerca de las declaraciones que usan templates, no reemplazara en las definiciones los templates por los respectivos argumentos utilizados en los ".cpp".

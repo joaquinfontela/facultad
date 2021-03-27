@@ -1,0 +1,12 @@
+Un constructor por copia es un constructor de una clase que nos permite inicializar una instancia de esta mediante la recepcion por parametro de otro objeto de la misma clase. El resultado obtenido sera otro objeto (es decir, con distinto lugar en memoria) con los mismos valores para todos sus atributos.
+a) Si no se define un constructor por copia, existe uno por default que nos proporciona C++, que copia byte a byte el objeto recibido por parametro, devolviendo un objeto nuevo identico.
+b) class NoCopy {
+
+	(...)
+	public:
+	
+	NoCopy(const NoCopy& n) = delete;
+	NoCopy& operator=(const NoCopy& n) = delete;
+}
+
+c) A diferencia del constructor por copia, el constructor por movimiento no mantiene vivas las dos instancias (la vieja y la nueva), sino que "mueve" el objeto de un stack a otro. El procedimiento consiste en setear los atributos del nuevo objeto iguales a los del viejo, y luego dejar en un estado invalido al viejo objeto.

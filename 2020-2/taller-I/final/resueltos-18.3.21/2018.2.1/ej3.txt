@@ -1,0 +1,5 @@
+a) Es la declaracion de l, un puntero a un array de 3 float. Con la keyword extern, se le indica al compilador que no reserve memoria para la variable.
+
+b) Es la declaracion de C, un array de 3 punteros a int. Con la keyword static, le indicamos al compilador que C solo es accesible en el archivo en el cual esta declarado.
+
+c) Es la declaracion de F, una funcion que recibe un parametro de tipo float constante, y devuelve una variable de tipo short. Con la keyword static, sabemos que solo es el accesible en el archivo donde esta declarada.

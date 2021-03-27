@@ -1,0 +1,64 @@
+1) Aqui podemos ver la declaracion de f, que es un puntero a funcion, que recibe como primer parametro un puntero a short y como segundo un array de 3 char, y devuelve un entero.
+
+2) 	a) Una variable global static se inicializa en el scope global del programa, su lifetime es el del programa, y se aloja en el data segment. Solo es accesible en el archivo en el cual es declarada.
+
+	b) Una variable local static se inicializa en un scope interno del programa (es decir, no el global). Su lifetime es el del scope, y debido al prefijo static se aloja en el data segment (sino, lo haria en el stack).
+	
+	c) Un atributo de clase static es un atributo que, en vez de pertenecer a cada instancia creada de la clase (a cada objeto), pertenece a la clase en su conjunto y se la modifica accediendo a ella. Se inicializa, o bien adentro de la clase (en este caso debemos declararlo constante), o por fuera, en el caso de que sea publico (o en una friend class/ function). Su lifetime es el de programa y reside en el data segment.
+	
+4)	Para lograr que dos threads accedan a un mismo recurso compartido sin generar problemas debemos recurrir a la utilizacion de mutexs (proveniente de mutual exclusion). El mutex "protege" una porcion de codigo de manera tal que no pueda haber dos hilos de ejecucion accediendo a ella (y por lo tanto a las operaciones que se realizan dentro) al mismo tiempo. El patron de disenio RAII nos recomienda encapsular el mutex y la variable a proteger dentro de una misma clase.
+La sintaxis suele ser del estilo:
+
+class ListaProtegida {
+
+	std::mutex m;
+	std::list<int> l;
+
+	public:
+	
+	ListaProtegida();
+
+	void addElementIfNotInList(int elem) {
+	
+		m.lock();
+		if (!l.has(elem)) {
+			l.add(elem);
+		}
+		m.unlock();
+	}
+
+};
+
+De esta manera, podemos preguntar si la lista tiene o no el elemento, y luego agregarlo en caso de que no lo tenga, sin que en el medio haya un "context switch" (un cambio en el thread de ejecucion), ya que en el caso de que ocurriera esto (describo el problema que dieron en la clase).
+En vez de mutex::lock y mutex::unlock, se puede utilizar un unique_lock, que es un mutex RAII que hace un unlock automatico al salir de scope.
+
+5)
+/*
+ * @param str an array of char.
+ * @param delim a character or a string that works as      
+ * delimiter of the split function.
+ * @return an array of strings that is the original 
+ * divided in the section where delim appears.
+*/
+char** split(char* str, char* delim);
+
+char* substr(char* str, size_t from, size_t to);
+
+char* replace(char* str, char* to_replace);
+
+size_t find(char* str, char c);
+
+6) 	Una macro en C es una variable de preprocesador. Funciona de tal manera que, al momento de compilar, el preprocesador reemplaza las apariciones de la variable por el valor correspondiente indicado en el #define.
+	Algunas buenas practicas son: definirlas en las primeras lineas del archivo, utilizarlas para no usar numeros magicos en el codigo (es decir, un numero constante que no se sabe de donde sale, que significa), no definirlas en los archivos ".h". Ademas, debemos tener en cuenta que tambien podemos definir pequenias funcionalidades dentro de ellas, pero hay que tener en cuenta que muchas veces el compilador no optimiza estos llamados, con lo cual no conviene hacer mucho trabajo ni repetir llamados con los mismos parametros.
+	
+7) 	El proceso consta de cuatro etapas:
+		- Preprocesamiento: durante esta etapa se procesan las instrucciones de preprocesador. Por ejemplo, las macros se reemplazan por sus valores correspondientes indicados en el #define, o se reemplazan los #include de los header files por los contenidos de los archivos.
+		- Compilacion: en esta segunda etapa se realiza la transformacion del codigo fuente en codigo en lenguaje Assembly compatible con la arquitectura, el OS y el set de instrucciones de la maquina donde se realiza el proceso. Durante esta etapa surgen la mayoria de errores de tipado o de sintaxis.
+		- Ensamblado: aqui se traducen, una a una, las instrucciones en lenguaje ensamblador a codigo de maquina.
+		- Linkeado: esta etapa final consiste en dos partes, el linkeado estatico, en el cual se enlazan todos los modulos con codigo objeto en un unico archivo ejecutable, y, por otro lado, el linkeado dinamico, donde solo se guarda una referencia a los modulos externos en la tabla de simbolos del ejecutable, y recien al momento de la ejecucion se resuelven esos simbolos. Durante esta etapa pueden surgir errores relacionados con la no disponibilidad de los modulos externos.
+		
+8)	
+A()
+B()
+~B()
+~A()

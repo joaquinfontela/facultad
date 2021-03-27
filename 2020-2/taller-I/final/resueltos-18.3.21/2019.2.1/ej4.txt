@@ -1,0 +1,23 @@
+Para que no haya problemas de consistencia (identificados mediante las "race condition") debemos utilizar los mutex (derivado de mutual exclusion).
+La porcion de codigo que puede generar problemas debe ser encerrada, al principio con un lock(), y al final con un unlock().
+El mutex es una variable compartida entre threads, que funciona de tal manera que, cuando un thread le hace lock(), se dice que lo "toma", y ningun otro thread puede continuar la ejecucion del programa cuando se encuentra con un lock() sobre el mismo mutex (ya que lo estaria intentando "tomar" de nuevo) hasta que el thread que lo "tomo" originalmente haga un unlock(). Esto nos garantiza que no haya dos hilos de ejecucion distintos accediendo (y modificando) a la misma porcion de informacion.
+Ejemplo:
+	class IntVector {
+	
+		// Es especialmente recomendable encapsular el uso del mutex y de la informacion protegida dentro de una clase.
+		
+		std::vector<int> v;
+		std::mutex m;
+		
+		IntVector();
+		
+		void addUniqueElement(int elem) {
+			
+			m.lock();
+			if ( !v.has(elem) ) {
+				v.add(elem);
+			}
+			m.unlock();
+		}
+	};
+		

@@ -1,0 +1,7 @@
+a) Es una variable de tipo entero que unicamente fue declarada, por lo tanto almacena "basura". Es inicializada al principio del programa, en el scope global, y con el prefijo "static", por lo tanto, es una variable global que reside en el data segment y solo es accesible en este archivo. Su lifetime es el del programa.
+
+b) Es una funcion que no recibe parametro y devuelve un entero. Esta almacenada en el code segment (solo lectura).
+
+c) Es la declaracion de una variable de tipo entero, por lo tanto almacena "basura". Al estar dentro de una funcion y poseer el prefijo static, esta almacenada en el data segment. Solo es accesible en el scope local de la funcion.
+
+d) Es la definicion de una variable de tipo char con valor 65. Al estar dentro de una funcion, esta almacenada en el stack, y solo es accesible en el scope local de la funcion y su lifetime es el del llamado a la funcion.

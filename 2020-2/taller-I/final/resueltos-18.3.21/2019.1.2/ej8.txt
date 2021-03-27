@@ -1,0 +1,2 @@
+El valor que arroja sizeof(int) varia segun la arquitectura de las computadoras. En las mas viejas, de 16 bits, sizeof(int) valia 2.
+Luego, en las arquitecturas posteriores (32 y 64 bits), este valor se incremento a 4, debido a la necesidad de almacenar numeros mas grandes.

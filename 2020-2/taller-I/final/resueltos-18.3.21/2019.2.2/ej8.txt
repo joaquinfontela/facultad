@@ -1,0 +1,37 @@
+- Objetivo: reservar y liberar recursos correctamente.
+- El lenguaje nos debe garantizar que hay un destructor que se ejecutara siempre (incluso ante una excepcion).
+- Un objeto RAII debe brindar un constructor que deje al objeto en un estado valido (de tal manera que no tenga valores no inicializados).
+- Todo en un solo lugar.
+- Se nos recomienda usar referencias antes que punteros por esto ultimo, ya que los punteros pueden usarse sin ser inicializados.
+- Asimismo, se recomienda usar el stack y no el heap, ya que en este ultimo la liberacion de los recursos corre por parte del programador, quien puede olvidar realizarla, entre otros problemas.
+
+______________________________________________________
+
+RAII, por las siglas de "Resource Acquisition Is Initialization", es un patron de disenio enfocado en reservar y liberar recursor correctamente.
+El lenguaje nos debe proporcionar un constructor y un destructor, y garantizarnos que se llamaran al inicializar el objeto y al finalizar su uso (cuando finalice el scope u ocurra una excepcion).
+Como programadores, debemos dejar al objeto en un estado valido en el constructor (la ventaja del patron es que tenemos todo el codigo necesario para esto en un solo lugar), de manera que no pueda haber acceso a valores no inicializados (esto se puede lograr justamente teniendo como atributos, objetos RAII a su vez).
+Por otro lado, en el destructor debemos encargarnos de liberar la memoria necesaria (por ejemplo, cerrar un archivo o liberar memoria de atributos que son punteros al heap). Esto tambien tiene la ventaja mencionada para el constructor, de que se hace en un solo lugar.
+Finalmente, por todo lo explicado anteriormente, se nos recomienda utilizar referencias por sobre punteros, ya que estos ultimos pueden ser utilizados sin inicializar. En el caso de utilizarlos (o no, ya que sirve tambien como recomendacion aparte) se recomienda hacer uso del stack y no del heap, ya que este ultimo requiere una liberacion manual de los recursos por parte del programador.
+Un ejemplo de objeto RAII es el UniqueLock que nos otorga C++ que tiene un formato parecido a este:
+
+class UniqueLock {
+
+	std::mutex m;
+
+	public:
+	
+		UniqueLock(std::mutex m) : m(m) {
+			m.lock();
+		}
+		
+		(...)
+		
+		~UniqueLock() {
+			m.unlock();
+		}
+};
+
+De esta manera como programadores, no tenemos que estar encargandonos de hacer lock y unlock, sino que por el propio funcionamiento del lenguaje, se llama al destructor y el unlock se realiza de forma automatica.
+			
+			
+			

@@ -1,0 +1,33 @@
+Un deadlock se produce cuando se ingresa en una situacion en la cual uno o mas threads llegan a un mutex::lock() por el cual no pueden continuar el hilo de ejecucion, debido a que el mutex ya ha sido tomado, pero a su vez debido a las circunstancias, este no sera liberado. Como se puede esperar, un deadlock nos deja el programa colgado, en punto muerto.
+
+Ejemplo:
+
+f1(m1, m2) {
+	unique_lock(m1);
+	sleep(1s);
+	unique_lock(m2);
+}
+
+f2(m1, m2) {
+	unique_lock(m2);
+	sleep(1s);
+	unique_lock(m1);
+}
+
+
+main() {
+
+	mutex m1;
+	mutex m2;
+	thread t1(f1, m1, m2);
+	thread t2(f2, m1, m2);
+	t1.start();
+	t2.start();
+	
+}
+
+Pasos:
+1) Thread 1 llama f1, thread 2 llama f2.
+2) Thread 1 lockea m1 y thread 2 lockea m2.
+3) Esperan 1 segundo.
+4) Thread 2 intenta lockear m1, thread 1 intenta lockear m2, ninguno de los dos puede continuar ya que el otro thread tiene tomado el mutex que deben tomar ellos: deadlock.

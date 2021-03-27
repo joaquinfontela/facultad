@@ -1,0 +1,30 @@
+Los metodos virtuales puros son el sinonimo de metodos abstractos en otros lenguajes de programacion. 
+Nos permiten, por la parte de "virtual", indicarle al compilador que debera definir recien en tiempo de ejecucion (y no antes) el codigo de que clase hija concreta (que sobreescribira obligatoriamente el metodo) llamar. 
+Por el otra parte, al ser virtual puro, el metodo sera abstracto y por lo tanto no sera "llamable", lo que generara que la clase que lo contenga sea abstracta (no instanciable). De esta manera, cada vez que se llame este metodo, se estara llamando al codigo de alguna de las clases hijas (la que sea que haya sido instanciada en cada caso).
+
+Ejemplo:
+
+class Vehiculo {
+
+	int velocidad;
+
+	virtual void acelerar() = 0;
+};
+
+class Bicicleta {
+
+	void acelerar() override {
+		velocidad += 1;
+	}
+};
+
+class Auto {
+	
+	void acelerar() override {
+		velocidad += 5;
+	}
+};
+
+En este caso, la necesidad de crear un metodo virtual puro, es, por un lado, para que la decision de que metodo llamar se haga en tiempo de ejecucion (sino, muchas veces se llamara al codigo de la clase Vehiculo cuando ese no sea el objetivo). Por otro lado, es puro para evitar que se llame al metodo acelerar en Vehiculo, que no debe ser instanciable, ya que nadie acelera un vehiculo, sino un subtipo de este (una bicicleta, un auto, un camion, etc).
+
+Un metodo virtual nos provee una forma de sobreescribir la funcionalidad de la clase Base, un metodo virtual puro lo requiere.

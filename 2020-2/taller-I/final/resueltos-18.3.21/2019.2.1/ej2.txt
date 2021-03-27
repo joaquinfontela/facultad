@@ -1,0 +1,8 @@
+Variable global static:
+Se inicializa fuera de todo scope del archivo donde se declara. El prefijo static indica que la variable solo es accesible en esa unidad de compilacion (en ese archivo). La variable se almacena en el data segment.
+
+Variable local static:
+El prefijo static aca tiene una connotacion distinta. Se inicializa dentro de algun scope interno del archivo, y el prefijo le indica al compilador que almacene la variable en el data segment (en vez de en el Stack como lo haria normalmente). 
+
+Atributo de clase static:
+Indica que el atributo en cuestion pertenece a toda la clase, y no diferencia entre las distintas instancias. Esta almacenado en el data segment.

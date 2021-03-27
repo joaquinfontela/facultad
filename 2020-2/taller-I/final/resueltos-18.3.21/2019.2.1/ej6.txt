@@ -1,0 +1,6 @@
+Una macro en C es una variable de preprocesador. 
+Antes de compilar el programa, el preprocesador lee el archivo y reemplaza las variables de preprocesador por los valores correspondientes indicados.
+El preprocesador no chequea tipos, si no coinciden, esto recien falla en tiempo de compilacion.
+En cuanto a buenas practicas, no es recomendable definir macros en los "header files", se deberian definir siempre al principio de los "source files", para que no sean compartidas entre distintas unidades de compilacion.
+Por otro lado, nos sirven para evitar utilizar los llamados "numeros magicos" (constantes que surgen aparentemente de la nada).
+Finalmente, podemos destacar que con las macros podemos definir pequenios segmentos de codigo (funciones globales). Sin embargo, no es recomendable que estas funciones hagan trabajo muy pesado, ya que el compilador puede no optimizar su trabajo, y podriamos estar realizando multiples veces la misma operacion.

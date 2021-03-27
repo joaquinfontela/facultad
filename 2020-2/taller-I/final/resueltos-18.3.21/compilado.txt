@@ -1,0 +1,20 @@
+El proceso de transformacion de codigo fuente a un ejecutable, tambien conocido como proceso de compilacion, consta de las siguientes etapas:
+
+Preprocesamiento y expansion de macros. En esta etapa, se expanden los archivos incluidos mediante #include, y se expanden los macros por sus expresiones resultantes. Tambien se reemplazan las constantes por sus respectivos valores en el codigo.
+
+Compilado. En esta etapa, se convierte el codigo C a codigo Assembly adecuado para la arquitectura hacia la cual se esta compilando. Es en esta etapa donde surgen la mayoria de los errores comunes: Errores de sintaxis, simbolos no encontrados.
+
+Ensamblado. En este proceso, se convierten una por una las instrucciones assembly generadas en la etapa anterior en codigo de maquina.
+
+Linkeado (o enlazado). En esta etapa finalmente se enlazan los codigos objeto de cada uno de los modulos compilados en nuestro programa. En el caso del linkeado estatico, todo el codigo maquina es vinculado en un mismo archivo ejecutable. En caso de linkeado dinamico, simplemente se agrega el nombre del modulo que se desea linkear en la tabla de simbolos del ejecutable. Este proceso puede fallar si uno de los modulos que se desea linkear no se encuentra en el directorio donde se lo busca.
+
+
+El proceso de transformacion de codigo fuente a un archivo ejecutable (o proceso de compilacion) esta conformado por las siguientes etapas:
+
+	- Preprocesamiento: durante esta etapa se leen las instrucciones de preprocesador. Por ejemplo, los "headers" incluidos con #include, se reemplazan por el contenido del archivo de extension '.h' en cuestion. Asimismo, las macros (variables de preprocesador) son reemplazadas por el valor indicado en la instruccion correspondiente.
+	
+	- Compilado: se convierte el codigo en lenguaje C a lenguaje ensamblador (Assembly) compatible con la arquitectura de la computadora donde se esta realizando el proceso. Aqui es donde ocurren los "errores de compilacion", que tienen mayormente que ver con errores de sintaxis o de tipos incompatibles, etc.
+	
+	- Ensamblado: se convierte cada instruccion de lenguaje ensamblador a codigo de maquina.
+	
+	- Linkeado: se enlazan los codigos de extension ".o" (de maquina) de cada uno de los modulos compilados y, para el linkeado estatico, se junta todo el resultado en un unico archivo ejecutable. En el caso del linkeado dinamico, simplemente se agrega el nombre del modulo que se desea incluir, que se cargara en el momento de la ejecucion.
